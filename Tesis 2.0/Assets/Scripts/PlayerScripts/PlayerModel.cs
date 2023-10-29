@@ -1,10 +1,11 @@
 using System.Text;
+using Interfaces;
 using JetBrains.Annotations;
 using UnityEngine;
 
 namespace PlayerScripts
 {
-    public class PlayerModel : MonoBehaviour
+    public class PlayerModel : MonoBehaviour, IDamageable
     {
         [SerializeField] private PlayerData playerData;
 
@@ -84,13 +85,18 @@ namespace PlayerScripts
             bull.Initialize(CurrProjectileSpeed, m_currDamage,m_crossAirPos - transform.position);
             m_fireRateTimer = Time.time + m_currFireRate;
             
-            Debug.Log(m_crossAirPos + " " + (m_crossAirPos - transform.position));
         }
 
         public void UpdateCrossAir(Vector3 p_pos)
         {
             m_crossAirPos = m_mainCamera.ScreenToWorldPoint(p_pos);
         }
-        
+
+        public void GetDamage(int damage)
+        {
+            m_currHp -= damage;
+            
+            //TODO: QUE PASEEN COSAS
+        }
     }
 }

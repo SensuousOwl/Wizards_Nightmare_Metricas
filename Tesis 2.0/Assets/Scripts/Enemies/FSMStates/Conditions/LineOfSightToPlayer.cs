@@ -21,9 +21,7 @@ namespace Enemies.FSMStates.Conditions
 
             if (lDistanceToTarget > p_model.GetData().ViewDepthRange) 
                 return false;
-
-            float lAngleToTarget = Vector3.Angle(lModelTransform.forward, lDirectionToTarget.normalized);
-            
+           
 
             if (Physics.Linecast(lModelTransform.position, lTargetPos, p_model.GetData().TargetMask))
             {

@@ -17,7 +17,7 @@ namespace Enemies
         [field: SerializeField] public float ViewDepthRange { get; private set; }
         
         
-        [field: SerializeField] public PlayerBullet PlayerBullet { get; private set; }
+        [field: SerializeField] public PlayerBullet Bullet { get; private set; }
         [field: SerializeField] public int Damage { get; private set; }
         [field: SerializeField] public float ProjectileSpeed { get; private set; }
         [field: SerializeField] public LayerMask TargetMask { get; private set; }
