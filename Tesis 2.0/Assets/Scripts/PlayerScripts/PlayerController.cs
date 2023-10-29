@@ -1,6 +1,4 @@
 using System;
-using _Main._main.Scripts.Extensions;
-using temp;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
