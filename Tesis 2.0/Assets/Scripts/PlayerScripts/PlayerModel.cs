@@ -1,4 +1,6 @@
 using System.Text;
+using _Main._main.Scripts.Extensions;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -36,7 +38,9 @@ namespace PlayerScripts
         private int m_currXp;
 
         private float m_dashTimer;
-
+        private float m_fireRateTimer;
+        private Camera m_mainCamera;
+        private Vector3 m_crossAirPos;
         private void Start()
         {
             m_currHp = playerData.StartHp;
@@ -49,7 +53,11 @@ namespace PlayerScripts
             m_currDashCooldown = playerData.DashCooldown;
             m_currDashTrans = playerData.DashTranslation;
 
+            m_fireRateTimer = 0f;
             m_dashTimer = 0f;
+            m_mainCamera = Camera.main;
+            
+
         }
         
         public void Move(Vector3 p_dir)
@@ -62,6 +70,7 @@ namespace PlayerScripts
             if(m_dashTimer > Time.time)
                 return;
 
+            //Todo, hacerlo con impulse en RB
             transform.position += p_dir * m_currDashTrans;
             m_dashTimer = m_currDashCooldown + Time.time;
         }
@@ -69,11 +78,19 @@ namespace PlayerScripts
         public void Shoot()
         {
             //Check for the rate fire to be > 0f before shooting the next bullet
+            if(m_fireRateTimer > Time.time)
+                return;
+
+            var bull = Instantiate(playerData.PlayerBullet);
+            bull.Initialize(CurrProjectileSpeed, m_currDamage,m_crossAirPos - transform.position);
+            m_fireRateTimer = Time.time + m_currFireRate;
             
+            Debug.Log(m_crossAirPos + " " + (m_crossAirPos - transform.position));
         }
 
-        public void UpdateCrossAir(Vector2 p_pos)
+        public void UpdateCrossAir(Vector3 p_pos)
         {
+            m_crossAirPos = m_mainCamera.ScreenToWorldPoint(p_pos);
         }
         
     }

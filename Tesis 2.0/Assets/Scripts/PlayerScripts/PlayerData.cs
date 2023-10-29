@@ -1,3 +1,4 @@
+using Bullets;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -15,6 +16,8 @@ namespace PlayerScripts
         [field: SerializeField] public float DashTranslation { get; private set; }
         
         //Esto creo que tendria que estar en otro SO, de las balas
+        
+        [field: SerializeField] public PlayerBullet PlayerBullet { get; private set; }
         [field: SerializeField] public int Damage { get; private set; }
         [field: SerializeField] public float ProjectileSpeed { get; private set; }
         
