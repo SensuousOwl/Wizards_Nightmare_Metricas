@@ -10,7 +10,9 @@ namespace Enemies
     {
         [SerializeField] private EnemyData data;
         [SerializeField] private GameObject TEST_PLAYER;
-        private float m_currHp;
+
+        public int CurrHp => m_currHp;
+        private int m_currHp;
 
         private void Awake()
         {

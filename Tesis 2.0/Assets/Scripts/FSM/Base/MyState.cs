@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FSM.Base
 {
-    public abstract class State : ScriptableObject
+    public abstract class MyState : ScriptableObject
     {
         public virtual void EnterState(EnemyModel p_model){}
         public abstract void ExecuteState(EnemyModel p_model);

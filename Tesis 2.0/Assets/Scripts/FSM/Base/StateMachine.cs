@@ -26,7 +26,7 @@ namespace FSM.Base
             InitializeStates(l_enemyStates);
             
             m_currentState = l_enemyStates[0];
-            m_currentState.State.EnterState(m_model);
+            m_currentState.MyState.EnterState(m_model);
             m_currentStateConditionsAmount = m_currentState.StateConditions.Length;
         }
 
@@ -49,7 +49,7 @@ namespace FSM.Base
 
             for (var l_i = 0; l_i < l_statesCount; l_i++)
             {
-                var l_type = p_enemyStatesData[l_i].State.GetType();
+                var l_type = p_enemyStatesData[l_i].MyState.GetType();
 
                 if (m_statesDictionary.ContainsKey(l_type))
                     continue;
@@ -105,11 +105,11 @@ namespace FSM.Base
                 if (!m_currentState.StateConditions[l_i].CompleteCondition(m_model)) 
                     continue;
                 
-                ChangeState(m_currentState.ExitStates[l_i].State.GetType());
+                ChangeState(m_currentState.ExitStates[l_i].MyState.GetType());
                 return;
             }
 
-            m_currentState.State.ExecuteState(m_model);
+            m_currentState.MyState.ExecuteState(m_model);
         }
 
         private void ChangeState(Type p_newStateType)
@@ -117,9 +117,9 @@ namespace FSM.Base
             if (!m_statesDictionary.TryGetValue(p_newStateType, out var l_newStateData))
                 return;
             
-            m_currentState.State.ExitState(m_model);
+            m_currentState.MyState.ExitState(m_model);
             m_currentState = l_newStateData;
-            m_currentState.State.EnterState(m_model);
+            m_currentState.MyState.EnterState(m_model);
             m_currentStateConditionsAmount = m_currentState.StateConditions.Length;
         }
 
