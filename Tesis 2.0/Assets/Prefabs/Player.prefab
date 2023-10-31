@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891e80ecf9cc460e8c608c4b14fd6e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   currentHealth: 0
 --- !u!114 &117693652655646290
 MonoBehaviour:
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animData: {fileID: 11400000, guid: 87c7b24aa9568b74bb1c811d027b076a, type: 2}
-  m_renderer: {fileID: 7366596319386972470}
+  renderer: {fileID: 7366596319386972470}
 --- !u!50 &9117167137426685660
 Rigidbody2D:
   serializedVersion: 4
@@ -119,7 +119,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6432583196905135365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -257,8 +257,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1122931475
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d39745ba2b371f84f85cd5db40e90e9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

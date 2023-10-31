@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using _Main.Scripts.ScriptableObjects;
 using Enemies;
 using Services;
 using Services.MicroServices.EventsServices;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Main.Scripts.RoomsSystem
 {
@@ -13,9 +15,17 @@ namespace _Main.Scripts.RoomsSystem
         private static IEventService EventService => ServiceLocator.Get<IEventService>();
         private int m_enemyCount;
         private Room m_currentRoom;
+        
         private void OnEnable()
         {
             EventService.AddListener<SpawnEnemyEventData>(Callback);
+            EnemyModel.OnDie += DieEnemyHandler;
+        }
+
+        private void OnDisable()
+        {
+            EventService.RemoveListener<SpawnEnemyEventData>(Callback);
+            EnemyModel.OnDie -= DieEnemyHandler;
         }
 
         private void Callback(SpawnEnemyEventData p_data)
@@ -27,20 +37,17 @@ namespace _Main.Scripts.RoomsSystem
             {
                 var l_spawnPoint = m_currentRoom.SpawnPoints[Random.Range(0, m_currentRoom.SpawnPoints.Count)];
                 var l_enemyPrefab = enemyPoolData.GetRandomEnemyPrefabFromPool();
-                var l_enemyModel = Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
-                l_enemyModel.OnDie += DieEnemyHandler;
+                Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
                 m_enemyCount++;
             }
         }
 
         private void DieEnemyHandler(EnemyModel p_enemyModel)
         {
-            p_enemyModel.OnDie -= DieEnemyHandler;
             m_enemyCount--;
 
             if (m_enemyCount <= 0)
                 m_currentRoom.ClearRoom();
-
         }
     }
 

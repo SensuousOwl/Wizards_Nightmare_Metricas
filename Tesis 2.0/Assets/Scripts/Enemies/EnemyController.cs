@@ -1,3 +1,4 @@
+using _Main.Scripts.Attributes;
 using FSM.Base;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Enemies
     public class EnemyController : MonoBehaviour
     {
         private StateMachine m_stateMachine;
-        [SerializeField] private StateData currentState;
+        [ReadOnlyInspector, SerializeField] private StateData currentState;
         private void Start()
         {
             var l_model = GetComponent<EnemyModel>();

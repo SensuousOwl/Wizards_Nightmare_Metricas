@@ -30,6 +30,7 @@ namespace _Main.Scripts.RoomsSystem
         {
             var l_firstRoom = Instantiate(roomPool.FirstRoomPrefab, firstRoomPosition, roomPool.FirstRoomPrefab.transform.rotation);
             m_rooms.Add(l_firstRoom);
+            l_firstRoom.transform.parent = content;
             
             var l_roomCountToSpawn = Random.Range(minRoomCountToSpawn, maxRoomCountToSpawn + 1);
             for (var l_i = 0; l_i < l_roomCountToSpawn; l_i++)
@@ -70,8 +71,7 @@ namespace _Main.Scripts.RoomsSystem
                 l_watchDog--;
             }
             var l_bossRoom = Instantiate(roomPool.BossRoomPrefab, l_position, Quaternion.identity);
-
-            l_firstRoom.transform.parent = content;
+            
             l_bossRoom.transform.parent = content;
             
             m_rooms = null;

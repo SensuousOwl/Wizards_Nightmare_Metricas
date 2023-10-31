@@ -52,7 +52,6 @@ namespace _Main.Scripts.RoomsSystem
 
         public void SetActiveDoor(bool p_isOpen)
         {
-            boxCollider.isTrigger = p_isOpen;
             StartCoroutine(DeactivateDoorTemporality());
         }
 
@@ -73,11 +72,11 @@ namespace _Main.Scripts.RoomsSystem
 
         private void OnTriggerEnter2D(Collider2D p_other)
         {
-            if (!m_isOpen && m_temporalyClose)
-                return;
-            
             if (m_isAvailable && p_other.TryGetComponent(out Door l_door))
                 ConnectDoor(l_door);
+            
+            if (!m_isOpen && m_temporalyClose)
+                return;
             
             if (!p_other.CompareTag("Player")) 
                 return;
@@ -88,7 +87,6 @@ namespace _Main.Scripts.RoomsSystem
             StartCoroutine(DeactivateDoorTemporality());
             m_doorConnect.TeleportPlayer(p_other.transform);
         }
-
         public void SetOpenDoor(bool p_newValue)
         {
             m_isOpen = p_newValue;

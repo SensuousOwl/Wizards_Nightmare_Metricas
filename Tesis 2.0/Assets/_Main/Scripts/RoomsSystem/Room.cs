@@ -30,6 +30,11 @@ namespace _Main.Scripts.RoomsSystem
 
         private void OnActiveDoorEventHandler()
         {
+            var l_position = transform.position;
+            var l_cameraTransform = Camera.main.transform;
+            l_cameraTransform.position = new Vector3(l_position.x, l_position.y,
+                l_cameraTransform.position.z);
+            
             if (m_isClear)
                 return;
             

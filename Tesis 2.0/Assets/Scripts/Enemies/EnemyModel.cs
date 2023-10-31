@@ -1,5 +1,6 @@
 using System;
 using Extensions;
+using PlayerScripts;
 using UnityEngine;
 
 namespace Enemies
@@ -8,13 +9,13 @@ namespace Enemies
     public class EnemyModel : MonoBehaviour
     {
         [SerializeField] private EnemyData data;
-        [SerializeField] private GameObject TEST_PLAYER;
 
         private int m_currHp;
         private EnemyView m_view;
+        private Transform m_target;
 
         public IHealthController HealthController { get; private set; }
-        public event Action<EnemyModel> OnDie; 
+        public static event Action<EnemyModel> OnDie;
         
         private void Awake()
         {
@@ -26,7 +27,8 @@ namespace Enemies
 
         public Transform GetTargetTransform()
         {
-            return TEST_PLAYER.transform;
+            m_target ??= FindObjectOfType<PlayerModel>().transform;
+            return m_target;
         }
 
         public EnemyData GetData() => data;

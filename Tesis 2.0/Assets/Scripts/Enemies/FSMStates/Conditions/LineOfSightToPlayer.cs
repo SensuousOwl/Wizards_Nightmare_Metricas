@@ -13,23 +13,22 @@ namespace Enemies.FSMStates.Conditions
         
         private bool LineOfSight(EnemyModel p_model)
         {
-            var lTargetPos = p_model.GetTargetTransform().position;
-            var lModelTransform = p_model.transform;
-            Vector3 lDirectionToTarget = lTargetPos - lModelTransform.position;
+            var l_lTargetPos = p_model.GetTargetTransform().position;
+            var l_lModelTransform = p_model.transform;
+            var l_lDirectionToTarget = l_lTargetPos - l_lModelTransform.position;
             
-            float lDistanceToTarget = lDirectionToTarget.magnitude;
+            var l_lDistanceToTarget = l_lDirectionToTarget.magnitude;
 
-            if (lDistanceToTarget > p_model.GetData().ViewDepthRange) 
+            if (l_lDistanceToTarget > p_model.GetData().ViewDepthRange) 
                 return false;
-           
 
-            if (Physics.Linecast(lModelTransform.position, lTargetPos, p_model.GetData().TargetMask))
-            {
-                p_model.SetLastTargetLocation(lTargetPos);
-                return true;
-            }
 
-            return false;
+            if (!Physics2D.Linecast(l_lModelTransform.position, l_lTargetPos, p_model.GetData().TargetMask))
+                return false;
+            
+            p_model.SetLastTargetLocation(l_lTargetPos);
+            return true;
+
         }
     }
 }
