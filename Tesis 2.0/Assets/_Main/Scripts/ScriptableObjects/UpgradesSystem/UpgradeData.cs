@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
@@ -8,6 +9,6 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
         [field: SerializeField] public string Id { get; private set; }
         [field: SerializeField] public string Name { get; private set; }
         [field: SerializeField] public string Description { get; private set; }
-        [field: SerializeField] public UpgradeEffect Effect { get; private set; }
+        [field: SerializeField] public List<UpgradeEffect> Effect { get; private set; }
     }
 }
