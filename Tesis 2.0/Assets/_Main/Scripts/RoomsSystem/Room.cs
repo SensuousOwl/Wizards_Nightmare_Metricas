@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Services;
 using Services.MicroServices.EventsServices;
@@ -15,8 +16,11 @@ namespace _Main.Scripts.RoomsSystem
 
         private List<Door> m_doorsAvailable = new();
         private bool m_isClear;
+        private bool m_isSpawnedEnemies;
 
         private static IEventService EventService => ServiceLocator.Get<IEventService>();
+
+        public static event Action OnClearedRoom;
         
         private void Awake()
         {
@@ -35,7 +39,7 @@ namespace _Main.Scripts.RoomsSystem
             l_cameraTransform.position = new Vector3(l_position.x, l_position.y,
                 l_cameraTransform.position.z);
             
-            if (m_isClear)
+            if (m_isClear || m_isSpawnedEnemies)
                 return;
             
             EventService.DispatchEvent(new SpawnEnemyEventData(this));

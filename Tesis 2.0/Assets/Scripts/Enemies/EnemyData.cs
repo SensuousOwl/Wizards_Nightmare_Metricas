@@ -21,5 +21,6 @@ namespace Enemies
         [field: SerializeField] public int Damage { get; private set; }
         [field: SerializeField] public float ProjectileSpeed { get; private set; }
         [field: SerializeField] public LayerMask TargetMask { get; private set; }
+        [field: SerializeField] public float ExperienceDrop { get; private set; }
     }
 }

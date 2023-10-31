@@ -19,10 +19,11 @@ MonoBehaviour:
   <MovementSpeed>k__BackingField: 8
   <FireRate>k__BackingField: 0
   <Range>k__BackingField: 1.5
-  <ViewDepthRange>k__BackingField: 2
+  <ViewDepthRange>k__BackingField: 20
   <Bullet>k__BackingField: {fileID: 0}
   <Damage>k__BackingField: 20
   <ProjectileSpeed>k__BackingField: 0
   <TargetMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
+  <ExperienceDrop>k__BackingField: 20

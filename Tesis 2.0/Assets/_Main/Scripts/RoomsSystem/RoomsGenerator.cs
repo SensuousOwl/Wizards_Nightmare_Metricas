@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using _Main.Scripts.ScriptableObjects.RoomsSystems;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace _Main.Scripts.RoomsSystem
@@ -18,11 +19,30 @@ namespace _Main.Scripts.RoomsSystem
         [SerializeField] private Transform content;
 
         private List<Room> m_rooms = new();
+        private int m_roomToClear;
 
         
         private void Start()
         {
             GenerateRooms();
+        }
+
+        private void OnEnable()
+        {
+            Room.OnClearedRoom += RoomOnOnClearedRoom;
+        }
+
+        private void OnDisable()
+        {
+            Room.OnClearedRoom -= RoomOnOnClearedRoom;
+        }
+
+        private void RoomOnOnClearedRoom()
+        {
+            m_roomToClear--;
+
+            if (m_roomToClear <= 0)
+                SceneManager.LoadScene("MainMenuScene");
         }
 
         [ContextMenu("TestGenerate")]
@@ -36,6 +56,7 @@ namespace _Main.Scripts.RoomsSystem
             for (var l_i = 0; l_i < l_roomCountToSpawn; l_i++)
             {
                 await InstantiateRoom();
+                m_roomToClear++;
             }
 
             var l_maxDistance = 0f;
@@ -71,6 +92,7 @@ namespace _Main.Scripts.RoomsSystem
                 l_watchDog--;
             }
             var l_bossRoom = Instantiate(roomPool.BossRoomPrefab, l_position, Quaternion.identity);
+            m_roomToClear++;
             
             l_bossRoom.transform.parent = content;
             

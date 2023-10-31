@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlayerScripts
 {
@@ -28,6 +29,7 @@ namespace PlayerScripts
             m_view = GetComponent<PlayerView>();
             HealthController = GetComponent<IHealthController>();
             HealthController.Initialize(playerData.MaxHp);
+            HealthController.OnDie += Die;
         }
 
         private void Start()
@@ -42,11 +44,6 @@ namespace PlayerScripts
         private void InitializeStats()
         {
             StatsController = new StatsController(playerData);
-        }
-
-        public void UpdateStats(StatsController p_statsController)
-        {
-            StatsController = p_statsController;
         }
 
         public void Move(Vector3 p_dir)
@@ -89,6 +86,7 @@ namespace PlayerScripts
 
         private void Die()
         {
+            SceneManager.LoadScene("MainMenuScene");
             m_view.PlayDeadAnim();
             Debug.Log($"YOU DIED");
         }

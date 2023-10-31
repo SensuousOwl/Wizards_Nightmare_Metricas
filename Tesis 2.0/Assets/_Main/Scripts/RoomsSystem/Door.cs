@@ -17,7 +17,7 @@ namespace _Main.Scripts.RoomsSystem
         [SerializeField] private GameObject doorVisual;
         [SerializeField] private GameObject wallVisual;
         [SerializeField] private Transform playerSpawnTransform;
-        [SerializeField] private BoxCollider2D boxCollider;
+        [SerializeField] private GameObject boxCollider;
 
         private Door m_doorConnect;
         private bool m_isAvailable = true;
@@ -34,7 +34,6 @@ namespace _Main.Scripts.RoomsSystem
         {
             doorVisual.SetActive(false);
             wallVisual.SetActive(true);
-            SetActiveDoor(false);
         }
 
         private void ConnectDoor(Door p_doorToConnect)
@@ -42,17 +41,11 @@ namespace _Main.Scripts.RoomsSystem
             m_doorConnect = p_doorToConnect;
             m_isAvailable = false;
             m_temporalyClose = false;
-            m_isOpen = true;
             
             doorVisual.SetActive(true);
             wallVisual.SetActive(false);
-            SetActiveDoor(true);
             OnActiveDoor?.Invoke(this);
-        }
-
-        public void SetActiveDoor(bool p_isOpen)
-        {
-            StartCoroutine(DeactivateDoorTemporality());
+            SetOpenDoor(true);
         }
 
         public void TeleportPlayer(Transform p_player)
@@ -67,7 +60,6 @@ namespace _Main.Scripts.RoomsSystem
             m_temporalyClose = true;
             yield return WaitForSeconds;
             m_temporalyClose = false;
-            boxCollider.isTrigger = !boxCollider.isTrigger;
         }
 
         private void OnTriggerEnter2D(Collider2D p_other)
@@ -83,13 +75,14 @@ namespace _Main.Scripts.RoomsSystem
 
             if (m_doorConnect == default) 
                 return;
-            
+
             StartCoroutine(DeactivateDoorTemporality());
             m_doorConnect.TeleportPlayer(p_other.transform);
         }
         public void SetOpenDoor(bool p_newValue)
         {
             m_isOpen = p_newValue;
+            boxCollider.SetActive(!m_isOpen);
         }
     }
 }
