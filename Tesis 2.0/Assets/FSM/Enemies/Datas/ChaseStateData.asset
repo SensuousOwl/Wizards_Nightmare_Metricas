@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
   m_Name: ChaseStateData
   m_EditorClassIdentifier: 
-  <State>k__BackingField: {fileID: 11400000, guid: a96b87034fc6ee04ea6f29a9746a4134, type: 2}
-  <StateConditions>k__BackingField: []
-  <ExitStates>k__BackingField: []
+  <MyState>k__BackingField: {fileID: 11400000, guid: a96b87034fc6ee04ea6f29a9746a4134, type: 2}
+  <StateConditions>k__BackingField:
+  - {fileID: 11400000, guid: a23fa32a175d4f5498dfa81422711ac3, type: 2}
+  <ExitStates>k__BackingField:
+  - {fileID: 11400000, guid: 94a8c732ba34f654a81e7eb3c1e82a49, type: 2}
