@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
-  m_Name: New Upgrade Data 4
+  m_Script: {fileID: 11500000, guid: 3be67a0c43c84d1ea4082e8cff1c6a93, type: 3}
+  m_Name: Dash Trans Upgrade Effect
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 
-  <Name>k__BackingField: Snipper
-  <Description>k__BackingField: +20 d ealcance
-  <Effects>k__BackingField: []

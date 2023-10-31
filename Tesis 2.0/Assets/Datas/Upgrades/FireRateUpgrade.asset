@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
-  m_Name: New Upgrade Data 6
+  m_Name: FireRateUpgrade
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 
-  <Name>k__BackingField: Hidratacion
-  <Description>k__BackingField: +25 de cadeencia de disparo
-  <Effects>k__BackingField: []
+  <Name>k__BackingField: Fire Rate Up
+  <Description>k__BackingField: Conjure Spells Faster
+  <Effects>k__BackingField:
+  - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
+  <UpgradePercentage>k__BackingField:
+  - 0
