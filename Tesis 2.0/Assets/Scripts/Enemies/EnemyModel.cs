@@ -1,3 +1,4 @@
+using System;
 using Extensions;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Enemies
         private EnemyView m_view;
 
         public IHealthController HealthController { get; private set; }
+        public event Action<EnemyModel> OnDie; 
         
         private void Awake()
         {
@@ -45,6 +47,7 @@ namespace Enemies
 
         private void Die()
         {
+            OnDie?.Invoke(this);
             Destroy(gameObject);
         }
 

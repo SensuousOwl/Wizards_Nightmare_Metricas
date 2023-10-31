@@ -22,11 +22,13 @@ namespace _Main.Scripts.RoomsSystem
         private Door m_doorConnect;
         private bool m_isAvailable = true;
         private bool m_isOpen;
+        private bool m_temporalyClose;
 
         public DoorDirections GetDoorDir() => doorDirection;
         private static readonly WaitForSeconds WaitForSeconds = new(2f);
 
         public event Action<Door> OnActiveDoor;
+        public event Action OnPlayerTeleport;
 
         private void Awake()
         {
@@ -39,6 +41,7 @@ namespace _Main.Scripts.RoomsSystem
         {
             m_doorConnect = p_doorToConnect;
             m_isAvailable = false;
+            m_temporalyClose = false;
             m_isOpen = true;
             
             doorVisual.SetActive(true);
@@ -57,19 +60,20 @@ namespace _Main.Scripts.RoomsSystem
         {
             StartCoroutine(DeactivateDoorTemporality());
             p_player.position = playerSpawnTransform.position;
+            OnPlayerTeleport?.Invoke();
         }
 
         private IEnumerator DeactivateDoorTemporality()
         {
-            m_isOpen = false;
+            m_temporalyClose = true;
             yield return WaitForSeconds;
-            m_isOpen = true;
+            m_temporalyClose = false;
             boxCollider.isTrigger = !boxCollider.isTrigger;
         }
 
         private void OnTriggerEnter2D(Collider2D p_other)
         {
-            if (!m_isOpen)
+            if (!m_isOpen && m_temporalyClose)
                 return;
             
             if (m_isAvailable && p_other.TryGetComponent(out Door l_door))
@@ -83,6 +87,11 @@ namespace _Main.Scripts.RoomsSystem
             
             StartCoroutine(DeactivateDoorTemporality());
             m_doorConnect.TeleportPlayer(p_other.transform);
+        }
+
+        public void SetOpenDoor(bool p_newValue)
+        {
+            m_isOpen = p_newValue;
         }
     }
 }
