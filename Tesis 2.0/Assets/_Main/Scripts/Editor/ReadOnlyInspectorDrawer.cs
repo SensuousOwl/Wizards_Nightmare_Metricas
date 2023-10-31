@@ -1,4 +1,4 @@
-using _PsychoKitties.Scripts.Attributes;
+using _Main.Scripts.Attributes;
 using UnityEditor;
 using UnityEngine;
 
