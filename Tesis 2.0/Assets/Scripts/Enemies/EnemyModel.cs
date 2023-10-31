@@ -1,25 +1,22 @@
-using System;
 using Extensions;
-using FSM.Base;
-using Interfaces;
 using UnityEngine;
 
 namespace Enemies
 {
-    public class EnemyModel : MonoBehaviour, IHealthController
+    public class EnemyModel : MonoBehaviour
     {
         [SerializeField] private EnemyData data;
         [SerializeField] private GameObject TEST_PLAYER;
 
-        public int CurrHp => m_currHp;
         private int m_currHp;
 
-        private HealthController m_healthController;
+        public IHealthController HealthController { get; private set; }
+        
         private void Awake()
         {
-            m_currHp = data.MaxHp;
-            m_healthController = new HealthController(data.MaxHp);
-            m_healthController.OnDie += Die;
+            HealthController = GetComponent<HealthController>();
+            HealthController.Initialize(data.MaxHp);
+            HealthController.OnDie += Die;
         }
 
         public Transform GetTargetTransform()
@@ -43,36 +40,20 @@ namespace Enemies
             Debug.Log($"Targer : {p_targetPoint}, dir {dir}, movement {dir * (data.MovementSpeed * Time.deltaTime)}");
         }
 
-
-        public void GetDamage(int damage)
-        {
-            m_healthController.TakeDamage(damage);
-        }
-
-        public void GetHealth(int health)
-        {
-            m_healthController.Heal(health);
-        }
-
-        public void FullHealth()
-        {
-            m_healthController.RestoreMaxHealth();
-        }
-
-        public void Die()
+        private void Die()
         {
             Destroy(gameObject);
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnCollisionEnter(Collision p_collision)
         {
-            if (collision.gameObject.layer.Equals(data.TargetMask))
-            {
-                if(!collision.gameObject.TryGetComponent(out IHealthController damageable))
-                    return;
+            if (!p_collision.gameObject.layer.Equals(data.TargetMask)) 
+                return;
+            
+            if(!p_collision.gameObject.TryGetComponent(out IHealthController l_healthController))
+                return;
                 
-                damageable.GetDamage(data.Damage);
-            }
+            l_healthController.TakeDamage(data.Damage);
         }
     }
 }

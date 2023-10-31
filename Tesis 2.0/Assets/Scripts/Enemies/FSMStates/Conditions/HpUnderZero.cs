@@ -8,7 +8,7 @@ namespace Enemies.FSMStates.Conditions
     {
         public override bool CompleteCondition(EnemyModel p_model)
         {
-            return p_model.CurrHp <= 0;
+            return p_model.HealthController.GetCurrentHealth() <= 0;
         }
     }
 }
