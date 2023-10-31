@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using _Main.Scripts.ScriptableObjects.UpgradesSystem;
 using PlayerScripts;
@@ -16,6 +17,11 @@ namespace UI
 
         private List<UpgradeData> m_currUpgradeDatas = new List<UpgradeData>();
         private List<UpgradeData> m_previusUpgradeDatas = new List<UpgradeData>();
+
+        private void Awake()
+        {
+            ActivateUpgradeScreen();
+        }
 
         public void ActivateUpgradeScreen()
         {
@@ -38,6 +44,7 @@ namespace UI
             m_currUpgradeDatas[p_buttonId].ApplyEffects(FindObjectOfType<PlayerModel>());
             m_previusUpgradeDatas.Clear();
             m_currUpgradeDatas.Clear();
+            ActivateUpgradeScreen();
         }
 
 

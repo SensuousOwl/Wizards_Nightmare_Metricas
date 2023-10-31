@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
-  m_Name: DmgUpgrade
+  m_Name: CriticalChanceUpgrade
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 0
-  <Name>k__BackingField: Damage Up
-  <Description>k__BackingField: Buff your damage by 0.5%
+  <Id>k__BackingField: 
+  <Name>k__BackingField: Critical Chance Up
+  <Description>k__BackingField: 'Critical Chance Up
+
+    + 50%'
   <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
+  - {fileID: 11400000, guid: fab1d45caf847d3488400d9fe60e4ad8, type: 2}
   <UpgradePercentage>k__BackingField:
   - 50

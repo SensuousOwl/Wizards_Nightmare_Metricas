@@ -22,6 +22,7 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
             for (int i = 0; i < Effects.Count; i++)
             {
                 Effects[i].ApplyEffect(p_model, UpgradePercentage[i]);
+                Debug.Log("Se aplico esto: " + Effects[i]);
                 
             }
         }
