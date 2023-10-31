@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000693e293454bcc8faea812ca71bc90, type: 3}
   m_Name: Rooms Pool
   m_EditorClassIdentifier: 
-  <FirstRoomPrefab>k__BackingField: {fileID: 8217230274681925806, guid: d5b5e3c6fea776d459e429a4e9695f73, type: 3}
-  <BossRoomPrefab>k__BackingField: {fileID: 8217230274681925806, guid: 11d65e129c8ea5745a44de168b138964, type: 3}
+  <FirstRoomPrefab>k__BackingField: {fileID: 9104453977851917445, guid: 296e75d55616fc442b56efca880eebf6, type: 3}
+  <BossRoomPrefab>k__BackingField: {fileID: 9104453977851917445, guid: 296e75d55616fc442b56efca880eebf6, type: 3}
   roomsPrefabs:
-  - {fileID: 8217230274681925806, guid: d8c960c210e101c4b8ff624ffd9b784d, type: 3}
+  - {fileID: 9104453977851917445, guid: 296e75d55616fc442b56efca880eebf6, type: 3}
   roomsChances:
   - 100
   chancePercentage:

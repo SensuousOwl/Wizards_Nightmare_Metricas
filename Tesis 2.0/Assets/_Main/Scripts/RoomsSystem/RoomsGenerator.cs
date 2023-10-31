@@ -15,13 +15,10 @@ namespace _Main.Scripts.RoomsSystem
         [SerializeField] private Vector2 firstRoomPosition;
         [SerializeField] private int minRoomCountToSpawn, maxRoomCountToSpawn;
         [SerializeField] private LayerMask roomsLayer;
+        [SerializeField] private Transform content;
 
         private List<Room> m_rooms = new();
 
-#if UNITY_EDITOR
-        [Header("Only Editor")]
-        [SerializeField] private Transform content;
-#endif
         
         private void Start()
         {
@@ -62,12 +59,20 @@ namespace _Main.Scripts.RoomsSystem
             var l_dirToMove = GetDirToMove(l_doorToConnect.GetDoorDir());
             var l_roomToConnectPosition = l_room.transform.position;
             var l_position = l_roomToConnectPosition + (Vector3)(l_dirToMove * roomSizes);
+            var l_watchDog = 10000;
+
+            while (Physics.CheckBox(l_position, roomSizes / 2, Quaternion.identity, roomsLayer) && l_watchDog > 0)
+            {
+                l_room.TryGetDoorAvailable(out l_doorToConnect);
+                l_dirToMove = GetDirToMove(l_doorToConnect.GetDoorDir());
+                l_roomToConnectPosition = l_room.transform.position;
+                l_position = l_roomToConnectPosition + (Vector3)(l_dirToMove * roomSizes);
+                l_watchDog--;
+            }
             var l_bossRoom = Instantiate(roomPool.BossRoomPrefab, l_position, Quaternion.identity);
 
-#if UNITY_EDITOR
             l_firstRoom.transform.parent = content;
             l_bossRoom.transform.parent = content;
-#endif
             
             m_rooms = null;
         }
@@ -93,7 +98,6 @@ namespace _Main.Scripts.RoomsSystem
             var l_dirToMove = GetDirToMove(l_doorToConnect.GetDoorDir());
             var l_roomToConnectPosition = l_roomToConnect.transform.position;
             var l_position = l_roomToConnectPosition + (Vector3)(l_dirToMove * roomSizes);
-            Debug.Log(l_position);
 
             var l_watchDogOverlap = 10000;
             while (Physics.CheckBox(l_position, roomSizes / 2, Quaternion.identity, roomsLayer))
@@ -130,10 +134,7 @@ namespace _Main.Scripts.RoomsSystem
             
             m_rooms.Add(l_newRoom);
             
-            
-#if UNITY_EDITOR
             l_newRoom.transform.parent = content;
-#endif
             
             return Task.CompletedTask;
         }
