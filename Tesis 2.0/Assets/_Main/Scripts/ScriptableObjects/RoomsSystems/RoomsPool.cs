@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using _Main.Scripts.Attributes;
 using _Main.Scripts.DevelopmentUtilities;
 using _Main.Scripts.RoomsSystem;
-using _PsychoKitties.Scripts.Attributes;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.RoomsSystems

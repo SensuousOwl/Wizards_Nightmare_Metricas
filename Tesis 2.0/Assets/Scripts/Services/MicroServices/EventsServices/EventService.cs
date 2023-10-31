@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace _main.Scripts.Services.MicroServices.EventsServices
+namespace Services.MicroServices.EventsServices
 {
     public class EventService : IEventService
     {

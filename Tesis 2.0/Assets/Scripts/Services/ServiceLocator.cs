@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using _main.Scripts.Services.MicroServices.EventsServices;
+using Services.MicroServices.EventsServices;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace _main.Scripts.Services
+namespace Services
 {
     public static class ServiceLocator
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using _main.Scripts.Services;
-using _main.Scripts.Services.MicroServices.EventsServices;
 using Enemies;
+using Services;
+using Services.MicroServices.EventsServices;
 
 namespace FSM.Base
 {
