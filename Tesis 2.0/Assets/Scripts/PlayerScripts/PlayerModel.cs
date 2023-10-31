@@ -19,7 +19,7 @@ namespace PlayerScripts
         private Camera m_mainCamera;
         private Vector3 m_crossAirPos;
         public IHealthController HealthController { get; private set; }
-        public StatsController StatsController { get; private set; };
+        public StatsController StatsController { get; private set; }
 
         private void Awake()
         {
