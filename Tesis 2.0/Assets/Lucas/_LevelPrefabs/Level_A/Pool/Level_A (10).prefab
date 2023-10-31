@@ -5890,7 +5890,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4663228194853522120}
-  m_Layer: 0
+  - component: {fileID: -8296467281139419268}
+  - component: {fileID: -8986614759508624931}
+  m_Layer: 6
   m_Name: Level_A (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5918,6 +5920,31 @@ Transform:
   - {fileID: 5777743676421461019}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!156049354 &-8296467281139419268
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4573387508375367477}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
+--- !u!114 &-8986614759508624931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4573387508375367477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44339aa814ba4aecbc60762c326cd0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doors: []
 --- !u!1 &4750765432260435259
 GameObject:
   m_ObjectHideFlags: 0

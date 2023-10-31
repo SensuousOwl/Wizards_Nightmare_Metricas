@@ -41,7 +41,7 @@ namespace _Main.Scripts.RoomsSystem
             m_isAvailable = false;
             m_isOpen = true;
             
-            //doorVisual.SetActive(true);
+            doorVisual.SetActive(true);
             wallVisual.SetActive(false);
             SetActiveDoor(true);
             OnActiveDoor?.Invoke(this);
