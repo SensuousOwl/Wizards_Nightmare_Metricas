@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000693e293454bcc8faea812ca71bc90, type: 3}
+  m_Name: Rooms Pool
+  m_EditorClassIdentifier: 
+  <FirstRoomPrefab>k__BackingField: {fileID: 8217230274681925806, guid: d5b5e3c6fea776d459e429a4e9695f73, type: 3}
+  <BossRoomPrefab>k__BackingField: {fileID: 8217230274681925806, guid: 11d65e129c8ea5745a44de168b138964, type: 3}
+  roomsPrefabs:
+  - {fileID: 8217230274681925806, guid: d8c960c210e101c4b8ff624ffd9b784d, type: 3}
+  roomsChances:
+  - 100
+  chancePercentage:
+  - 100
