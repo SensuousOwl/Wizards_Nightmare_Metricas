@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using _main.Scripts.DevelopmentUtilities.Extensions;
 using Extensions;
 using PlayerScripts;
 using UnityEngine;
@@ -53,16 +55,22 @@ namespace Enemies
             Destroy(gameObject);
         }
 
-        private void OnCollisionEnter(Collision p_collision)
+        private void OnCollisionStay2D(Collision2D p_collision)
         {
-            if (!p_collision.gameObject.layer.Equals(data.TargetMask)) 
+            if (m_timer > Time.time)
+                return;
+            
+            if (!data.TargetMask.Includes(p_collision.gameObject.layer)) 
                 return;
             
             if(!p_collision.gameObject.TryGetComponent(out IHealthController l_healthController))
                 return;
-                
+
             l_healthController.TakeDamage(data.Damage);
-            m_view.PlayHurtAnim();
+            m_view.PlayAttackAnim();
+            m_timer = Time.time + 1;
         }
+
+        private float m_timer;
     }
 }
