@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class EnemyModel : MonoBehaviour, IDamageable
+    public class EnemyModel : MonoBehaviour, IHealthController
     {
         [SerializeField] private EnemyData data;
         [SerializeField] private GameObject TEST_PLAYER;
@@ -14,9 +14,12 @@ namespace Enemies
         public int CurrHp => m_currHp;
         private int m_currHp;
 
+        private HealthController m_healthController;
         private void Awake()
         {
             m_currHp = data.MaxHp;
+            m_healthController = new HealthController(data.MaxHp);
+            m_healthController.OnDie += Die;
         }
 
         public Transform GetTargetTransform()
@@ -43,22 +46,29 @@ namespace Enemies
 
         public void GetDamage(int damage)
         {
-            m_currHp -= damage;
-
-            if (m_currHp <= 0)
-                Die();
+            m_healthController.TakeDamage(damage);
         }
 
-        private void Die()
+        public void GetHealth(int health)
         {
-            
+            m_healthController.Heal(health);
+        }
+
+        public void FullHealth()
+        {
+            m_healthController.RestoreMaxHealth();
+        }
+
+        public void Die()
+        {
+            Destroy(gameObject);
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.layer.Equals(data.TargetMask))
             {
-                if(!collision.gameObject.TryGetComponent(out IDamageable damageable))
+                if(!collision.gameObject.TryGetComponent(out IHealthController damageable))
                     return;
                 
                 damageable.GetDamage(data.Damage);

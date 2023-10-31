@@ -17,12 +17,15 @@ MonoBehaviour:
   <MovementSpeed>k__BackingField: 20
   <Energy>k__BackingField: 100
   <FireRate>k__BackingField: 1
-  <Range>k__BackingField: 5
+  <Range>k__BackingField: 25
   <DashCooldown>k__BackingField: 2
   <DashTranslation>k__BackingField: 2
-  <PlayerBullet>k__BackingField: {fileID: 7770882229381276139, guid: 2b24a679ee7b4524081493f45c8ebfb6, type: 3}
+  <Bullet>k__BackingField: {fileID: 7770882229381276139, guid: 2b24a679ee7b4524081493f45c8ebfb6, type: 3}
+  <TargetLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 2048
   <Damage>k__BackingField: 20
-  <ProjectileSpeed>k__BackingField: 40
+  <ProjectileSpeed>k__BackingField: 10
   <CriticalDamageMult>k__BackingField: 5
   <CriticalChance>k__BackingField: 2
   <StartingCoins>k__BackingField: 10
