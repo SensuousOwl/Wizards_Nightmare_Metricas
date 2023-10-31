@@ -19,6 +19,7 @@ namespace Enemies
         
         [field: SerializeField] public Bullet Bullet { get; private set; }
         [field: SerializeField] public int Damage { get; private set; }
+        [field: SerializeField] public int Xp { get; private set; }
         [field: SerializeField] public float ProjectileSpeed { get; private set; }
         [field: SerializeField] public LayerMask TargetMask { get; private set; }
     }

@@ -1,3 +1,5 @@
+using System;
+using _Main.Scripts;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -21,6 +23,12 @@ namespace PlayerScripts
         private Vector3 m_crossAirPos;
         public IHealthController HealthController { get; private set; }
         public StatsController StatsController { get; private set; }
+
+
+        private void OnEnable()
+        {
+            XpController.OnLvlUp.Invoke();
+        }
 
         private void Awake()
         {
@@ -87,6 +95,7 @@ namespace PlayerScripts
             m_crossAirPos = m_mainCamera.ScreenToWorldPoint(p_pos);
         }
 
+        
         private void Die()
         {
             m_view.PlayDeadAnim();
