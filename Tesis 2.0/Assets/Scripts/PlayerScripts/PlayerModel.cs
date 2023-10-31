@@ -9,7 +9,6 @@ namespace PlayerScripts
         [SerializeField] private PlayerData playerData;
 
         private Rigidbody2D m_rigidbody;
-        private StatsData m_myStats;
 
         private float m_currCriticalDamageMult;
         private int m_currCoins;
@@ -20,11 +19,12 @@ namespace PlayerScripts
         private Camera m_mainCamera;
         private Vector3 m_crossAirPos;
         public IHealthController HealthController { get; private set; }
+        public StatsController StatsController { get; private set; };
 
         private void Awake()
         {
             m_rigidbody = GetComponent<Rigidbody2D>();
-            HealthController = GetComponent<HealthController>();
+            HealthController = GetComponent<IHealthController>();
             HealthController.Initialize(playerData.MaxHp);
         }
 
@@ -39,17 +39,17 @@ namespace PlayerScripts
 
         private void InitializeStats()
         {
-            m_myStats = new StatsData(playerData);
+            StatsController = new StatsController(playerData);
         }
 
-        public void UpdateStats(StatsData p_statsData)
+        public void UpdateStats(StatsController p_statsController)
         {
-            m_myStats = p_statsData;
+            StatsController = p_statsController;
         }
 
         public void Move(Vector3 p_dir)
         {
-            var l_newPosition = transform.position + p_dir * (m_myStats.CurrMovementSpeed * Time.deltaTime);
+            var l_newPosition = transform.position + p_dir * (StatsController.GetStatById(StatsId.MovementSpeed) * Time.deltaTime);
             m_rigidbody.MovePosition(l_newPosition);
         }
 
@@ -58,8 +58,8 @@ namespace PlayerScripts
             if (m_dashTimer > Time.time)
                 return;
 
-            m_rigidbody.AddForce(p_dir * m_myStats.CurrDashTrans, ForceMode2D.Impulse);
-            m_dashTimer = m_myStats.CurrDashCooldown + Time.time;
+            m_rigidbody.AddForce(p_dir * StatsController.GetStatById(StatsId.DashTranslation), ForceMode2D.Impulse);
+            m_dashTimer = StatsController.GetStatById(StatsId.DashCooldown) + Time.time;
         }
 
         public void Shoot()
@@ -70,9 +70,9 @@ namespace PlayerScripts
 
             var l_position = transform.position;
             var l_bull = Instantiate(playerData.Bullet, l_position, playerData.Bullet.transform.rotation);
-            l_bull.Initialize(m_myStats.CurrProjectileSpeed, m_myStats.CurrDamage,
-                (m_crossAirPos - l_position).normalized, m_myStats.CurrRange, playerData.TargetLayer);
-            m_fireRateTimer = Time.time + m_myStats.CurrFireRate;
+            l_bull.Initialize(StatsController.GetStatById(StatsId.ProjectileSpeed), StatsController.GetStatById(StatsId.Damage),
+                (m_crossAirPos - l_position).normalized, StatsController.GetStatById(StatsId.Range), playerData.TargetLayer);
+            m_fireRateTimer = Time.time + StatsController.GetStatById(StatsId.FireRate);
         }
 
         public void UpdateCrossAir(Vector3 p_pos)
