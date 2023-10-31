@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65039365a03f403c8618c1a8ca06cfdb, type: 3}
   m_Name: MeleeData
   m_EditorClassIdentifier: 
-  <AllStatesData>k__BackingField: []
-  <MaxHp>k__BackingField: 0
-  <MovementSpeed>k__BackingField: 0
+  <AllStatesData>k__BackingField:
+  - {fileID: 11400000, guid: 94a8c732ba34f654a81e7eb3c1e82a49, type: 2}
+  - {fileID: 11400000, guid: af8a970bf389721499f8d69c3bfa77db, type: 2}
+  <MaxHp>k__BackingField: 75
+  <MovementSpeed>k__BackingField: 8
   <FireRate>k__BackingField: 0
-  <Range>k__BackingField: 0
-  <ViewDepthRange>k__BackingField: 0
+  <Range>k__BackingField: 1.5
+  <ViewDepthRange>k__BackingField: 2
   <Bullet>k__BackingField: {fileID: 0}
-  <Damage>k__BackingField: 0
+  <Damage>k__BackingField: 20
   <ProjectileSpeed>k__BackingField: 0
   <TargetMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
