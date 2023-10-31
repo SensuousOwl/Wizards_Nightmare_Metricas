@@ -128,19 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4594272957534791939, guid: d28284305ebb86541b54719984cff395, type: 3}
   m_PrefabInstance: {fileID: 8329797263685728766}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &157680744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157680743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb3ecc591acd40c1945938bc6b87b292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 444257c2e59a2b44e903266663f0d9df, type: 2}
 --- !u!1 &168467539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,6 +2030,11 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!212 &1781668618 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7366596319386972470, guid: d28284305ebb86541b54719984cff395, type: 3}
+  m_PrefabInstance: {fileID: 8329797263685728766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1782972868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2355,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 117693652655646290, guid: d28284305ebb86541b54719984cff395, type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 1781668618}
     - target: {fileID: 4594272957534791939, guid: d28284305ebb86541b54719984cff395, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2410,10 +2406,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4594272957534791939, guid: d28284305ebb86541b54719984cff395, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 157680744}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d28284305ebb86541b54719984cff395, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

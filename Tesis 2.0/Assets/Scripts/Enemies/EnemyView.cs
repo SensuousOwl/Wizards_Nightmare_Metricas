@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 
-namespace PlayerScripts
+namespace Enemies
 {
-    public class PlayerView : MonoBehaviour
+    public class EnemyView : MonoBehaviour
     {
-        [SerializeField] private PlayerAnimData animData;
+        
         private Animator m_animator;
         [SerializeField] private SpriteRenderer renderer;
 
@@ -21,13 +20,13 @@ namespace PlayerScripts
         }
         public void PlayIdleAnim()
         {
-            m_animator.Play(animData.IdleNameAnim);
+            m_animator.Play("Idle");
 
         }
 
         public void PlayAttackAnim()
         {
-            m_animator.Play(animData.AttackNameAnim);
+            m_animator.Play("Attack");
         }
 
         public void SetWalkSpeed(float speed)
@@ -36,12 +35,12 @@ namespace PlayerScripts
         }
         public void PlayHurtAnim()
         {
-            m_animator.Play(animData.HurtNameAnim);
+            m_animator.Play("Hurt");
         }
 
         public void PlayDeadAnim()
         {
-            m_animator.Play(animData.DeadNameAnim);
+            m_animator.Play("Dead");
         }
     }
 }

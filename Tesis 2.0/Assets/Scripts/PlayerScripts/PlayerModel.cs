@@ -7,6 +7,7 @@ namespace PlayerScripts
     public class PlayerModel : MonoBehaviour
     {
         [SerializeField] private PlayerData playerData;
+        private PlayerView m_view;
 
         private Rigidbody2D m_rigidbody;
 
@@ -24,6 +25,7 @@ namespace PlayerScripts
         private void Awake()
         {
             m_rigidbody = GetComponent<Rigidbody2D>();
+            m_view = GetComponent<PlayerView>();
             HealthController = GetComponent<IHealthController>();
             HealthController.Initialize(playerData.MaxHp);
         }
@@ -51,6 +53,9 @@ namespace PlayerScripts
         {
             var l_newPosition = transform.position + p_dir * (StatsController.GetStatById(StatsId.MovementSpeed) * Time.deltaTime);
             m_rigidbody.MovePosition(l_newPosition);
+            
+            m_view.UpdateDir(p_dir);
+            m_view.SetWalkSpeed((transform.position + p_dir).magnitude);
         }
 
         public void Dash(Vector3 p_dir)
@@ -73,6 +78,8 @@ namespace PlayerScripts
             l_bull.Initialize(StatsController.GetStatById(StatsId.ProjectileSpeed), StatsController.GetStatById(StatsId.Damage),
                 (m_crossAirPos - l_position).normalized, StatsController.GetStatById(StatsId.Range), playerData.TargetLayer);
             m_fireRateTimer = Time.time + StatsController.GetStatById(StatsId.FireRate);
+            
+            m_view.PlayAttackAnim();
         }
 
         public void UpdateCrossAir(Vector3 p_pos)
@@ -82,6 +89,7 @@ namespace PlayerScripts
 
         private void Die()
         {
+            m_view.PlayDeadAnim();
             Debug.Log($"YOU DIED");
         }
     }

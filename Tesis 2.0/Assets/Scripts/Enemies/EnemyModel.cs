@@ -3,12 +3,14 @@ using UnityEngine;
 
 namespace Enemies
 {
+    [RequireComponent(typeof(HealthController))]
     public class EnemyModel : MonoBehaviour
     {
         [SerializeField] private EnemyData data;
         [SerializeField] private GameObject TEST_PLAYER;
 
         private int m_currHp;
+        private EnemyView m_view;
 
         public IHealthController HealthController { get; private set; }
         
@@ -16,6 +18,7 @@ namespace Enemies
         {
             HealthController = GetComponent<HealthController>();
             HealthController.Initialize(data.MaxHp);
+            m_view = GetComponent<EnemyView>();
             HealthController.OnDie += Die;
         }
 
@@ -37,7 +40,7 @@ namespace Enemies
             p_targetPoint.Xyo();
             var dir = (p_targetPoint - transform.position).normalized;
             transform.position += dir * (data.MovementSpeed * Time.deltaTime);
-            Debug.Log($"Targer : {p_targetPoint}, dir {dir}, movement {dir * (data.MovementSpeed * Time.deltaTime)}");
+            m_view.SetWalkSpeed((dir * data.MovementSpeed).magnitude);
         }
 
         private void Die()
@@ -54,6 +57,7 @@ namespace Enemies
                 return;
                 
             l_healthController.TakeDamage(data.Damage);
+            m_view.PlayHurtAnim();
         }
     }
 }
