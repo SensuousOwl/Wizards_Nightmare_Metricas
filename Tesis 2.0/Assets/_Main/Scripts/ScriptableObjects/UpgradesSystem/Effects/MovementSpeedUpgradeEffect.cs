@@ -8,6 +8,7 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem.Effects
     {
         public override void ApplyEffect(PlayerModel p_model, float p_valuePercentage)
         {
+            p_model.StatsController.AddUpgradeStatForPercentage(StatsId.MovementSpeed, p_valuePercentage);
         }
     }
 }
