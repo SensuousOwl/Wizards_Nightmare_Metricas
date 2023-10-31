@@ -71,4 +71,5 @@ public class HealthController : MonoBehaviour, IHealthController
     }
 
     public float GetCurrentHealth() => currentHealth;
+    public float GetMaxHealth() => maxHealth;
 }

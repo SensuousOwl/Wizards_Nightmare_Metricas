@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
 using _Main.Scripts.ScriptableObjects.UpgradesSystem;
 using PlayerScripts;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
@@ -17,20 +15,15 @@ namespace UI
         [SerializeField] private List<TMP_Text> descriptionTxt = new List<TMP_Text>();
 
         private List<UpgradeData> m_currUpgradeDatas = new List<UpgradeData>();
-        //private List<UpgradeData> m_previusUpgradeDatas = new List<UpgradeData>();
-
-
-        private void Awake()
-        {
-            ActivateUpgradeScreen();
-        }
+        private List<UpgradeData> m_previusUpgradeDatas = new List<UpgradeData>();
 
         public void ActivateUpgradeScreen()
         {
-            m_currUpgradeDatas.Clear();
             for (int i = 0; i < upgradesCount; i++)
             {
-                m_currUpgradeDatas[i] = pool.GetRandomUpgradeFromPool(m_currUpgradeDatas);
+                m_currUpgradeDatas.Add(pool.GetRandomUpgradeFromPool(m_previusUpgradeDatas)); 
+                m_previusUpgradeDatas.Add(m_currUpgradeDatas[i]);
+                
                 namesTxt[i].text = m_currUpgradeDatas[i].Name;
                 descriptionTxt[i].text = m_currUpgradeDatas[i].Description;
             }
@@ -43,7 +36,8 @@ namespace UI
         public void OnPressedButton(int p_buttonId)
         {
             m_currUpgradeDatas[p_buttonId].ApplyEffects(FindObjectOfType<PlayerModel>());
-            ActivateUpgradeScreen();
+            m_previusUpgradeDatas.Clear();
+            m_currUpgradeDatas.Clear();
         }
 
 

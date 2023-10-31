@@ -10,7 +10,7 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
     {
         [field: SerializeField] public string Id { get; private set; }
         [field: SerializeField] public string Name { get; private set; }
-        [field: SerializeField] public string Description { get; private set; }
+        [field: SerializeField, Multiline] public string Description { get; private set; }
         [field: SerializeField] public List<UpgradeEffect> Effects { get; private set; }
         [field: SerializeField] public List<float> UpgradePercentage { get; private set; }
 

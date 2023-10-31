@@ -14,4 +14,5 @@ public interface IHealthController
     public void ClampCurrentHealth();
     public void RestoreMaxHealth();
     public float GetCurrentHealth();
+    public float GetMaxHealth();
 }

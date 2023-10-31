@@ -6,11 +6,11 @@ namespace Bullets
     {
         private LayerMask m_targetLayer;
         private Vector3 m_dir;
-        private int m_damage;
+        private float m_damage;
         private float m_speed;
         private float m_range;
 
-        public void Initialize(float p_speed, int p_damage, Vector2 p_dir, float p_range,
+        public void Initialize(float p_speed, float p_damage, Vector2 p_dir, float p_range,
             LayerMask p_targetMask)
         {
             m_dir = p_dir.normalized;
