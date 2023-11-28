@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _Main.Scripts.Attributes;
 using _Main.Scripts.DevelopmentUtilities;
-using Enemies;
+using _Main.Scripts.Enemies;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects

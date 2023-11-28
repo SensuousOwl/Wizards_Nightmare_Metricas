@@ -1,5 +1,5 @@
-using Enemies;
-using UI;
+using _Main.Scripts.Enemies;
+using _Main.Scripts.UI;
 using UnityEngine;
 
 namespace _Main.Scripts

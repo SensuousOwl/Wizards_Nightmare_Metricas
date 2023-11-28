@@ -1,5 +1,5 @@
-using PlayerScripts;
-using UI;
+using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.UI;
 using UnityEngine;
 
 namespace _Main.Scripts

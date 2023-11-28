@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using _Main.Scripts.Enemies;
 using _Main.Scripts.ScriptableObjects;
-using Enemies;
-using Services;
-using Services.MicroServices.EventsServices;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

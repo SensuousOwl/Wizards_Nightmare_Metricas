@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Services;
-using Services.MicroServices.EventsServices;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
