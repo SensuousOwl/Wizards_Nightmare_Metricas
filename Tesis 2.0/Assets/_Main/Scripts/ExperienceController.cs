@@ -1,3 +1,4 @@
+using System;
 using _Main.Scripts.Enemies;
 using _Main.Scripts.UI;
 using UnityEngine;
@@ -13,6 +14,18 @@ namespace _Main.Scripts
         private int m_level;
         private float m_newLevel = 3;
 
+        public static ExperienceController Instance;
+
+        private void Start()
+        {
+            if (Instance != null)
+            {
+                Destroy(this);
+            }
+
+            Instance = this;
+        }
+
         private void OnEnable()
         {
             EnemyModel.OnDie += EnemyModelOnOnDie;
@@ -23,21 +36,21 @@ namespace _Main.Scripts
             EnemyModel.OnDie -= EnemyModelOnOnDie;
         }
         
-        private void EnemyModelOnOnDie(EnemyModel p_obj)
+        public void EnemyModelOnOnDie(EnemyModel pObj)
         {
-            m_experience += p_obj.GetData().ExperienceDrop;
+            m_experience += pObj.GetData().ExperienceDrop;
 
             if (m_experience < m_experienceToUpgradeLevel)
                 return;
-
+            Debug.Log("XP " + m_experience);
             m_experience -= m_experienceToUpgradeLevel;
             m_experienceToUpgradeLevel += m_experienceToUpgradeLevel * 0.1f;
             m_level++;
             
-            if (m_level < m_newLevel)
-                return;
-
-            m_newLevel += 3;
+            // if (m_level < m_newLevel)
+            //     return;
+            //
+            // m_newLevel += 3;
             upgradeScreenController.ActivateUpgradeScreen();
         }
     }

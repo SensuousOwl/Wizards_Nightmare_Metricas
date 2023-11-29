@@ -24,6 +24,7 @@ namespace _Main.Scripts.Enemies
             HealthController.Initialize(data.MaxHp);
             m_view = GetComponent<EnemyView>();
             HealthController.OnDie += Die;
+            m_timer = 0;
         }
 
         public Transform GetTargetTransform()
@@ -51,20 +52,24 @@ namespace _Main.Scripts.Enemies
         private void Die()
         {
             OnDie?.Invoke(this);
+            ExperienceController.Instance.EnemyModelOnOnDie(this);
             Destroy(gameObject);
         }
 
-        private void OnCollisionStay2D(Collision2D p_collision)
+        
+
+        private void OnCollisionEnter2D(Collision2D other)
         {
             if (m_timer > Time.time)
                 return;
             
-            if (!LayerMaskExtensions.Includes(data.TargetMask, p_collision.gameObject.layer)) 
+            if (!LayerMaskExtensions.Includes(data.TargetMask, other.gameObject.layer)) 
                 return;
             
-            if(!p_collision.gameObject.TryGetComponent(out IHealthController l_healthController))
+            if(!other.gameObject.TryGetComponent(out IHealthController l_healthController))
                 return;
-
+            
+            
             l_healthController.TakeDamage(data.Damage);
             m_view.PlayAttackAnim();
             m_timer = Time.time + 1;

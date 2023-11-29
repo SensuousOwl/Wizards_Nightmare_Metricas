@@ -34,7 +34,7 @@ namespace _Main.Scripts.PlayerScripts
         {
             m_rigidbody = GetComponent<Rigidbody2D>();
             m_view = GetComponent<PlayerView>();
-            HealthController = GetComponent<IHealthController>();
+            HealthController = GetComponent<HealthController>();
             HealthController.Initialize(playerData.MaxHp);
             HealthController.OnDie += Die;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.UpgradesSystem;
@@ -36,6 +37,22 @@ namespace _Main.Scripts.UI
             }
             
             screenObj.SetActive(true);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                OnPressedButton(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                OnPressedButton(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                OnPressedButton(2);
+            }
         }
 
         public void OnPressedButton(int p_buttonId)

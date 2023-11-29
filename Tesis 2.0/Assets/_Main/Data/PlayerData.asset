@@ -12,21 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e04ac614304dc9bc6fc65076b0528a, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  <StartHp>k__BackingField: 100
   <MaxHp>k__BackingField: 100
   <MovementSpeed>k__BackingField: 20
-  <Energy>k__BackingField: 100
   <FireRate>k__BackingField: 1
-  <Range>k__BackingField: 25
+  <FireRange>k__BackingField: 10
   <DashCooldown>k__BackingField: 2
   <DashTranslation>k__BackingField: 2
+  <CriticalDamageMult>k__BackingField: 5
+  <CriticalChance>k__BackingField: 2
+  <SpawnItemChance>k__BackingField: 5
+  <StartingXp>k__BackingField: 10
   <Bullet>k__BackingField: {fileID: 7770882229381276139, guid: 2b24a679ee7b4524081493f45c8ebfb6, type: 3}
   <TargetLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 2048
   <Damage>k__BackingField: 20
   <ProjectileSpeed>k__BackingField: 10
-  <CriticalDamageMult>k__BackingField: 5
-  <CriticalChance>k__BackingField: 2
-  <StartingCoins>k__BackingField: 10
-  <StartingXp>k__BackingField: 0
+  <InteractRadius>k__BackingField: 1
+  <InteractLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 16384

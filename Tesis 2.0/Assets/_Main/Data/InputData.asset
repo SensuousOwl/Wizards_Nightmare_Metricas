@@ -16,3 +16,5 @@ MonoBehaviour:
   <AimId>k__BackingField: Aim
   <DashId>k__BackingField: Dash
   <ShootId>k__BackingField: Shoot
+  <InteractId>k__BackingField: Interact
+  <UseItemId>k__BackingField: UseItem

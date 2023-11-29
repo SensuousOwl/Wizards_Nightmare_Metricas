@@ -39,7 +39,7 @@ namespace _Main.Scripts
 
             OnTakeDamage?.Invoke(p_damage);
             OnChangeHealth?.Invoke(maxHealth, currentHealth);
-            
+            Debug.Log("DAMEGE");
             if (currentHealth <= 0)
                 OnDie?.Invoke();
         }
