@@ -1,4 +1,4 @@
-using PlayerScripts;
+using _Main.Scripts.PlayerScripts;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.UpgradesSystem

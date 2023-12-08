@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c6da0df7df29f40986756b24fe0822, type: 3}
+  m_Name: EnemyPoolData
+  m_EditorClassIdentifier: 
+  allEnemiesPrefabs:
+  - {fileID: 665963807789491670, guid: 439ef062b029d0e4c906c9a7058fd2ae, type: 3}
+  - {fileID: 3256698577766980137, guid: 8e452af272ae92845bb343b91ee1a92e, type: 3}
+  - {fileID: 2781679343819664879, guid: d964bf710b564ef4c96e97a23d72393d, type: 3}
+  allEnemiesChances:
+  - 50
+  - 50
+  - 50
+  chancePercentage:
+  - 33.333332
+  - 33.333332
+  - 33.333332
