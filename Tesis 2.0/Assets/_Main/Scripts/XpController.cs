@@ -1,5 +1,5 @@
 using System;
-using UI;
+using _Main.Scripts.UI;
 using UnityEngine;
 
 namespace _Main.Scripts
