@@ -27,6 +27,9 @@ namespace _Main.Scripts.Enemies.FSMStates.States
                     Destroy(col[i].gameObject);
                 }
             }
+            
+            //TODO; preguntar que onda con esto
+            p_model.HealthController.TakeDamage(999);
         }
 
         public override void ExecuteState(EnemyModel p_model)

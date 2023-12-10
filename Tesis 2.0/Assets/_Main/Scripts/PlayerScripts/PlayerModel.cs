@@ -27,12 +27,7 @@ namespace _Main.Scripts.PlayerScripts
         public Inventory Inventory { get; private set; }
 
         private readonly Collider2D[] m_itemsCollider = new Collider2D[1];
-
-
-        private void OnEnable()
-        {
-            XpController.OnLvlUp.Invoke();
-        }
+        
 
         private void Awake()
         {

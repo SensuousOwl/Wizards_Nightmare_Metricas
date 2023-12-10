@@ -27,7 +27,8 @@ namespace _Main.Scripts.Enemies
             HealthController = GetComponent<HealthController>();
             HealthController.Initialize(data.MaxHp);
             m_view = GetComponent<EnemyView>();
-            HealthController.OnDie += Die;
+            
+            // HealthController.OnDie += Die;
             m_timer = 0;
         }
 
@@ -60,6 +61,7 @@ namespace _Main.Scripts.Enemies
             Destroy(gameObject);
         }
 
+        public void TriggerDieEvent() => OnDie?.Invoke(this);
         
 
         private void OnCollisionEnter2D(Collision2D other)

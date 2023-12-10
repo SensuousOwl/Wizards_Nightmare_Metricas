@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65039365a03f403c8618c1a8ca06cfdb, type: 3}
-  m_Name: Creeper
+  m_Name: CreeperData
   m_EditorClassIdentifier: 
   <AllStatesData>k__BackingField:
-  - {fileID: 11400000, guid: 94a8c732ba34f654a81e7eb3c1e82a49, type: 2}
-  - {fileID: 11400000, guid: af8a970bf389721499f8d69c3bfa77db, type: 2}
-  - {fileID: 11400000, guid: 36ce412c26c6d4643a84a1b52693a3ce, type: 2}
+  - {fileID: 11400000, guid: 067e76cb9cdd5674da5649252db6225c, type: 2}
+  - {fileID: 11400000, guid: 4bca2c5a443d8754daa640303a68cab0, type: 2}
+  - {fileID: 11400000, guid: 2a372fca6c58ade42877011d6c0956fb, type: 2}
+  - {fileID: 11400000, guid: 991d648f19efa45488fb5b6e441c9c66, type: 2}
   <MaxHp>k__BackingField: 75
   <MovementSpeed>k__BackingField: 8
   <FireRate>k__BackingField: 0
-  <Range>k__BackingField: 1.5
+  <Range>k__BackingField: 0
   <ViewDepthRange>k__BackingField: 20
   <Bullet>k__BackingField: {fileID: 0}
   <Damage>k__BackingField: 20
-  <Xp>k__BackingField: 0
   <ProjectileSpeed>k__BackingField: 0
   <TargetMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
   <ExperienceDrop>k__BackingField: 20
-  <ObsDetectionRadius>k__BackingField: 0
-  <ObsDetectionAngle>k__BackingField: 0
+  <ObsDetectionRadius>k__BackingField: 2
+  <ObsDetectionAngle>k__BackingField: 180
