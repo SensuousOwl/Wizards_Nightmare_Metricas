@@ -15,6 +15,9 @@ namespace _Main.Scripts.Enemies
         private EnemyView m_view;
         private Transform m_target;
 
+        public Vector2 CurrDir => m_dir;
+
+        private Vector2 m_dir;
         public IHealthController HealthController { get; private set; }
         public static event Action<EnemyModel> OnDie;
         

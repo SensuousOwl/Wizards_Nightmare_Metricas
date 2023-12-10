@@ -23,5 +23,9 @@ namespace _Main.Scripts.Enemies
         [field: SerializeField] public float ProjectileSpeed { get; private set; }
         [field: SerializeField] public LayerMask TargetMask { get; private set; }
         [field: SerializeField] public float ExperienceDrop { get; private set; }
+        [field: Header("PathFinding")]
+        [field: SerializeField] public float ObsDetectionRadius { get; private set; }
+        [field: SerializeField] public float ObsDetectionAngle { get; private set; }
+        
     }
 }

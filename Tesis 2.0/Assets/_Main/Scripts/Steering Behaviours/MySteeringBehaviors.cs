@@ -2,7 +2,7 @@
 
 namespace _Main.Scripts.Steering_Behaviours
 {
-    public static class SteeringBehaviors
+    public static class MySteeringBehaviors
     {
         /// <returns>
         ///   <para>Devuelve una direccion directa para INTERCEPTAR  al objetivo X SEGUNDOS adelante en su trayectoria.</para>
