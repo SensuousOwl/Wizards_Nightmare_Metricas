@@ -9,19 +9,26 @@ namespace _Main.Scripts.Managers
         [SerializeField] private string sceneToLoad;
         [SerializeField] private Button playButton;
         [SerializeField] private Button creditsButton;
+        [SerializeField] private Button settingsButton;
         [SerializeField] private Button exitButton;
         [SerializeField] private Button backButton;
-        [SerializeField] private GameObject creditsScreen;
-    
-
+        [SerializeField] private BasePanel creditsScreen;
+        [SerializeField] private SettingsPanel settingsScreen;
+        
+        
         private void Awake()
         {
-            creditsScreen.SetActive(false);
+            creditsScreen.Close();
+            settingsScreen.Close();
         
             playButton.onClick.AddListener(OnPlayButtonClicked);
             creditsButton.onClick.AddListener(OnCreditsButtonClicked);
+            settingsButton.onClick.AddListener(OnSettingsButtonClicked);
             backButton.onClick.AddListener(OnBackButtonClicked);
             exitButton.onClick.AddListener(OnExitButtonClicked);
+
+            settingsScreen.Initialize();
+            //settingsScreen.OnClose();
         }
 
         private void OnPlayButtonClicked()
@@ -31,12 +38,18 @@ namespace _Main.Scripts.Managers
 
         private void OnCreditsButtonClicked()
         {
-            creditsScreen.SetActive(true);
+            creditsScreen.Open();
+        }
+        
+        private void OnSettingsButtonClicked()
+        {
+            settingsScreen.Open();
         }
 
         private void OnBackButtonClicked()
         {
-            creditsScreen.SetActive(false);
+            if(creditsScreen.IsOpen)
+                creditsScreen.Close();
         }
 
         private void OnExitButtonClicked()
