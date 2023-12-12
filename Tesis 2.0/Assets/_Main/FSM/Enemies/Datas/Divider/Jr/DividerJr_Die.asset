@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: DividerJr_Die
   m_EditorClassIdentifier: 
   <MyState>k__BackingField: {fileID: 11400000, guid: f51c3362cc2b603499e4dc7c3063ab89, type: 2}
-  <StateConditions>k__BackingField:
-  - {fileID: 11400000, guid: a23fa32a175d4f5498dfa81422711ac3, type: 2}
-  <ExitStates>k__BackingField:
-  - {fileID: 11400000, guid: b5ed24c138acbfd49a6bf175e8f9b69a, type: 2}
+  <StateConditions>k__BackingField: []
+  <ExitStates>k__BackingField: []

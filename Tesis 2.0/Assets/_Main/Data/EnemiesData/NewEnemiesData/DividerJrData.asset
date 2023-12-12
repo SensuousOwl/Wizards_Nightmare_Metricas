@@ -28,5 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   <ExperienceDrop>k__BackingField: 10
-  <ObsDetectionRadius>k__BackingField: 2
+  <ObsDetectionRadius>k__BackingField: 1
   <ObsDetectionAngle>k__BackingField: 180

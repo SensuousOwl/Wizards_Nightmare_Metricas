@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65039365a03f403c8618c1a8ca06cfdb, type: 3}
-  m_Name: ChaserData
+  m_Name: PanzerData
   m_EditorClassIdentifier: 
   <AllStatesData>k__BackingField:
-  - {fileID: 11400000, guid: 94a8c732ba34f654a81e7eb3c1e82a49, type: 2}
-  - {fileID: 11400000, guid: af8a970bf389721499f8d69c3bfa77db, type: 2}
-  - {fileID: 11400000, guid: d29cf7d2d4c3d3e4287a04b77e13ec42, type: 2}
-  <MaxHp>k__BackingField: 50
-  <MovementSpeed>k__BackingField: 10
+  - {fileID: 11400000, guid: cff38b6441e9ecc40bdafaff8360c469, type: 2}
+  - {fileID: 11400000, guid: fb5834a6afcdfb241873c0ea89c0c73b, type: 2}
+  - {fileID: 11400000, guid: 2c67752181ddd324385ef4b7dde5b0c0, type: 2}
+  <MaxHp>k__BackingField: 200
+  <MovementSpeed>k__BackingField: 0.5
   <FireRate>k__BackingField: 0
   <Range>k__BackingField: 0
   <ViewDepthRange>k__BackingField: 20
@@ -28,5 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   <ExperienceDrop>k__BackingField: 10
-  <ObsDetectionRadius>k__BackingField: 1
+  <ObsDetectionRadius>k__BackingField: 1.5
   <ObsDetectionAngle>k__BackingField: 180

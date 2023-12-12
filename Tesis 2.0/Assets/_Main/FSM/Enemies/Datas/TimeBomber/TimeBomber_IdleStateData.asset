@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
-  m_Name: Creeper_Die&Destroy
+  m_Name: TimeBomber_IdleStateData
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: f51c3362cc2b603499e4dc7c3063ab89, type: 2}
-  <StateConditions>k__BackingField: []
-  <ExitStates>k__BackingField: []
+  <MyState>k__BackingField: {fileID: 11400000, guid: 151b85e55c13c724eae941c544274c71, type: 2}
+  <StateConditions>k__BackingField:
+  - {fileID: 11400000, guid: ceda234735fb7d540bc897d95d0bb9b4, type: 2}
+  <ExitStates>k__BackingField:
+  - {fileID: 11400000, guid: bda144d153baf514093844d3134f26cc, type: 2}
