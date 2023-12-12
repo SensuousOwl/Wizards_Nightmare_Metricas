@@ -36,10 +36,21 @@ namespace _Main.Scripts.PlayerScripts
             HealthController = GetComponent<HealthController>();
             HealthController.Initialize(playerData.MaxHp);
             HealthController.OnDie += Die;
-
+            HealthController.OnChangeMaxHealth += HealthControllerOnOnChangeMaxHealth;
+            HealthController.OnTakeDamage += HealthControllerOnOnTakeDamage;
             m_playerController = GetComponent<IPlayerController>();
 
             Inventory = new Inventory(this);
+        }
+
+        private void HealthControllerOnOnTakeDamage(float damage)
+        {
+            m_view.UpdateHpBar(HealthController.GetCurrentHealth(), HealthController.GetMaxHealth());
+        }
+
+        private void HealthControllerOnOnChangeMaxHealth(float prevMaxHp, float currMaxHp)
+        {
+            m_view.UpdateMaxHpBar(prevMaxHp, currMaxHp);
         }
 
         private void Start()
@@ -67,9 +78,6 @@ namespace _Main.Scripts.PlayerScripts
             m_playerController.OnShoot += Shoot;
             m_playerController.OnUpdateCrosshair += UpdateCrosshair;
         }
-
-        
-
         private void UnsubscribeEventsController()
         {
             m_playerController.OnUseItem -= OnUseItemHandler;
@@ -132,7 +140,7 @@ namespace _Main.Scripts.PlayerScripts
             l_bull.Initialize(StatsController.GetStatById(StatsId.ProjectileSpeed), StatsController.GetStatById(StatsId.Damage),
                 (m_crossAirPos - l_position).normalized, StatsController.GetStatById(StatsId.Range), playerData.TargetLayer);
             m_fireRateTimer = Time.time + StatsController.GetStatById(StatsId.FireRate);
-            
+            HealthController.AddMaxHealth(500);
             m_view.PlayAttackAnim();
         }
 

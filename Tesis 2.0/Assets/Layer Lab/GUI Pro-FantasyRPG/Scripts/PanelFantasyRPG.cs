@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace LayerLab.FantasyRPG
+namespace Layer_Lab.GUI_Pro_FantasyRPG.Scripts
 {
     public class PanelFantasyRPG : MonoBehaviour
     {

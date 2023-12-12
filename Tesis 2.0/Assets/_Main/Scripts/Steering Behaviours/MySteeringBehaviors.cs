@@ -47,10 +47,9 @@ namespace _Main.Scripts.Steering_Behaviours
         /// </returns>
         public static Vector3 GetObsAvoidanceDir(Vector2 p_orginPos, Vector2 p_originLookDir ,float p_detectionRaduis, float p_viewAngle,LayerMask l_mask)
         {
-            
             var l_allObs = new Collider2D[10];
             var l_countObs = Physics2D.OverlapCircleNonAlloc(p_orginPos, p_detectionRaduis, l_allObs, l_mask);
-            Vector2 l_dirToAvoid = Vector3.zero;
+            Vector2 l_dirToAvoid = Vector2.zero;
             int l_trueObs = 0;
             for (int l_i = 0; l_i < l_countObs; l_i++)
             {
@@ -60,7 +59,9 @@ namespace _Main.Scripts.Steering_Behaviours
                 
                 var l_angleToPoint = Vector3.Angle(p_originLookDir, l_diffToPoint.normalized);
                 
-                if(l_angleToPoint > p_viewAngle/2) continue;
+                if(l_angleToPoint > p_viewAngle/2)
+                    continue;
+                
                 float l_dist = l_diffToPoint.magnitude;
                 
                 l_trueObs++;
@@ -73,6 +74,8 @@ namespace _Main.Scripts.Steering_Behaviours
 
             return l_dirToAvoid;
         }
+        
+        
         
     }
 }

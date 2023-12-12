@@ -6,6 +6,7 @@ namespace _Main.Scripts
     {
         public event Action OnDie;
         public event Action<float, float> OnChangeHealth;
+        public event Action<float, float> OnChangeMaxHealth;
         public event Action<float> OnTakeDamage;
         public void Initialize(float p_maxHealth);
         public void ChangeMaxHealth(float p_newValue);
