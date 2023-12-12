@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5ed24c138acbfd49a6bf175e8f9b69a, type: 2}
   - {fileID: 11400000, guid: 7e9557ae31d158e4a86a38441f7ef80d, type: 2}
   <MaxHp>k__BackingField: 50
-  <MovementSpeed>k__BackingField: 6
+  <MovementSpeed>k__BackingField: 1
   <FireRate>k__BackingField: 0
   <Range>k__BackingField: 0
   <ViewDepthRange>k__BackingField: 20
@@ -29,5 +29,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   <ExperienceDrop>k__BackingField: 15
-  <ObsDetectionRadius>k__BackingField: 2
+  <ObsDetectionRadius>k__BackingField: 1
   <ObsDetectionAngle>k__BackingField: 180

@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d22c9af195695fb4fa0c4f977a0b452d, type: 2}
   - {fileID: 11400000, guid: c827f5ca2e72bc845a5bce58334aeef4, type: 2}
   <MaxHp>k__BackingField: 25
-  <MovementSpeed>k__BackingField: 10
+  <MovementSpeed>k__BackingField: 1.5
   <FireRate>k__BackingField: 0
   <Range>k__BackingField: 0
   <ViewDepthRange>k__BackingField: 20

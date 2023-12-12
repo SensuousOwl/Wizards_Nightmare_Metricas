@@ -45,13 +45,14 @@ namespace _Main.Scripts.Enemies
             
         }
 
+        private Vector3 target;
         public void MoveTowards(Vector3 p_targetPoint)
         {
-            //TODO: Agregar sistemas de obs avoidance
+            target = p_targetPoint;
             p_targetPoint.Xyo();
-            var dir = (p_targetPoint - transform.position).normalized;
-            transform.position += dir * (data.MovementSpeed * Time.deltaTime);
-            m_view.SetWalkSpeed((dir * data.MovementSpeed).magnitude);
+            m_dir = (p_targetPoint - transform.position).normalized;
+            transform.position += (Vector3)m_dir * (data.MovementSpeed * Time.deltaTime);
+            m_view.SetWalkSpeed((m_dir * data.MovementSpeed).magnitude);
         }
 
         private void Die()
@@ -82,5 +83,18 @@ namespace _Main.Scripts.Enemies
         }
 
         private float m_timer;
+        
+        #if UNITY_EDITOR
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            
+            Gizmos.DrawLine(transform.position, m_dir);
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, target);
+        }
+
+#endif
     }
 }
