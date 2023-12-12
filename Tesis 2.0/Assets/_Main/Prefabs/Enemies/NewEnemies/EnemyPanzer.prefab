@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9124865375056901115}
   - component: {fileID: 7691403151616316923}
   - component: {fileID: 747675020238955556}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyPanzer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1159990853574294570}
   - component: {fileID: 7139127828460920897}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}

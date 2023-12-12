@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8508928667513940619}
   - component: {fileID: 881222036145341462}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2568267328761301416}
   - component: {fileID: 7936505511862994063}
   - component: {fileID: 3580171977650753189}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyCreeper
   m_TagString: Untagged
   m_Icon: {fileID: 0}

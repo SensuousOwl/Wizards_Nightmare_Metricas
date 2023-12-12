@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3782093451082020987}
   - component: {fileID: 3231075181653550654}
   - component: {fileID: 7829652513911651956}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyTimeBomber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3805979526033512390}
   - component: {fileID: 5423254693628000074}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}

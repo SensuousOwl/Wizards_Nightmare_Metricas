@@ -15,12 +15,13 @@ namespace _Main.Scripts.Enemies
         private EnemyView m_view;
         private Transform m_target;
 
+        public bool IsAttacking => m_isAttacking;
+        private bool m_isAttacking;
         public Vector2 CurrDir => m_dir;
 
         private Vector2 m_dir;
         public IHealthController HealthController { get; private set; }
         public static event Action<EnemyModel> OnDie;
-        
         
         private void Awake()
         {
@@ -44,6 +45,8 @@ namespace _Main.Scripts.Enemies
         {
             
         }
+
+        public void SetIsAttacking(bool b) => m_isAttacking = b;
 
         private Vector3 target;
         public void MoveTowards(Vector3 p_targetPoint)

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3889678428862452005}
   - component: {fileID: 8630843163875649161}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6113250377628262496}
   - component: {fileID: 5928733025363900775}
   - component: {fileID: 4365175061019579919}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyDivider_Jr
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace _Main.Scripts.Enemies.FSMStates.States
 {
     [CreateAssetMenu(fileName = "SpawnEnemies", menuName = "_main/States/Executions/SpawnEnemies", order = 0)]
-    public class SpawnEnemies : MyState
+    public class SpawnEnemiesState : MyState
     {
         [SerializeField] private List<EnemyModel> enemiesToSpawn = new List<EnemyModel>();
 

@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d145f8da540e4882a49dc338ff704aff, type: 3}
-  m_Name: ExplodeState_2m_r
+  m_Script: {fileID: 11500000, guid: 96c1d5c171654ba788526a6fed37a34b, type: 3}
+  m_Name: Passed_5_Sec
   m_EditorClassIdentifier: 
-  explosionRadius: 2
-  affetedExplotionMask:
-    serializedVersion: 2
-    m_Bits: 33792
+  time: 5

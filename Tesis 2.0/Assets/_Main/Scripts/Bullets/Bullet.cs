@@ -35,6 +35,10 @@ namespace _Main.Scripts.Bullets
 
         private void OnTriggerEnter2D(Collider2D p_other)
         {
+            if(p_other.gameObject.layer != m_targetLayer)
+                return;
+            
+            
             if (p_other.TryGetComponent(out IHealthController l_healthController))
             {
                 l_healthController.TakeDamage(m_damage);

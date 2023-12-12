@@ -5,7 +5,7 @@ using UnityEngine;
 namespace _Main.Scripts.Enemies.FSMStates.States
 {
     [CreateAssetMenu(fileName = "ChaseTarget", menuName = "_main/States/Executions/ChaseTarget", order = 0)]
-    public class ChaseTarget : MyState
+    public class ChaseTargetState : MyState
     {
         [SerializeField] private LayerMask ObsMask;
         [SerializeField] private float avoidForce = 10f;
