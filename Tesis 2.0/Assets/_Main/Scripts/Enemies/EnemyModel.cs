@@ -58,6 +58,10 @@ namespace _Main.Scripts.Enemies
             m_view.SetWalkSpeed((m_dir * data.MovementSpeed).magnitude);
         }
 
+        public void Move(Vector3 p_dir)
+        {
+            transform.position += p_dir * (data.MovementSpeed * Time.deltaTime);
+        }
         private void Die()
         {
             OnDie?.Invoke(this);

@@ -74,5 +74,57 @@ namespace _Main.Scripts.Steering_Behaviours
             return l_dirToAvoid;
         }
         
+        public static Vector3 GetAdvancedObsAvoidanceDir(Vector2 p_orginPos,Vector2 p_targetPosition,float p_detectionRaduis, float p_behabiourIntensity,LayerMask l_mask)
+        {
+            var l_checkRadius = p_detectionRaduis;
+            var l_selfPosition = p_orginPos;
+            var l_dir = (p_targetPosition - l_selfPosition);
+            var m_obstaclesColliders = new Collider2D[20];
+
+            var l_countObjs = Physics2D.OverlapCircleNonAlloc(l_selfPosition, l_checkRadius, m_obstaclesColliders, l_mask);
+
+            Collider2D l_nearestObject = default;
+            float l_distanceNearObj = 0;
+
+            for (var l_i = 0; l_i < l_countObjs; l_i++)
+            {
+                var l_curr = m_obstaclesColliders[l_i];
+
+                if (l_selfPosition == (Vector2)l_curr.transform.position) 
+                    continue;
+
+                var l_closestPointToSelf = l_curr.ClosestPoint(l_selfPosition);
+                var l_distanceCurr = Vector2.Distance(l_selfPosition, l_closestPointToSelf);
+
+                if (l_nearestObject == default)
+                {
+                    l_nearestObject = l_curr;
+                    l_distanceNearObj = l_distanceCurr;
+                }
+                else
+                {
+                    var l_distance = Vector2.Distance(l_selfPosition, l_curr.transform.position);
+
+                    if (!(l_distanceNearObj > l_distance))
+                        continue;
+
+                    l_nearestObject = l_curr;
+                    l_distanceNearObj = l_distanceCurr;
+                }
+            }
+
+            if (l_nearestObject == default)
+                return l_dir.normalized;
+
+            Vector2 l_posObj = l_nearestObject.transform.position;
+            var l_dirObstacleToSelf = l_selfPosition - l_posObj;
+
+            l_dirObstacleToSelf = l_dirObstacleToSelf.normalized * (((l_checkRadius - l_distanceNearObj) / l_checkRadius) * p_behabiourIntensity);
+
+            l_dir += l_dirObstacleToSelf;
+
+            return l_dir.normalized;
+        }
+        
     }
 }

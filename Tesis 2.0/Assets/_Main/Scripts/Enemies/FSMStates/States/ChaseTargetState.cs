@@ -13,13 +13,9 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         {
             var data = p_model.GetData();
 
-            var obsAvoidDir = MySteeringBehaviors.GetObsAvoidanceDir(p_model.transform.position, p_model.CurrDir, data.ObsDetectionRadius,
-                data.ObsDetectionAngle, ObsMask);
-            
-            var chaseDir = p_model.transform.position +
-                MySteeringBehaviors.GetChaseDir(p_model.transform.position, p_model.GetTargetTransform().position);
-            
-            p_model.MoveTowards(obsAvoidDir*avoidForce + chaseDir);
+            var dir = MySteeringBehaviors.GetAdvancedObsAvoidanceDir(p_model.transform.position,
+                p_model.GetTargetTransform().position, data.ObsDetectionRadius, avoidForce, ObsMask);
+            p_model.Move(dir);
         }
     }
 }
