@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
-  m_Name: Boss_ChaseStateData
+  m_Name: Boss1_AttackFromPool
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: a96b87034fc6ee04ea6f29a9746a4134, type: 2}
+  <MyState>k__BackingField: {fileID: 11400000, guid: d1aeb7d807184f048af063eb3e944d77, type: 2}
   <StateConditions>k__BackingField:
-  - {fileID: 11400000, guid: a23fa32a175d4f5498dfa81422711ac3, type: 2}
+  - {fileID: 11400000, guid: f740045e971feed458c32590498ad38a, type: 2}
   - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
-  - {fileID: 11400000, guid: cde165e6708cfe647acbace9faf96e6d, type: 2}
   <ExitStates>k__BackingField:
   - {fileID: 11400000, guid: f4a4089c907e71f4ba664e3818a0f7f4, type: 2}
   - {fileID: 11400000, guid: 6f9e9a59b56f3c04aa7683f087da34eb, type: 2}
-  - {fileID: 11400000, guid: 2a2083298ca81204c84dfde5d168ace9, type: 2}

@@ -12,6 +12,8 @@ namespace _Main.Scripts.Enemies
         [SerializeField] private EnemyData data;
 
         private int m_currHp;
+
+        public EnemyView View => m_view;
         private EnemyView m_view;
         private Transform m_target;
 
@@ -56,11 +58,13 @@ namespace _Main.Scripts.Enemies
             m_dir = (p_targetPoint - transform.position).normalized;
             transform.position += (Vector3)m_dir * (data.MovementSpeed * Time.deltaTime);
             m_view.SetWalkSpeed((m_dir * data.MovementSpeed).magnitude);
+            m_view.UpdateDir(m_dir);
         }
 
         public void Move(Vector3 p_dir)
         {
             transform.position += p_dir * (data.MovementSpeed * Time.deltaTime);
+            m_view.UpdateDir(p_dir);
         }
         private void Die()
         {

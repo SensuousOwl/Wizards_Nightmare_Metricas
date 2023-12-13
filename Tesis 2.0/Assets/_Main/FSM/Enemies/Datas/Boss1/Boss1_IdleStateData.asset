@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
-  m_Name: Boss_IdleStateData
+  m_Name: Boss1_IdleStateData
   m_EditorClassIdentifier: 
   <MyState>k__BackingField: {fileID: 11400000, guid: 151b85e55c13c724eae941c544274c71, type: 2}
   <StateConditions>k__BackingField:
-  - {fileID: 11400000, guid: ceda234735fb7d540bc897d95d0bb9b4, type: 2}
+  - {fileID: 11400000, guid: fa4f4aaf852828a4c80847d3c52892fa, type: 2}
   - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
   - {fileID: 11400000, guid: cde165e6708cfe647acbace9faf96e6d, type: 2}
   <ExitStates>k__BackingField:

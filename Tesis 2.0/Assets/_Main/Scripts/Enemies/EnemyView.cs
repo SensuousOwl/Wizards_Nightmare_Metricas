@@ -24,6 +24,10 @@ namespace _Main.Scripts.Enemies
 
         }
 
+        public void PlayTeleportAnim()
+        {
+            m_animator.Play("Teleport");
+        }
         public void PlayAttackAnim()
         {
             m_animator.Play("Attack");

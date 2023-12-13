@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MyState>k__BackingField: {fileID: 11400000, guid: 151b85e55c13c724eae941c544274c71, type: 2}
   <StateConditions>k__BackingField:
-  - {fileID: 11400000, guid: ceda234735fb7d540bc897d95d0bb9b4, type: 2}
+  - {fileID: 11400000, guid: fa4f4aaf852828a4c80847d3c52892fa, type: 2}
   <ExitStates>k__BackingField:
   - {fileID: 11400000, guid: bda144d153baf514093844d3134f26cc, type: 2}
