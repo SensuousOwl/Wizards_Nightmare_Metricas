@@ -12,9 +12,11 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         {
             public Vector3 Destination;
             public float PrepTime;
+            public float Timer;
         }
         [SerializeField] private float dashSpeed;
         [SerializeField] private float prepTime;
+        [SerializeField] private float maxTimeToReachTarget;
         
         private Dictionary<EnemyModel, ThisData> models = new Dictionary<EnemyModel, ThisData>();
 
@@ -29,18 +31,20 @@ namespace _Main.Scripts.Enemies.FSMStates.States
 
         public override void ExecuteState(EnemyModel p_model)
         {
+            
             if (models[p_model].PrepTime >= Time.time)
             {
                 p_model.transform.Rotate(Vector3.forward, 50 * Time.deltaTime);
                 return;
             }
-            
+
+            models[p_model].Timer += Time.deltaTime;
             p_model.transform.rotation = Quaternion.identity;
             var l_diff = models[p_model].Destination - p_model.transform.position;
             p_model.transform.position += l_diff.normalized * (dashSpeed * Time.deltaTime);
 
 
-            if (l_diff.magnitude <= 0.2f)
+            if (l_diff.magnitude <= 0.2f || models[p_model].Timer >= maxTimeToReachTarget)
             {
                 p_model.SetIsAttacking(false);
             }

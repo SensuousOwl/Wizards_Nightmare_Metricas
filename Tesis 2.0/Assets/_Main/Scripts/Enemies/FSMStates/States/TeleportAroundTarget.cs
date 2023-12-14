@@ -69,8 +69,6 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             if (room.IsInsideBounds(TpPos))
                 return TpPos;
             
-            
-            Debug.Log("recalculando");
             return CalcTransportPos(targetPos, minDist, maxDistanceToTarget, room);
         }
     }

@@ -10,7 +10,7 @@ namespace _Main.Scripts.RoomsSystem
     public class Room : MonoBehaviour
     {
         [SerializeField] private List<Door> doors;
-        [SerializeField] private Vector2 insideRoomSize;
+        public Vector2 InsideRoomSize;
         [field: SerializeField] public List<Transform> SpawnPoints { get; private set; }
         [field: SerializeField] public int MinEnemySpawn { get; private set; }
         [field: SerializeField] public int MaxEnemySpawn { get; private set; }
@@ -80,8 +80,8 @@ namespace _Main.Scripts.RoomsSystem
 
         public bool IsInsideBounds(Vector2 pos)
         {
-            var btmLeft = transform.position - (Vector3)insideRoomSize / 2;
-            var topRight = transform.position + (Vector3)insideRoomSize / 2;
+            var btmLeft = transform.position - (Vector3)InsideRoomSize / 2;
+            var topRight = transform.position + (Vector3)InsideRoomSize / 2;
             
             if (pos.y > topRight.y)
                 return false;

@@ -18,6 +18,15 @@ namespace _Main.Scripts.DevelopmentUtilities
 
         public static Vector3 XY0(this Vector2 p_v) => new(p_v.x, p_v.y, 0);
         public static Vector3 X0Z(this Vector2 p_v) => new(p_v.x, 0, p_v.y);
+        
+        /// <summary> Rotates a Vector2 by x angle  </summary>
+        public static Vector3 RotateVector2(Vector2 v, float delta) 
+        {
+            return new(
+                v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),
+                v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)
+            );
+        }
 
         #endregion
 

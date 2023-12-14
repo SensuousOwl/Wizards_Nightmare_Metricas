@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a23988a1167467ea4ec5b7400ef203d, type: 3}
+  m_Name: 3.2Boss_AttacksPool
+  m_EditorClassIdentifier: 
+  specialAttacksStates:
+  - {fileID: 11400000, guid: dedfad98d4b0dc243a3cac27b401b4fa, type: 2}
+  - {fileID: 11400000, guid: f4f3d5ad716f9b7479f124f57ea792de, type: 2}
+  specialAttacksChances:
+  - 60
+  - 40
