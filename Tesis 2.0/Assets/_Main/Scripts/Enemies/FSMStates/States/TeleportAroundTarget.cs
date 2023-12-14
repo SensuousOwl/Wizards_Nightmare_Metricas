@@ -18,15 +18,23 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         [SerializeField] private Vector2 maxDistanceToTarget;
         [SerializeField] private Vector2 minDistanceToTarget;
         [SerializeField] private float timeToBanish;
-        [SerializeField] private float timeBanished;
         [SerializeField] private LayerMask RoomLayer;
         private Dictionary<EnemyModel, data> m_dictionary = new Dictionary<EnemyModel, data>();
         public override void EnterState(EnemyModel p_model)
         {
             var targetPos = p_model.GetTargetTransform().position;
             m_dictionary[p_model] = new data();
-            
-            m_dictionary[p_model].Room = Physics2D.OverlapCircle(p_model.transform.position, 10f, RoomLayer).GetComponent<Room>();
+
+            var col = Physics.OverlapBox(p_model.transform.position, Vector3.one, Quaternion.identity, RoomLayer);
+
+            for (int i = 0; i < col.Length; i++)
+            {
+                if (col[i].TryGetComponent(out Room l_room))
+                {
+                    m_dictionary[p_model].Room = l_room;
+                    break;
+                }   
+            }
             m_dictionary[p_model].TpPos = CalcTransportPos(targetPos, minDistanceToTarget, maxDistanceToTarget, m_dictionary[p_model].Room);
             p_model.View.PlayTeleportAnim();
             //play start anim
@@ -39,9 +47,9 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             
             
             
-            if(m_dictionary[p_model].Timer < timeToBanish + timeBanished)
+            if(m_dictionary[p_model].Timer < timeToBanish)
                 return;
-            
+            Debug.Log($"Tp a {m_dictionary[p_model].TpPos}");
             p_model.transform.position = m_dictionary[p_model].TpPos;
             p_model.SetIsAttacking(false);
         }
@@ -58,11 +66,12 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             var rndY = Random.Range(minDist.y, maxDist.y);
 
             var TpPos = targetPos + new Vector2(rndX, rndY);
-
             if (room.IsInsideBounds(TpPos))
                 return TpPos;
-            else
-                return CalcTransportPos(targetPos, minDist, maxDistanceToTarget, room);
+            
+            
+            Debug.Log("recalculando");
+            return CalcTransportPos(targetPos, minDist, maxDistanceToTarget, room);
         }
     }
 }

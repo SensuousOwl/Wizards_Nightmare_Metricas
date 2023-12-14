@@ -140,12 +140,12 @@ namespace _Main.Scripts.PlayerScripts
 
         public void SubscribePause()
         {
-            PauseManager.Instance.Subscribe(this);
+            //PauseManager.Instance.Subscribe(this);
         }
 
         public void UnsubscribePause()
         {
-            PauseManager.Instance.Unsubscribe(this);
+            //PauseManager.Instance.Unsubscribe(this);
         }
 
         public void Pause(bool p_pauseState)

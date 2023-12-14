@@ -11,7 +11,6 @@ namespace _Main.Scripts.Enemies.FSMStates.Conditions
         public override bool CompleteCondition(EnemyModel p_model)
         {
             m_currTime += Time.deltaTime;
-            Debug.Log( $"time; {m_currTime} , is {m_currTime > time}");
 
             if (m_currTime > time)
             {

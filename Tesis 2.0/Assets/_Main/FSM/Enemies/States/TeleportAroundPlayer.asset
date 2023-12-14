@@ -15,7 +15,6 @@ MonoBehaviour:
   maxDistanceToTarget: {x: 3, y: 3}
   minDistanceToTarget: {x: 1, y: 1}
   timeToBanish: 0.75
-  timeBanished: 0.75
   RoomLayer:
     serializedVersion: 2
     m_Bits: 64
