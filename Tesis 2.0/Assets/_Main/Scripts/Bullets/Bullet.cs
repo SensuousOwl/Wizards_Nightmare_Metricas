@@ -1,3 +1,4 @@
+using _Main.Scripts.DevelopmentUtilities;
 using UnityEngine;
 
 namespace _Main.Scripts.Bullets
@@ -35,11 +36,10 @@ namespace _Main.Scripts.Bullets
 
         private void OnTriggerEnter2D(Collider2D p_other)
         {
-            
-            if(!p_other.gameObject.layer.Equals(m_targetLayer))
+            if (!LayerMaskExtensions.Includes(m_targetLayer, p_other.gameObject.layer)) 
                 return;
-            
-            
+
+
             if (p_other.TryGetComponent(out IHealthController l_healthController))
             {
                 l_healthController.TakeDamage(m_damage);

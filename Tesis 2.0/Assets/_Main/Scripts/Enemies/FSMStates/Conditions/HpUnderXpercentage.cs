@@ -11,6 +11,7 @@ namespace _Main.Scripts.Enemies.FSMStates.Conditions
         public override bool CompleteCondition(EnemyModel p_model)
         {
             var hc = p_model.HealthController;
+            Debug.Log((hc.GetCurrentHealth() / hc.GetMaxHealth()) * 100 <= percentage);
             return (hc.GetCurrentHealth() / hc.GetMaxHealth()) * 100 <= percentage;
         }
     }

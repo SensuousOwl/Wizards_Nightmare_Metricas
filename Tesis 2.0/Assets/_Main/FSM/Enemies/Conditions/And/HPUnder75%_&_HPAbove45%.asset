@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ac7d394cd70486586a71df752982625, type: 3}
-  m_Name: Passed_1s_&_HPAbove45%
+  m_Name: HPUnder75%_&_HPAbove45%
   m_EditorClassIdentifier: 
-  conditionOne: {fileID: 11400000, guid: cf73c1d56c9919b4696af6634d4668e3, type: 2}
+  conditionOne: {fileID: 11400000, guid: dae7ce13b9691004a9c1d6b90771481d, type: 2}
   conditionTwo: {fileID: 11400000, guid: b560d94be4cc5364fa043c38d33d39ad, type: 2}

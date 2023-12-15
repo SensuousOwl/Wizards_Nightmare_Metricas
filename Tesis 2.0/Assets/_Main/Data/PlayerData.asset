@@ -26,7 +26,7 @@ MonoBehaviour:
   <TargetLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 2048
-  <Damage>k__BackingField: 200
+  <Damage>k__BackingField: 100
   <ProjectileSpeed>k__BackingField: 10
   <InteractRadius>k__BackingField: 1
   <InteractLayerMask>k__BackingField:

@@ -15,9 +15,11 @@ MonoBehaviour:
   <AllStatesData>k__BackingField:
   - {fileID: 11400000, guid: 442d76789ae26a04a8d6298a7a61b8e1, type: 2}
   - {fileID: 11400000, guid: 071806304d495ce419a8a1f2845e74f4, type: 2}
+  - {fileID: 11400000, guid: 50368554c37e6584f9ae91472bd86d25, type: 2}
+  - {fileID: 11400000, guid: 5b9129908adb7174aa485a834dffacd1, type: 2}
   - {fileID: 11400000, guid: 34d0c8c1dbe2dc947a124b93635e8deb, type: 2}
-  <MaxHp>k__BackingField: 600
-  <MovementSpeed>k__BackingField: 4
+  <MaxHp>k__BackingField: 1000
+  <MovementSpeed>k__BackingField: 0
   <FireRate>k__BackingField: 0.3
   <Range>k__BackingField: 20
   <ViewDepthRange>k__BackingField: 20

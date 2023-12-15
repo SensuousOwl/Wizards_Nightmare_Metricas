@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
   m_Name: BossFinal_AttackFromPool_Fase2
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: dd7fc87e53536e24389f9074c57ffff9, type: 2}
+  <MyState>k__BackingField: {fileID: 11400000, guid: 3779df6f9480e8747a6698febc77303b, type: 2}
   <StateConditions>k__BackingField:
   - {fileID: 11400000, guid: f740045e971feed458c32590498ad38a, type: 2}
   - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}

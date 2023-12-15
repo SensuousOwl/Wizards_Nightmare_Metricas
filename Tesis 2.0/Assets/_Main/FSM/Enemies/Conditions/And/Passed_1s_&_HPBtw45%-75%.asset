@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a23988a1167467ea4ec5b7400ef203d, type: 3}
-  m_Name: FinalBoss_AttacksPool_Fase2
+  m_Script: {fileID: 11500000, guid: 4ac7d394cd70486586a71df752982625, type: 3}
+  m_Name: Passed_1s_&_HPBtw45%-75%
   m_EditorClassIdentifier: 
-  specialAttacksStates:
-  - {fileID: 11400000, guid: bd8eac2470bcd7d49ab3a78774e604c0, type: 2}
-  specialAttacksChances:
-  - 100
+  conditionOne: {fileID: 11400000, guid: cf73c1d56c9919b4696af6634d4668e3, type: 2}
+  conditionTwo: {fileID: 11400000, guid: b9ad223bbf4755947860256c5fc9807e, type: 2}
