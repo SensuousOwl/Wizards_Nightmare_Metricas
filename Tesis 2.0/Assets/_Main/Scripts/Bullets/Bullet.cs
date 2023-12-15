@@ -35,7 +35,8 @@ namespace _Main.Scripts.Bullets
 
         private void OnTriggerEnter2D(Collider2D p_other)
         {
-            if(p_other.gameObject.layer != m_targetLayer)
+            
+            if(!p_other.gameObject.layer.Equals(m_targetLayer))
                 return;
             
             

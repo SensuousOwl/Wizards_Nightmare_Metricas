@@ -20,8 +20,9 @@ namespace _Main.Scripts.DevelopmentUtilities
         public static Vector3 X0Z(this Vector2 p_v) => new(p_v.x, 0, p_v.y);
         
         /// <summary> Rotates a Vector2 by x angle  </summary>
-        public static Vector3 RotateVector2(Vector2 v, float delta) 
+        public static Vector3 RotateVector2(this Vector2 v, float delta)
         {
+            delta *= Mathf.Deg2Rad;
             return new(
                 v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),
                 v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)

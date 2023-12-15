@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
+  m_Name: BossFinal_IdleStateData
+  m_EditorClassIdentifier: 
+  <MyState>k__BackingField: {fileID: 11400000, guid: 151b85e55c13c724eae941c544274c71, type: 2}
+  <StateConditions>k__BackingField:
+  - {fileID: 11400000, guid: 5c7cbd723da1e484a95abda75e923148, type: 2}
+  - {fileID: 11400000, guid: b9ad223bbf4755947860256c5fc9807e, type: 2}
+  - {fileID: 11400000, guid: 4b6101980bbea5840b6d310e6137429f, type: 2}
+  - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
+  <ExitStates>k__BackingField:
+  - {fileID: 11400000, guid: 071806304d495ce419a8a1f2845e74f4, type: 2}
+  - {fileID: 11400000, guid: 50368554c37e6584f9ae91472bd86d25, type: 2}
+  - {fileID: 11400000, guid: 5b9129908adb7174aa485a834dffacd1, type: 2}
+  - {fileID: 11400000, guid: 34d0c8c1dbe2dc947a124b93635e8deb, type: 2}

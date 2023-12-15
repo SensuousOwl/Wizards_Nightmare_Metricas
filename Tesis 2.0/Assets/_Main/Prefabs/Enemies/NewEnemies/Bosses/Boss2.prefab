@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 5007099137965718413}
   - component: {fileID: 6084123278703690515}
   - component: {fileID: 3449613797920942877}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Boss2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 1484218293355599073}
   - component: {fileID: 5958726925270613776}
   - component: {fileID: 184515734945557369}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}

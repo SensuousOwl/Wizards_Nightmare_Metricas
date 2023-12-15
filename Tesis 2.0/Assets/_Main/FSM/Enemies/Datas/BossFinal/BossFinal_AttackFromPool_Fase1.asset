@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
+  m_Name: BossFinal_AttackFromPool_Fase1
+  m_EditorClassIdentifier: 
+  <MyState>k__BackingField: {fileID: 11400000, guid: 6b83f15bea7041549bca92a89239f2f4, type: 2}
+  <StateConditions>k__BackingField:
+  - {fileID: 11400000, guid: f740045e971feed458c32590498ad38a, type: 2}
+  - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
+  <ExitStates>k__BackingField:
+  - {fileID: 11400000, guid: 85c1fc8586ba9d2479b8f795e72fa108, type: 2}
+  - {fileID: 11400000, guid: 1086265ce32dd38428b292879e1c21e0, type: 2}
