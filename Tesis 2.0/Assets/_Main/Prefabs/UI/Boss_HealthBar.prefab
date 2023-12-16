@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 137532473495351073}
   - component: {fileID: 137532473495351072}
   m_Layer: 5
-  m_Name: Slider_EdgeDecoType_00_Demo
+  m_Name: Boss_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
