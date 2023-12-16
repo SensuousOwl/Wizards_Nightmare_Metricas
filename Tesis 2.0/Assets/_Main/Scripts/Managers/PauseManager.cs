@@ -10,7 +10,7 @@ namespace _Main.Scripts.Managers
     {
         public static PauseManager Instance;
 
-        private Action<bool> OnPause;
+        public event Action<bool> OnPause;
         private bool m_isPause;
 
         private void Awake()
@@ -22,6 +22,7 @@ namespace _Main.Scripts.Managers
             }
 
             Instance = this;
+            
         }
 
         private void Start()
@@ -36,8 +37,7 @@ namespace _Main.Scripts.Managers
 
         private void OnPausePerformed(InputAction.CallbackContext p_obj)
         {
-            m_isPause = !m_isPause;
-            OnPause?.Invoke(m_isPause);
+            SetPause(!m_isPause);
         }
 
         public void Subscribe(IPausable p_pausable)
@@ -48,6 +48,13 @@ namespace _Main.Scripts.Managers
         public void Unsubscribe(IPausable p_pausable)
         {
             OnPause -= p_pausable.Pause;
+        }
+
+        public void SetPause(bool isPaused)
+        {
+            m_isPause = isPaused;
+            Time.timeScale = m_isPause ? 0 : 1f;
+            OnPause?.Invoke(m_isPause);
         }
     }
 }

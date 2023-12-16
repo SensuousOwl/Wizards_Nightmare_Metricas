@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 namespace _Main.Scripts.PlayerScripts
 {
@@ -7,12 +10,12 @@ namespace _Main.Scripts.PlayerScripts
         [SerializeField] private PlayerAnimData animData;
         private Animator m_animator;
         [SerializeField] private SpriteRenderer renderer;
-
         private void Awake()
         {
             m_animator = GetComponentInChildren<Animator>();
         }
 
+        
 
         public void UpdateDir(Vector3 p_dir)
         {

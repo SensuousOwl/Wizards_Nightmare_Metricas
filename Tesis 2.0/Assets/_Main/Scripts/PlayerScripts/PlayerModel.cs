@@ -22,7 +22,7 @@ namespace _Main.Scripts.PlayerScripts
         private float m_fireRateTimer;
         private Camera m_mainCamera;
         private Vector3 m_crossAirPos;
-        public IHealthController HealthController { get; private set; }
+        public HealthController HealthController { get; private set; }
         public StatsController StatsController { get; private set; }
         public Inventory Inventory { get; private set; }
 
@@ -36,11 +36,11 @@ namespace _Main.Scripts.PlayerScripts
             HealthController = GetComponent<HealthController>();
             HealthController.Initialize(playerData.MaxHp);
             HealthController.OnDie += Die;
-
             m_playerController = GetComponent<IPlayerController>();
 
             Inventory = new Inventory(this);
         }
+        
 
         private void Start()
         {
@@ -67,9 +67,6 @@ namespace _Main.Scripts.PlayerScripts
             m_playerController.OnShoot += Shoot;
             m_playerController.OnUpdateCrosshair += UpdateCrosshair;
         }
-
-        
-
         private void UnsubscribeEventsController()
         {
             m_playerController.OnUseItem -= OnUseItemHandler;
