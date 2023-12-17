@@ -5404,7 +5404,12 @@ MonoBehaviour:
   - {fileID: 70903616674605120}
   - {fileID: 765445764606057667}
   InsideRoomSize: {x: 0, y: 0}
-  <SpawnPoints>k__BackingField: []
+  <SpawnPoints>k__BackingField:
+  - {fileID: 8573619625762631351}
+  - {fileID: 2649038340963780588}
+  - {fileID: 6118428446678355223}
+  - {fileID: 6034314259089432461}
+  - {fileID: 4890973374940786776}
   <MinEnemySpawn>k__BackingField: 0
   <MaxEnemySpawn>k__BackingField: 0
 --- !u!65 &1627286876824191072
