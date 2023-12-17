@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   <MaxHp>k__BackingField: 100
-  <MovementSpeed>k__BackingField: 20
-  <FireRate>k__BackingField: 1
-  <FireRange>k__BackingField: 10
+  <MovementSpeed>k__BackingField: 4
+  <FireRate>k__BackingField: 0.5
+  <FireRange>k__BackingField: 20
   <DashCooldown>k__BackingField: 2
-  <DashTranslation>k__BackingField: 2
+  <DashTranslation>k__BackingField: 50
   <CriticalDamageMult>k__BackingField: 5
   <CriticalChance>k__BackingField: 2
   <SpawnItemChance>k__BackingField: 5
@@ -26,7 +26,7 @@ MonoBehaviour:
   <TargetLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 2048
-  <Damage>k__BackingField: 100
+  <Damage>k__BackingField: 50
   <ProjectileSpeed>k__BackingField: 10
   <InteractRadius>k__BackingField: 1
   <InteractLayerMask>k__BackingField:

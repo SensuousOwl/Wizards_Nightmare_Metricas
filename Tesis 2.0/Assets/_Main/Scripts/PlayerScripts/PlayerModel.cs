@@ -1,3 +1,4 @@
+using System;
 using _Main.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -44,6 +45,7 @@ namespace _Main.Scripts.PlayerScripts
 
         private void Start()
         {
+            Debug.Log(gameObject.layer);
             InitializeStats();
 
             m_fireRateTimer = 0f;
@@ -52,7 +54,6 @@ namespace _Main.Scripts.PlayerScripts
             
             SubscribeEventsController();
         }
-
         private void OnDisable()
         {
             UnsubscribeEventsController();
@@ -106,14 +107,14 @@ namespace _Main.Scripts.PlayerScripts
             m_rigidbody.MovePosition(l_newPosition);
             
             m_view.UpdateDir(p_dir);
-            m_view.SetWalkSpeed((transform.position + l_dir).magnitude);
+            m_view.SetWalkSpeed((l_newPosition - transform.position).magnitude);
         }
 
         private void Dash(Vector2 p_dir)
         {
             if (m_dashTimer > Time.time)
                 return;
-
+            Debug.Log($"dashh: {p_dir * StatsController.GetStatById(StatsId.DashTranslation)}");
             m_rigidbody.AddForce(p_dir * StatsController.GetStatById(StatsId.DashTranslation), ForceMode2D.Impulse);
             m_dashTimer = StatsController.GetStatById(StatsId.DashCooldown) + Time.time;
         }

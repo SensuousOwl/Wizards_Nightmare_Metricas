@@ -76,7 +76,7 @@ namespace _Main.Scripts.Enemies
         public void TriggerDieEvent() => OnDie?.Invoke(this);
         
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionStay2D(Collision2D other)
         {
             if (m_timer > Time.time)
                 return;

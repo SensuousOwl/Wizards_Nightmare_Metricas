@@ -1,3 +1,4 @@
+using System;
 using _Main.Scripts.DevelopmentUtilities;
 using UnityEngine;
 
@@ -34,9 +35,15 @@ namespace _Main.Scripts.Bullets
             }
         }
 
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            Debug.Log(".");
+        }
+
         private void OnTriggerEnter2D(Collider2D p_other)
         {
-            if (!LayerMaskExtensions.Includes(m_targetLayer, p_other.gameObject.layer)) 
+            Debug.Log(m_targetLayer.value);
+            if (!LayerMaskExtensions.Includes(m_targetLayer.value, p_other.gameObject.layer)) 
                 return;
 
 
