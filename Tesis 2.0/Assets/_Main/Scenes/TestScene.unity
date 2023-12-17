@@ -2033,8 +2033,8 @@ MonoBehaviour:
   roomPool: {fileID: 11400000, guid: e44c85b3a02aaa24ca2b4fb1096661e2, type: 2}
   roomSizes: {x: 36, y: 20, z: 2}
   firstRoomPosition: {x: 0, y: 0}
-  minRoomCountToSpawn: 10
-  maxRoomCountToSpawn: 20
+  minRoomCountToSpawn: 5
+  maxRoomCountToSpawn: 9
   roomsLayer:
     serializedVersion: 2
     m_Bits: 64

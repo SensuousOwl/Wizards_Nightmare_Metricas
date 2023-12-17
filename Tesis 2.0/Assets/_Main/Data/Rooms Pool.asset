@@ -12,11 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000693e293454bcc8faea812ca71bc90, type: 3}
   m_Name: Rooms Pool
   m_EditorClassIdentifier: 
-  <FirstRoomPrefab>k__BackingField: {fileID: 8217230274681925806, guid: fedd5e1364f0b7645bd317c9a8f0143e, type: 3}
-  <BossRoomPrefab>k__BackingField: {fileID: 8217230274681925806, guid: fedd5e1364f0b7645bd317c9a8f0143e, type: 3}
+  <FirstRoomPrefab>k__BackingField: {fileID: 8217230274681925806, guid: 21e0efcc2bd2794459e769261424cd82, type: 3}
+  <BossRoomPrefab>k__BackingField: {fileID: 8217230274681925806, guid: 587cbb9e573d3124da4e9f11aab1c747, type: 3}
   roomsPrefabs:
-  - {fileID: 8217230274681925806, guid: 7b0b5dbe19fb9dd40beec449f169991b, type: 3}
+  - {fileID: 8217230274681925806, guid: 1346819cdc0664c418bd5ceb4c68284e, type: 3}
+  - {fileID: 8217230274681925806, guid: 92f8c0a3accd80f4cb98ad9bd19561c9, type: 3}
+  - {fileID: 8217230274681925806, guid: 5e0a96c561bf35048b4dc9a4183d851a, type: 3}
+  - {fileID: 8217230274681925806, guid: 88f419f29a8c8d24e82550b852f33a8e, type: 3}
+  - {fileID: 8217230274681925806, guid: 5ff8c3e106a13c142b27814b72ee22d9, type: 3}
   roomsChances:
+  - 100
+  - 100
+  - 100
+  - 100
   - 100
   chancePercentage:
   - 100
