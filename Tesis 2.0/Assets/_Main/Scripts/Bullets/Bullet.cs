@@ -35,14 +35,10 @@ namespace _Main.Scripts.Bullets
             }
         }
 
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            Debug.Log(".");
-        }
+      
 
         private void OnTriggerEnter2D(Collider2D p_other)
         {
-            Debug.Log(m_targetLayer.value);
             if (!LayerMaskExtensions.Includes(m_targetLayer.value, p_other.gameObject.layer)) 
                 return;
 

@@ -45,7 +45,6 @@ namespace _Main.Scripts.PlayerScripts
 
         private void Start()
         {
-            Debug.Log(gameObject.layer);
             InitializeStats();
 
             m_fireRateTimer = 0f;
