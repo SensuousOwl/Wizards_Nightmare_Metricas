@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.Audio
 {
-    [CreateAssetMenu(menuName = "PsychoKitties/Audio/AudioClipRoundRobin")]
+    [CreateAssetMenu(menuName = "Main/Audio/AudioClipRoundRobin")]
     public sealed class AudioClipRoundRobinDataFile : AudioClipDataFile
     {
         public AudioClip[] roundRobins;

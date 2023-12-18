@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.Audio
 {
-    [CreateAssetMenu(menuName = "PsychoKitties/Audio/BGM")]
+    [CreateAssetMenu(menuName = "Main/Audio/BGM")]
     public class LevelBGMAudioData : ScriptableObject
     {
         public AudioClip NoBattleBGM, InBattleBGM, BossBattleBGM;

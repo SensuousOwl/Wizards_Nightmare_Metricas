@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.Audio
 {
-    [CreateAssetMenu(menuName = "PsychoKitties/Audio/AudioPoolData")]
+    [CreateAssetMenu(menuName = "Main/Audio/AudioPoolData")]
     public class AudioPoolData : ScriptableObject
     {
         [SerializeField] private AudioClipDataFile[] audioClipFiles;
