@@ -1,5 +1,7 @@
 using System;
 using _Main.Scripts.Interfaces;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.Stats;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,7 +26,7 @@ namespace _Main.Scripts.PlayerScripts
         private Camera m_mainCamera;
         private Vector3 m_crossAirPos;
         public HealthController HealthController { get; private set; }
-        public StatsController StatsController { get; private set; }
+        public IStatsService StatsController => ServiceLocator.Get<IStatsService>();
         public Inventory Inventory { get; private set; }
 
         private readonly Collider2D[] m_itemsCollider = new Collider2D[1];
@@ -45,8 +47,6 @@ namespace _Main.Scripts.PlayerScripts
 
         private void Start()
         {
-            InitializeStats();
-
             m_fireRateTimer = 0f;
             m_dashTimer = 0f;
             m_mainCamera = Camera.main;
@@ -60,6 +60,7 @@ namespace _Main.Scripts.PlayerScripts
 
         private void SubscribeEventsController()
         {
+        
             m_playerController.OnUseItem += OnUseItemHandler;
             m_playerController.OnInteract += OnInteractHandler;
             m_playerController.OnMove += Move;
@@ -77,10 +78,7 @@ namespace _Main.Scripts.PlayerScripts
             m_playerController.OnUpdateCrosshair -= UpdateCrosshair;
         }
         
-        private void InitializeStats()
-        {
-            StatsController = new StatsController(playerData);
-        }
+        
         
         private void OnUseItemHandler()
         {
