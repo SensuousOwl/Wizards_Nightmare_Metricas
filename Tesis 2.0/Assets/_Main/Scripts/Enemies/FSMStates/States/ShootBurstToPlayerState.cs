@@ -36,6 +36,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
                     var bul = Instantiate(bulletPrefab, p_model.transform.position, Quaternion.identity);
                     
                     bul.Initialize(data.ProjectileSpeed, data.Damage, dir, data.Range, data.TargetMask);
+                    p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
 
                     models[p_model].BullCount--;
                     models[p_model].Timer = Time.time + timeBtwBullets;

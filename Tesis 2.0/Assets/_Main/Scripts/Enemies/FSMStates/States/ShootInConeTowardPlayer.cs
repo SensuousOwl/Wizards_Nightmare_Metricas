@@ -13,6 +13,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
 
         public override void EnterState(EnemyModel p_model)
         {
+            p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
             var diffAngle = totalConeAngle / bulletsAmount;
             var data = p_model.GetData();
             var dir = (p_model.GetTargetTransform().position - p_model.transform.position).normalized;

@@ -23,9 +23,11 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         public override void EnterState(EnemyModel p_model)
         {
             var l_destination = p_model.GetTargetTransform().position;
-            var l_data = new ThisData();
-            l_data.Destination = l_destination;
-            l_data.PrepTime = Time.time + prepTime;
+            var l_data = new ThisData
+            {
+                Destination = l_destination,
+                PrepTime = Time.time + prepTime
+            };
             models[p_model] = l_data;
         }
 

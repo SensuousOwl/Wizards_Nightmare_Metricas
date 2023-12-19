@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5007099137965718413}
   - component: {fileID: 6084123278703690515}
   - component: {fileID: 3449613797920942877}
+  - component: {fileID: 710210207819937529}
   m_Layer: 11
   m_Name: Boss2
   m_TagString: Enemy
@@ -163,6 +164,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &710210207819937529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2215365234695359442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71bf4cb622739b9458456622584faf97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioPoolData: {fileID: 11400000, guid: 12f24585a87d7c74c8cd612a9315c727, type: 2}
 --- !u!1 &4625279728439886182
 GameObject:
   m_ObjectHideFlags: 0
