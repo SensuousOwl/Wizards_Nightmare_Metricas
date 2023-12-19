@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8224579009452066231}
   - component: {fileID: 2461279231943052668}
   - component: {fileID: 9191218898957387259}
+  - component: {fileID: 5708067157993155443}
   m_Layer: 11
   m_Name: Boss3.2
   m_TagString: Enemy
@@ -163,6 +164,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5708067157993155443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606914559793716161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71bf4cb622739b9458456622584faf97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioPoolData: {fileID: 11400000, guid: 12f24585a87d7c74c8cd612a9315c727, type: 2}
 --- !u!1 &2631880079243612063
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b518df9d364f76bc78ea8a9ec5b1cb, type: 3}
+  m_Name: EnemyAudioPoolData
+  m_EditorClassIdentifier: 
+  audioClipFiles:
+  - {fileID: 11400000, guid: 39cde3ff96a8e0b4881e290b7231d52d, type: 2}
+  - {fileID: 11400000, guid: 26874dc650738cf4ea0046ae8b34e02f, type: 2}
+  - {fileID: 11400000, guid: 8af13f9e28d54624ebc79257a6fbaecd, type: 2}
+  - {fileID: 11400000, guid: ccdaf6896f2337245accdb1331b4f2cd, type: 2}
+  - {fileID: 11400000, guid: 3d4b339b85a8da14da825f02a267b240, type: 2}
+  - {fileID: 11400000, guid: e795fc6d7f579474f8a8560e6a184dce, type: 2}
+  - {fileID: 11400000, guid: 11d5fc6b7d420a442ad430aa56af3f2a, type: 2}
+  - {fileID: 11400000, guid: 3261b7136485fcb40ba6630a76d881f8, type: 2}
+  - {fileID: 11400000, guid: 11f0bc4f9e7f35a47aedd052fab9f317, type: 2}
+  - {fileID: 11400000, guid: 2216c60f7ca37ce40a083e60fdee0bfb, type: 2}
+  - {fileID: 11400000, guid: eb25c331841b54d4394139869b94ab57, type: 2}
+  - {fileID: 11400000, guid: b93b3a7896d9ab54ea58a27bd950b3d7, type: 2}

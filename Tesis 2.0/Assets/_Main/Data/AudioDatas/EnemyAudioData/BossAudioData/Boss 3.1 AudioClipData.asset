@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666b36e8ddbe415fa6756e5ec01d19f3, type: 3}
+  m_Name: Boss 3.1 AudioClipData
+  m_EditorClassIdentifier: 
+  clipID: AttackID
+  clipData: {fileID: 8300000, guid: 9263d0c690d0b654d82704cdf7df6973, type: 3}

@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 196195409607397658}
   - component: {fileID: 341742986192774739}
   - component: {fileID: 3895898168778309281}
+  - component: {fileID: -3997687045057954572}
   m_Layer: 11
   m_Name: EnemyChaser
   m_TagString: Enemy
@@ -269,3 +270,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 8888697576275769959}
+--- !u!114 &-3997687045057954572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610461081323143566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71bf4cb622739b9458456622584faf97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioPoolData: {fileID: 11400000, guid: 12f24585a87d7c74c8cd612a9315c727, type: 2}
