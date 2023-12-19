@@ -11,6 +11,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         [SerializeField] private LayerMask affetedExplotionMask;
         public override void EnterState(EnemyModel p_model)
         {
+            p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
             var col = new Collider2D[20];
             var count = Physics2D.OverlapCircleNonAlloc(p_model.transform.position, explosionRadius,col , affetedExplotionMask);
 

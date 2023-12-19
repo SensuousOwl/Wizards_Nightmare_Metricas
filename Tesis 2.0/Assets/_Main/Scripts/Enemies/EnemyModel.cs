@@ -1,4 +1,5 @@
 using System;
+using _Main.Scripts.Audio;
 using _Main.Scripts.DevelopmentUtilities;
 using _Main.Scripts.PlayerScripts;
 using UnityEngine;
@@ -7,6 +8,7 @@ using LayerMaskExtensions = _Main.Scripts.DevelopmentUtilities.LayerMaskExtensio
 namespace _Main.Scripts.Enemies
 {
     [RequireComponent(typeof(HealthController))]
+    [RequireComponent(typeof(SfxAudioPoolPlayer))]
     public class EnemyModel : MonoBehaviour
     {
         [SerializeField] private EnemyData data;
@@ -23,11 +25,13 @@ namespace _Main.Scripts.Enemies
 
         private Vector2 m_dir;
         public IHealthController HealthController { get; private set; }
+        public ISfxAudioPlayer SfxAudioPlayer { get; private set; }
         public static event Action<EnemyModel> OnDie;
         
         private void Awake()
         {
             HealthController = GetComponent<HealthController>();
+            SfxAudioPlayer = GetComponent<ISfxAudioPlayer>();
             HealthController.Initialize(data.MaxHp);
             m_view = GetComponent<EnemyView>();
             

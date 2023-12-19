@@ -13,25 +13,26 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         [SerializeField] private List<float> specialAttacksChances;
 
 
-        private Dictionary<EnemyModel, MyState> models = new Dictionary<EnemyModel, MyState>();
+        private readonly Dictionary<EnemyModel, MyState> m_models = new();
+        private RouletteWheel<MyState> m_rouletteWheel;
         public override void EnterState(EnemyModel p_model)
         {
-            RouletteWheel<MyState> l_wheel = new RouletteWheel<MyState>(specialAttacksStates,specialAttacksChances);
-            models[p_model] = l_wheel.RunWithCached();
+            m_rouletteWheel ??= new RouletteWheel<MyState>(specialAttacksStates,specialAttacksChances);
+            m_models[p_model] = m_rouletteWheel.RunWithCached();
             p_model.SetIsAttacking(true);
-            models[p_model].EnterState(p_model);
+            m_models[p_model].EnterState(p_model);
         }
 
         public override void ExecuteState(EnemyModel p_model)
         {
-            models[p_model].ExecuteState(p_model);
+            m_models[p_model].ExecuteState(p_model);
         }
 
         public override void ExitState(EnemyModel p_model)
         {
-            models[p_model].ExitState(p_model);
+            m_models[p_model].ExitState(p_model);
 
-            models.Remove(p_model);
+            m_models.Remove(p_model);
         }
     }
 }
