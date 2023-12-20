@@ -139,7 +139,7 @@ namespace _Main.Scripts.PlayerScripts
         
         private void Die()
         {
-            SceneManager.LoadScene("MainMenuScene");
+            SceneManager.LoadScene("DeathScene");
             m_view.PlayDeadAnim();
             Debug.Log($"YOU DIED");
         }
