@@ -10,6 +10,7 @@ namespace _Main.Scripts.ScriptableObjects
     [CreateAssetMenu(fileName = "EnemyPoolData", menuName = "Main/Pools/EnemyPoolData", order = 0)]
     public class EnemyPoolData : ScriptableObject
     {
+        [field: SerializeField] public List<EnemyModel> AllBossToSpawn { get; private set; }
         [SerializeField] private List<EnemyModel> allEnemiesPrefabs;
         [SerializeField] private List<float> allEnemiesChances;
         

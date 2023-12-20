@@ -19,7 +19,7 @@ namespace _Main.Scripts.RoomsSystem
         private bool m_isClear;
         private bool m_isSpawnedEnemies;
 
-        private static IEventService EventService => ServiceLocator.Get<IEventService>();
+        protected static IEventService EventService => ServiceLocator.Get<IEventService>();
 
         public static event Action OnClearedRoom;
         
@@ -42,20 +42,36 @@ namespace _Main.Scripts.RoomsSystem
             
             if (m_isClear || m_isSpawnedEnemies)
                 return;
-            
+
+            EnterPlayerInRoom();
+        }
+
+        protected virtual void EnterPlayerInRoom()
+        {
             EventService.DispatchEvent(new SpawnEnemyEventData(this));
+            CloseDoors();
+        }
+
+        protected void CloseDoors()
+        {
             foreach (var l_door in doors)
             {
                 l_door.SetOpenDoor(false);
             }
         }
-        
-        public void ClearRoom()
+
+        protected void OpenDoor()
         {
             foreach (var l_door in doors)
             {
                 l_door.SetOpenDoor(true);
             }
+        }
+        
+        public virtual void ClearRoom()
+        {
+            OnClearedRoom?.Invoke();
+            OpenDoor();
         }
 
         public bool IsOneDoorAvailable() => m_doorsAvailable == default || m_doorsAvailable.Count > 0;

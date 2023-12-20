@@ -7,50 +7,39 @@ namespace _Main.Scripts
 {
     public class ExperienceController : MonoBehaviour
     {
+        [SerializeField] private int countToNewLevel = 3;
+        [SerializeField] private float experienceToUpgradeLevel = 100f;
         [SerializeField] private UpgradeScreenController upgradeScreenController;
 
         private float m_experience;
-        private float m_experienceToUpgradeLevel = 100f;
         private int m_level;
-        private float m_newLevel = 3;
-
-        public static ExperienceController Instance;
-
-        private void Start()
-        {
-            if (Instance != null)
-            {
-                Destroy(this);
-            }
-
-            Instance = this;
-        }
+        private int m_newLevel = 3;
 
         private void OnEnable()
         {
-            EnemyModel.OnDie += EnemyModelOnOnDie;
+            EnemyModel.OnExperienceDrop += EnemyModelOnOnDie;
         }
 
         private void OnDisable()
         {
-            EnemyModel.OnDie -= EnemyModelOnOnDie;
+            EnemyModel.OnExperienceDrop -= EnemyModelOnOnDie;
         }
         
-        public void EnemyModelOnOnDie(EnemyModel pObj)
+        private void EnemyModelOnOnDie(float p_experienceDrop)
         {
-            m_experience += pObj.GetData().ExperienceDrop;
+            m_experience += p_experienceDrop;
 
-            if (m_experience < m_experienceToUpgradeLevel)
+            if (m_experience < experienceToUpgradeLevel)
                 return;
             Debug.Log("XP " + m_experience);
-            m_experience -= m_experienceToUpgradeLevel;
-            m_experienceToUpgradeLevel += m_experienceToUpgradeLevel * 0.1f;
+            m_experience -= experienceToUpgradeLevel;
+            experienceToUpgradeLevel += experienceToUpgradeLevel * 0.1f;
             m_level++;
             
-            // if (m_level < m_newLevel)
-            //     return;
-            //
-            // m_newLevel += 3;
+            if (m_level < m_newLevel)
+                 return;
+            
+            m_newLevel += countToNewLevel;
             upgradeScreenController.ActivateUpgradeScreen();
         }
     }
