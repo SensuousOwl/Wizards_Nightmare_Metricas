@@ -23,7 +23,7 @@ MonoBehaviour:
   <Range>k__BackingField: 0
   <ViewDepthRange>k__BackingField: 20
   <Bullet>k__BackingField: {fileID: 0}
-  <Damage>k__BackingField: 20
+  <Damage>k__BackingField: 0
   <ProjectileSpeed>k__BackingField: 0
   <TargetMask>k__BackingField:
     serializedVersion: 2

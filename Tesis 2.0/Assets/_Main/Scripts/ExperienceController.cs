@@ -13,7 +13,7 @@ namespace _Main.Scripts
 
         private float m_experience;
         private int m_level;
-        private int m_newLevel = 3;
+        private int m_newLevel = 1;
 
         private void OnEnable()
         {

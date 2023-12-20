@@ -9,6 +9,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
     {
         [SerializeField] private float explosionRadius;
         [SerializeField] private LayerMask affetedExplotionMask;
+        [SerializeField] private float explosionDamage = 40f;
         public override void EnterState(EnemyModel p_model)
         {
             p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
@@ -30,7 +31,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             }
             
             //TODO; preguntar que onda con esto
-            p_model.HealthController.TakeDamage(999);
+            p_model.HealthController.TakeDamage(explosionDamage);
         }
 
         public override void ExecuteState(EnemyModel p_model)
