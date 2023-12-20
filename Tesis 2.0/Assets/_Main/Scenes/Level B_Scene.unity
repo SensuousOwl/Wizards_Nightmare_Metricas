@@ -940,57 +940,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5219219785296410817, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219219785296410817, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219219785296410817, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219219785296410817, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6020143626664030457, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
       propertyPath: m_Name
       value: UpgradeController
-      objectReference: {fileID: 0}
-    - target: {fileID: 6633734198314180910, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6633734198314180910, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6633734198314180910, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6633734198314180910, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089904932364866395, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089904932364866395, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089904932364866395, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089904932364866395, guid: 68e6d09b78a32d64cbbc5d4d7effd252, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1282,7 +1234,7 @@ PrefabInstance:
     - target: {fileID: 3660186077304239271, guid: b7a30b2f6b51b98498b49a40fdd7a43c, type: 3}
       propertyPath: audioData
       value: 
-      objectReference: {fileID: 11400000, guid: ab79162d5b02f094b9d9f010beb0af64, type: 2}
+      objectReference: {fileID: 11400000, guid: 9013d35ec75606144abd3f56f3a20300, type: 2}
     - target: {fileID: 6831487278244535715, guid: b7a30b2f6b51b98498b49a40fdd7a43c, type: 3}
       propertyPath: m_Name
       value: AudioManager

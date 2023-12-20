@@ -16,3 +16,4 @@ MonoBehaviour:
   affetedExplotionMask:
     serializedVersion: 2
     m_Bits: 33792
+  explosionDamage: 30

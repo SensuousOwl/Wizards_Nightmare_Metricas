@@ -39,6 +39,7 @@ namespace _Main.Scripts.Managers
         {
             SetPause(!m_isPause);
         }
+        
 
         public void Subscribe(IPausable p_pausable)
         {
@@ -48,6 +49,12 @@ namespace _Main.Scripts.Managers
         public void Unsubscribe(IPausable p_pausable)
         {
             OnPause -= p_pausable.Pause;
+        }
+
+        public void SetPauseUpgrade(bool isPaused)
+        {
+            m_isPause = isPaused;
+            Time.timeScale = m_isPause ? 0 : 1f;
         }
 
         public void SetPause(bool isPaused)

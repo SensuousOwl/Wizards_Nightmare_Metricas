@@ -51,7 +51,7 @@ namespace _Main.Scripts.UI
             }
             
             screenObj.SetActive(true);
-            PauseManager.Instance.SetPause(true);
+            PauseManager.Instance.SetPauseUpgrade(true);
         }
 
         private void Update()
@@ -77,7 +77,7 @@ namespace _Main.Scripts.UI
             m_currUpgradeDatas[p_buttonId].ApplyEffects(m_model);
             m_previusUpgradeDatas.Clear();
             m_currUpgradeDatas.Clear();
-            PauseManager.Instance.SetPause(false);
+            PauseManager.Instance.SetPauseUpgrade(false);
             screenObj.SetActive(false);
         }
 
