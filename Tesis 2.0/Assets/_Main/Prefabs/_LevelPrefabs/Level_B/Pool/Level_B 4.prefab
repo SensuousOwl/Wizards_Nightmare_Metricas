@@ -4453,7 +4453,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4463,7 +4463,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4478,12 +4478,12 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 662955580, guid: f3180e01f9590314fabe3680ea1da17a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 404633983, guid: f3180e01f9590314fabe3680ea1da17a, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 2
     m_Data:
@@ -5604,8 +5604,8 @@ MonoBehaviour:
   - {fileID: 6118428446678355223}
   - {fileID: 6034314259089432461}
   - {fileID: 4890973374940786776}
-  <MinEnemySpawn>k__BackingField: 0
-  <MaxEnemySpawn>k__BackingField: 0
+  <MinEnemySpawn>k__BackingField: 2
+  <MaxEnemySpawn>k__BackingField: 5
   isStartRoom: 0
 --- !u!65 &1627286876824191072
 BoxCollider:
