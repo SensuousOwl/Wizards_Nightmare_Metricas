@@ -20,7 +20,6 @@ namespace _Main.Scripts.RoomsSystem
 
         private List<Room> m_rooms = new();
         private int m_roomToClear;
-
         
         private void Start()
         {

@@ -26,7 +26,8 @@ namespace _Main.Scripts.Enemies
         private Vector2 m_dir;
         public IHealthController HealthController { get; private set; }
         public ISfxAudioPlayer SfxAudioPlayer { get; private set; }
-        public static event Action<EnemyModel> OnDie;
+        public event Action<EnemyModel> OnDie;
+        public static event Action<float> OnExperienceDrop; 
         
         private void Awake()
         {
@@ -70,10 +71,11 @@ namespace _Main.Scripts.Enemies
             transform.position += p_dir * (data.MovementSpeed * Time.deltaTime);
             m_view.UpdateDir(p_dir);
         }
+
         private void Die()
         {
+            OnExperienceDrop?.Invoke(data.ExperienceDrop);
             OnDie?.Invoke(this);
-            ExperienceController.Instance.EnemyModelOnOnDie(this);
             Destroy(gameObject);
         }
 
