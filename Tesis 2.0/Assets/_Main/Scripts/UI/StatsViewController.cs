@@ -5,7 +5,6 @@ using _Main.Scripts.Services;
 using _Main.Scripts.Services.Stats;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace _Main.Scripts.UI
 {
@@ -43,28 +42,29 @@ namespace _Main.Scripts.UI
 
         private void ChangeStatValue(StatsId statId, float value)
         {
+            var stringValue = String.Format("{0.##}", value);
             switch (statId)
             {
                 case StatsId.MovementSpeed :
-                    movementSpeed_Text.text = value.ToString();
+                    movementSpeed_Text.text = stringValue;
                     break;
                 case StatsId.FireRate :
-                    fireRate_Text.text = value.ToString();
+                    fireRate_Text.text = stringValue;
                     break;
                 case StatsId.Range :
-                    fireRange_Text.text = value.ToString();
+                    fireRange_Text.text = stringValue;
                     break;
                 case StatsId.Damage :
-                    damage_Text.text = value.ToString();
+                    damage_Text.text = stringValue;
                     break;
                 case StatsId.CriticalDamageMult :
-                    critDama_Text.text = value.ToString();
+                    critDama_Text.text = stringValue;
                     break;
                 case StatsId.CriticalChance :
-                    critChance_Text.text = value.ToString();
+                    critChance_Text.text = stringValue;
                     break;
                 case StatsId.ProjectileSpeed :
-                    projectileSpeed_Text.text = value.ToString();
+                    projectileSpeed_Text.text = stringValue;
                     break;
             }
         }
