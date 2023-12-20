@@ -5,6 +5,7 @@ using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.UpgradesSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Main.Scripts.UI
 {
@@ -15,6 +16,8 @@ namespace _Main.Scripts.UI
         [SerializeField] private int upgradesCount;
         [SerializeField] private List<TMP_Text> namesTxt = new List<TMP_Text>();
         [SerializeField] private List<TMP_Text> descriptionTxt = new List<TMP_Text>();
+        [SerializeField] private List<Image> buttonImages = new List<Image>();
+        [SerializeField] private List<Image> effectImages = new List<Image>();
 
         private List<UpgradeData> m_currUpgradeDatas = new List<UpgradeData>();
         private List<UpgradeData> m_previusUpgradeDatas = new List<UpgradeData>();
@@ -42,6 +45,9 @@ namespace _Main.Scripts.UI
                 
                 namesTxt[i].text = m_currUpgradeDatas[i].Name;
                 descriptionTxt[i].text = m_currUpgradeDatas[i].Description;
+
+                buttonImages[i].sprite = m_currUpgradeDatas[i].BorderSprite;
+                effectImages[i].sprite = m_currUpgradeDatas[i].EffectSprite;
             }
             
             screenObj.SetActive(true);
