@@ -28,7 +28,6 @@ namespace _Main.Scripts
         private void EnemyModelOnOnDie(float p_experienceDrop)
         {
             m_experience += p_experienceDrop;
-            Debug.Log($"Exp: {m_experience}, gain {p_experienceDrop}");
             if (m_experience < experienceToUpgradeLevel)
                 return;
             

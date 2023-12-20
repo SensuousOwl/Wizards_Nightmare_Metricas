@@ -15,4 +15,4 @@ MonoBehaviour:
   ObsMask:
     serializedVersion: 2
     m_Bits: 32768
-  avoidForce: 5
+  avoidForce: 20
