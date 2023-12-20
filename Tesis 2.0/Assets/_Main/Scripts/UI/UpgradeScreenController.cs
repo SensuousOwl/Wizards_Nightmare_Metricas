@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Main.Scripts.Managers;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.UpgradesSystem;
 using TMPro;
@@ -25,6 +26,13 @@ namespace _Main.Scripts.UI
             screenObj.SetActive(false);
         }
 
+        
+
+        private void OnPause(bool obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ActivateUpgradeScreen()
         {
             for (int i = 0; i < upgradesCount; i++)
@@ -37,6 +45,7 @@ namespace _Main.Scripts.UI
             }
             
             screenObj.SetActive(true);
+            PauseManager.Instance.SetPause(true);
         }
 
         private void Update()
@@ -62,6 +71,7 @@ namespace _Main.Scripts.UI
             m_currUpgradeDatas[p_buttonId].ApplyEffects(m_model);
             m_previusUpgradeDatas.Clear();
             m_currUpgradeDatas.Clear();
+            PauseManager.Instance.SetPause(false);
             screenObj.SetActive(false);
         }
 
