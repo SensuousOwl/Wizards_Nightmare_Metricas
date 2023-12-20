@@ -17,7 +17,6 @@ namespace _Main.Scripts.RoomsSystem
 
         private List<Door> m_doorsAvailable = new();
         private bool m_isClear;
-        private bool m_isSpawnedEnemies;
 
         protected static IEventService EventService => ServiceLocator.Get<IEventService>();
 
@@ -40,7 +39,7 @@ namespace _Main.Scripts.RoomsSystem
             l_cameraTransform.position = new Vector3(l_position.x, l_position.y,
                 l_cameraTransform.position.z);
             
-            if (m_isClear || m_isSpawnedEnemies)
+            if (m_isClear)
                 return;
 
             EnterPlayerInRoom();
@@ -71,6 +70,7 @@ namespace _Main.Scripts.RoomsSystem
         public virtual void ClearRoom()
         {
             OnClearedRoom?.Invoke();
+            m_isClear = true;
             OpenDoor();
         }
 

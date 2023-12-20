@@ -67,7 +67,7 @@ namespace _Main.Scripts.RoomsSystem
             if (m_isAvailable && p_other.TryGetComponent(out Door l_door))
                 ConnectDoor(l_door);
             
-            if (!m_isOpen && m_temporalyClose)
+            if (!m_isOpen || m_temporalyClose)
                 return;
             
             if (!p_other.CompareTag("Player")) 
