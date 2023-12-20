@@ -24,18 +24,29 @@ namespace _Main.Scripts.RoomsSystem
         private void OnSpawnBossInRoom(SpawnBossInRoom p_data)
         {
             m_currentRoom = p_data.Room;
+            
             m_enemyCount = 0;
 
 
             for (int i = 0; i < m_currentRoom.SpawnPoints.Count; i++)
             {
                 var l_spawnPoint = m_currentRoom.SpawnPoints[i];
-                var rndBoss = Random.Range(0, enemyPoolData.AllBossToSpawn.Count());
-                var l_enemy = Instantiate(enemyPoolData.AllBossToSpawn[rndBoss], l_spawnPoint.position, Quaternion.identity);
+                var rndBoss = p_data.Bosses[i];
+                var l_enemy = Instantiate(rndBoss, l_spawnPoint.position, Quaternion.identity);
                 m_enemyCount++;
                 l_enemy.OnDie += DieEnemyHandler;
                 
             }
+            
+            // for (int i = 0; i < m_currentRoom.SpawnPoints.Count; i++)
+            // {
+            //     var l_spawnPoint = m_currentRoom.SpawnPoints[i];
+            //     var rndBoss = Random.Range(0, enemyPoolData.AllBossToSpawn.Count());
+            //     var l_enemy = Instantiate(enemyPoolData.AllBossToSpawn[rndBoss], l_spawnPoint.position, Quaternion.identity);
+            //     m_enemyCount++;
+            //     l_enemy.OnDie += DieEnemyHandler;
+            //     
+            // }
             // foreach (var l_enemyPrefab in enemyPoolData.AllBossToSpawn)
             // {
             //     var l_spawnPoint = m_currentRoom.SpawnPoints[Random.Range(0, m_currentRoom.SpawnPoints.Count)];

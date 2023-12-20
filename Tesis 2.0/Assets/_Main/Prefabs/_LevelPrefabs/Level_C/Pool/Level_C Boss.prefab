@@ -5193,7 +5193,11 @@ MonoBehaviour:
   - {fileID: 6470447978685511078}
   <MinEnemySpawn>k__BackingField: 0
   <MaxEnemySpawn>k__BackingField: 0
+  isStartRoom: 0
   activatePassLevel: {fileID: 4605502158622280261}
+  bossesToSpawn:
+  - {fileID: 463209081380052378, guid: cd25fd3f3e0668c4bb7ebcc3aed16ad9, type: 3}
+  - {fileID: 1569396537955310074, guid: 6e1ef34a77cd4744384596ef99345417, type: 3}
 --- !u!65 &1627286876824191072
 BoxCollider:
   m_ObjectHideFlags: 0

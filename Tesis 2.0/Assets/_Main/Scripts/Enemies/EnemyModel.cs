@@ -80,7 +80,7 @@ namespace _Main.Scripts.Enemies
             OnDie?.Invoke(this);
         }
 
-
+        private float m_timer;
         private void OnCollisionStay2D(Collision2D other)
         {
             if (m_timer > Time.time)
@@ -92,13 +92,12 @@ namespace _Main.Scripts.Enemies
             if(!other.gameObject.TryGetComponent(out IHealthController l_healthController))
                 return;
             
-            
             l_healthController.TakeDamage(data.Damage);
             m_view.PlayAttackAnim();
             m_timer = Time.time + 1;
         }
 
-        private float m_timer;
+        
         
         #if UNITY_EDITOR
 
