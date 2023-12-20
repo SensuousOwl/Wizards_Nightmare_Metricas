@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: Elder's Might
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 
   <Name>k__BackingField: Elder's Might
-  <Description>k__BackingField: "Max Life Up +200%\nDamage Down -20%\nMovement Speed
-    Down -20%\nFire Rate Down -20%\n "
+  <Description>k__BackingField: 'Max Life Up +200%
+
+    Damage Down -20%
+
+    Movement
+    Speed Down -20%
+
+    Fire Rate Down -20%'
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 2b43f6682e6d8bb4795d2df2fcb85622, type: 2}
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}

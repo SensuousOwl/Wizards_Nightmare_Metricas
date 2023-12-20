@@ -12,26 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: Jack of All Trades
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 
-  <Name>k__BackingField: Lighter Touch
-  <Description>k__BackingField: 'Damage Down -20%
+  <Name>k__BackingField: Jack of All Trades
+  <Description>k__BackingField: 'Dmg Down -20%
 
-    Critical Chance Down -20%
+    Fire Rate Up +15%
 
-    Fire
-    Rate Up +15%
-
-    Projectile Speed Up +15%
+    Projectile
+    Speed Up +15%
 
     Range Up +15%'
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
-  - {fileID: 11400000, guid: fab1d45caf847d3488400d9fe60e4ad8, type: 2}
   - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
   - {fileID: 11400000, guid: 7ab17834b08e72b47b46475efee5bf12, type: 2}
   - {fileID: 11400000, guid: 7a5981ab91987a845bc310c0218606af, type: 2}
   <UpgradePercentage>k__BackingField:
-  - -20
   - -20
   - 15
   - 15
