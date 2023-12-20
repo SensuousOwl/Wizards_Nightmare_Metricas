@@ -13,6 +13,8 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
         [field: SerializeField, Multiline] public string Description { get; private set; }
         [field: SerializeField] public List<UpgradeEffect> Effects { get; private set; }
         [field: SerializeField] public List<float> UpgradePercentage { get; private set; }
+        [field: SerializeField] public Sprite BorderSprite { get; private set; }
+        [field: SerializeField] public Sprite EffectSprite { get; private set; }
 
 
 

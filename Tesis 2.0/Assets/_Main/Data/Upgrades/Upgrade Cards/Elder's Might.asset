@@ -26,3 +26,5 @@ MonoBehaviour:
   - -20
   - -20
   - -20
+  <BorderSprite>k__BackingField: {fileID: 21300000, guid: a7b83b23c329baf42889e352b60df342, type: 3}
+  <EffectSprite>k__BackingField: {fileID: 21300000, guid: 2e68b4d5bd70fb64dae7620972dc4224, type: 3}
