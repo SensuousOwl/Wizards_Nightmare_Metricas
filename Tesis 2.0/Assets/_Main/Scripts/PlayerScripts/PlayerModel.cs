@@ -141,7 +141,6 @@ namespace _Main.Scripts.PlayerScripts
         {
             SceneManager.LoadScene("DeathScene");
             m_view.PlayDeadAnim();
-            Debug.Log($"YOU DIED");
         }
     }
 }

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000693e293454bcc8faea812ca71bc90, type: 3}
+  m_Name: Rooms Pool_Level_A
+  m_EditorClassIdentifier: 
+  <FirstRoomPrefab>k__BackingField: {fileID: 8217230274681925806, guid: ee433996469621742b52937fadb62a63, type: 3}
+  <BossRoomPrefab>k__BackingField: {fileID: 7829949541562484033, guid: 7ba0ef0656ff27b44bb01ffa6b12fccb, type: 3}
+  roomsPrefabs:
+  - {fileID: 8217230274681925806, guid: 3c442f24a0dd6e847ab5945b9ea81ef7, type: 3}
+  - {fileID: 8217230274681925806, guid: 87a86ee4f414a594795ccf57171add78, type: 3}
+  - {fileID: 8217230274681925806, guid: e97d45ea7ceacde439410e0eda43b5f9, type: 3}
+  - {fileID: 8217230274681925806, guid: eb91d1c5d8b2e5743ababf0a6f4d82b1, type: 3}
+  - {fileID: 8217230274681925806, guid: 5d6e7c80620c8d14e9330757221b5a1e, type: 3}
+  roomsChances:
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  chancePercentage:
+  - 100

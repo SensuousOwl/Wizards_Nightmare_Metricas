@@ -1,3 +1,4 @@
+using System.Linq;
 using _Main.Scripts.Enemies;
 using _Main.Scripts.ScriptableObjects;
 using _Main.Scripts.Services;
@@ -24,14 +25,24 @@ namespace _Main.Scripts.RoomsSystem
         {
             m_currentRoom = p_data.Room;
             m_enemyCount = 0;
-            
-            foreach (var l_enemyPrefab in enemyPoolData.AllBossToSpawn)
+
+
+            for (int i = 0; i < m_currentRoom.SpawnPoints.Count; i++)
             {
-                var l_spawnPoint = m_currentRoom.SpawnPoints[Random.Range(0, m_currentRoom.SpawnPoints.Count)];
-                var l_enemy = Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
+                var l_spawnPoint = m_currentRoom.SpawnPoints[i];
+                var rndBoss = Random.Range(0, enemyPoolData.AllBossToSpawn.Count());
+                var l_enemy = Instantiate(enemyPoolData.AllBossToSpawn[rndBoss], l_spawnPoint.position, Quaternion.identity);
                 m_enemyCount++;
                 l_enemy.OnDie += DieEnemyHandler;
+                
             }
+            // foreach (var l_enemyPrefab in enemyPoolData.AllBossToSpawn)
+            // {
+            //     var l_spawnPoint = m_currentRoom.SpawnPoints[Random.Range(0, m_currentRoom.SpawnPoints.Count)];
+            //     var l_enemy = Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
+            //     m_enemyCount++;
+            //     l_enemy.OnDie += DieEnemyHandler;
+            // }
         }
 
         private void OnDisable()

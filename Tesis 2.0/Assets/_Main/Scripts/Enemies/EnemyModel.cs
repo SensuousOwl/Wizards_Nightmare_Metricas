@@ -72,15 +72,14 @@ namespace _Main.Scripts.Enemies
             m_view.UpdateDir(p_dir);
         }
 
-        private void Die()
+       
+
+        public void TriggerDieEvent()
         {
             OnExperienceDrop?.Invoke(data.ExperienceDrop);
             OnDie?.Invoke(this);
-            Destroy(gameObject);
         }
 
-        public void TriggerDieEvent() => OnDie?.Invoke(this);
-        
 
         private void OnCollisionStay2D(Collision2D other)
         {

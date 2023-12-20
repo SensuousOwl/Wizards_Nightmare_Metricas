@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c6da0df7df29f40986756b24fe0822, type: 3}
   m_Name: EnemyPoolData
   m_EditorClassIdentifier: 
+  <AllBossToSpawn>k__BackingField:
+  - {fileID: 7143505613362295351, guid: bc2612f5bc10c994e89b00e3b2a2e01d, type: 3}
+  - {fileID: 463209081380052378, guid: cd25fd3f3e0668c4bb7ebcc3aed16ad9, type: 3}
+  - {fileID: 1569396537955310074, guid: 6e1ef34a77cd4744384596ef99345417, type: 3}
+  - {fileID: 1815099171588671055, guid: a7db368e41f9cc846bc888720a1f5486, type: 3}
   allEnemiesPrefabs:
   - {fileID: 665963807789491670, guid: 8c9058405e010f8459356fddc528622a, type: 3}
   - {fileID: 7815752160156130473, guid: 30624ac7c35e2ea419fb677e882ec8f8, type: 3}
