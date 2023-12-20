@@ -9,7 +9,6 @@ namespace _Main.Scripts.Enemies.FSMStates.Conditions
         [SerializeField] private float range;
         public override bool CompleteCondition(EnemyModel p_model)
         {
-            Debug.Log($"Distance {(p_model.GetTargetTransform().position - p_model.transform.position).magnitude}");
             return (p_model.GetTargetTransform().position - p_model.transform.position).magnitude <= range;
         }
     }

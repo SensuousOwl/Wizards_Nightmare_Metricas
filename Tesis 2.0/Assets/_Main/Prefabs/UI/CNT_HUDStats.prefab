@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4991025159779926886}
   - component: {fileID: 3862720781076790594}
   m_Layer: 5
-  m_Name: TXT_FireRange
+  m_Name: TXT_Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,6 +412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4597801828381375220}
   - component: {fileID: 2799995607860152530}
+  - component: {fileID: 6608322426566423082}
   m_Layer: 5
   m_Name: CNT_HUDStats
   m_TagString: Untagged
@@ -452,6 +453,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6608322426566423082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755793839337369573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1d126449a940eea3e7ae5256080244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed_Text: {fileID: 3733679972040113199}
+  fireRate_Text: {fileID: 216209671046979015}
+  fireRange_Text: {fileID: 3862720781076790594}
+  damage_Text: {fileID: 6693839255247024442}
+  critDama_Text: {fileID: 7209739939548852470}
+  critChance_Text: {fileID: 435677336469552189}
+  projectileSpeed_Text: {fileID: 7963178744817448578}
 --- !u!1 &5895108851414443283
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,9 +506,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 159.96, y: 0}
-  m_SizeDelta: {x: 37, y: 386}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 160, y: 200}
+  m_SizeDelta: {x: 37, y: 390}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4690816863178190104
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ namespace _Main.Scripts.UI
 {
     public class StatsViewController : MonoBehaviour
     {
-        [SerializeField] private TMP_Text hp_Text;
         [SerializeField] private TMP_Text movementSpeed_Text;
         [SerializeField] private TMP_Text fireRate_Text;
         [SerializeField] private TMP_Text fireRange_Text;
@@ -42,7 +41,7 @@ namespace _Main.Scripts.UI
 
         private void ChangeStatValue(StatsId statId, float value)
         {
-            var stringValue = String.Format("{0.##}", value);
+            var stringValue = String.Format("{0 : 0.00}", value);
             switch (statId)
             {
                 case StatsId.MovementSpeed :

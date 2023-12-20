@@ -13,14 +13,23 @@ MonoBehaviour:
   m_Name: EnemyPoolData
   m_EditorClassIdentifier: 
   allEnemiesPrefabs:
-  - {fileID: 665963807789491670, guid: 439ef062b029d0e4c906c9a7058fd2ae, type: 3}
-  - {fileID: 3256698577766980137, guid: 8e452af272ae92845bb343b91ee1a92e, type: 3}
-  - {fileID: 2781679343819664879, guid: d964bf710b564ef4c96e97a23d72393d, type: 3}
+  - {fileID: 665963807789491670, guid: 8c9058405e010f8459356fddc528622a, type: 3}
+  - {fileID: 7815752160156130473, guid: 30624ac7c35e2ea419fb677e882ec8f8, type: 3}
+  - {fileID: 2428573690158940086, guid: d66e410d258742c4184efc57e321c2f8, type: 3}
+  - {fileID: 2428573690158940086, guid: bbc5cbe420da7d94b92b5d1e483e5a9e, type: 3}
+  - {fileID: 7161241070491691102, guid: e9e569ac1dd022f48afab02679836414, type: 3}
+  - {fileID: 7357540521744419404, guid: 8460fd1797ba4da4da269a5e3a0af7d0, type: 3}
   allEnemiesChances:
+  - 100
+  - 80
+  - 0
+  - 100
   - 50
-  - 50
-  - 50
+  - 80
   chancePercentage:
+  - 33.333332
+  - 33.333332
+  - 33.333332
   - 33.333332
   - 33.333332
   - 33.333332

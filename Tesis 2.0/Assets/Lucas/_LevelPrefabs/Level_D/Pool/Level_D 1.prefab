@@ -5299,7 +5299,7 @@ MonoBehaviour:
   - {fileID: 3769746625441352072}
   - {fileID: 70903616674605120}
   - {fileID: 765445764606057667}
-  InsideRoomSize: {x: 0, y: 0}
+  InsideRoomSize: {x: 32, y: 16}
   <SpawnPoints>k__BackingField:
   - {fileID: 8573619625762631351}
   - {fileID: 2649038340963780588}

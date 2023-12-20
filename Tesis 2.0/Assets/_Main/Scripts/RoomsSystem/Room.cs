@@ -10,7 +10,7 @@ namespace _Main.Scripts.RoomsSystem
     public class Room : MonoBehaviour
     {
         [SerializeField] private List<Door> doors;
-        public Vector2 InsideRoomSize;
+        public Vector2 InsideRoomSize = new Vector2(32,16);
         [field: SerializeField] public List<Transform> SpawnPoints { get; private set; }
         [field: SerializeField] public int MinEnemySpawn { get; private set; }
         [field: SerializeField] public int MaxEnemySpawn { get; private set; }

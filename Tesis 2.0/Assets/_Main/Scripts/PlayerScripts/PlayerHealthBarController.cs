@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,14 @@ namespace _Main.Scripts.PlayerScripts
         private HealthController m_healthController;
         private void Start()
         {
+            StartCoroutine(Initialize());
+        }
+
+        private IEnumerator Initialize()
+        {
+            yield return new WaitForSeconds(1);
+            
+            
             m_healthController = FindObjectOfType<PlayerModel>().HealthController;
             
             m_healthController.OnChangeHealth += UpdateHpBar;
@@ -20,7 +29,6 @@ namespace _Main.Scripts.PlayerScripts
             
             healthBarRectTrans = healthBar.GetComponent<RectTransform>();
         }
-
 
         public void UpdateHpBar(float maxHp, float currHp)
         {
