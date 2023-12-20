@@ -14,7 +14,8 @@ namespace _Main.Scripts.RoomsSystem
         [field: SerializeField] public List<Transform> SpawnPoints { get; private set; }
         [field: SerializeField] public int MinEnemySpawn { get; private set; }
         [field: SerializeField] public int MaxEnemySpawn { get; private set; }
-
+        [SerializeField] private bool isStartRoom;
+        
         private List<Door> m_doorsAvailable = new();
         private bool m_isClear;
 
@@ -39,7 +40,7 @@ namespace _Main.Scripts.RoomsSystem
             l_cameraTransform.position = new Vector3(l_position.x, l_position.y,
                 l_cameraTransform.position.z);
             
-            if (m_isClear)
+            if (m_isClear | isStartRoom)
                 return;
 
             EnterPlayerInRoom();

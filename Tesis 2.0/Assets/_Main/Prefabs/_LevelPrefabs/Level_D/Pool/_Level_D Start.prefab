@@ -5083,6 +5083,7 @@ MonoBehaviour:
   <SpawnPoints>k__BackingField: []
   <MinEnemySpawn>k__BackingField: 0
   <MaxEnemySpawn>k__BackingField: 0
+  isStartRoom: 1
 --- !u!65 &1627286876824191072
 BoxCollider:
   m_ObjectHideFlags: 0
