@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Main.Scripts.PlayerScripts;
 
 namespace _Main.Scripts.Services.Stats
@@ -23,6 +24,11 @@ namespace _Main.Scripts.Services.Stats
         
         
         private readonly Dictionary<StatsId, float> m_statsDictionary = new();
+
+
+        public Action<StatsId, float> OnChangeStatValue { get; set; }
+
+        public Dictionary<StatsId, float> GetAllStatData() => m_statsDictionary;
 
         public float GetStatById(StatsId p_statsId)
         {
@@ -55,6 +61,7 @@ namespace _Main.Scripts.Services.Stats
             l_value *= p_percentage / 100;
             
             m_statsDictionary[p_statsId] += l_value;
+            OnChangeStatValue.Invoke(p_statsId, m_statsDictionary[p_statsId]);
         }
     }
 }

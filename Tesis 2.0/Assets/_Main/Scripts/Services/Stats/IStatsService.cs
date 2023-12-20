@@ -1,9 +1,13 @@
-﻿using _Main.Scripts.PlayerScripts;
+﻿using System;
+using System.Collections.Generic;
+using _Main.Scripts.PlayerScripts;
 
 namespace _Main.Scripts.Services.Stats
 {
     public interface IStatsService : IGameService
     {
+        public Action<StatsId, float> OnChangeStatValue { get; set; }
+        public Dictionary<StatsId, float> GetAllStatData();
 
         public float GetStatById(StatsId p_statsId);
 
