@@ -36,7 +36,6 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             
             if (models[p_model].PrepTime >= Time.time)
             {
-                p_model.transform.Rotate(Vector3.forward, 50 * Time.deltaTime);
                 return;
             }
 
