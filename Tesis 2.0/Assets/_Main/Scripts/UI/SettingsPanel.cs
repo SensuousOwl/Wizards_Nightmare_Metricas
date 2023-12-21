@@ -58,9 +58,9 @@ namespace _Main.Scripts.UI
             hudAlwaysActiveToggle.isOn = false;
         
             //TODO: levantar valores del AudioManager
-            masterSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1f));
-            musicSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1f));
-            sfxSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1f));
+            masterSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1));
+            musicSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1));
+            sfxSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1));
         }
 
         private void OnMasterVolumeChanged(float value)
