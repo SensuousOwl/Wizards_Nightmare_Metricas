@@ -5,6 +5,7 @@ using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace _Main.Scripts.Audio
 {
@@ -22,9 +23,18 @@ namespace _Main.Scripts.Audio
 
         private static IEventService EventService => ServiceLocator.Get<IEventService>();
 
+        public AudioMixer mixer;
+
         private void Awake()
         {
+            float masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+            SetMasterVolume(masterVolume);
+            float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+            SetMasterVolume(musicVolume);
+            float SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+            SetMasterVolume(SFXVolume);
             Initialize();
+
             
             EventService.AddListener<PlayEffectSound>(OnPlayEffectSoundHandler);
         }
@@ -47,15 +57,30 @@ namespace _Main.Scripts.Audio
         {
             EventService.RemoveListener<PlayEffectSound>(OnPlayEffectSoundHandler);
         }
+        
+        void SetVolumeFromPrefs(AudioMixer mixer, string parameterName, string prefsKey, float defaultValue)
+        {
+            float volume = PlayerPrefs.GetFloat(prefsKey, defaultValue);
+            mixer.SetFloat(parameterName, LinearToDecibel(volume));
+        }
+        
+        public float LinearToDecibel(float linear)
+        {
+            return linear != 0 ? Mathf.Log10(linear) * 20 : -80f;
+        }
 
         private void Initialize()
         {
+            
             m_audioSourceControllerPool = new PoolGeneric<AudioSourceController>(audioSourcePrefab, transform);
             
             m_bgmTypeToAudioSource.Add(BGMType.NoBattle, noBattleAudioSource);
             m_bgmTypeToAudioSource.Add(BGMType.InBattle, inBattleAudioSource);
             m_bgmTypeToAudioSource.Add(BGMType.BossBattle, bossBattleAudioSource);
             ResumeNormalGameplayLoops();
+            SetVolumeFromPrefs(mixer, "MasterVolume", "MasterVolume", 0.75f);
+            SetVolumeFromPrefs(mixer, "MusicVolume", "MusicVolume", 0.75f);
+            SetVolumeFromPrefs(mixer, "SFXVolume", "SFXVolume", 0.75f);
         }
 
         private void CrossFade(BGMType p_newBGMType)
@@ -112,6 +137,21 @@ namespace _Main.Scripts.Audio
             m_currentlyPlayingSource = BGMType.InBattle;
             noBattleAudioSource.PlayThenToLoop(audioData.NoBattleIntro, audioData.NoBattleBGM);
             inBattleAudioSource.Stop();
+        }
+        
+        public void SetMasterVolume(float volume)
+        {
+            mixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        }
+
+        public void SetMusicVolume(float volume)
+        {
+            mixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        }
+
+        public void SetSFXVolume(float volume)
+        {
+            mixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
         }
 
 #if UNITY_EDITOR

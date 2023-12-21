@@ -53,6 +53,7 @@ MonoBehaviour:
   noBattleAudioSource: {fileID: 1279077714760396006}
   inBattleAudioSource: {fileID: 8282785899913934481}
   bossBattleAudioSource: {fileID: 4807774724222484302}
+  mixer: {fileID: 24100000, guid: 99a49472b6933cf409813f054ec58979, type: 2}
   bgmToFadeTest: 0
 --- !u!82 &1279077714760396006
 AudioSource:

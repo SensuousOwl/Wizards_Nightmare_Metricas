@@ -1,3 +1,4 @@
+using _Main.Scripts.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,9 +17,13 @@ namespace _Main.Scripts.UI
         [SerializeField] private Button goBackControlButton;
         [SerializeField] private Button goBackScreenButton;
 
+        private AudioManager audioManager;
+
         public void Initialize()
         {
             controlsScreen.Close();
+
+            audioManager = FindObjectOfType<AudioManager>();
         
             masterSlider.onValueChanged.AddListener(OnMasterVolumeChanged);
             musicSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
@@ -53,22 +58,31 @@ namespace _Main.Scripts.UI
             hudAlwaysActiveToggle.isOn = false;
         
             //TODO: levantar valores del AudioManager
-            masterSlider.SetValueWithoutNotify(1);
-            musicSlider.SetValueWithoutNotify(1);
-            sfxSlider.SetValueWithoutNotify(1);
+            masterSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1f));
+            musicSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1f));
+            sfxSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1f));
         }
 
         private void OnMasterVolumeChanged(float value)
         {
+            PlayerPrefs.SetFloat("MasterVolume", value);
+            audioManager.SetMasterVolume(value);
+            audioManager.mixer.SetFloat("MasterVolume", audioManager.LinearToDecibel(value));
             print($"Master Volume: {value}");
-        }
-        private void OnSFXVolumeChanged(float value)
-        {
-            print($"SFX Volume: {value}");
         }
         private void OnMusicVolumeChanged(float value)
         {
+            PlayerPrefs.SetFloat("MusicVolume", value);
+            audioManager.SetMusicVolume(value);
+            audioManager.mixer.SetFloat("MusicVolume", audioManager.LinearToDecibel(value));
             print($"Music Volume: {value}");
+        }
+        private void OnSFXVolumeChanged(float value)
+        {
+            PlayerPrefs.SetFloat("SFXVolume", value);
+            audioManager.SetSFXVolume(value);
+            audioManager.mixer.SetFloat("SFXVolume", audioManager.LinearToDecibel(value));
+            print($"SFX Volume: {value}");
         }
 
         private void ToggleOnAlwaysActive(bool value)
