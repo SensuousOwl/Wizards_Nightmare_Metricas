@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: AlacrityUpgrade
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 
   <Name>k__BackingField: Alacrity Up
   <Description>k__BackingField: 'Movement Speed Up 30%
 
@@ -24,4 +23,4 @@ MonoBehaviour:
   - 30
   - 30
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
-  <EffectSprite>k__BackingField: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  <EffectSprite>k__BackingField: {fileID: 21300000, guid: b0690ba3944f5fc46b8c02c6079ab21f, type: 3}
