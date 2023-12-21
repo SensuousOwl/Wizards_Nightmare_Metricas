@@ -666,6 +666,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4597801828381375220, guid: 841e1a4953f8e394bbcd0d09a4c778b5, type: 3}
   m_PrefabInstance: {fileID: 558987128}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &558987130 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 2799995607860152530, guid: 841e1a4953f8e394bbcd0d09a4c778b5, type: 3}
+  m_PrefabInstance: {fileID: 558987128}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &594599375
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +828,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3260400873838409374, guid: 4ce0b81906e4a0d48bf8943f7f4a277b, type: 3}
+      propertyPath: hudCanvasGroup
+      value: 
+      objectReference: {fileID: 558987130}
     - target: {fileID: 3309545893934832354, guid: 4ce0b81906e4a0d48bf8943f7f4a277b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
