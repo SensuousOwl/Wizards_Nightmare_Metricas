@@ -36,9 +36,13 @@ namespace _Main.Scripts.Enemies
             HealthController.Initialize(data.MaxHp);
             m_view = GetComponent<EnemyView>();
             
-            // HealthController.OnDie += Die;
+            HealthController.OnTakeDamage += OnOnTakeDamageHC;
+            HealthController.OnDie += OnDieHC;
             m_timer = 0;
         }
+
+        
+
 
         public Transform GetTargetTransform()
         {
@@ -68,8 +72,10 @@ namespace _Main.Scripts.Enemies
 
         public void Move(Vector3 p_dir)
         {
+            m_dir = p_dir;
             transform.position += p_dir * (data.MovementSpeed * Time.deltaTime);
             m_view.UpdateDir(p_dir);
+            m_view.SetWalkSpeed((p_dir * data.MovementSpeed).magnitude);
         }
 
        
@@ -79,7 +85,17 @@ namespace _Main.Scripts.Enemies
             OnExperienceDrop?.Invoke(data.ExperienceDrop);
             OnDie?.Invoke(this);
         }
-
+        
+        private void OnDieHC()
+        {
+            m_view.PlayDeadAnim();
+        }
+        
+        
+        private void OnOnTakeDamageHC(float obj)
+        {
+            m_view.PlayHurtAnim();
+        }
         private float m_timer;
         private void OnCollisionStay2D(Collision2D other)
         {
