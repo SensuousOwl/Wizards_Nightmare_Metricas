@@ -1,4 +1,3 @@
-using System;
 using _Main.Scripts.Interfaces;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.Stats;
@@ -38,12 +37,16 @@ namespace _Main.Scripts.PlayerScripts
             m_view = GetComponent<PlayerView>();
             HealthController = GetComponent<HealthController>();
             HealthController.Initialize(playerData.MaxHp);
+            
             HealthController.OnDie += Die;
+            HealthController.OnTakeDamage += OnTakeDamageHC;
             m_playerController = GetComponent<IPlayerController>();
 
             Inventory = new Inventory(this);
         }
+
         
+
 
         private void Start()
         {
@@ -104,7 +107,7 @@ namespace _Main.Scripts.PlayerScripts
             m_rigidbody.MovePosition(l_newPosition);
             
             m_view.UpdateDir(p_dir);
-            m_view.SetWalkSpeed((l_newPosition - transform.position).magnitude);
+            m_view.SetWalkSpeed((l_dir * StatsController.GetStatById(StatsId.MovementSpeed)).magnitude);
         }
 
         private void Dash(Vector2 p_dir)
@@ -136,7 +139,10 @@ namespace _Main.Scripts.PlayerScripts
             m_crossAirPos = m_mainCamera.ScreenToWorldPoint(p_pos);
         }
 
-        
+        private void OnTakeDamageHC(float obj)
+        {
+            m_view.PlayHurtAnim();
+        }
         private void Die()
         {
             SceneManager.LoadScene("DeathScene");
