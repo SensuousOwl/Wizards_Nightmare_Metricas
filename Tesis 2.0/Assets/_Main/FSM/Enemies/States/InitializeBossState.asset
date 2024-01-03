@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
-  m_Name: Boss1_Die&Destroy
+  m_Script: {fileID: 11500000, guid: a2e452d14d114a38b9b5a9c08fb75984, type: 3}
+  m_Name: InitializeBossState
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: 1cfe79576a7d72f42824c87f0a6f3d61, type: 2}
-  <StateConditions>k__BackingField: []
-  <ExitStates>k__BackingField: []
+  RoomLayer:
+    serializedVersion: 2
+    m_Bits: 64

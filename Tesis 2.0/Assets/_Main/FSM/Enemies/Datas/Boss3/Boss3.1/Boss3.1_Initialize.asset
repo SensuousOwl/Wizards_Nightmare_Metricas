@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
-  m_Name: Boss1_Die&Destroy
+  m_Name: Boss3.1_Initialize
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: 1cfe79576a7d72f42824c87f0a6f3d61, type: 2}
-  <StateConditions>k__BackingField: []
-  <ExitStates>k__BackingField: []
+  <MyState>k__BackingField: {fileID: 11400000, guid: 8a4050bbef3cb9440a4077e26ad0f851, type: 2}
+  <StateConditions>k__BackingField:
+  - {fileID: 11400000, guid: 3ab78414c838f294a90dc3f27746991c, type: 2}
+  <ExitStates>k__BackingField:
+  - {fileID: 11400000, guid: 41f96a42140b2bd408081069d5cc6f0f, type: 2}

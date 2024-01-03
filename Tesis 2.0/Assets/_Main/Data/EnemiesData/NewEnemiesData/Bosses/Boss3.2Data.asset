@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Boss3.2Data
   m_EditorClassIdentifier: 
   <AllStatesData>k__BackingField:
+  - {fileID: 11400000, guid: 4792b62be9deadd4db0f1f4532350388, type: 2}
   - {fileID: 11400000, guid: 10ab61f63d3214f4786e8b116a1236f0, type: 2}
   - {fileID: 11400000, guid: 846a4fa9b3768d6449155fb48827b3dc, type: 2}
   - {fileID: 11400000, guid: ca422268489e95648b9ea70f68c6671a, type: 2}
