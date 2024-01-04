@@ -8,7 +8,10 @@ namespace _Main.Scripts.RoomsSystem
     public class BossRoom : Room
     {
         [SerializeField] private GameObject activatePassLevel;
+        [SerializeField] private BossHealthBarController bossHealthBar;
         [SerializeField] private List<EnemyModel> bossesToSpawn;
+        
+        
         private void Start()
         {
             activatePassLevel.SetActive(false);
@@ -25,6 +28,8 @@ namespace _Main.Scripts.RoomsSystem
             base.ClearRoom();
             activatePassLevel.SetActive(true);
         }
+
+        public BossHealthBarController GetHealthBar() => bossHealthBar;
     }
 
     public struct SpawnBossInRoom : ICustomEventData

@@ -11,7 +11,6 @@ namespace _Main.Scripts.PlayerScripts
         [SerializeField] private Slider healthBarFillObj;
         
         private RectTransform healthBarRectTrans;
-        private HealthController m_healthController;
         private void Start()
         {
             StartCoroutine(Initialize());
@@ -22,7 +21,7 @@ namespace _Main.Scripts.PlayerScripts
             yield return new WaitForSeconds(1);
             
             
-            m_healthController = FindObjectOfType<PlayerModel>().HealthController;
+            var m_healthController = FindObjectOfType<PlayerModel>().HealthController;
             
             m_healthController.OnChangeHealth += UpdateHpBar;
             m_healthController.OnChangeMaxHealth += UpdateMaxHpBar;

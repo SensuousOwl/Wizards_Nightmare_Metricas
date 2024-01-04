@@ -24,7 +24,7 @@ namespace _Main.Scripts.Enemies
         public Vector2 CurrDir => m_dir;
 
         private Vector2 m_dir;
-        public IHealthController HealthController { get; private set; }
+        public HealthController HealthController { get; private set; }
         public ISfxAudioPlayer SfxAudioPlayer { get; private set; }
         public event Action<EnemyModel> OnDie;
         public static event Action<float> OnExperienceDrop; 
