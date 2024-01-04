@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Main.Scripts.PickUps;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace _Main.Scripts.RoomsSystem
         [field: SerializeField] public int MinEnemySpawn { get; private set; }
         [field: SerializeField] public int MaxEnemySpawn { get; private set; }
         [SerializeField] private bool isStartRoom;
-        
+        [SerializeField] private int spawnPickUpChance = 10;
         private List<Door> m_doorsAvailable = new();
         private bool m_isClear;
 
@@ -31,6 +32,13 @@ namespace _Main.Scripts.RoomsSystem
                 l_door.OnPlayerTeleport += OnActiveDoorEventHandler;
                 m_doorsAvailable.Add(l_door);
             }
+
+            OnClearedRoom += TrySpawnPickUp;
+        }
+        
+        private void OnDestroy()
+        {
+            OnClearedRoom -= TrySpawnPickUp;
         }
 
         private void OnActiveDoorEventHandler()
@@ -75,6 +83,16 @@ namespace _Main.Scripts.RoomsSystem
             OpenDoor();
         }
 
+        private void TrySpawnPickUp()
+        {
+            //Todo, hacer esto bien
+            // queria terminarlo rapido :,)
+            var rnd = Random.Range(1, spawnPickUpChance + 1);
+            if (rnd == 1)
+            {
+                PickUpSpawner.Instance.SpawnRandomPickUp(transform.position);
+            }
+        }
         public bool IsOneDoorAvailable() => m_doorsAvailable == default || m_doorsAvailable.Count > 0;
 
         public bool TryGetDoorAvailable(out Door p_door)

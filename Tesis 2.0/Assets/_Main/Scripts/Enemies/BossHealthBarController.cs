@@ -1,6 +1,4 @@
-﻿using System;
-using _Main.Scripts.PlayerScripts;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Main.Scripts.Enemies
