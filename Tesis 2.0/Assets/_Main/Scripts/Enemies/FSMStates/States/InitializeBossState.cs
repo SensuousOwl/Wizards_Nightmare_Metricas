@@ -14,9 +14,9 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             BossRoom room = null;
             for (int i = 0; i < col.Length; i++)
             {
-                if (col[i].TryGetComponent(out BossRoom l_room))
+                if (col[i].TryGetComponent(out BossRoom l_bossRoom))
                 {
-                    room = l_room;
+                    room = l_bossRoom;
                     break;
                 }   
             }

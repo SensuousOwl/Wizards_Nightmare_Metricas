@@ -5118,7 +5118,7 @@ MonoBehaviour:
   <MaxEnemySpawn>k__BackingField: 0
   isStartRoom: 0
   activatePassLevel: {fileID: 4605502158622280261}
-  bossHealthBar: {fileID: 0}
+  bossHealthBar: {fileID: 6922669742088958}
   bossesToSpawn:
   - {fileID: 463209081380052378, guid: cd25fd3f3e0668c4bb7ebcc3aed16ad9, type: 3}
   - {fileID: 1569396537955310074, guid: 6e1ef34a77cd4744384596ef99345417, type: 3}
@@ -12219,6 +12219,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015f5a447ba9e8f40a6c745f38ecda84, type: 3}
+--- !u!114 &6922669742088958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 905630487234601532, guid: 015f5a447ba9e8f40a6c745f38ecda84, type: 3}
+  m_PrefabInstance: {fileID: 903510489873383618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da73a4f7f1ac478fa60c03fa9988e5fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &964182700275232739 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 137532473495351073, guid: 015f5a447ba9e8f40a6c745f38ecda84, type: 3}

@@ -10,9 +10,9 @@ namespace _Main.Scripts.Enemies
         [SerializeField] private GameObject healthBar;
         [SerializeField] private Slider healthBarFillObj;
         [SerializeField] private Slider easeHealthBarFillObj;
-        [SerializeField] private float easeSpeed = 0.05f;
+        [SerializeField] private float easeSpeed = 0.005f;
 
-        private float currHp;
+        private float currHpPercentage;
         private bool updateBar;
 
         private void Start()
@@ -37,9 +37,9 @@ namespace _Main.Scripts.Enemies
             if(!updateBar)
                 return;
             
-            if(Math.Abs(healthBarFillObj.value - easeHealthBarFillObj.value) > 0.05f)
+            if(easeHealthBarFillObj.value >= healthBarFillObj.value)
             {
-                easeHealthBarFillObj.value = Mathf.Lerp(easeHealthBarFillObj.value, currHp, easeSpeed);
+                easeHealthBarFillObj.value = Mathf.Lerp(easeHealthBarFillObj.value, currHpPercentage, easeSpeed);
             }
             else
             {
@@ -49,10 +49,9 @@ namespace _Main.Scripts.Enemies
 
         public void UpdateHpBar(float p_maxHp, float p_currHp)
         {
-            var hpPercentaje = (p_currHp / p_maxHp);
-            healthBarFillObj.value = hpPercentaje;
+            currHpPercentage = (p_currHp / p_maxHp);
+            healthBarFillObj.value = currHpPercentage;
             updateBar = true;
-            currHp = p_currHp;
         }
         
     }
