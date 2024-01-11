@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Main.Scripts.Grid;
 using _Main.Scripts.PickUps;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.EventsServices;
@@ -19,9 +20,11 @@ namespace _Main.Scripts.RoomsSystem
         [SerializeField] private int spawnPickUpChance = 10;
         private List<Door> m_doorsAvailable = new();
         private bool m_isClear;
-
+        
         protected static IEventService EventService => ServiceLocator.Get<IEventService>();
 
+        public MyNodeGrid Grid => roomGrid;
+        [SerializeField] private MyNodeGrid roomGrid;
         public static event Action OnClearedRoom;
         
         private void Awake()

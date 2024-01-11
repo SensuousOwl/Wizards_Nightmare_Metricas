@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using _Main.Scripts.Enemies;
+using _Main.Scripts.Grid;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace _Main.Scripts.RoomsSystem
         [SerializeField] private GameObject activatePassLevel;
         [SerializeField] private BossHealthBarController bossHealthBar;
         [SerializeField] private List<EnemyModel> bossesToSpawn;
-        
+
         
         private void Start()
         {
