@@ -11,7 +11,7 @@ namespace _Main.Scripts
 
         public event Action OnDie;
         public event Action<float, float> OnChangeHealth;
-        public event Action<float, float> OnChangeMaxHealth;
+        public event Action<float, float, float> OnChangeMaxHealth;
         public event Action<float> OnTakeDamage;
 
         public void Initialize(float p_maxHealth)
@@ -22,18 +22,18 @@ namespace _Main.Scripts
 
         public void ChangeMaxHealth(float p_newValue)
         {
-            OnChangeMaxHealth?.Invoke(maxHealth, p_newValue);
+            OnChangeMaxHealth?.Invoke(maxHealth, p_newValue, currentHealth);
             maxHealth = p_newValue;
         }
     
         public void AddMaxHealth(float p_newValue)
         {
-            OnChangeMaxHealth?.Invoke(maxHealth, maxHealth += p_newValue);
+            OnChangeMaxHealth?.Invoke(maxHealth, maxHealth += p_newValue, currentHealth);
             maxHealth += p_newValue;
         }
         public void RemoveMaxHealth(float p_newValue)
         {
-            OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_newValue);
+            OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_newValue, currentHealth);
             maxHealth -= p_newValue;
         }
 

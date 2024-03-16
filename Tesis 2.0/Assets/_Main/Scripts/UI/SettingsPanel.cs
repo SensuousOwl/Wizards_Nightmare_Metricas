@@ -39,7 +39,7 @@ namespace _Main.Scripts.UI
             controlsScreen.Close();
 
             audioManager = FindObjectOfType<AudioManager>();
-        
+            
             masterSlider.onValueChanged.AddListener(OnMasterVolumeChanged);
             musicSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
             sfxSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
@@ -76,8 +76,8 @@ namespace _Main.Scripts.UI
             // ApplyHUDSettings();
             
             masterSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1));
-            musicSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1));
-            sfxSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1));
+            musicSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MusicVolume", 1));
+            sfxSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("SFXVolume", 1));
         }
         
         private void ApplyHUDSettings()
@@ -97,42 +97,36 @@ namespace _Main.Scripts.UI
             PlayerPrefs.SetFloat("MasterVolume", value);
             audioManager.SetMasterVolume(value);
             audioManager.mixer.SetFloat("MasterVolume", audioManager.LinearToDecibel(value));
-            print($"Master Volume: {value}");
         }
         private void OnMusicVolumeChanged(float value)
         {
             PlayerPrefs.SetFloat("MusicVolume", value);
             audioManager.SetMusicVolume(value);
             audioManager.mixer.SetFloat("MusicVolume", audioManager.LinearToDecibel(value));
-            print($"Music Volume: {value}");
         }
         private void OnSFXVolumeChanged(float value)
         {
             PlayerPrefs.SetFloat("SFXVolume", value);
             audioManager.SetSFXVolume(value);
             audioManager.mixer.SetFloat("SFXVolume", audioManager.LinearToDecibel(value));
-            print($"SFX Volume: {value}");
         }
 
         private void ToggleOnAlwaysActive(bool value)
         {
             PlayerPrefs.SetInt(HudAlwaysActiveKey, value ? 1 : 0);
             ApplyHUDSettings();
-            print($"Toggle Active: {value}");
         }
     
         private void ToggleHudHidden(bool value)
         {
             PlayerPrefs.SetInt(HudHiddenKey, value ? 1 : 0);
             ApplyHUDSettings();
-            print($"Toggle Hidden: {value}");
         }
     
         private void AlphaHUDValueChanged(float value)
         {
             PlayerPrefs.SetFloat(HudAlphaKey, value);
             ApplyHUDSettings();
-            print($"Alpha HUD: {value}");
         }
     }
 }

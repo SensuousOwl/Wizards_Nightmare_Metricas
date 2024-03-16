@@ -26,6 +26,7 @@ namespace _Main.Scripts.RoomsSystem
         public MyNodeGrid Grid => roomGrid;
         [SerializeField] private MyNodeGrid roomGrid;
         public static event Action OnClearedRoom;
+        private event Action OnTrySpawnPickUp;
         
         private void Awake()
         {
@@ -36,12 +37,12 @@ namespace _Main.Scripts.RoomsSystem
                 m_doorsAvailable.Add(l_door);
             }
 
-            OnClearedRoom += TrySpawnPickUp;
+            OnTrySpawnPickUp += TrySpawnPickUp;
         }
         
         private void OnDestroy()
         {
-            OnClearedRoom -= TrySpawnPickUp;
+            OnTrySpawnPickUp -= TrySpawnPickUp;
         }
 
         private void OnActiveDoorEventHandler()
@@ -82,6 +83,7 @@ namespace _Main.Scripts.RoomsSystem
         public virtual void ClearRoom()
         {
             OnClearedRoom?.Invoke();
+            OnTrySpawnPickUp?.Invoke();
             m_isClear = true;
             OpenDoor();
         }

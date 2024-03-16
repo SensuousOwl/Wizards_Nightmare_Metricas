@@ -36,12 +36,13 @@ namespace _Main.Scripts.PlayerScripts
             
         }
         
-        public void UpdateMaxHpBar(float prevMaxHp, float currMaxHp)
+        public void UpdateMaxHpBar(float prevMaxHp, float currMaxHp, float currHp)
         {
             var diff = (currMaxHp /prevMaxHp);
-
+            var hpPercentaje = (currHp / currMaxHp); 
             healthBarRectTrans.sizeDelta =
                 new Vector2(healthBarRectTrans.rect.width * diff, healthBarRectTrans.rect.height);
+            healthBarFillObj.value = hpPercentaje;
         }
         
     }
