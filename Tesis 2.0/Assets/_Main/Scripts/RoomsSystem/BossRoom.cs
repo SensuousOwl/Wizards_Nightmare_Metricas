@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using _Main.Scripts.Enemies;
 using _Main.Scripts.Grid;
+using _Main.Scripts.Managers;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ namespace _Main.Scripts.RoomsSystem
         
         private void Start()
         {
+#if UNITY_EDITOR
+            CheatsManager.Singleton.SubscribeBossRoom(this);
+#endif
             activatePassLevel.SetActive(false);
         }
 
