@@ -22,7 +22,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             }
 
             var hpBar = room.GetHealthBar();
-            hpBar.Initialize(p_model.HealthController);
+            hpBar.Subscribe(p_model.HealthController);
         }
 
         public override void ExecuteState(EnemyModel p_model)
