@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Main.Scripts.Bullets;
+using _Main.Scripts.DevelopmentUtilities;
 using _Main.Scripts.FSM.Base;
 using UnityEngine;
 
@@ -17,30 +19,36 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         [SerializeField] private int burstCount;
         [SerializeField] private float timeBtwBullets;
 
-        private Dictionary<EnemyModel, ThisData> models = new Dictionary<EnemyModel, ThisData>();
+        private Dictionary<EnemyModel, ThisData> m_models = new Dictionary<EnemyModel, ThisData>();
+
+        private PoolGeneric<Bullet> m_bulletPool;
+
         public override void EnterState(EnemyModel p_model)
         {
-            models[p_model] = new ThisData();
-            models[p_model].BullCount = burstCount;
-            models[p_model].Timer = 0f;
+            m_models[p_model] = new ThisData();
+            m_models[p_model].BullCount = burstCount;
+            m_models[p_model].Timer = 0f;
+
+            m_bulletPool ??= new PoolGeneric<Bullet>(bulletPrefab);
         }
 
         public override void ExecuteState(EnemyModel p_model)
         {
-            if (models[p_model].BullCount > 0)
+            if (m_models[p_model].BullCount > 0)
             {
-                if (models[p_model].Timer <= Time.time)
-                {
-                    var data = p_model.GetData();
-                    var dir = (p_model.GetTargetTransform().position - p_model.transform.position).normalized;
-                    var bul = Instantiate(bulletPrefab, p_model.transform.position, Quaternion.identity);
+                if (!(m_models[p_model].Timer <= Time.time)) 
+                    return;
+                
+                var l_data = p_model.GetData();
+                var l_dir = (p_model.GetTargetTransform().position - p_model.transform.position).normalized;
+                var l_bul = m_bulletPool.GetorCreate();
                     
-                    bul.Initialize(data.ProjectileSpeed, data.Damage, dir, data.Range, data.TargetMask);
-                    p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
+                l_bul.Initialize(p_model.transform.position, l_data.ProjectileSpeed, l_data.Damage, l_dir, l_data.Range, l_data.TargetMask);
+                l_bul.OnDeactivate += OnDeactivateBulletHandler;
+                p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
 
-                    models[p_model].BullCount--;
-                    models[p_model].Timer = Time.time + timeBtwBullets;
-                }
+                m_models[p_model].BullCount--;
+                m_models[p_model].Timer = Time.time + timeBtwBullets;
             }
             else
             {
@@ -48,9 +56,16 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             }
         }
 
+        private void OnDeactivateBulletHandler(Bullet p_obj)
+        {
+            p_obj.OnDeactivate -= OnDeactivateBulletHandler;
+            p_obj.gameObject.SetActive(false);
+            m_bulletPool.AddPool(p_obj);
+        }
+
         public override void ExitState(EnemyModel p_model)
         {
-            models.Remove(p_model);
+            m_models.Remove(p_model);
         }
     }
 }
