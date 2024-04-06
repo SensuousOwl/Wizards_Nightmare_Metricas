@@ -9,8 +9,8 @@ namespace _Main.Scripts.Grid
         [SerializeField] private MyNode myNodePrefab;
         [SerializeField] private LayerMask unWalkableMask;
         [SerializeField] private Vector2 gridworldSize;
-        [SerializeField] private float nodeRadius;
-        [SerializeField] private float ySpacing;
+        [SerializeField] private float nodeRadius = 1f;
+        [SerializeField] private float ySpacing = 1f;
         
         
         private MyNode [,] m_grid;
