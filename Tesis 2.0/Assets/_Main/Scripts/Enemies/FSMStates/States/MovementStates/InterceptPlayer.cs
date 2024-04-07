@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 {
+    [CreateAssetMenu(fileName = "InterceptPlayer", menuName = "_main/States/Executions/InterceptPlayer", order = 0)]
     public class InterceptPlayer : MyState
     {
         [SerializeField] private float interceptTime = 1f;
