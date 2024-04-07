@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Main.Scripts.FSM.Base;
+using _Main.Scripts.Managers;
 using _Main.Scripts.RoomsSystem;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         private Dictionary<EnemyModel, data> m_dictionary = new Dictionary<EnemyModel, data>();
         public override void EnterState(EnemyModel p_model)
         {
-            var targetPos = p_model.GetTargetTransform().position;
+            var targetPos = LevelManager.Instance.PlayerModel.transform.position;
             m_dictionary[p_model] = new data();
 
             var col = Physics.OverlapBox(p_model.transform.position, Vector3.one, Quaternion.identity, RoomLayer);

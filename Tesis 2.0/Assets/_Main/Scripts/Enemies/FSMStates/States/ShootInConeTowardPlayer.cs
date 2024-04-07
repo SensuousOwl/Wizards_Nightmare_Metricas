@@ -1,5 +1,6 @@
 ﻿using _Main.Scripts.Bullets;
 using _Main.Scripts.FSM.Base;
+using _Main.Scripts.Managers;
 using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.States
@@ -16,7 +17,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
             var diffAngle = totalConeAngle / bulletsAmount;
             var data = p_model.GetData();
-            var dir = (p_model.GetTargetTransform().position - p_model.transform.position).normalized;
+            var dir = (LevelManager.Instance.PlayerModel.transform.position - p_model.transform.position).normalized;
             for (int i = 0; i < bulletsAmount; i++)
             {
                 // "i % 2 == 0 ? -1 : 1" es para rotar el angulo del otro lado de la dir

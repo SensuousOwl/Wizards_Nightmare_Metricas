@@ -1,4 +1,5 @@
 using _Main.Scripts.FSM.Base;
+using _Main.Scripts.Managers;
 using _Main.Scripts.Steering_Behaviours;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             var data = p_model.GetData();
 
             var dir = MySteeringBehaviors.GetAdvancedObsAvoidanceDir(p_model.transform.position,
-                p_model.GetTargetTransform().position, data.ObsDetectionRadius, avoidForce, ObsMask);
+                LevelManager.Instance.PlayerModel.transform.position, data.ObsDetectionRadius, avoidForce, ObsMask);
             p_model.Move(dir);
         }
     }

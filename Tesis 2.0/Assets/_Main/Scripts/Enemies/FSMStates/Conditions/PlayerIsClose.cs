@@ -1,4 +1,5 @@
 ﻿using _Main.Scripts.FSM.Base;
+using _Main.Scripts.Managers;
 using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.Conditions
@@ -9,7 +10,7 @@ namespace _Main.Scripts.Enemies.FSMStates.Conditions
         [SerializeField] private float range;
         public override bool CompleteCondition(EnemyModel p_model)
         {
-            return (p_model.GetTargetTransform().position - p_model.transform.position).magnitude <= range;
+            return (LevelManager.Instance.PlayerModel.transform.position - p_model.transform.position).magnitude <= range;
         }
     }
 }

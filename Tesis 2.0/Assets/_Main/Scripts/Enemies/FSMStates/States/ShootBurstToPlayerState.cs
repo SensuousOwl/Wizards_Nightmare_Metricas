@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using _Main.Scripts.Bullets;
 using _Main.Scripts.FSM.Base;
+using _Main.Scripts.Managers;
 using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.States
@@ -32,7 +33,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
                 if (models[p_model].Timer <= Time.time)
                 {
                     var data = p_model.GetData();
-                    var dir = (p_model.GetTargetTransform().position - p_model.transform.position).normalized;
+                    var dir = (LevelManager.Instance.PlayerModel.transform.position - p_model.transform.position).normalized;
                     var bul = Instantiate(bulletPrefab, p_model.transform.position, Quaternion.identity);
                     
                     bul.Initialize(data.ProjectileSpeed, data.Damage, dir, data.Range, data.TargetMask);

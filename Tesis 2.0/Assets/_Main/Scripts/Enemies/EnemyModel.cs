@@ -18,7 +18,7 @@ namespace _Main.Scripts.Enemies
 
         public EnemyView View => m_view;
         private EnemyView m_view;
-        private Transform m_target;
+
 
         public bool IsAttacking => m_isAttacking;
         private bool m_isAttacking;
@@ -48,11 +48,9 @@ namespace _Main.Scripts.Enemies
         
 
 
-        public Transform GetTargetTransform()
-        {
-            m_target ??= FindObjectOfType<PlayerModel>().transform;
-            return m_target;
-        }
+        
+
+        
 
         public EnemyData GetData() => data;
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Main.Scripts.FSM.Base;
+using _Main.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,7 +23,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
 
         public override void EnterState(EnemyModel p_model)
         {
-            var l_destination = p_model.GetTargetTransform().position;
+            var l_destination = LevelManager.Instance.PlayerModel.transform.position;
             var l_data = new ThisData
             {
                 Destination = l_destination,

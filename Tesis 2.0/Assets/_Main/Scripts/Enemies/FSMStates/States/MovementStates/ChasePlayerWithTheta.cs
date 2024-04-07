@@ -4,6 +4,7 @@ using System.Linq;
 using _Main.Scripts.Extensions;
 using _Main.Scripts.FSM.Base;
 using _Main.Scripts.Grid;
+using _Main.Scripts.Managers;
 using _Main.Scripts.PathFinding;
 using _Main.Scripts.Steering_Behaviours;
 using Unity.VisualScripting;
@@ -32,7 +33,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         {
             m_dictionary[p_model] = new Data();
             m_dictionary[p_model].grid = p_model.NodeGrid;
-            m_dictionary[p_model].targetTransform = p_model.GetTargetTransform();
+            m_dictionary[p_model].targetTransform = LevelManager.Instance.PlayerModel.transform;
             RecalculatePath(p_model);
         }
 
@@ -40,7 +41,10 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         {
             //Si hay linea recta hasta el player sin obstaculos, anda en linea recta
             var diff = (p_model.transform.position - m_dictionary[p_model].targetTransform.position);
-            Debug.Log(!Physics2D.CircleCast(p_model.transform.position, 0.25f, diff.normalized, diff.magnitude, obsMask));
+            
+            Debug.Log(!Physics2D.CircleCast(p_model.transform.position, 0.5f, diff.normalized, 
+                diff.magnitude, obsMask, -0.5f, 0.5f));
+            
             if(!Physics2D.CircleCast(p_model.transform.position, 0.5f, diff.normalized, 
                    diff.magnitude, obsMask, -0.5f, 0.5f))
             {

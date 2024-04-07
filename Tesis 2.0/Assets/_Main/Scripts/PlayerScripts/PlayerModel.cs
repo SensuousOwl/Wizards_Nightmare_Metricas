@@ -1,4 +1,5 @@
 using _Main.Scripts.Interfaces;
+using _Main.Scripts.Managers;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.Stats;
 using UnityEngine;
@@ -29,7 +30,10 @@ namespace _Main.Scripts.PlayerScripts
         public Inventory Inventory { get; private set; }
 
         private readonly Collider2D[] m_itemsCollider = new Collider2D[1];
-        
+
+
+        private Vector2 m_dir;
+        public Vector2 CurrDir => m_dir;
 
         private void Awake()
         {
@@ -55,6 +59,7 @@ namespace _Main.Scripts.PlayerScripts
             m_mainCamera = Camera.main;
             
             SubscribeEventsController();
+            LevelManager.Instance.SetPlayerModel(this);
         }
         private void OnDisable()
         {
@@ -102,12 +107,12 @@ namespace _Main.Scripts.PlayerScripts
 
         private void Move(Vector2 p_dir)
         {
-            var l_dir = (Vector3)p_dir;
-            var l_newPosition = transform.position + l_dir * (StatsController.GetStatById(StatsId.MovementSpeed) * Time.deltaTime);
+            m_dir = p_dir;
+            var l_newPosition = transform.position + (Vector3)m_dir * (StatsController.GetStatById(StatsId.MovementSpeed) * Time.deltaTime);
             m_rigidbody.MovePosition(l_newPosition);
             
             m_view.UpdateDir(p_dir);
-            m_view.SetWalkSpeed((l_dir * StatsController.GetStatById(StatsId.MovementSpeed)).magnitude);
+            m_view.SetWalkSpeed((m_dir * StatsController.GetStatById(StatsId.MovementSpeed)).magnitude);
         }
 
         private void Dash(Vector2 p_dir)
