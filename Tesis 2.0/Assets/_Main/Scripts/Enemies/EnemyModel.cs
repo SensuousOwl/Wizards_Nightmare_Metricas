@@ -18,7 +18,7 @@ namespace _Main.Scripts.Enemies
 
         public EnemyView View => m_view;
         private EnemyView m_view;
-
+        private Rigidbody2D m_rb;
 
         public bool IsAttacking => m_isAttacking;
         private bool m_isAttacking;
@@ -38,6 +38,7 @@ namespace _Main.Scripts.Enemies
             SfxAudioPlayer = GetComponent<ISfxAudioPlayer>();
             HealthController.Initialize(data.MaxHp);
             m_view = GetComponent<EnemyView>();
+            m_rb = GetComponent<Rigidbody2D>();
             
             HealthController.OnTakeDamage += OnOnTakeDamageHC;
             HealthController.OnDie += OnDieHC;
@@ -82,7 +83,17 @@ namespace _Main.Scripts.Enemies
             m_view.SetWalkSpeed((p_dir * data.MovementSpeed).magnitude);
         }
 
-       
+        public void MoveWithAcceleration(Vector2 p_dir, float p_accMult)
+        {
+            m_dir = p_dir.normalized;
+
+            var accelerationVector = m_dir * (data.AccelerationRate * p_accMult);
+
+            var velocity = m_rb.velocity;
+            velocity += accelerationVector * Time.deltaTime;
+            
+            m_rb.velocity = Vector2.ClampMagnitude(velocity, data.TerimnalVelocity);
+        }
 
         public void TriggerDieEvent()
         {
@@ -125,7 +136,7 @@ namespace _Main.Scripts.Enemies
         {
             Gizmos.color = Color.red;
             
-            Gizmos.DrawLine(transform.position, m_dir);
+            Gizmos.DrawLine(transform.position,  transform.position + (Vector3)m_dir);
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, target);
         }
