@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
-  m_Name: DividerSr_ChaseStateData
+  m_Name: DividerMid_Spawn2DividersTiny
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: a96b87034fc6ee04ea6f29a9746a4134, type: 2}
+  <MyState>k__BackingField: {fileID: 11400000, guid: 596dfaa886bb73440bcd7d072b330d53, type: 2}
   <StateConditions>k__BackingField:
-  - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
+  - {fileID: 11400000, guid: 3ab78414c838f294a90dc3f27746991c, type: 2}
   <ExitStates>k__BackingField:
-  - {fileID: 11400000, guid: 7e9557ae31d158e4a86a38441f7ef80d, type: 2}
+  - {fileID: 11400000, guid: d22c9af195695fb4fa0c4f977a0b452d, type: 2}

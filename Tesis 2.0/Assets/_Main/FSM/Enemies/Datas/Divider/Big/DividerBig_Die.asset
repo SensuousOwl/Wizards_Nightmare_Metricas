@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a14c64952b1d40eb82ea9357947e94b8, type: 3}
-  m_Name: ChasePlayerWithTheta
+  m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
+  m_Name: DividerBig_Die
   m_EditorClassIdentifier: 
-  obsMask:
-    serializedVersion: 2
-    m_Bits: 32768
-  avoidForce: 2
-  refreshPathTimer: 1
+  <MyState>k__BackingField: {fileID: 11400000, guid: f51c3362cc2b603499e4dc7c3063ab89, type: 2}
+  <StateConditions>k__BackingField: []
+  <ExitStates>k__BackingField: []
