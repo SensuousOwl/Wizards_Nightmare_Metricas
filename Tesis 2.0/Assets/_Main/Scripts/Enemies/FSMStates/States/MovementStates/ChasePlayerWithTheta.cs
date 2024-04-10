@@ -43,9 +43,6 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
             //Si hay linea recta hasta el player sin obstaculos, anda en linea recta
             var diff = (p_model.transform.position - m_dictionary[p_model].targetTransform.position);
             
-            Debug.Log(!Physics2D.CircleCast(p_model.transform.position, enemyRadius, diff.normalized, 
-                diff.magnitude, obsMask, -0.5f, 0.5f));
-            
             if(!Physics2D.CircleCast(p_model.transform.position, enemyRadius, diff.normalized, 
                    diff.magnitude, obsMask, -0.5f, 0.5f))
             {

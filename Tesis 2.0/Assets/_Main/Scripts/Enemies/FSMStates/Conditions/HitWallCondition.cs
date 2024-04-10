@@ -11,10 +11,11 @@ namespace _Main.Scripts.Enemies.FSMStates.Conditions
         public override bool CompleteCondition(EnemyModel p_model)
         {
             var modelPos = p_model.transform.position;
-            var rightModelPos = modelPos + Vector3.right;
             
-            return Physics2D.Linecast(modelPos, rightModelPos, wallMask) ||
-                   Physics2D.Linecast(modelPos, -rightModelPos, wallMask);
+            
+            
+            return Physics2D.CircleCast(modelPos,0.5f, Vector3.right,1, wallMask) ||
+                   Physics2D.CircleCast(modelPos,0.5f, Vector3.left,1, wallMask);
         }
         
         
