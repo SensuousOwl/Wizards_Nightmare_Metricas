@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
-  m_Name: Creeper_ChaseStateData
+  m_Name: Panzer_ChargeToWallStateData
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: 6d61fe381bbbf55499644852f7d20ab3, type: 2}
+  <MyState>k__BackingField: {fileID: 11400000, guid: 408f319437902374bb7b835e27a583e9, type: 2}
   <StateConditions>k__BackingField:
-  - {fileID: 11400000, guid: ae11b498f088700439aea0ac006d77e2, type: 2}
   - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
+  - {fileID: 11400000, guid: 82786729ca694694b9f16fa91719311f, type: 2}
   <ExitStates>k__BackingField:
-  - {fileID: 11400000, guid: 991d648f19efa45488fb5b6e441c9c66, type: 2}
-  - {fileID: 11400000, guid: 2a372fca6c58ade42877011d6c0956fb, type: 2}
+  - {fileID: 11400000, guid: fb5834a6afcdfb241873c0ea89c0c73b, type: 2}
+  - {fileID: 11400000, guid: 3ec10c944f8648245aa650ed63e88df4, type: 2}

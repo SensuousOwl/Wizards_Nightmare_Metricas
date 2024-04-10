@@ -3,7 +3,7 @@ using _Main.Scripts.FSM.Base;
 using _Main.Scripts.RoomsSystem;
 using UnityEngine;
 
-namespace _Main.Scripts.Enemies.FSMStates.States
+namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 {
     [CreateAssetMenu(fileName = "MoveToRndPosInRoom", menuName = "_main/States/Executions/MoveToRndPosInRoom", order = 0)]
     public class MoveToRndPosInRoom : MyState

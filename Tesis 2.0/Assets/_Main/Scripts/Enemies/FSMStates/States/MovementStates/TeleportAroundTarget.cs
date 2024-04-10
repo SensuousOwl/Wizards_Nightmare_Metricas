@@ -4,7 +4,7 @@ using _Main.Scripts.Managers;
 using _Main.Scripts.RoomsSystem;
 using UnityEngine;
 
-namespace _Main.Scripts.Enemies.FSMStates.States
+namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 {
     [CreateAssetMenu(fileName = "TeleportAroundPlayer", menuName = "_main/States/Executions/TeleportAroundPlayer", order = 0)]
     public class TeleportAroundTarget : MyState

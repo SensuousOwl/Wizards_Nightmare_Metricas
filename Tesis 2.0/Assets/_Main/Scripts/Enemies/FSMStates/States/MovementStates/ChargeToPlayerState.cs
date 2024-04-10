@@ -2,9 +2,8 @@
 using _Main.Scripts.FSM.Base;
 using _Main.Scripts.Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace _Main.Scripts.Enemies.FSMStates.States
+namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 {
     [CreateAssetMenu(fileName = "ChargeToPlayerState", menuName = "_main/States/Executions/ChargeToPlayerState", order = 0)]
     public class ChargeToPlayerState : MyState

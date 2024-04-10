@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
   m_Name: TimeBomber_ChaseStateData
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: a96b87034fc6ee04ea6f29a9746a4134, type: 2}
+  <MyState>k__BackingField: {fileID: 11400000, guid: 6d61fe381bbbf55499644852f7d20ab3, type: 2}
   <StateConditions>k__BackingField:
   - {fileID: 11400000, guid: 61dcb3752db805a4ca345f73494e562e, type: 2}
   - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
