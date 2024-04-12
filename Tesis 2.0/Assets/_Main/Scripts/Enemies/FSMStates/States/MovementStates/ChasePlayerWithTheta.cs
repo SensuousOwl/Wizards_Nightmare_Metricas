@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 {
-    [CreateAssetMenu(fileName = "ChasePlayerWithTheta", menuName = "_main/States/Executions/ChasePlayerWithTheta", order = 0)]
+    [CreateAssetMenu(fileName = "ChasePlayerWithTheta", menuName = "_main/States/Executions/Movement/ChasePlayerWithTheta", order = 0)]
     public class ChasePlayerWithTheta : MyState
     {
         [SerializeField] private LayerMask obsMask;

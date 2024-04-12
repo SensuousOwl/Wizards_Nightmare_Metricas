@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 3580171977650753189}
   - component: {fileID: 3675450993234426868}
   m_Layer: 11
-  m_Name: EnemyCreeper
+  m_Name: EnemyGoblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

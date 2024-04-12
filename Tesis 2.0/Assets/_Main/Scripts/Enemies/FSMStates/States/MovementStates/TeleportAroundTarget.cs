@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 {
-    [CreateAssetMenu(fileName = "TeleportAroundPlayer", menuName = "_main/States/Executions/TeleportAroundPlayer", order = 0)]
+    [CreateAssetMenu(fileName = "TeleportAroundPlayer", menuName = "_main/States/Executions/Movement/TeleportAroundPlayer", order = 0)]
     public class TeleportAroundTarget : MyState
     {
         private class data

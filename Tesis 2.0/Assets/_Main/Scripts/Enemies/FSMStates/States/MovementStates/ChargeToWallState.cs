@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 {
-    [CreateAssetMenu(fileName = "ChargeToWallState", menuName = "_main/States/Executions/ChargeToWallState", order = 0)]
+    [CreateAssetMenu(fileName = "ChargeToWallState", menuName = "_main/States/Executions/Movement/ChargeToWallState", order = 0)]
     public class ChargeToWallState : MyState
     {
         private class data

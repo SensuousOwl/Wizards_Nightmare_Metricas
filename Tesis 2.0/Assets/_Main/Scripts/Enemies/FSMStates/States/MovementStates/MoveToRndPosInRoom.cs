@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 {
-    [CreateAssetMenu(fileName = "MoveToRndPosInRoom", menuName = "_main/States/Executions/MoveToRndPosInRoom", order = 0)]
+    [CreateAssetMenu(fileName = "MoveToRndPosInRoom", menuName = "_main/States/Executions/Movement/MoveToRndPosInRoom", order = 0)]
     public class MoveToRndPosInRoom : MyState
     {
         [SerializeField] private LayerMask RoomLayer;

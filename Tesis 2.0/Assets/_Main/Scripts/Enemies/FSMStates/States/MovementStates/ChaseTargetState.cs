@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 {
-    [CreateAssetMenu(fileName = "ChaseTarget", menuName = "_main/States/Executions/ChaseTarget", order = 0)]
+    [CreateAssetMenu(fileName = "ChaseTarget", menuName = "_main/States/Executions/Movement/ChaseTarget", order = 0)]
     public class ChaseTargetState : MyState
     {
         [SerializeField] private LayerMask ObsMask;
