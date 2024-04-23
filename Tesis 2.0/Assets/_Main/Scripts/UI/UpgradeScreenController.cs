@@ -11,7 +11,7 @@ namespace _Main.Scripts.UI
 {
     public class UpgradeScreenController : MonoBehaviour
     {
-        [SerializeField] private UpgradeDataPool pool;
+        [SerializeField] private AllUpgradeDataPool pool;
         [SerializeField] private GameObject screenObj;
         [SerializeField] private int upgradesCount;
         [SerializeField] private List<TMP_Text> namesTxt = new List<TMP_Text>();

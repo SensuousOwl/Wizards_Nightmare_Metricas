@@ -47,6 +47,28 @@ namespace _Main.Scripts.DevelopmentUtilities
             return default;
         }
 
+        public static TY Run<TY>(List<TY> items, List<float> weights)
+        {
+            float maxWeight = 0;
+
+            foreach (var weight in weights)
+            {
+                maxWeight += weight;
+            }
+
+            var randomValue = UnityEngine.Random.Range(0, maxWeight);
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                randomValue -= weights[i];
+                if (randomValue <= 0)
+                {
+                    return items[i];
+                }
+            }
+
+            return default;
+        }
         
         public void SetCachedDictionary(Dictionary<T, float> p_itemsToCache)
         {

@@ -8,6 +8,7 @@ using _Main.Scripts.Services.MicroServices.EventsServices;
 // using _Main.Scripts.Services.MicroServices.SettingsService;
 // using _Main.Scripts.Services.MicroServices.UserDataService;
 using _Main.Scripts.Services.Stats;
+using _Main.Scripts.Services.UpgradePoolServices;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -23,6 +24,7 @@ namespace _Main.Scripts.Services
         {
             Register<IEventService, EventService>();
             Register<IStatsService, StatsService>();
+            Register<IUpgradePoolService, UpgradePoolService>();
             // Register<IPersistenceService, PersistenceService>();
             // Register<IUserDataService, UserDataService>();
             // Register<ISettingsService, SettingsService>();
