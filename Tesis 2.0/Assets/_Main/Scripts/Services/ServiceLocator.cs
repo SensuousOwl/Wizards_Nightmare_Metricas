@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.Services.MicroServices.EventsServices;
+using _Main.Scripts.Services.MicroServices.PersistenceService;
+using _Main.Scripts.Services.MicroServices.UserDataService;
 // using _Main.Scripts.Services.MicroServices.PersistenceService;
 // using _Main.Scripts.Services.MicroServices.SettingsService;
 // using _Main.Scripts.Services.MicroServices.UserDataService;
@@ -23,8 +25,8 @@ namespace _Main.Scripts.Services
         {
             Register<IEventService, EventService>();
             Register<IStatsService, StatsService>();
-            // Register<IPersistenceService, PersistenceService>();
-            // Register<IUserDataService, UserDataService>();
+            Register<IPersistenceService, LocalPersistenceService>();
+            Register<IUserDataService, UserDataService>();
             // Register<ISettingsService, SettingsService>();
         }
 
