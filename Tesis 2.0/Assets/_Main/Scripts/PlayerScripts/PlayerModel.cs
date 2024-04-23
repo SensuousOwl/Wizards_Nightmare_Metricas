@@ -28,7 +28,7 @@ namespace _Main.Scripts.PlayerScripts
         private Camera m_mainCamera;
         private Vector3 m_crossAirPos;
         public HealthController HealthController { get; private set; }
-        public IStatsService StatsController => ServiceLocator.Get<IStatsService>();
+        public static IStatsService StatsController => ServiceLocator.Get<IStatsService>();
         public Inventory Inventory { get; private set; }
 
         private readonly Collider2D[] m_itemsCollider = new Collider2D[1];
@@ -40,7 +40,7 @@ namespace _Main.Scripts.PlayerScripts
             m_rigidbody = GetComponent<Rigidbody2D>();
             m_view = GetComponent<PlayerView>();
             HealthController = GetComponent<HealthController>();
-            HealthController.Initialize(playerData.MaxHp);
+            HealthController.Initialize(StatsController.GetStatById(StatsId.MaxHealth));
             
             HealthController.OnDie += Die;
             HealthController.OnTakeDamage += OnTakeDamageHC;

@@ -11,6 +11,7 @@
         DashCooldown,
         DashTranslation,
         ProjectileSpeed,
-        Damage
+        Damage,
+        MaxHealth
     }
 }
