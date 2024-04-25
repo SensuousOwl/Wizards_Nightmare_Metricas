@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65039365a03f403c8618c1a8ca06cfdb, type: 3}
+  m_Name: DividerMidData
+  m_EditorClassIdentifier: 
+  <AllStatesData>k__BackingField:
+  - {fileID: 11400000, guid: 8927d244ce6b98146890251078ad8ddb, type: 2}
+  - {fileID: 11400000, guid: d22c9af195695fb4fa0c4f977a0b452d, type: 2}
+  - {fileID: 11400000, guid: c827f5ca2e72bc845a5bce58334aeef4, type: 2}
+  - {fileID: 11400000, guid: cd4ed0648200ef24087e20e30c431807, type: 2}
+  <MaxHp>k__BackingField: 25
+  <MovementSpeed>k__BackingField: 1.5
+  <AccelerationRate>k__BackingField: 0.6
+  <TerimnalVelocity>k__BackingField: 1.5
+  <FireRate>k__BackingField: 0
+  <Range>k__BackingField: 0
+  <ViewDepthRange>k__BackingField: 20
+  <Bullet>k__BackingField: {fileID: 0}
+  <Damage>k__BackingField: 10
+  <ProjectileSpeed>k__BackingField: 0
+  <TargetMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 1024
+  <ExperienceDrop>k__BackingField: 10
+  <ObsDetectionRadius>k__BackingField: 2
+  <ObsDetectionAngle>k__BackingField: 180
