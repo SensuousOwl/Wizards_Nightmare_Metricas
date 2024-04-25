@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Main.Scripts.Services.MicroServices.PersistenceService;
-using Unity.Plastic.Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace _Main.Scripts.Services.MicroServices.UserDataService
 {
