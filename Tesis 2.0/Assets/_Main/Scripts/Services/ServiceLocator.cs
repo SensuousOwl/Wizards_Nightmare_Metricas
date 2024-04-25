@@ -23,8 +23,8 @@ namespace _Main.Scripts.Services
             Register<IEventService, EventService>();
             Register<IStatsService, StatsService>();
             Register<IUpgradePoolService, UpgradePoolService>();
-            // Register<IPersistenceService, PersistenceService>();
-            // Register<IUserDataService, UserDataService>();
+            Register<IPersistenceService, LocalPersistenceService>();
+            Register<IUserDataService, UserDataService>();
             // Register<ISettingsService, SettingsService>();
         }
 
