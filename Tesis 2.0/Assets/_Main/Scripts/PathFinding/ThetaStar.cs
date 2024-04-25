@@ -8,7 +8,7 @@ namespace _Main.Scripts.PathFinding
 {
     public static class ThetaStar
     {
-        public static List<T> Run<T>(T p_start, T p_target, 
+        public static IEnumerable<T> Run<T>(T p_start, T p_target, 
             Func<T, T, bool> p_satisfies,
             Func<T, List<T>> p_connections,
             Func<T, T, float> p_getCost,
@@ -64,7 +64,7 @@ namespace _Main.Scripts.PathFinding
         
         public static List<MyNode> RunCustomGrid<MyNode>(MyNode p_start, MyNode p_target, MyNodeGrid p_grid, LayerMask p_obsMask, 
             Func<MyNode, MyNode, bool> p_satisfies,
-            Func<MyNodeGrid,MyNode, List<MyNode>> p_connections,
+            Func<MyNodeGrid,MyNode, IEnumerable<MyNode>> p_connections,
             Func<MyNode, MyNode, float> p_getCost,
             Func<MyNode,MyNode, float> p_heuristic,
             Func<MyNode, MyNode,LayerMask, bool> p_inView,
@@ -74,7 +74,7 @@ namespace _Main.Scripts.PathFinding
             HashSet<MyNode> l_visited = new HashSet<MyNode>();
             Dictionary<MyNode, MyNode> l_parent = new Dictionary<MyNode, MyNode>();
             Dictionary<MyNode, float> l_cost = new Dictionary<MyNode, float>();
-
+            
             l_pending.Enqueue(p_start, 0);
             l_cost[p_start] = 0;
 
@@ -97,9 +97,9 @@ namespace _Main.Scripts.PathFinding
                 }
                 l_visited.Add(l_curr);
                 var l_neighbours = p_connections(p_grid,l_curr);
-                for (int l_i = 0; l_i < l_neighbours.Count; l_i++)
+
+                foreach (var l_neigh in l_neighbours)
                 {
-                    var l_neigh = l_neighbours[l_i];
                     if (l_visited.Contains(l_neigh)) continue;
                     MyNode l_realParent = l_curr;
                     if (l_parent.ContainsKey(l_curr) && p_inView(l_parent[l_curr], l_neigh, p_obsMask))
