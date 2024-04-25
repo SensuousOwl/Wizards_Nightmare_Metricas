@@ -1,3 +1,6 @@
+using System;
+using _Main.Scripts.Bullets;
+using _Main.Scripts.DevelopmentUtilities;
 using _Main.Scripts.Interfaces;
 using _Main.Scripts.Managers;
 using _Main.Scripts.Services;
@@ -26,12 +29,11 @@ namespace _Main.Scripts.PlayerScripts
         private Camera m_mainCamera;
         private Vector3 m_crossAirPos;
         public HealthController HealthController { get; private set; }
-        public IStatsService StatsController => ServiceLocator.Get<IStatsService>();
+        public static IStatsService StatsController => ServiceLocator.Get<IStatsService>();
         public Inventory Inventory { get; private set; }
 
         private readonly Collider2D[] m_itemsCollider = new Collider2D[1];
-
-
+	private PoolGeneric<Bullet> m_bulletPool;        
         private Vector2 m_dir;
         public Vector2 CurrDir => m_dir;
 
@@ -40,17 +42,16 @@ namespace _Main.Scripts.PlayerScripts
             m_rigidbody = GetComponent<Rigidbody2D>();
             m_view = GetComponent<PlayerView>();
             HealthController = GetComponent<HealthController>();
-            HealthController.Initialize(playerData.MaxHp);
+            HealthController.Initialize(StatsController.GetStatById(StatsId.MaxHealth));
             
             HealthController.OnDie += Die;
             HealthController.OnTakeDamage += OnTakeDamageHC;
             m_playerController = GetComponent<IPlayerController>();
 
             Inventory = new Inventory(this);
+
+            m_bulletPool = new PoolGeneric<Bullet>(playerData.Bullet);
         }
-
-        
-
 
         private void Start()
         {
@@ -131,12 +132,20 @@ namespace _Main.Scripts.PlayerScripts
                 return;
 
             var l_position = transform.position;
-            var l_bull = Instantiate(playerData.Bullet, l_position, playerData.Bullet.transform.rotation);
-            l_bull.Initialize(StatsController.GetStatById(StatsId.ProjectileSpeed), StatsController.GetStatById(StatsId.Damage),
+            var l_bull = m_bulletPool.GetorCreate();
+            l_bull.Initialize(l_position, StatsController.GetStatById(StatsId.ProjectileSpeed), StatsController.GetStatById(StatsId.Damage),
                 (m_crossAirPos - l_position).normalized, StatsController.GetStatById(StatsId.Range), playerData.TargetLayer);
+            l_bull.OnDeactivate += DeactivateBulletHandler;
             m_fireRateTimer = Time.time + StatsController.GetStatById(StatsId.FireRate);
             
             m_view.PlayAttackAnim();
+        }
+
+        private void DeactivateBulletHandler(Bullet p_obj)
+        {
+            p_obj.OnDeactivate -= DeactivateBulletHandler;
+            p_obj.gameObject.SetActive(false);
+            m_bulletPool.AddPool(p_obj);
         }
 
         private void UpdateCrosshair(Vector2 p_pos)

@@ -6,7 +6,7 @@ namespace _Main.Scripts.Enemies
     {
         
         private Animator m_animator;
-        [SerializeField] private SpriteRenderer renderer;
+        [SerializeField] private new SpriteRenderer renderer;
         
         
         private static readonly int Speed = Animator.StringToHash("Speed");
