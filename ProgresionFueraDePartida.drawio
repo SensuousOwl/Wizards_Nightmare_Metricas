@@ -1,0 +1,157 @@
+<mxfile host="app.diagrams.net" modified="2024-04-17T15:54:43.659Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0" etag="K11Jb5QwDcDMvXsOUEZy" version="24.2.5" type="device">
+  <diagram name="Página-1" id="hkAuKUalKuUYYi6B4OF4">
+    <mxGraphModel dx="956" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-1" value="Todas las cartas" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="430" y="220" width="120" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-2" value="Cartas desbloqueadas" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="630" y="220" width="120" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-3" value="Cartas por desbloquear" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="940" y="220" width="120" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-4" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="320" as="sourcePoint" />
+            <mxPoint x="610" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-5" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="320" as="sourcePoint" />
+            <mxPoint x="900" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-6" value="GAME MANAGER" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="540" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-7" value="Vertical Container" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="370" y="560" width="315" height="530" as="geometry">
+            <mxRectangle x="370" y="560" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-10" value="Action&amp;lt;int&amp;gt; OnAddGems" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry y="161" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-9" value="int Gemas Locas" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry y="31" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-11" value="private void AddGems(int gemsToAdd)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry y="191" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-20" value="private void SaveGemsToJson()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry y="221" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.006;exitY=0.522;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.989;entryY=0.55;entryDx=0;entryDy=0;entryPerimeter=0;" parent="Ghun9r_aBVUG6SqOfzZd-7" source="Ghun9r_aBVUG6SqOfzZd-11" target="Ghun9r_aBVUG6SqOfzZd-20" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="241" as="sourcePoint" />
+            <mxPoint x="390" y="191" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="360" y="207" />
+              <mxPoint x="360" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-28" value="List&amp;lt;Upgrades&amp;gt; AllUpgrades" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry y="61" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-29" value="List&amp;lt;Upgrades&amp;gt; UnlockedUpgrades" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry y="91" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-32" value="List&amp;lt;Upgrades&amp;gt; UpgradesToUnlock" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry y="121" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-36" value="Public List&amp;lt;Upgrades&amp;gt;&amp;nbsp;&lt;div&gt;GetRandomUpgradesToUnlock&lt;span style=&quot;background-color: initial;&quot;&gt;(int upgradesAmmount&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry x="-1" y="251" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-37" value="Public void&amp;nbsp;&lt;div&gt;UnlockUpgrades&lt;span style=&quot;background-color: initial;&quot;&gt;(Upgrades upgrade&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry x="-1" y="291" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-38" value="Public void&amp;nbsp;&lt;div&gt;UnlockUpgrades&lt;span style=&quot;background-color: initial;&quot;&gt;(List&amp;lt;upgrades&amp;gt; Upgrades&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-7" vertex="1">
+          <mxGeometry x="-1" y="331" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wwt_t61raClu5YxIKpNg-1" value="private void&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;OverrideUnlockedUpgrades&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="Ghun9r_aBVUG6SqOfzZd-7">
+          <mxGeometry x="-1" y="371" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wwt_t61raClu5YxIKpNg-2" value="ref a todas las direcciones de los SO&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="Ghun9r_aBVUG6SqOfzZd-7">
+          <mxGeometry y="401" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.05;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Ghun9r_aBVUG6SqOfzZd-6" target="Ghun9r_aBVUG6SqOfzZd-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-22" value="Pasado x Tiempo o al terminar el nivel. Para evitar sobreescritura" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="740" y="751" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-25" value="SO&amp;nbsp;&lt;div&gt;En inspector&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="430" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-26" value="SO&amp;nbsp;&lt;div&gt;Variable y serializado&lt;/div&gt;&lt;div&gt;en Json&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="630" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-27" value="Lista&lt;div&gt;Se actualiza al iniciar&lt;/div&gt;&lt;div&gt;y al desbloquear algo&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="940" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.489;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Ghun9r_aBVUG6SqOfzZd-1" target="Ghun9r_aBVUG6SqOfzZd-28" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="516" />
+              <mxPoint x="270" y="516" />
+              <mxPoint x="270" y="636" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.004;entryY=0.489;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Ghun9r_aBVUG6SqOfzZd-2" target="Ghun9r_aBVUG6SqOfzZd-29" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="440" />
+              <mxPoint x="230" y="440" />
+              <mxPoint x="230" y="666" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-35" value="UI MANAGER" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="900" y="537" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-40" value="Vertical Container" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1110" y="563" width="260" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-42" value="private void OnUnlockUpgradesButton()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ghun9r_aBVUG6SqOfzZd-40" vertex="1">
+          <mxGeometry y="28" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.021;entryY=0.066;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Ghun9r_aBVUG6SqOfzZd-35" target="Ghun9r_aBVUG6SqOfzZd-40" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.003;entryY=0.433;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Ghun9r_aBVUG6SqOfzZd-36" target="Ghun9r_aBVUG6SqOfzZd-42" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="831" />
+              <mxPoint x="1050" y="604" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-45" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.001;entryY=0.513;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1" target="Ghun9r_aBVUG6SqOfzZd-38">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="880" as="sourcePoint" />
+            <mxPoint x="630" y="920" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="760" y="912" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ghun9r_aBVUG6SqOfzZd-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.009;entryY=0.464;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Ghun9r_aBVUG6SqOfzZd-42" edge="1" target="Ghun9r_aBVUG6SqOfzZd-37">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="880" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1410" y="606" />
+              <mxPoint x="1410" y="880" />
+              <mxPoint x="591" y="880" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,4 +1,5 @@
 ﻿using _Main.Scripts.FSM.Base;
+using _Main.Scripts.Managers;
 using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.Conditions
@@ -13,7 +14,7 @@ namespace _Main.Scripts.Enemies.FSMStates.Conditions
         
         private bool LineOfSight(EnemyModel p_model)
         {
-            var l_lTargetPos = p_model.GetTargetTransform().position;
+            var l_lTargetPos = LevelManager.Instance.PlayerModel.transform.position;
             var l_lModelTransform = p_model.transform;
             var l_lDirectionToTarget = l_lTargetPos - l_lModelTransform.position;
             

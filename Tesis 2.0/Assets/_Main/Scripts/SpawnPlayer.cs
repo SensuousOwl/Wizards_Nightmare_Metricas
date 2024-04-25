@@ -1,3 +1,4 @@
+using _Main.Scripts.Managers;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.UI;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace _Main.Scripts
         {
             var l_player = Instantiate(playerPrefab, transform.position, playerPrefab.transform.rotation);
             upgradeScreenController.SetPlayerModel(l_player);
+
+            
             Destroy(gameObject);
         }
     }

@@ -38,7 +38,6 @@ namespace _Main.Scripts.Enemies
 
         public void SetWalkSpeed(float speed)
         {
-            Debug.Log(speed);
             m_animator.SetFloat(Speed, speed);
         }
         public void PlayHurtAnim()
