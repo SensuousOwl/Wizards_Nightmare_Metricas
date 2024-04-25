@@ -134,9 +134,9 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
             return Vector3.Distance(p_startNode.WorldPos, p_endNode.WorldPos);
         }
 
-        private List<MyNode> PConnections(MyNodeGrid grid,MyNode arg)
+        private IEnumerable<MyNode> PConnections(MyNodeGrid grid,MyNode arg)
         {
-            return grid.GetNeighbours(arg).ToList();
+            return grid.GetNeighbours(arg);
         } 
 
         private bool PSatisfies(MyNode p_curr, MyNode p_target)

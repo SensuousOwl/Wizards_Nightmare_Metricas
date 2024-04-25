@@ -8,18 +8,19 @@ namespace _Main.Scripts.Services.Stats
     {
         public void Initialize()
         {
-            var data = MyGame.PlayerDataEssentials;
+            var l_data = MyGame.PlayerDataEssentials;
             
-            m_statsDictionary.Add(StatsId.MovementSpeed, data.MovementSpeed);
-            m_statsDictionary.Add(StatsId.CriticalDamageMult, data.CriticalDamageMult);
-            m_statsDictionary.Add(StatsId.SpawnItemChance, data.SpawnItemChance);
-            m_statsDictionary.Add(StatsId.FireRate, data.FireRate);
-            m_statsDictionary.Add(StatsId.Range, data.FireRange);
-            m_statsDictionary.Add(StatsId.CriticalChance, data.CriticalChance);
-            m_statsDictionary.Add(StatsId.DashCooldown, data.DashCooldown);
-            m_statsDictionary.Add(StatsId.DashTranslation, data.DashTranslation);
-            m_statsDictionary.Add(StatsId.ProjectileSpeed, data.ProjectileSpeed);
-            m_statsDictionary.Add(StatsId.Damage, data.Damage);
+            m_statsDictionary.Add(StatsId.MovementSpeed, l_data.MovementSpeed);
+            m_statsDictionary.Add(StatsId.CriticalDamageMult, l_data.CriticalDamageMult);
+            m_statsDictionary.Add(StatsId.SpawnItemChance, l_data.SpawnItemChance);
+            m_statsDictionary.Add(StatsId.FireRate, l_data.FireRate);
+            m_statsDictionary.Add(StatsId.Range, l_data.FireRange);
+            m_statsDictionary.Add(StatsId.CriticalChance, l_data.CriticalChance);
+            m_statsDictionary.Add(StatsId.DashCooldown, l_data.DashCooldown);
+            m_statsDictionary.Add(StatsId.DashTranslation, l_data.DashTranslation);
+            m_statsDictionary.Add(StatsId.ProjectileSpeed, l_data.ProjectileSpeed);
+            m_statsDictionary.Add(StatsId.Damage, l_data.Damage);
+            m_statsDictionary.Add(StatsId.MaxHealth, l_data.MaxHp);
         }
         
         

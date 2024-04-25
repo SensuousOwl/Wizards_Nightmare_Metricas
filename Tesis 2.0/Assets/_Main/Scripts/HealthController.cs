@@ -1,5 +1,8 @@
 using System;
 using _Main.Scripts.Attributes;
+using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.Stats;
 using UnityEngine;
 
 namespace _Main.Scripts
@@ -14,14 +17,27 @@ namespace _Main.Scripts
         public event Action<float, float, float> OnChangeMaxHealth;
         public event Action<float> OnTakeDamage;
 
+        private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
+
+        private bool m_isPlayer;
+
         public void Initialize(float p_maxHealth)
         {
             maxHealth = p_maxHealth;
             currentHealth = maxHealth;
         }
+        
+        public void Initialize()
+        {
+            maxHealth = StatsService.GetStatById(StatsId.MaxHealth);
+            currentHealth = maxHealth;
+            m_isPlayer = true;
+        }
 
         public void ChangeMaxHealth(float p_newValue)
         {
+            if (m_isPlayer)
+                return;
             OnChangeMaxHealth?.Invoke(maxHealth, p_newValue, currentHealth);
             maxHealth = p_newValue;
         }

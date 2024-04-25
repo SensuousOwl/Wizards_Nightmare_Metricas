@@ -23,7 +23,14 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         private Dictionary<EnemyModel, data> m_dictionary = new Dictionary<EnemyModel, data>();
         public override void EnterState(EnemyModel p_model)
         {
-            var targetPos = LevelManager.Instance.PlayerModel.transform.position;
+            var player = LevelManager.Instance.PlayerModel;
+            var targetPos = Vector2.zero;
+
+            if (player != default)
+            {
+                targetPos = player.transform.position;
+            }
+            
             m_dictionary[p_model] = new data();
 
             var col = Physics.OverlapBox(p_model.transform.position, Vector3.one, Quaternion.identity, RoomLayer);

@@ -19,7 +19,15 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         
         public override void EnterState(EnemyModel p_model)
         {
-            var l_playerPos = LevelManager.Instance.PlayerModel.transform.position;
+            var player = LevelManager.Instance.PlayerModel;
+            var l_playerPos = Vector3.zero;
+            
+            if (player != default)
+            {
+                l_playerPos = player.transform.position;
+            }
+            
+            
             var l_data = new data();
             if (l_playerPos.x > p_model.transform.position.x)
             {
