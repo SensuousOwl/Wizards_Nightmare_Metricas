@@ -20,10 +20,10 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             m_bulletPool ??= new PoolGeneric<Bullet>(bulletPrefab);
             
             p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
-            var diffAngle = totalConeAngle / bulletsAmount;
-            var data = p_model.GetData();
-            var dir = (LevelManager.Instance.PlayerModel.transform.position - p_model.transform.position).normalized;
-            for (int i = 0; i < bulletsAmount; i++)
+            var l_diffAngle = totalConeAngle / bulletsAmount;
+            var l_data = p_model.GetData();
+            var l_dir = (LevelManager.Instance.PlayerModel.transform.position - p_model.transform.position).normalized;
+            for (var l_i = 0; l_i < bulletsAmount; l_i++)
             {
                 // "i % 2 == 0 ? -1 : 1" es para rotar el angulo del otro lado de la dir
                 l_dir.RotateVector2(l_diffAngle * l_i * (l_i % 2 == 0 ? -1 : 1));

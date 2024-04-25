@@ -26,7 +26,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         public override void ExecuteState(EnemyModel p_model)
         {
             var wantedDir = MySteeringBehaviors.GetInterceptDir(p_model.transform.position, m_datas[p_model].transform.position,
-                m_datas[p_model].CurrDir, m_datas[p_model].StatsController.GetStatById(StatsId.MovementSpeed), interceptTime);
+                m_datas[p_model].CurrDir, PlayerModel.StatsController.GetStatById(StatsId.MovementSpeed), interceptTime);
 
             var accMult = CalculateMult(p_model.transform.position, m_datas[p_model].transform.position, 
                 minAccValue, maxAccValue);

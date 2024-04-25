@@ -20,31 +20,36 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         [SerializeField] private int burstCount;
         [SerializeField] private float timeBtwBullets;
 
-        private Dictionary<EnemyModel, ThisData> m_models = new Dictionary<EnemyModel, ThisData>();
+        private readonly Dictionary<EnemyModel, ThisData> m_models = new();
 
         private PoolGeneric<Bullet> m_bulletPool;
 
         public override void EnterState(EnemyModel p_model)
         {
-            m_models[p_model] = new ThisData();
-            m_models[p_model].BullCount = burstCount;
-            m_models[p_model].Timer = 0f;
+            m_models[p_model] = new ThisData
+            {
+                BullCount = burstCount,
+                Timer = 0f
+            };
 
             m_bulletPool ??= new PoolGeneric<Bullet>(bulletPrefab);
         }
 
         public override void ExecuteState(EnemyModel p_model)
         {
-            if (m_models[p_model].BullCount > 0)
+            if (m_models[p_model].BullCount <= 0) 
+                return;
+            
+            if (m_models[p_model].Timer <= Time.time)
             {
-                if (models[p_model].Timer <= Time.time)
-                {
-                    var data = p_model.GetData();
-                    var dir = (LevelManager.Instance.PlayerModel.transform.position - p_model.transform.position).normalized;
-                    var bul = Instantiate(bulletPrefab, p_model.transform.position, Quaternion.identity);
-                    
-                    bul.Initialize(data.ProjectileSpeed, data.Damage, dir, data.Range, data.TargetMask);
-                    p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
+                var l_data = p_model.GetData();
+                var l_dir = (LevelManager.Instance.PlayerModel.transform.position - p_model.transform.position)
+                    .normalized;
+                var l_bullet = m_bulletPool.GetorCreate();
+
+                l_bullet.Initialize(p_model.transform.position, l_data.ProjectileSpeed, l_data.Damage, l_dir, l_data.Range, l_data.TargetMask);
+                l_bullet.OnDeactivate -= OnDeactivateBulletHandler;
+                p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
 
                 m_models[p_model].BullCount--;
                 m_models[p_model].Timer = Time.time + timeBtwBullets;
