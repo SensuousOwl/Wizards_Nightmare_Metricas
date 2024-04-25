@@ -24,13 +24,15 @@ MonoBehaviour:
   - {fileID: 2428573690158940086, guid: bbc5cbe420da7d94b92b5d1e483e5a9e, type: 3}
   - {fileID: 7161241070491691102, guid: e9e569ac1dd022f48afab02679836414, type: 3}
   - {fileID: 7357540521744419404, guid: 8460fd1797ba4da4da269a5e3a0af7d0, type: 3}
+  - {fileID: 2428573690158940086, guid: 3e9a9a1f6925a0c48b4c9c0714e080b7, type: 3}
   allEnemiesChances:
   - 100
   - 80
-  - 0
+  - 40
   - 100
   - 50
   - 80
+  - 0
   chancePercentage:
   - 33.333332
   - 33.333332

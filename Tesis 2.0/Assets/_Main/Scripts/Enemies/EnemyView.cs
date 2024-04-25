@@ -6,7 +6,7 @@ namespace _Main.Scripts.Enemies
     {
         
         private Animator m_animator;
-        [SerializeField] private SpriteRenderer renderer;
+        [SerializeField] private new SpriteRenderer renderer;
         
         
         private static readonly int Speed = Animator.StringToHash("Speed");
@@ -38,7 +38,6 @@ namespace _Main.Scripts.Enemies
 
         public void SetWalkSpeed(float speed)
         {
-            Debug.Log(speed);
             m_animator.SetFloat(Speed, speed);
         }
         public void PlayHurtAnim()

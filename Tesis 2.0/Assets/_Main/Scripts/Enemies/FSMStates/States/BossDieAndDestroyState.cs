@@ -22,7 +22,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             }
 
             var hpBar = room.GetHealthBar();
-            hpBar.Deactivate(p_model.HealthController);
+            hpBar.UnSubscribe(p_model.HealthController);
             
             p_model.TriggerDieEvent();
             Destroy(p_model.gameObject);

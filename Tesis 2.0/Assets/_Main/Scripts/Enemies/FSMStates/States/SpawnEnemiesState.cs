@@ -16,7 +16,8 @@ namespace _Main.Scripts.Enemies.FSMStates.States
 
             foreach (var enemy in currEnemies)
             {
-                Instantiate(enemy, p_model.transform.position, p_model.transform.rotation);
+                var curr = Instantiate(enemy, p_model.transform.position, p_model.transform.rotation);
+                curr.SetEnemyGrid(p_model.NodeGrid);
             }
         }
 

@@ -73,6 +73,7 @@ namespace _Main.Scripts.RoomsSystem
                 var l_enemyPrefab = enemyPoolData.GetRandomEnemyPrefabFromPool();
                 var l_enemy = Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
                 l_enemy.OnDie += DieEnemyHandler;
+                l_enemy.SetEnemyGrid(m_currentRoom.Grid);
                 m_enemyCount++;
             }
         }

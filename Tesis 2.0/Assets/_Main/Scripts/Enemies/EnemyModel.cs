@@ -1,6 +1,7 @@
 using System;
 using _Main.Scripts.Audio;
 using _Main.Scripts.DevelopmentUtilities;
+using _Main.Scripts.Grid;
 using _Main.Scripts.PlayerScripts;
 using UnityEngine;
 using LayerMaskExtensions = _Main.Scripts.DevelopmentUtilities.LayerMaskExtensions;
@@ -17,13 +18,15 @@ namespace _Main.Scripts.Enemies
 
         public EnemyView View => m_view;
         private EnemyView m_view;
-        private Transform m_target;
+        private Rigidbody2D m_rb;
 
         public bool IsAttacking => m_isAttacking;
         private bool m_isAttacking;
         public Vector2 CurrDir => m_dir;
 
         private Vector2 m_dir;
+        
+        public MyNodeGrid NodeGrid { get; private set; }
         public HealthController HealthController { get; private set; }
         public ISfxAudioPlayer SfxAudioPlayer { get; private set; }
         public event Action<EnemyModel> OnDie;
@@ -35,20 +38,20 @@ namespace _Main.Scripts.Enemies
             SfxAudioPlayer = GetComponent<ISfxAudioPlayer>();
             HealthController.Initialize(data.MaxHp);
             m_view = GetComponent<EnemyView>();
+            m_rb = GetComponent<Rigidbody2D>();
             
             HealthController.OnTakeDamage += OnOnTakeDamageHC;
             HealthController.OnDie += OnDieHC;
             m_timer = 0;
+            
         }
 
         
 
 
-        public Transform GetTargetTransform()
-        {
-            m_target ??= FindObjectOfType<PlayerModel>().transform;
-            return m_target;
-        }
+        
+
+        
 
         public EnemyData GetData() => data;
 
@@ -56,6 +59,8 @@ namespace _Main.Scripts.Enemies
         {
             
         }
+
+        public void SetEnemyGrid(MyNodeGrid p_grid) => NodeGrid = p_grid;
 
         public void SetIsAttacking(bool b) => m_isAttacking = b;
 
@@ -78,7 +83,17 @@ namespace _Main.Scripts.Enemies
             m_view.SetWalkSpeed((p_dir * data.MovementSpeed).magnitude);
         }
 
-       
+        public void MoveWithAcceleration(Vector2 p_dir, float p_accMult)
+        {
+            m_dir = p_dir.normalized;
+
+            var accelerationVector = m_dir * (data.AccelerationRate * p_accMult);
+
+            var velocity = m_rb.velocity;
+            velocity += accelerationVector * Time.deltaTime;
+            
+            m_rb.velocity = Vector2.ClampMagnitude(velocity, data.TerimnalVelocity);
+        }
 
         public void TriggerDieEvent()
         {
@@ -121,7 +136,7 @@ namespace _Main.Scripts.Enemies
         {
             Gizmos.color = Color.red;
             
-            Gizmos.DrawLine(transform.position, m_dir);
+            Gizmos.DrawLine(transform.position,  transform.position + (Vector3)m_dir);
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, target);
         }
