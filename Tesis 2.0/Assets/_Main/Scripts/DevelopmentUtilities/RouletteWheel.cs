@@ -24,6 +24,7 @@ namespace _Main.Scripts.DevelopmentUtilities
         private float m_cachedSum;
 
 
+        public bool IsEmpty() => m_cachedDictionary.Count <= 0;
         public static TY Run<TY>(Dictionary<TY, float> p_items)
         {
             float l_max = 0;

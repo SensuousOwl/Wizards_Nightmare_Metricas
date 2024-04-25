@@ -21,34 +21,9 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
         [field: SerializeField] public SerializableDictionary<string, UpgradeDataStruct> UpgradeDataStructs; 
         [SerializeField] private List<UpgradeData> upgrades;
         [SerializeField] private List<float> upgradesChances;
-
         
         public List<UpgradeData> AllUpgrades => upgrades;
         public List<float> AllUpgradesChances => upgradesChances;
-        
-        private RouletteWheel<UpgradeData> m_rouletteWheel;
-        public UpgradeData GetRandomUpgradeFromPool()
-        {
-            m_rouletteWheel ??= new RouletteWheel<UpgradeData>(upgrades, upgradesChances);
-
-            return m_rouletteWheel.RunWithCached();
-        }
-        
-        public UpgradeData GetRandomUpgradeFromPool(List<UpgradeData> p_upgradesExclude)
-        {
-            m_rouletteWheel ??= new RouletteWheel<UpgradeData>(upgrades, upgradesChances);
-            
-            var l_upgrade = m_rouletteWheel.RunWithCached();
-            var l_watchDog = 1000;
-
-            while (p_upgradesExclude.Contains(l_upgrade) && l_watchDog > 0)
-            {
-                l_upgrade = m_rouletteWheel.RunWithCached();
-                l_watchDog--;
-            }
-
-            return l_upgrade;
-        }
 
         public UpgradeData GetDataById(string id)
         {
