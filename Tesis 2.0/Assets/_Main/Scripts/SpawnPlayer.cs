@@ -15,9 +15,6 @@ namespace _Main.Scripts
             var l_player = Instantiate(playerPrefab, transform.position, playerPrefab.transform.rotation);
             upgradeScreenController.SetPlayerModel(l_player);
 
-#if UNITY_EDITOR
-            CheatsManager.Singleton.SubscribePlayer(l_player);
-#endif
             
             Destroy(gameObject);
         }

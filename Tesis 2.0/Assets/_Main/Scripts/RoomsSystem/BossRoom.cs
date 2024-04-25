@@ -16,9 +16,6 @@ namespace _Main.Scripts.RoomsSystem
         
         private void Start()
         {
-#if UNITY_EDITOR
-            CheatsManager.Singleton.SubscribeBossRoom(this);
-#endif
             activatePassLevel.SetActive(false);
         }
 
