@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: Devil's Bargain
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 
+  <Id>k__BackingField: RandomID857
   <Name>k__BackingField: Devil's Bargain
   <Description>k__BackingField: 'Are you sure?
 
@@ -24,6 +24,8 @@ MonoBehaviour:
     Movement Speed + 50%
 
     Max Life - 95%'
+  <UpgradeWeight>k__BackingField: 0
+  <UnlockWeight>k__BackingField: 0
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
   - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}

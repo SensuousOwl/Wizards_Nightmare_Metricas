@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: ProjectileSpeedUpgrade
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 
+  <Id>k__BackingField: RandomID6485
   <Name>k__BackingField: Projectile Speed Up
   <Description>k__BackingField: 'Projectile Speed Up
 
     + 50%'
+  <UpgradeWeight>k__BackingField: 0
+  <UnlockWeight>k__BackingField: 0
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 7ab17834b08e72b47b46475efee5bf12, type: 2}
   <UpgradePercentage>k__BackingField:

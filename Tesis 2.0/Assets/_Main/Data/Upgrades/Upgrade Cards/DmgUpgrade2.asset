@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: DmgUpgrade2
   m_EditorClassIdentifier: 
+  <Id>k__BackingField: RandomID4114
   <Name>k__BackingField: Damage Up+
   <Description>k__BackingField: 'Damage Up
 
     + 50%'
+  <UpgradeWeight>k__BackingField: 0
+  <UnlockWeight>k__BackingField: 0
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
   <UpgradePercentage>k__BackingField:
