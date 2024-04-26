@@ -22,8 +22,8 @@ MonoBehaviour:
     Speed Down -20%
 
     Fire Rate Down -20%'
-  <UpgradeWeight>k__BackingField: 0
-  <UnlockWeight>k__BackingField: 0
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 2b43f6682e6d8bb4795d2df2fcb85622, type: 2}
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}

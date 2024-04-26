@@ -17,8 +17,8 @@ MonoBehaviour:
   <Description>k__BackingField: 'Dash Cooldown Down
 
     - 20%'
-  <UpgradeWeight>k__BackingField: 0
-  <UnlockWeight>k__BackingField: 0
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 0af0a4bef6cd8fb449e5c9b2111e0285, type: 2}
   <UpgradePercentage>k__BackingField:

@@ -24,8 +24,8 @@ MonoBehaviour:
     Damage Down
 
     Max Life Down'
-  <UpgradeWeight>k__BackingField: 0
-  <UnlockWeight>k__BackingField: 0
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
   - {fileID: 11400000, guid: 94e4c39bfb050ef4cb718683c89675ed, type: 2}

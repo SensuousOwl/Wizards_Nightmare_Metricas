@@ -22,8 +22,8 @@ MonoBehaviour:
     Speed +50%
 
     Range + 25%'
-  <UpgradeWeight>k__BackingField: 0
-  <UnlockWeight>k__BackingField: 0
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
   - {fileID: 11400000, guid: 7ab17834b08e72b47b46475efee5bf12, type: 2}

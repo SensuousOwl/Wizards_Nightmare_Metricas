@@ -17,8 +17,8 @@ MonoBehaviour:
   <Description>k__BackingField: 'Damage Up +50%
 
     Critical Chance Up +80%'
-  <UpgradeWeight>k__BackingField: 0
-  <UnlockWeight>k__BackingField: 0
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
   - {fileID: 11400000, guid: fab1d45caf847d3488400d9fe60e4ad8, type: 2}

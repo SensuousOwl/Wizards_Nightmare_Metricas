@@ -55,7 +55,17 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 576b3a9d56d28384390940bd08637940, type: 2}
     - {fileID: 11400000, guid: 92a52308b1886c14d91ae00aa75454d5, type: 2}
     - {fileID: 11400000, guid: 1543e69e74e60cd4490bd06e93059162, type: 2}
-  <DefaultUnlockedUpgrades>k__BackingField: []
+  <DefaultUnlockedUpgrades>k__BackingField:
+  - RandomID7413
+  - RandomID689
+  - RandomID6550
+  - RandomID6149
+  - RandomID1320
+  - RandomID857
+  - RandomID9397
+  - RandomID4114
+  - RandomID6609
+  - RandomID38
   upgradesData:
   - {fileID: 11400000, guid: 02109fd1e51f5ef48804338cba743151, type: 2}
   - {fileID: 11400000, guid: 776f58b3aa7fda44892cd5faba06893e, type: 2}

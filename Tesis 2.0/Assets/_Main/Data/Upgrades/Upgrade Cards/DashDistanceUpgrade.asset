@@ -17,8 +17,8 @@ MonoBehaviour:
   <Description>k__BackingField: 'Dash Distance Up
 
     + 25%'
-  <UpgradeWeight>k__BackingField: 0
-  <UnlockWeight>k__BackingField: 0
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 94e4c39bfb050ef4cb718683c89675ed, type: 2}
   <UpgradePercentage>k__BackingField:

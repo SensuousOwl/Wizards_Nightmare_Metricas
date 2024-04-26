@@ -27,14 +27,11 @@ namespace _Main.Scripts.Services.UpgradePoolServices
         public void Initialize()
         {
             m_allAllUpgradeData = MyGame.AllUpgradePoolDataEssentials;
+
+            if (DataState.GetUnlockedUpgrades() == default)
+                DataState.SetUnlockedUpgrades(m_allAllUpgradeData.DefaultUnlockedUpgrades);
+            
             RefreshUpgradeLists();
-            
-            if(DataState.GetUnlockedUpgrades() != default)
-                return;
-            
-            
-            DataState.SetUnlockedUpgrades(m_allAllUpgradeData.DefaultUnlockedUpgrades);
-            
         }
         
         
