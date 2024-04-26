@@ -3,6 +3,9 @@ using System.Linq;
 using _Main.Scripts.DevelopmentUtilities;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.UpgradesSystem;
+using _Main.Scripts.Services.MicroServices.UserDataService;
+using _Main.Scripts.Services.MicroServices.UserDataService.UserDataStates;
+using Unity.VisualScripting;
 using UnityEngine;
 using ListExtensions = _Main.Scripts.Extensions.ListExtensions;
 
@@ -12,16 +15,26 @@ namespace _Main.Scripts.Services.UpgradePoolServices
     {
         private AllUpgradeDataPool m_allAllUpgradeData;
         
+        //
         
-        private List<string> m_unlockedUpgradeIDs;
-        private List<string> m_lockedUpgradeIDs;
+        private RouletteWheel<UpgradeData> m_unlockedUpgradesRouletteWheel;
+        private RouletteWheel<UpgradeData> m_lockedUpgradesRouletteWheel;
+
+        private UpgradesServiceDataState DataState =
+            ServiceLocator.Get<IUserDataService>().GetState<UpgradesServiceDataState>();
         
-        private RouletteWheel<UpgradeDataStruct> m_unlockedUpgradesRouletteWheel;
-        private RouletteWheel<UpgradeDataStruct> m_lockedUpgradesRouletteWheel;
+        
         public void Initialize()
         {
             m_allAllUpgradeData = MyGame.AllUpgradePoolDataEssentials;
             RefreshUpgradeLists();
+            
+            if(DataState.GetUnlockedUpgrades() != default)
+                return;
+            
+            
+            DataState.SetUnlockedUpgrades(m_allAllUpgradeData.DefaultUnlockedUpgrades);
+            
         }
         
         
@@ -33,44 +46,41 @@ namespace _Main.Scripts.Services.UpgradePoolServices
         }
         private void RefreshUnlockedUpgradesDictionary()
         {
-            var l_listData = new List<UpgradeDataStruct>();
-            var l_listWeigth = new List<float>();
+            var l_dataDictionary = new Dictionary<UpgradeData, float>();
 
-            var l_dictionary = m_allAllUpgradeData.UpgradeDataStructs;
+            var l_dictionary = m_allAllUpgradeData.UpgradesDataDictionary;
+
+            var l_unlocked = DataState.GetUnlockedUpgrades();
             
-            for (int l_i = 0; l_i < m_unlockedUpgradeIDs.Count; l_i++)
+            for (int l_i = 0; l_i < l_unlocked.Count; l_i++)
             {
-                if(!l_dictionary.TryGetValue(m_unlockedUpgradeIDs[l_i], out var l_upgradeDataStruct))
+                if(!l_dictionary.TryGetValue(l_unlocked[l_i], out var l_upgradeDataStruct))
                     continue;
-                
-                l_listData.Add(l_upgradeDataStruct);
-                l_listWeigth.Add(l_upgradeDataStruct.weight);
+                l_dataDictionary.TryAdd(l_upgradeDataStruct, l_upgradeDataStruct.UpgradeWeight);
             }
             
-            m_unlockedUpgradesRouletteWheel = new RouletteWheel<UpgradeDataStruct>(l_listData, l_listWeigth);
+            m_unlockedUpgradesRouletteWheel = new RouletteWheel<UpgradeData>(l_dataDictionary);
         }
 
         private void RefreshLockedUpgradesDictionary()
         {
-            var l_allKeys = m_allAllUpgradeData.UpgradeDataStructs.Keys;
-            m_lockedUpgradeIDs = ListExtensions.GetUnmatchedElements(l_allKeys.ToList(), m_unlockedUpgradeIDs);
+            var l_dataDictionary = new Dictionary<UpgradeData, float>();
             
-            var l_listData = new List<UpgradeDataStruct>();
-            var l_listWeigth = new List<float>();
-
-            var l_dictionary = m_allAllUpgradeData.UpgradeDataStructs;
+            var l_allKeys = m_allAllUpgradeData.UpgradesDataDictionary.Keys;
+            var l_lockedUpgradeIDs = ListExtensions.GetUnmatchedElements(l_allKeys, DataState.GetUnlockedUpgrades());
             
+            var l_dictionary = m_allAllUpgradeData.UpgradesDataDictionary;
             
-            for (int l_i = 0; l_i < m_lockedUpgradeIDs.Count; l_i++)
+            for (int l_i = 0; l_i < l_lockedUpgradeIDs.Count; l_i++)
             {
-                if(!l_dictionary.TryGetValue(m_lockedUpgradeIDs[l_i], out var l_upgradeDataStruct))
+                if(!l_dictionary.TryGetValue(l_lockedUpgradeIDs[l_i], out var l_upgradeDataStruct))
                     continue;
                 
-                l_listData.Add(l_upgradeDataStruct);
-                l_listWeigth.Add(l_upgradeDataStruct.weight);
+                l_dataDictionary.TryAdd(l_upgradeDataStruct, l_upgradeDataStruct.UnlockWeight);
             }
 
-            m_lockedUpgradesRouletteWheel = new RouletteWheel<UpgradeDataStruct>(l_listData, l_listWeigth);
+            
+            m_lockedUpgradesRouletteWheel = new RouletteWheel<UpgradeData>(l_dataDictionary);
         }
 
 
@@ -82,8 +92,8 @@ namespace _Main.Scripts.Services.UpgradePoolServices
             for (int l_i = 0; l_i < p_upgradesAmount; l_i++)
             {
                 var l_x = m_lockedUpgradesRouletteWheel.RunWithCached();
-                l_list.Add(l_x.data);
-                UnlockUpgrades(l_x);
+                l_list.Add(l_x);
+                UnlockUpgrades(l_x.Id);
 
             }
 
@@ -95,7 +105,7 @@ namespace _Main.Scripts.Services.UpgradePoolServices
             if (m_unlockedUpgradesRouletteWheel.IsEmpty())
                 return default;
             
-            return m_unlockedUpgradesRouletteWheel.RunWithCached().data;
+            return m_unlockedUpgradesRouletteWheel.RunWithCached();
         }
         
         public UpgradeData GetRandomUnlockedUpgradeFromPool(List<UpgradeData> p_upgradesExclude)
@@ -103,32 +113,23 @@ namespace _Main.Scripts.Services.UpgradePoolServices
             if (m_unlockedUpgradesRouletteWheel.IsEmpty())
                 return default;
             
-            var l_upgrade = m_unlockedUpgradesRouletteWheel.RunWithCached().data;
+            var l_upgrade = m_unlockedUpgradesRouletteWheel.RunWithCached();
             var l_watchDog = 1000;
 
             while (p_upgradesExclude.Contains(l_upgrade) && l_watchDog > 0)
             {
-                l_upgrade = m_unlockedUpgradesRouletteWheel.RunWithCached().data;
+                l_upgrade = m_unlockedUpgradesRouletteWheel.RunWithCached();
                 l_watchDog--;
             }
 
             return l_upgrade;
         }
 
-        public UpgradeData GetRandomLockedUpgradeFromPool() => m_lockedUpgradesRouletteWheel.RunWithCached().data;
+        public UpgradeData GetRandomLockedUpgradeFromPool() => m_lockedUpgradesRouletteWheel.RunWithCached();
 
-        
-
-        public void UnlockUpgrades(UpgradeDataStruct p_upgradeDataToUnlock)
+        public void UnlockUpgrades(string p_upgradeId)
         {
-            m_unlockedUpgradeIDs.Add(p_upgradeDataToUnlock.id);
-            RefreshUpgradeLists();
-        }
-
-        public void UnlockUpgrades(UpgradeData p_upgradeDataToUnlock)
-        {
-            var l_structData = m_allAllUpgradeData.GetStructByData(p_upgradeDataToUnlock);
-            m_unlockedUpgradeIDs.Add(l_structData.id);
+            DataState.AddUnlockedUpgrade(p_upgradeId);
             RefreshUpgradeLists();
         }
 
@@ -136,16 +137,10 @@ namespace _Main.Scripts.Services.UpgradePoolServices
 
         public UpgradeData GetUpgradeDataByID(string p_id)
         {
-            foreach (var l_upgradeDataStruct in m_allAllUpgradeData.UpgradeDataStructs)
-            {
-                var l_element = l_upgradeDataStruct.Value;
-                if (l_element.id.Equals(p_id))
-                {
-                    return l_element.data;
-                }
-            }
-
-            Debug.LogError("Error in search for UpgradeData via id");
+            if (m_allAllUpgradeData.UpgradesDataDictionary.TryGetValue(p_id, out var l_struct))
+                return l_struct;
+            
+            Logger.LogError("Error in search for UpgradeData via id");
             return default;
         }
     }

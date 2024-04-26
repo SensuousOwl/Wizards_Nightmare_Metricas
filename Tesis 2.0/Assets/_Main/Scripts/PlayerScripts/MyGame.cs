@@ -8,7 +8,7 @@ namespace _Main.Scripts.PlayerScripts
     {
         
         public const string PLAYER_DATA_ESSENTIALS_FILE_NAME = "PlayerDataEssentials";
-        public const string ALL_UPGRADES_POOL_DATA_ESSENTIALS_FILE_NAME = "AllUpgradePoolDataEssentials";
+        public const string ALL_UPGRADES_POOL_DATA_ESSENTIALS_FILE_NAME = "AllUpgradeDataEssentials";
        
 
         private static PlayerData m_playerDataEssentials;

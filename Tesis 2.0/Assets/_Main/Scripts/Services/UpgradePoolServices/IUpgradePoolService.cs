@@ -10,7 +10,6 @@ namespace _Main.Scripts.Services.UpgradePoolServices
         public UpgradeData GetRandomUnlockedUpgradeFromPool(List<UpgradeData> p_upgradesExclude);
         public UpgradeData GetRandomLockedUpgradeFromPool();
         
-        public void UnlockUpgrades(UpgradeDataStruct upgradeDataToUnlock);
-        public void UnlockUpgrades(UpgradeData upgradeDataToUnlock);
+        public void UnlockUpgrades(string upgradeDataToUnlock);
     }
 }
