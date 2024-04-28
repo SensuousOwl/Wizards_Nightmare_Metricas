@@ -26,6 +26,20 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
                 UpgradesDataDictionary.TryAdd(element.Id, element);
             }
         }
+        
+        [ContextMenu("CheckUnlockedUpgradesIds")]
+        public void CheckUnlockedUpgradesIds()
+        {
+            for (int i = 0; i < DefaultUnlockedUpgrades.Count; i++)
+            {
+                var l_currId = DefaultUnlockedUpgrades[i];
+                
+                if(UpgradesDataDictionary.ContainsKey(l_currId))
+                    continue;
+                
+                DefaultUnlockedUpgrades.Remove(l_currId);
+            }
+        }
 
 
 #endif
