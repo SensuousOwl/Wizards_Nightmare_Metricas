@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace _Main.Scripts.UI
+namespace _Main.Scripts.UI.Menus
 {
     public class PauseMenu : BasePanel
     {

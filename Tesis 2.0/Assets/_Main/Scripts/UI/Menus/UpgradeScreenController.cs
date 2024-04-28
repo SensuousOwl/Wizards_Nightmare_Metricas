@@ -4,13 +4,12 @@ using _Main.Scripts.Managers;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.UpgradesSystem;
 using _Main.Scripts.Services;
-using _Main.Scripts.Services.Stats;
 using _Main.Scripts.Services.UpgradePoolServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Main.Scripts.UI
+namespace _Main.Scripts.UI.Menus
 {
     public class UpgradeScreenController : MonoBehaviour
     {
