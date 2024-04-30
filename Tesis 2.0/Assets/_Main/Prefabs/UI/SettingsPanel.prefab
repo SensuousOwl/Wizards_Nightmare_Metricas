@@ -282,6 +282,7 @@ MonoBehaviour:
   controlsScreenButton: {fileID: 4567188914269474885}
   goBackControlButton: {fileID: 3751871336443429107}
   goBackScreenButton: {fileID: 8340303231649151394}
+  hudCanvasGroup: {fileID: 0}
 --- !u!1 &326417300088648562
 GameObject:
   m_ObjectHideFlags: 0
