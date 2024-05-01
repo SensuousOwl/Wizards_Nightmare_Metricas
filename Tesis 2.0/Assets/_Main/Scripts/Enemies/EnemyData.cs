@@ -12,6 +12,8 @@ namespace _Main.Scripts.Enemies
         [field: SerializeField] public List<StateData> AllStatesData { get; private set; }
         [field: SerializeField] public int MaxHp { get; private set; }
         [field: SerializeField] public float MovementSpeed { get; private set; }
+        [field: SerializeField] public float AccelerationRate { get; private set; }
+        [field: SerializeField] public float TerimnalVelocity { get; private set; }
         [field: SerializeField] public float FireRate { get; private set; }
         [field: SerializeField] public float Range { get; private set; }
         [field: SerializeField] public float ViewDepthRange { get; private set; }

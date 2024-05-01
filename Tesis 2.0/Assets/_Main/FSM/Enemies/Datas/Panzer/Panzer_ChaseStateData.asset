@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
   m_Name: Panzer_ChaseStateData
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: a96b87034fc6ee04ea6f29a9746a4134, type: 2}
+  <MyState>k__BackingField: {fileID: 11400000, guid: 6d61fe381bbbf55499644852f7d20ab3, type: 2}
   <StateConditions>k__BackingField:
   - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
+  - {fileID: 11400000, guid: 4218feb44d478f74fbef22151e1816ad, type: 2}
   <ExitStates>k__BackingField:
   - {fileID: 11400000, guid: fb5834a6afcdfb241873c0ea89c0c73b, type: 2}
+  - {fileID: 11400000, guid: b946e33960847fe488e417cb523e4119, type: 2}
