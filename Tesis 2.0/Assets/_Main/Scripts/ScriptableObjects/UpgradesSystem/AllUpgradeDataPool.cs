@@ -37,7 +37,7 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
                 if(UpgradesDataDictionary.ContainsKey(l_currId))
                     continue;
                 
-                DefaultUnlockedUpgrades.Remove(l_currId);
+                Logger.LogError($"Default Unlocked Upgrade ID was not found in upgrades Dictionary. ID not found was '{l_currId}' in i : {i}");
             }
         }
 
