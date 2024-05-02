@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using _Main.Scripts.Services.CurrencyServices;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using _Main.Scripts.Services.MicroServices.PersistenceService;
 using _Main.Scripts.Services.MicroServices.UserDataService;
 using _Main.Scripts.Services.Stats;
+using _Main.Scripts.Services.UpgradePoolServices;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -20,9 +22,12 @@ namespace _Main.Scripts.Services
         public static void DefineServices()
         {
             Register<IEventService, EventService>();
+            Register<IUpgradePoolService, UpgradePoolService>();
             Register<IStatsService, StatsService>();
             Register<IPersistenceService, LocalPersistenceService>();
             Register<IUserDataService, UserDataService>();
+            Register<ICurrencyService, CurrencyService>();
+            
             // Register<ISettingsService, SettingsService>();
         }
 

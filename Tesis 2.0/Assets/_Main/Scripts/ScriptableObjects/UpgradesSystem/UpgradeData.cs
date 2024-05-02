@@ -8,14 +8,15 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
     [CreateAssetMenu(menuName = "Main/Upgrades/UpgradeData")]
     public class UpgradeData : ScriptableObject
     {
-        //[field: SerializeField] public string Id { get; private set; }
+        [field: SerializeField] public string Id { get; private set; }
         [field: SerializeField] public string Name { get; private set; }
         [field: SerializeField, Multiline] public string Description { get; private set; }
+        [field: SerializeField] public float UpgradeWeight { get; private set; }
+        [field: SerializeField] public float UnlockWeight { get; private set; }
         [field: SerializeField] public List<UpgradeEffect> Effects { get; private set; }
         [field: SerializeField] public List<float> UpgradePercentage { get; private set; }
         [field: SerializeField] public Sprite BorderSprite { get; private set; }
         [field: SerializeField] public Sprite EffectSprite { get; private set; }
-
 
 
         public void ApplyEffects(PlayerModel p_model)
@@ -51,6 +52,15 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
             }
 
         }
+        
+
+        [ContextMenu("SetRandomID")]
+        private void SetRandomID()
+        {
+            Id = "RandomID" + Random.Range(0, 10000);
+        }
+
+
         
         #endif
     }

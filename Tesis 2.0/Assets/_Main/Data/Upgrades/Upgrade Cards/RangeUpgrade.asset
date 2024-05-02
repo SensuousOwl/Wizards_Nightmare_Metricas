@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: RangeUpgrade
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 
+  <Id>k__BackingField: RandomID1369
   <Name>k__BackingField: Range Up
   <Description>k__BackingField: 'Attack Range Up
 
     + 10%'
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 7a5981ab91987a845bc310c0218606af, type: 2}
   <UpgradePercentage>k__BackingField:
