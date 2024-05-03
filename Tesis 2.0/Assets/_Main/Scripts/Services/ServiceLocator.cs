@@ -22,10 +22,10 @@ namespace _Main.Scripts.Services
         public static void DefineServices()
         {
             Register<IEventService, EventService>();
-            Register<IUpgradePoolService, UpgradePoolService>();
-            Register<IStatsService, StatsService>();
             Register<IPersistenceService, LocalPersistenceService>();
             Register<IUserDataService, UserDataService>();
+            Register<IUpgradePoolService, UpgradePoolService>();
+            Register<IStatsService, StatsService>();
             Register<ICurrencyService, CurrencyService>();
             
             // Register<ISettingsService, SettingsService>();
