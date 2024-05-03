@@ -14,6 +14,7 @@ namespace _Main.Scripts
         private void Start()
         {
             var l_player = Instantiate(playerPrefab, transform.position, playerPrefab.transform.rotation);
+            InputManager.Instance.ChangeActionMap("Default-Keyboard");
             upgradeScreenController.SetPlayerModel(l_player);
 
             

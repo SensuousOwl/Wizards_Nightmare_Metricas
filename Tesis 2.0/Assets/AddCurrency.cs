@@ -8,7 +8,7 @@ using UnityEngine;
 public class AddCurrency : MonoBehaviour
 {
     [SerializeField] private int addCurrency;
-    private ICurrencyService m_currencyService = ServiceLocator.Get<ICurrencyService>();
+    private ICurrencyService m_currencyService => ServiceLocator.Get<ICurrencyService>();
 
     private void Start()
     {

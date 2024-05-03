@@ -15,8 +15,8 @@ namespace _Main.Scripts.Interactables
         [SerializeField] private int UnlockUpgradeAmmount;
         [SerializeField] private UnlockUpgradeShowUI UpgradePanel;
         
-        private IUpgradePoolService m_upgradePoolService = ServiceLocator.Get<IUpgradePoolService>();
-        private ICurrencyService m_currencyService = ServiceLocator.Get<ICurrencyService>();
+        private IUpgradePoolService m_upgradePoolService => ServiceLocator.Get<IUpgradePoolService>();
+        private ICurrencyService m_currencyService => ServiceLocator.Get<ICurrencyService>();
         public void Interact(PlayerModel p_model)
         {
             if (m_currencyService.GetCurrentGs() >= UpgradeCost)

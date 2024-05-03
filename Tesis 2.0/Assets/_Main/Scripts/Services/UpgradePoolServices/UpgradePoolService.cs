@@ -20,8 +20,7 @@ namespace _Main.Scripts.Services.UpgradePoolServices
         private RouletteWheel<UpgradeData> m_unlockedUpgradesRouletteWheel;
         private RouletteWheel<UpgradeData> m_lockedUpgradesRouletteWheel;
 
-        private UpgradesServiceDataState DataState =
-            ServiceLocator.Get<IUserDataService>().GetState<UpgradesServiceDataState>();
+        private UpgradesServiceDataState DataState => ServiceLocator.Get<IUserDataService>().GetState<UpgradesServiceDataState>();
         
         
         public void Initialize()

@@ -10,7 +10,7 @@ namespace _Main.Scripts.UI
     {
         [SerializeField] private TMP_Text Text;
 
-        private ICurrencyService m_currencyService = ServiceLocator.Get<ICurrencyService>();
+        private ICurrencyService m_currencyService => ServiceLocator.Get<ICurrencyService>();
         private void Start()
         {
             m_currencyService.OnCurrencyChange += OnCurrencyChange;

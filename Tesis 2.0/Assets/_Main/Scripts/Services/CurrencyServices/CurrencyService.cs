@@ -6,7 +6,7 @@ namespace _Main.Scripts.Services.CurrencyServices
     public class CurrencyService : ICurrencyService
     {
         
-        private CurrencyDataService DataState =
+        private CurrencyDataService DataState =>
             ServiceLocator.Get<IUserDataService>().GetState<CurrencyDataService>();
 
         
