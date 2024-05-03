@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: AlacrityUpgrade
   m_EditorClassIdentifier: 
+  <Id>k__BackingField: RandomID7413
   <Name>k__BackingField: Alacrity Up
   <Description>k__BackingField: 'Movement Speed Up 30%
 
     Fire Rate Up 30%'
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
   - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}

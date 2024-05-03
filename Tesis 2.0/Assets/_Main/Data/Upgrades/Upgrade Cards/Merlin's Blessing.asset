@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: Merlin's Blessing
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 
+  <Id>k__BackingField: RandomID4753
   <Name>k__BackingField: Merlin's Blessing
   <Description>k__BackingField: 'Damage Up +50%
 
     Critical Chance Up +80%'
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
   - {fileID: 11400000, guid: fab1d45caf847d3488400d9fe60e4ad8, type: 2}

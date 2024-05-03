@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using _Main.Scripts.Managers;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.UpgradesSystem;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.UpgradePoolServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Main.Scripts.UI
+namespace _Main.Scripts.UI.Menus
 {
     public class UpgradeScreenController : MonoBehaviour
     {
-        [SerializeField] private UpgradeDataPool pool;
         [SerializeField] private GameObject screenObj;
         [SerializeField] private int upgradesCount;
         [SerializeField] private List<TMP_Text> namesTxt = new List<TMP_Text>();
@@ -19,6 +20,8 @@ namespace _Main.Scripts.UI
         [SerializeField] private List<Image> buttonImages = new List<Image>();
         [SerializeField] private List<Image> effectImages = new List<Image>();
 
+        public IUpgradePoolService UpgradePoolService => ServiceLocator.Get<IUpgradePoolService>();
+        
         private List<UpgradeData> m_currUpgradeDatas = new List<UpgradeData>();
         private List<UpgradeData> m_previusUpgradeDatas = new List<UpgradeData>();
 
@@ -40,7 +43,7 @@ namespace _Main.Scripts.UI
         {
             for (int i = 0; i < upgradesCount; i++)
             {
-                m_currUpgradeDatas.Add(pool.GetRandomUpgradeFromPool(m_previusUpgradeDatas)); 
+                m_currUpgradeDatas.Add(UpgradePoolService.GetRandomUnlockedUpgradeFromPool(m_previusUpgradeDatas)); 
                 m_previusUpgradeDatas.Add(m_currUpgradeDatas[i]);
                 
                 namesTxt[i].text = m_currUpgradeDatas[i].Name;

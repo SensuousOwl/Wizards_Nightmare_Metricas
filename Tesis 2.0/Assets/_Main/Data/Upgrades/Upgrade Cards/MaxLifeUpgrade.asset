@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
   m_Name: MaxLifeUpgrade
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 
+  <Id>k__BackingField: RandomID3181
   <Name>k__BackingField: Max Life Up
   <Description>k__BackingField: 'Max Life Up
 
     + 25%'
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 2b43f6682e6d8bb4795d2df2fcb85622, type: 2}
   <UpgradePercentage>k__BackingField:

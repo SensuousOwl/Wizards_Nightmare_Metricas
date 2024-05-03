@@ -1,9 +1,8 @@
-using System;
 using _Main.Scripts.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Main.Scripts.UI
+namespace _Main.Scripts.UI.Menus
 {
     public class SettingsPanel : BasePanel
     {
