@@ -20,11 +20,18 @@ MonoBehaviour:
   - {fileID: 8217230274681925806, guid: e97d45ea7ceacde439410e0eda43b5f9, type: 3}
   - {fileID: 8217230274681925806, guid: eb91d1c5d8b2e5743ababf0a6f4d82b1, type: 3}
   - {fileID: 8217230274681925806, guid: 5d6e7c80620c8d14e9330757221b5a1e, type: 3}
+  - {fileID: 8217230274681925806, guid: fa518be8480e60542b57aaa2aa2a5b3b, type: 3}
   roomsChances:
   - 100
   - 100
   - 100
   - 100
   - 100
+  - 200
   chancePercentage:
-  - 100
+  - 19.23077
+  - 19.23077
+  - 19.23077
+  - 19.23077
+  - 19.23077
+  - 3.8461537
