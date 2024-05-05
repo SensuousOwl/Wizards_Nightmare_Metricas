@@ -14,7 +14,8 @@ namespace _Main.Scripts.RoomsSystem
     public class Door : MonoBehaviour
     {
         [SerializeField] private DoorDirections doorDirection;
-        [SerializeField] private GameObject doorVisual;
+        [SerializeField] private GameObject doorVisualClosed;
+        [SerializeField] private GameObject doorVisualOpen;
         [SerializeField] private GameObject wallVisual;
         [SerializeField] private Transform playerSpawnTransform;
         [SerializeField] private GameObject boxCollider;
@@ -23,6 +24,7 @@ namespace _Main.Scripts.RoomsSystem
         private bool m_isAvailable = true;
         private bool m_isOpen;
         private bool m_temporalyClose;
+        private bool m_showDoor;
 
         public DoorDirections GetDoorDir() => doorDirection;
         private static readonly WaitForSeconds WaitForSeconds = new(2f);
@@ -32,7 +34,8 @@ namespace _Main.Scripts.RoomsSystem
 
         private void Awake()
         {
-            doorVisual.SetActive(false);
+            doorVisualClosed.SetActive(false);
+            doorVisualOpen.SetActive(false);
             wallVisual.SetActive(true);
         }
 
@@ -41,8 +44,9 @@ namespace _Main.Scripts.RoomsSystem
             m_doorConnect = p_doorToConnect;
             m_isAvailable = false;
             m_temporalyClose = false;
-            
-            doorVisual.SetActive(true);
+
+            m_showDoor = true;
+            doorVisualClosed.SetActive(true);
             wallVisual.SetActive(false);
             OnActiveDoor?.Invoke(this);
             SetOpenDoor(true);
@@ -82,6 +86,12 @@ namespace _Main.Scripts.RoomsSystem
         public void SetOpenDoor(bool p_newValue)
         {
             m_isOpen = p_newValue;
+            if (m_showDoor)
+            {
+                doorVisualOpen.SetActive(p_newValue);
+                doorVisualClosed.SetActive(!p_newValue);
+            }
+            
             boxCollider.SetActive(!m_isOpen);
         }
     }
