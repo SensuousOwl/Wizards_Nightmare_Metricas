@@ -3,6 +3,7 @@ using _Main.Scripts.Audio;
 using _Main.Scripts.DevelopmentUtilities;
 using _Main.Scripts.Grid;
 using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.RoomsSystem;
 using UnityEngine;
 using LayerMaskExtensions = _Main.Scripts.DevelopmentUtilities.LayerMaskExtensions;
 
@@ -26,7 +27,7 @@ namespace _Main.Scripts.Enemies
 
         private Vector2 m_dir;
         
-        public MyNodeGrid NodeGrid { get; private set; }
+        public Room MyRoom { get; private set; }
         public HealthController HealthController { get; private set; }
         public ISfxAudioPlayer SfxAudioPlayer { get; private set; }
         public event Action<EnemyModel> OnDie;
@@ -46,13 +47,6 @@ namespace _Main.Scripts.Enemies
             
         }
 
-        
-
-
-        
-
-        
-
         public EnemyData GetData() => data;
 
         public void SetLastTargetLocation(Vector3 p_pos)
@@ -60,7 +54,7 @@ namespace _Main.Scripts.Enemies
             
         }
 
-        public void SetEnemyGrid(MyNodeGrid p_grid) => NodeGrid = p_grid;
+        public void SetEnemyRoom(Room p_room) => MyRoom = p_room;
 
         public void SetIsAttacking(bool b) => m_isAttacking = b;
 

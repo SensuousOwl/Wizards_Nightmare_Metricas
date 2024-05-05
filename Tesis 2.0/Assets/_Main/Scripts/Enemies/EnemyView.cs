@@ -47,7 +47,7 @@ namespace _Main.Scripts.Enemies
 
         public void PlayDeadAnim()
         {
-            m_animator.Play("Dead");
+            m_animator.Play("Death");
         }
     }
 }
