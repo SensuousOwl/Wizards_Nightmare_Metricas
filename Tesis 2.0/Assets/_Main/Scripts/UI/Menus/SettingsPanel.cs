@@ -35,6 +35,7 @@ namespace _Main.Scripts.UI.Menus
 
         public void Initialize()
         {
+
             controlsScreen.Close();
 
             audioManager = FindObjectOfType<AudioManager>();
@@ -50,6 +51,7 @@ namespace _Main.Scripts.UI.Menus
             controlsScreenButton.onClick.AddListener(OpenControlPanel);
             goBackControlButton.onClick.AddListener(CloseControlPanel);
             goBackScreenButton.onClick.AddListener(() => Close());
+   
         
         }
 

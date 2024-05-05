@@ -28,18 +28,23 @@ namespace _Main.Scripts.Managers
         private void Start()
         {
             InputManager.Instance.SubscribeInput("Pause", OnPausePerformed);
+            InputManager.Instance.SubscribeInput("Inventory", OnInventoryPerformed);
         }
 
         private void OnDisable()
         {
             InputManager.Instance.UnsubscribeInput("Pause", OnPausePerformed);
+            InputManager.Instance.UnsubscribeInput("Inventory", OnInventoryPerformed);
         }
 
         private void OnPausePerformed(InputAction.CallbackContext p_obj)
         {
             SetPause(!m_isPause);
         }
-        
+        private void OnInventoryPerformed(InputAction.CallbackContext p_obj)
+        {
+            SetPause(!m_isPause);
+        }
 
         public void Subscribe(IPausable p_pausable)
         {
