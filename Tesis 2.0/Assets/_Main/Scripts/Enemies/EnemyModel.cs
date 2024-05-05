@@ -87,6 +87,7 @@ namespace _Main.Scripts.Enemies
             velocity += accelerationVector * Time.deltaTime;
             
             m_rb.velocity = Vector2.ClampMagnitude(velocity, data.TerimnalVelocity);
+            m_view.SetWalkSpeed((m_rb.velocity).magnitude);
         }
 
         public void TriggerDieEvent()

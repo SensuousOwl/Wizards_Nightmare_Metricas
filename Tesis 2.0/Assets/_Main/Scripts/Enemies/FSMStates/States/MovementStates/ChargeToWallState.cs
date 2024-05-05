@@ -14,7 +14,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
             public float prepTime;
         }
         [SerializeField] private float prepTime;
-        
+        [SerializeField] private string chargeAnimatorBool;
         private Dictionary<EnemyModel, data> models = new Dictionary<EnemyModel, data>();
         
         public override void EnterState(EnemyModel p_model)
@@ -41,6 +41,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 
             l_data.prepTime = Time.time + prepTime;
             models[p_model] = l_data;
+            p_model.View.SetAnimatorBool(chargeAnimatorBool, true);
         }
         
         public override void ExecuteState(EnemyModel p_model)
@@ -53,6 +54,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 
         public override void ExitState(EnemyModel p_model)
         {
+            p_model.View.SetAnimatorBool(chargeAnimatorBool, false);
             models[p_model] = default;
             models.Remove(p_model);
         }

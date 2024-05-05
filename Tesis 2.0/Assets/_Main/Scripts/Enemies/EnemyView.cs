@@ -49,5 +49,14 @@ namespace _Main.Scripts.Enemies
         {
             m_animator.Play("Death");
         }
+
+        public void SetAnimatorBool(string p_parameterName, bool p_value)
+        {
+            m_animator.SetBool(p_parameterName, p_value);
+        }
+        public void PlayAnim(string p_stateName)
+        {
+            m_animator.Play(p_stateName);
+        }
     }
 }
