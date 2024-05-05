@@ -394,7 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorDirection: 1
-  doorVisual: {fileID: 5756549705237720911}
+  doorVisualClosed: {fileID: 5756549705237720911}
+  doorVisualOpen: {fileID: 8489559712582810325}
   wallVisual: {fileID: 770619014717432136}
   playerSpawnTransform: {fileID: 8941433871873338965}
   boxCollider: {fileID: 8218922732313553525}
@@ -805,7 +806,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 12
-      m_TileSpriteIndex: 11
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -862,10 +863,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1117778248, guid: f3180e01f9590314fabe3680ea1da17a, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1117778248, guid: f3180e01f9590314fabe3680ea1da17a, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:
