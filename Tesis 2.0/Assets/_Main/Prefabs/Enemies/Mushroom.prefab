@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7829652513911651956}
   - component: {fileID: 7115858744582360968}
   m_Layer: 11
-  m_Name: EnemyTimeBomber
+  m_Name: Mushroom
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.82}
   m_EdgeRadius: 0
 --- !u!114 &7115858744582360968
 MonoBehaviour:

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65039365a03f403c8618c1a8ca06cfdb, type: 3}
-  m_Name: TimeBomberData
+  m_Name: MushroomData
   m_EditorClassIdentifier: 
   <AllStatesData>k__BackingField:
   - {fileID: 11400000, guid: bda144d153baf514093844d3134f26cc, type: 2}

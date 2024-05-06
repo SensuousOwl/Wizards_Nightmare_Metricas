@@ -89,7 +89,6 @@ namespace _Main.Scripts.PathFinding
                 {
                     l_startNode = l_currNode;
                     l_previousCost = l_currCost;
-                    continue;
                 }
             }
             
