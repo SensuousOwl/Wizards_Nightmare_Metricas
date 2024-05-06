@@ -11,7 +11,7 @@ namespace _Main.Scripts
         [SerializeField] private PlayerModel playerPrefab;
         [SerializeField] private UpgradeScreenController upgradeScreenController;
 
-        private void Start()
+        private void Awake()
         {
             var l_player = Instantiate(playerPrefab, transform.position, playerPrefab.transform.rotation);
             InputManager.Instance.ChangeActionMap("Default-Keyboard");
