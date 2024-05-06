@@ -62,28 +62,46 @@ namespace _Main.Scripts.PathFinding
             return new List<T>();
         }
         
-        public static List<MyNode> RunCustomGrid<MyNode>(MyNode p_start, MyNode p_target, MyNodeGrid p_grid, LayerMask p_obsMask, 
-            Func<MyNode, MyNode, bool> p_satisfies,
-            Func<MyNodeGrid,MyNode, IEnumerable<MyNode>> p_connections,
-            Func<MyNode, MyNode, float> p_getCost,
-            Func<MyNode,MyNode, float> p_heuristic,
-            Func<MyNode, MyNode,LayerMask, bool> p_inView,
+        public static List<MyNode> RunCustomGrid(List<MyNode> p_startingNodes, MyNode p_target, MyNodeGrid p_grid, LayerMask p_obsMask, 
+            Func<MyNode, MyNode, bool> p_Satisfies,
+            Func<MyNodeGrid,MyNode, IEnumerable<MyNode>> p_Connections,
+            Func<MyNode, MyNode, float> p_GetCost,
+            Func<MyNode,MyNode, float> p_Heuristic,
+            Func<MyNode, MyNode,LayerMask, bool> p_InView,
             int p_watchdog = 2000)
         {
             PriorityQueue<MyNode> l_pending = new PriorityQueue<MyNode>();
             HashSet<MyNode> l_visited = new HashSet<MyNode>();
             Dictionary<MyNode, MyNode> l_parent = new Dictionary<MyNode, MyNode>();
             Dictionary<MyNode, float> l_cost = new Dictionary<MyNode, float>();
+
+            var l_startNode = p_startingNodes[0];
+            var l_previousCost = p_GetCost(p_target, l_startNode);
+            for (int i = 0; i < p_startingNodes.Count; i++)
+            {
+                var l_currNode = p_startingNodes[i];
+                
+                if(!l_currNode.Walkable)
+                    continue;
+                
+                var l_currCost = p_GetCost(p_target, l_currNode);
+                if (l_previousCost > l_currCost)
+                {
+                    l_startNode = l_currNode;
+                    l_previousCost = l_currCost;
+                    continue;
+                }
+            }
             
-            l_pending.Enqueue(p_start, 0);
-            l_cost[p_start] = 0;
+            l_pending.Enqueue(l_startNode, 0);
+            l_cost[l_startNode] = 0;
 
             while (p_watchdog > 0 && !l_pending.IsEmpty)
             {
                 p_watchdog--;
                 var l_curr = l_pending.Dequeue();
                 
-                if (p_satisfies(l_curr, p_target))
+                if (p_Satisfies(l_curr, p_target))
                 {
                     var l_path = new List<MyNode>();
                     l_path.Add(l_curr);
@@ -96,19 +114,19 @@ namespace _Main.Scripts.PathFinding
                     return l_path;
                 }
                 l_visited.Add(l_curr);
-                var l_neighbours = p_connections(p_grid,l_curr);
+                var l_neighbours = p_Connections(p_grid,l_curr);
 
                 foreach (var l_neigh in l_neighbours)
                 {
                     if (l_visited.Contains(l_neigh)) continue;
                     MyNode l_realParent = l_curr;
-                    if (l_parent.ContainsKey(l_curr) && p_inView(l_parent[l_curr], l_neigh, p_obsMask))
+                    if (l_parent.ContainsKey(l_curr) && p_InView(l_parent[l_curr], l_neigh, p_obsMask))
                     {
                         l_realParent = l_parent[l_curr];
                     }
-                    float l_tentativeCost = l_cost[l_realParent] + p_getCost(l_realParent, l_neigh);
+                    float l_tentativeCost = l_cost[l_realParent] + p_GetCost(l_realParent, l_neigh);
                     if (l_cost.ContainsKey(l_neigh) && l_cost[l_neigh] < l_tentativeCost) continue;
-                    l_pending.Enqueue(l_neigh, l_tentativeCost + p_heuristic(l_neigh, p_target));
+                    l_pending.Enqueue(l_neigh, l_tentativeCost + p_Heuristic(l_neigh, p_target));
                     l_parent[l_neigh] = l_realParent;
                     l_cost[l_neigh] = l_tentativeCost;
                 }
