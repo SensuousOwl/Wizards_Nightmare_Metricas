@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2177701329758101021}
   - component: {fileID: 8787811140311570281}
+  - component: {fileID: 174356667335465035}
   m_Layer: 0
   m_Name: TourchLights
   m_TagString: Untagged
@@ -82,3 +83,20 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &174356667335465035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3221158640315361483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4fae4b2be608f44fb5ab88ed1929857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minIntensity: 0.2
+  maxIntensity: 2.5
+  intensityFlickerSpeed: 1.5
+  movementRadius: 0.15
+  movementSpeed: 3
