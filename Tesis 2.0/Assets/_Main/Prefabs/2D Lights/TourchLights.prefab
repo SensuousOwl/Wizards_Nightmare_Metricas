@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fae4b2be608f44fb5ab88ed1929857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIntensity: 0.2
+  minIntensity: 0.75
   maxIntensity: 2.5
-  intensityFlickerSpeed: 1.5
-  movementRadius: 0.15
-  movementSpeed: 3
+  intensityFlickerSpeed: 1.1
+  movementRadius: 0.1
+  movementSpeed: 1
