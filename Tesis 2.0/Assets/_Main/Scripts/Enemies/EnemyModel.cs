@@ -25,6 +25,8 @@ namespace _Main.Scripts.Enemies
         public Vector2 CurrDir => m_dir;
 
         private Vector2 m_dir;
+
+        private DamageFlash m_damageFlash;
         
         public MyNodeGrid NodeGrid { get; private set; }
         public HealthController HealthController { get; private set; }
@@ -39,6 +41,7 @@ namespace _Main.Scripts.Enemies
             HealthController.Initialize(data.MaxHp);
             m_view = GetComponent<EnemyView>();
             m_rb = GetComponent<Rigidbody2D>();
+            m_damageFlash = GetComponent<DamageFlash>();
             
             HealthController.OnTakeDamage += OnOnTakeDamageHC;
             HealthController.OnDie += OnDieHC;
@@ -109,7 +112,7 @@ namespace _Main.Scripts.Enemies
         
         private void OnOnTakeDamageHC(float obj)
         {
-            m_view.PlayHurtAnim();
+            m_damageFlash.CallDamageFlash();
         }
         private float m_timer;
         private void OnCollisionStay2D(Collision2D other)
