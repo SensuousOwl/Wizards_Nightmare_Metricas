@@ -97,6 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 0.2
   maxIntensity: 2.3
-  intensityFlickerSpeed: 5
-  movementRadius: 0.2
-  movementSpeed: 3
+  intensityFlickerSpeed: 1
+  movementRadius: 0.05
+  movementSpeed: 1.1
