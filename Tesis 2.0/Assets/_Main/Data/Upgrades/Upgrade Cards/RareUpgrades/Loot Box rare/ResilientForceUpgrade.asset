@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
+  m_Name: ResilientForceUpgrade
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: RandomID9691
+  <Name>k__BackingField: Resilient Force
+  <Description>k__BackingField: "Max Life Up +70%\r\nCritical Damage Up +10%\r"
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
+  <Effects>k__BackingField:
+  - {fileID: 11400000, guid: 2b43f6682e6d8bb4795d2df2fcb85622, type: 2}
+  - {fileID: 11400000, guid: 7290d22f0aeb6cb449410de20347b06b, type: 2}
+  <UpgradePercentage>k__BackingField:
+  - 70
+  - 10
+  <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
+  <EffectSprite>k__BackingField: {fileID: 21300000, guid: 45860fd3c02c24f4f86a02e296b2d642, type: 3}
