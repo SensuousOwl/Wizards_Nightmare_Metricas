@@ -6,6 +6,7 @@ using UnityEngine.PlayerLoop;
 
 public class DamageFlash : MonoBehaviour
 {
+    [ColorUsage(true, true)]
     [SerializeField] private Color _flashColor = Color.white;
     [SerializeField] private float _flashTime = 0.25f;
 

@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cd804f41914ed44880c387ce28d5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashColor: {r: 5.9921575, g: 5.9921575, b: 5.9921575, a: 1}
   _flashTime: 0.25
 --- !u!1 &3758472539798690671
 GameObject:
