@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID4753
   <Name>k__BackingField: Merlin's Blessing
-  <Description>k__BackingField: 'Damage Up +50%
+  <Description>k__BackingField: 'Damage Up +30%
 
-    Critical Chance Up +80%'
+    Critical Chance Up +40%'
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
   - {fileID: 11400000, guid: fab1d45caf847d3488400d9fe60e4ad8, type: 2}
   <UpgradePercentage>k__BackingField:
-  - 50
-  - 80
+  - 30
+  - 40
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 6765f1ec0d2b35545a6660b580b677f9, type: 3}

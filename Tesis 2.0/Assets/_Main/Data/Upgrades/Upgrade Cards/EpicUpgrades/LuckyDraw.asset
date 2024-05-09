@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID935
   <Name>k__BackingField: Lucky Draw
-  <Description>k__BackingField: 'Damage +80%
+  <Description>k__BackingField: 'Damage +50%
 
-    Fire Speed +50%
+    Fire Speed +25%
 
-    Range +25%'
+    Range +15%'
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
@@ -26,8 +26,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ab17834b08e72b47b46475efee5bf12, type: 2}
   - {fileID: 11400000, guid: 7a5981ab91987a845bc310c0218606af, type: 2}
   <UpgradePercentage>k__BackingField:
-  - 20
   - 50
   - 25
+  - 15
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 4325272d8f9d76643b679a1b1e889e88, type: 3}

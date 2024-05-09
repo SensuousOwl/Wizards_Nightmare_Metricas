@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID6609
   <Name>k__BackingField: Elder's Might
-  <Description>k__BackingField: 'Max Life Up +200%
+  <Description>k__BackingField: 'Max Life Up +100%
 
-    Damage Down -20%
+    Damage Down -15%
 
     Movement
-    Speed Down -20%
+    Speed Down -15%
 
-    Fire Rate Down -20%'
+    Fire Rate Down -10%'
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
@@ -30,9 +30,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
   - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
   <UpgradePercentage>k__BackingField:
-  - 200
-  - -20
-  - -20
-  - -20
+  - 100
+  - -15
+  - -15
+  - -10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 2e68b4d5bd70fb64dae7620972dc4224, type: 3}

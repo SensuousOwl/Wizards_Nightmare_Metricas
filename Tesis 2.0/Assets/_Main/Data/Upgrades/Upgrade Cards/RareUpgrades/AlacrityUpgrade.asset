@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
   - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
   <UpgradePercentage>k__BackingField:
-  - 30
-  - 30
+  - 20
+  - 20
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: b0690ba3944f5fc46b8c02c6079ab21f, type: 3}

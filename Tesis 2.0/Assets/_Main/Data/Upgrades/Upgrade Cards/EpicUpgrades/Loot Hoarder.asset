@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID9800
   <Name>k__BackingField: Loot Hoarder
-  <Description>k__BackingField: "Spawn Item Chance Up +30%\r\nCritical Chance Down
-    -10%\r"
+  <Description>k__BackingField: "Spawn Item Chance Up +15%\r\nCritical Chance Down
+    -5%\r"
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 2d88bc2a713bd5345bde4a9dd7a75a71, type: 2}
   - {fileID: 11400000, guid: fab1d45caf847d3488400d9fe60e4ad8, type: 2}
   <UpgradePercentage>k__BackingField:
-  - 30
-  - -10
+  - 15
+  - -5
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 159068b178288a14ba9b2a541ee9e942, type: 3}

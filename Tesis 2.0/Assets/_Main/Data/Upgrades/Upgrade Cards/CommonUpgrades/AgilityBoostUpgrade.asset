@@ -16,12 +16,12 @@ MonoBehaviour:
   <Name>k__BackingField: Agility Boost
   <Description>k__BackingField: 'Movement Speed Up
 
-    +20%'
+    +10%'
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
   <UpgradePercentage>k__BackingField:
-  - 20
+  - 10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 0f38f695f39b7e34a9470481b4aba891, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 801f9b36475c0a74098fe0498765edf0, type: 3}

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID1015
   <Name>k__BackingField: Heart of the Phoenix
-  <Description>k__BackingField: "Max Life Up +150%\r\nDamage Up +30%\r\nFire Rate
-    Down -10%\r"
+  <Description>k__BackingField: "Max Life Up +90%\r\nDamage Up +15%\r\nFire Rate
+    Down -5%\r"
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
@@ -23,8 +23,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
   - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
   <UpgradePercentage>k__BackingField:
-  - 150
-  - 30
-  - -10
+  - 90
+  - 15
+  - -5
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 62e813ae99992ee48a6e349e8f8fd92b, type: 3}

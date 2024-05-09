@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID6528
   <Name>k__BackingField: Heavy Hitter
-  <Description>k__BackingField: "Damage Up +40%\r\nFire Rate Down -15%\r"
+  <Description>k__BackingField: "Damage Up +20%\r\nFire Rate Down -10%\r"
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
   - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
   <UpgradePercentage>k__BackingField:
-  - 40
-  - -15
+  - 20
+  - -10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 4dd266a4e8159364aa1614890e69f099, type: 3}

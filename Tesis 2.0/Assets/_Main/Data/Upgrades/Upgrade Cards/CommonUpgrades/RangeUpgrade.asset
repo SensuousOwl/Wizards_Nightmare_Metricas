@@ -16,12 +16,12 @@ MonoBehaviour:
   <Name>k__BackingField: Range Up
   <Description>k__BackingField: 'Attack Range Up
 
-    +10%'
+    +5%'
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 7a5981ab91987a845bc310c0218606af, type: 2}
   <UpgradePercentage>k__BackingField:
-  - 10
+  - 5
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 0f38f695f39b7e34a9470481b4aba891, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 9519cb2a0e5ff4d43b48727451088bc9, type: 3}
