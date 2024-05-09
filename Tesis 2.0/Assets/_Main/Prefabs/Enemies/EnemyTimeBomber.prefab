@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3231075181653550654}
   - component: {fileID: 7829652513911651956}
   - component: {fileID: 7115858744582360968}
+  - component: {fileID: 6644300680804417010}
   m_Layer: 11
   m_Name: EnemyTimeBomber
   m_TagString: Enemy
@@ -177,6 +178,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPoolData: {fileID: 11400000, guid: 12f24585a87d7c74c8cd612a9315c727, type: 2}
+--- !u!114 &6644300680804417010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6871098206531451812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cd804f41914ed44880c387ce28d5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashTime: 0.25
 --- !u!1 &8223518481342688662
 GameObject:
   m_ObjectHideFlags: 0

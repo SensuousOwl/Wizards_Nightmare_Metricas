@@ -41,20 +41,13 @@ namespace _Main.Scripts.Enemies
             HealthController.Initialize(data.MaxHp);
             m_view = GetComponent<EnemyView>();
             m_rb = GetComponent<Rigidbody2D>();
-            m_damageFlash = GetComponent<DamageFlash>();
+            m_damageFlash = GetComponentInChildren<DamageFlash>();
             
             HealthController.OnTakeDamage += OnOnTakeDamageHC;
             HealthController.OnDie += OnDieHC;
             m_timer = 0;
             
         }
-
-        
-
-
-        
-
-        
 
         public EnemyData GetData() => data;
 

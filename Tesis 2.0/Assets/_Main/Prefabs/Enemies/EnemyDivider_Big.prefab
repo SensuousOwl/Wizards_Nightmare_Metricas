@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 5928733025363900775}
   - component: {fileID: 4365175061019579919}
   - component: {fileID: 2368811485442886235}
+  - component: {fileID: 421207389254834079}
   m_Layer: 11
   m_Name: EnemyDivider_Big
   m_TagString: Enemy
@@ -283,3 +284,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPoolData: {fileID: 11400000, guid: 12f24585a87d7c74c8cd612a9315c727, type: 2}
+--- !u!114 &421207389254834079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251449757271976209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cd804f41914ed44880c387ce28d5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashTime: 0.25

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6084123278703690515}
   - component: {fileID: 3449613797920942877}
   - component: {fileID: 710210207819937529}
+  - component: {fileID: 5261718974721888253}
   m_Layer: 11
   m_Name: Boss2
   m_TagString: Enemy
@@ -177,6 +178,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPoolData: {fileID: 11400000, guid: 12f24585a87d7c74c8cd612a9315c727, type: 2}
+--- !u!114 &5261718974721888253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2215365234695359442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cd804f41914ed44880c387ce28d5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashTime: 0.25
 --- !u!1 &4625279728439886182
 GameObject:
   m_ObjectHideFlags: 0
