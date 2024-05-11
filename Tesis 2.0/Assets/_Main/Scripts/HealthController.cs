@@ -36,25 +36,45 @@ namespace _Main.Scripts
 
         public void ChangeMaxHealth(float p_newValue)
         {
+            CheckMaxHealth();
             if (m_isPlayer)
+            {
+                OnChangeMaxHealth?.Invoke(maxHealth, p_newValue, currentHealth);
+                StatsService.SetUpgradeStat(StatsId.MaxHealth, p_newValue);
                 return;
+            }
             OnChangeMaxHealth?.Invoke(maxHealth, p_newValue, currentHealth);
             maxHealth = p_newValue;
         }
     
-        public void AddMaxHealth(float p_newValue)
+        public void AddMaxHealth(float p_value)
         {
-            OnChangeMaxHealth?.Invoke(maxHealth, maxHealth += p_newValue, currentHealth);
-            maxHealth += p_newValue;
+            CheckMaxHealth();
+            if (m_isPlayer)
+            {
+                OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_value, currentHealth);
+                StatsService.AddUpgradeStat(StatsId.MaxHealth, p_value);
+                return;
+            }
+            OnChangeMaxHealth?.Invoke(maxHealth, maxHealth += p_value, currentHealth);
+            maxHealth += p_value;
         }
-        public void RemoveMaxHealth(float p_newValue)
+        public void SubtractMaxHealth(float p_value)
         {
-            OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_newValue, currentHealth);
-            maxHealth -= p_newValue;
+            CheckMaxHealth();
+            if (m_isPlayer)
+            {
+                OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_value, currentHealth);
+                StatsService.SubtractUpgradeStat(StatsId.MaxHealth, p_value);
+                return;
+            }
+            OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_value, currentHealth);
+            maxHealth -= p_value;
         }
 
         public void TakeDamage(float p_damage)
         {
+            CheckMaxHealth();
             currentHealth -= p_damage;
 
             OnTakeDamage?.Invoke(p_damage);
@@ -66,6 +86,7 @@ namespace _Main.Scripts
 
         public void Heal(float p_healAmount)
         {
+            CheckMaxHealth();
             if (currentHealth >= maxHealth)
                 return;
             
@@ -79,6 +100,7 @@ namespace _Main.Scripts
 
         public void ClampCurrentHealth()
         {
+            CheckMaxHealth();
             if (!(currentHealth >= maxHealth)) 
                 return;
             
@@ -88,11 +110,21 @@ namespace _Main.Scripts
 
         public void RestoreMaxHealth()
         {
+            CheckMaxHealth();
             currentHealth = maxHealth;
             OnChangeHealth?.Invoke(maxHealth, currentHealth);
         }
 
         public float GetCurrentHealth() => currentHealth;
         public float GetMaxHealth() => maxHealth;
+
+        private void CheckMaxHealth()
+        {
+            if (!m_isPlayer)
+                return;
+
+            if (Mathf.Approximately(maxHealth, StatsService.GetStatById(StatsId.MaxHealth)))
+                maxHealth = StatsService.GetStatById(StatsId.MaxHealth);
+        }
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using _Main.Scripts.PlayerScripts;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
@@ -19,14 +18,12 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
         [field: SerializeField] public Sprite EffectSprite { get; private set; }
 
 
-        public void ApplyEffects(PlayerModel p_model)
+        public void ApplyEffects()
         {
-
-            for (int i = 0; i < Effects.Count; i++)
+            for (var l_i = 0; l_i < Effects.Count; l_i++)
             {
-                Effects[i].ApplyEffect(p_model, UpgradePercentage[i]);
-                Debug.Log("Se aplico esto: " + Effects[i]);
-                
+                Effects[l_i].ApplyEffect(UpgradePercentage[l_i]);
+                Logger.Log("Apply upgrade: " + Effects[l_i]);
             }
         }
         
@@ -38,17 +35,17 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
             var l_newList = Effects.Distinct().ToList();
             Effects = l_newList;
 
-            if (Effects.Count != UpgradePercentage.Count)
+            if (Effects.Count == UpgradePercentage.Count) 
+                return;
+            
+            while (Effects.Count > UpgradePercentage.Count)
             {
-                while (Effects.Count > UpgradePercentage.Count)
-                {
-                    UpgradePercentage.Add(0);
-                }
+                UpgradePercentage.Add(0);
+            }
 
-                while (Effects.Count < UpgradePercentage.Count)
-                {
-                    UpgradePercentage.RemoveAt(UpgradePercentage.Count - 1);
-                }
+            while (Effects.Count < UpgradePercentage.Count)
+            {
+                UpgradePercentage.RemoveAt(UpgradePercentage.Count - 1);
             }
 
         }

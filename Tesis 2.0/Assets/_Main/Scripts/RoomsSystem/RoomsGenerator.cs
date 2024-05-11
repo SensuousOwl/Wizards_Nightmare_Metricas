@@ -26,24 +26,6 @@ namespace _Main.Scripts.RoomsSystem
             GenerateRooms();
         }
 
-        private void OnEnable()
-        {
-            Room.OnClearedRoom += RoomOnOnClearedRoom;
-        }
-
-        private void OnDisable()
-        {
-            Room.OnClearedRoom -= RoomOnOnClearedRoom;
-        }
-
-        private void RoomOnOnClearedRoom()
-        {
-            m_roomToClear--;
-
-            if (m_roomToClear <= 0)
-                SceneManager.LoadScene("MainMenuScene");
-        }
-
         [ContextMenu("TestGenerate")]
         private async void GenerateRooms()
         {

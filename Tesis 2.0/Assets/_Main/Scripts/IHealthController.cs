@@ -10,8 +10,8 @@ namespace _Main.Scripts
         public event Action<float> OnTakeDamage;
         public void Initialize(float p_maxHealth);
         public void ChangeMaxHealth(float p_newValue);
-        public void AddMaxHealth(float p_newValue);
-        public void RemoveMaxHealth(float p_newValue);
+        public void AddMaxHealth(float p_value);
+        public void SubtractMaxHealth(float p_value);
         public void TakeDamage(float p_damage);
         public void Heal(float p_healAmount);
         public void ClampCurrentHealth();

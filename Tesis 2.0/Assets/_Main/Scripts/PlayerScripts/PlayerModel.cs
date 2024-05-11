@@ -4,6 +4,7 @@ using _Main.Scripts.DevelopmentUtilities;
 using _Main.Scripts.Interfaces;
 using _Main.Scripts.Managers;
 using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.InventoryService;
 using _Main.Scripts.Services.Stats;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,8 @@ namespace _Main.Scripts.PlayerScripts
     [RequireComponent(typeof(HealthController))]
     public class PlayerModel : MonoBehaviour
     {
+        public static PlayerModel Local { get; private set; }
+        
         [SerializeField] private PlayerData playerData;
         private PlayerView m_view;
 
@@ -29,8 +32,8 @@ namespace _Main.Scripts.PlayerScripts
         private Camera m_mainCamera;
         private Vector3 m_crossAirPos;
         public HealthController HealthController { get; private set; }
-        public static IStatsService StatsController => ServiceLocator.Get<IStatsService>();
-        public Inventory Inventory { get; private set; }
+        private static IStatsService StatsController => ServiceLocator.Get<IStatsService>();
+        public static IInventoryService InventoryService => ServiceLocator.Get<IInventoryService>();
 
         private readonly Collider2D[] m_itemsCollider = new Collider2D[1];
 	private PoolGeneric<Bullet> m_bulletPool;        
@@ -42,15 +45,15 @@ namespace _Main.Scripts.PlayerScripts
             m_rigidbody = GetComponent<Rigidbody2D>();
             m_view = GetComponent<PlayerView>();
             HealthController = GetComponent<HealthController>();
-            HealthController.Initialize(StatsController.GetStatById(StatsId.MaxHealth));
+            HealthController.Initialize();
             
             HealthController.OnDie += Die;
             HealthController.OnTakeDamage += OnTakeDamageHC;
             m_playerController = GetComponent<IPlayerController>();
 
-            Inventory = new Inventory(this);
-
             m_bulletPool = new PoolGeneric<Bullet>(playerData.Bullet);
+
+            Local = this;
         }
 
         private void Start()
@@ -65,6 +68,11 @@ namespace _Main.Scripts.PlayerScripts
         private void OnDisable()
         {
             UnsubscribeEventsController();
+        }
+
+        private void OnDestroy()
+        {
+            Local = default;
         }
 
         private void SubscribeEventsController()
@@ -87,11 +95,9 @@ namespace _Main.Scripts.PlayerScripts
             m_playerController.OnUpdateCrosshair -= UpdateCrosshair;
         }
         
-        
-        
-        private void OnUseItemHandler()
+        private static void OnUseItemHandler()
         {
-            Inventory.UseItem();
+            InventoryService.UseActiveItem();
         }
         
         private void OnInteractHandler()
@@ -120,7 +126,7 @@ namespace _Main.Scripts.PlayerScripts
         {
             if (m_dashTimer > Time.time)
                 return;
-            Debug.Log($"dashh: {p_dir * StatsController.GetStatById(StatsId.DashTranslation)}");
+            Logger.Log($"dashh: {p_dir * StatsController.GetStatById(StatsId.DashTranslation)}");
             m_rigidbody.AddForce(p_dir * StatsController.GetStatById(StatsId.DashTranslation), ForceMode2D.Impulse);
             m_dashTimer = StatsController.GetStatById(StatsId.DashCooldown) + Time.time;
         }

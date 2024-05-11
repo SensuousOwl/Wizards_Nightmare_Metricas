@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using _Main.Scripts.Services.CurrencyServices;
 using _Main.Scripts.Services.MicroServices.EventsServices;
+using _Main.Scripts.Services.MicroServices.InventoryService;
 using _Main.Scripts.Services.MicroServices.PersistenceService;
 using _Main.Scripts.Services.MicroServices.UserDataService;
 using _Main.Scripts.Services.Stats;
@@ -27,6 +28,7 @@ namespace _Main.Scripts.Services
             Register<IUpgradePoolService, UpgradePoolService>();
             Register<IStatsService, StatsService>();
             Register<ICurrencyService, CurrencyService>();
+            Register<IInventoryService, InventoryService>();
             
             // Register<ISettingsService, SettingsService>();
         }

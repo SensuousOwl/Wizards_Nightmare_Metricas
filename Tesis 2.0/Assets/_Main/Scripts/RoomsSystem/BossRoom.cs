@@ -19,7 +19,7 @@ namespace _Main.Scripts.RoomsSystem
             activatePassLevel.SetActive(false);
         }
 
-        protected override void EnterPlayerInRoom()
+        protected override void SpawnEnemiesInRoom()
         {
             CloseDoors();
             EventService.DispatchEvent(new SpawnBossInRoom(this,bossesToSpawn ));

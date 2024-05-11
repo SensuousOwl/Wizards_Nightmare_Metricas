@@ -25,7 +25,6 @@ namespace _Main.Scripts.RoomsSystem
 
         public MyNodeGrid Grid => roomGrid;
         [SerializeField] private MyNodeGrid roomGrid;
-        public static event Action OnClearedRoom;
         private event Action OnTrySpawnPickUp;
         
         private void Awake()
@@ -52,13 +51,13 @@ namespace _Main.Scripts.RoomsSystem
             l_cameraTransform.position = new Vector3(l_position.x, l_position.y,
                 l_cameraTransform.position.z);
             
-            if (m_isClear | isStartRoom)
+            if (m_isClear || isStartRoom)
                 return;
 
-            EnterPlayerInRoom();
+            SpawnEnemiesInRoom();
         }
 
-        protected virtual void EnterPlayerInRoom()
+        protected virtual void SpawnEnemiesInRoom()
         {
             EventService.DispatchEvent(new SpawnEnemyEventData(this));
             CloseDoors();
@@ -82,7 +81,7 @@ namespace _Main.Scripts.RoomsSystem
         
         public virtual void ClearRoom()
         {
-            OnClearedRoom?.Invoke();
+            EventService.DispatchEvent(EventsDefinition.CLEAR_ROOM_ID);
             OnTrySpawnPickUp?.Invoke();
             m_isClear = true;
             OpenDoor();

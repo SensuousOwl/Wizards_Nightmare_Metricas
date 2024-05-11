@@ -1,4 +1,6 @@
 ﻿using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.Stats;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.UpgradesSystem.Effects
@@ -6,9 +8,11 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem.Effects
     [CreateAssetMenu(menuName = "Main/Upgrades/Effects/CriticalDamageMultUpgrade")]
     public class CriticalDamageMultUpgradeEffect : UpgradeEffect
     {
-        public override void ApplyEffect(PlayerModel p_model, float p_valuePercentage)
+        private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
+        
+        public override void ApplyEffect(float p_valuePercentage)
         {
-            PlayerModel.StatsController.AddUpgradeStatForPercentage(StatsId.CriticalDamageMult, p_valuePercentage);
+            StatsService.AddUpgradeStatForPercentage(StatsId.CriticalDamageMult, p_valuePercentage);
         }
     }
 }
