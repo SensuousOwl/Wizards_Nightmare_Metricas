@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
+  m_Name: TradeOffUpgrade
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: RandomID7649
+  <Name>k__BackingField: Trade Off
+  <Description>k__BackingField: 'Damage Up +40%
+
+    Movement Speed -10%
+
+    Fire
+    Rate -10%'
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
+  <Effects>k__BackingField:
+  - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
+  - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
+  - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
+  <UpgradePercentage>k__BackingField:
+  - 40
+  - -10
+  - -10
+  <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
+  <EffectSprite>k__BackingField: {fileID: 21300000, guid: 2c788b0c8d43a8342b41eba909a4c8ce, type: 3}

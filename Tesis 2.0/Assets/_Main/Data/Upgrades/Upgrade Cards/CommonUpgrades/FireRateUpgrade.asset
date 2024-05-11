@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
+  m_Name: FireRateUpgrade
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: RandomID38
+  <Name>k__BackingField: Fire Rate Up
+  <Description>k__BackingField: 'Fire Rate Up
+
+    +5%'
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
+  <Effects>k__BackingField:
+  - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
+  <UpgradePercentage>k__BackingField:
+  - 5
+  <BorderSprite>k__BackingField: {fileID: 21300000, guid: 0f38f695f39b7e34a9470481b4aba891, type: 3}
+  <EffectSprite>k__BackingField: {fileID: 21300000, guid: b8d068599f480fb4fa5609d0757137f2, type: 3}
