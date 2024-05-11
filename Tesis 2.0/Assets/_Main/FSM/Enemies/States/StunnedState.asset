@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4154c0737841e399ea4d4bb5d0b16a, type: 3}
   m_Name: StunnedState
   m_EditorClassIdentifier: 
+  stunnedStateAnim: Stunned

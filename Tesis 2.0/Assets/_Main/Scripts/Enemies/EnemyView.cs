@@ -7,7 +7,7 @@ namespace _Main.Scripts.Enemies
         
         private Animator m_animator;
         [SerializeField] private new SpriteRenderer renderer;
-        
+        [SerializeField] private bool isLookingLeft;
         
         private static readonly int Speed = Animator.StringToHash("Speed");
 
@@ -19,7 +19,10 @@ namespace _Main.Scripts.Enemies
 
         public void UpdateDir(Vector3 p_dir)
         {
-            renderer.flipX = p_dir.x < 0;
+            if(!isLookingLeft)
+                renderer.flipX = p_dir.x < 0;
+            else
+                renderer.flipX = p_dir.x > 0;
         }
         public void PlayIdleAnim()
         {
@@ -47,7 +50,16 @@ namespace _Main.Scripts.Enemies
 
         public void PlayDeadAnim()
         {
-            m_animator.Play("Dead");
+            m_animator.Play("Death");
+        }
+
+        public void SetAnimatorBool(string p_parameterName, bool p_value)
+        {
+            m_animator.SetBool(p_parameterName, p_value);
+        }
+        public void PlayAnim(string p_stateName)
+        {
+            m_animator.Play(p_stateName);
         }
     }
 }

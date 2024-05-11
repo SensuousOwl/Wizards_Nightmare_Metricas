@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
-  m_Name: Creeper_AttackStateData
+  m_Name: Mushroom_ChaseStateData
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: 5383070e740bd4a42988f0d9e17d9fe7, type: 2}
+  <MyState>k__BackingField: {fileID: 11400000, guid: 6d61fe381bbbf55499644852f7d20ab3, type: 2}
   <StateConditions>k__BackingField:
-  - {fileID: 11400000, guid: f740045e971feed458c32590498ad38a, type: 2}
+  - {fileID: 11400000, guid: 61dcb3752db805a4ca345f73494e562e, type: 2}
   - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
   <ExitStates>k__BackingField:
-  - {fileID: 11400000, guid: 067e76cb9cdd5674da5649252db6225c, type: 2}
-  - {fileID: 11400000, guid: 2a372fca6c58ade42877011d6c0956fb, type: 2}
+  - {fileID: 11400000, guid: e3bf65bb0674b314d9efcb2b9c2b61e4, type: 2}
+  - {fileID: 11400000, guid: e3bf65bb0674b314d9efcb2b9c2b61e4, type: 2}

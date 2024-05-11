@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 5958726925270613776}
+  isLookingLeft: 1
 --- !u!61 &6084123278703690515
 BoxCollider2D:
   m_ObjectHideFlags: 0

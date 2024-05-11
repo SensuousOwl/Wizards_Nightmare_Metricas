@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using _Main.Scripts.FSM.Base;
+using _Main.Scripts.RoomsSystem;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 
 namespace _Main.Scripts.Enemies.FSMStates.States
@@ -9,15 +12,14 @@ namespace _Main.Scripts.Enemies.FSMStates.States
     {
         [SerializeField] private List<EnemyModel> enemiesToSpawn = new List<EnemyModel>();
 
-
+        private static IEventService EventService => ServiceLocator.Get<IEventService>();
         public override void EnterState(EnemyModel p_model)
         {
             var currEnemies = enemiesToSpawn;
 
             foreach (var enemy in currEnemies)
             {
-                var curr = Instantiate(enemy, p_model.transform.position, p_model.transform.rotation);
-                curr.SetEnemyGrid(p_model.NodeGrid);
+                EventService.DispatchEvent(new SpawnEnemyEventData(p_model.MyRoom, enemy, p_model.transform.position));
             }
         }
 

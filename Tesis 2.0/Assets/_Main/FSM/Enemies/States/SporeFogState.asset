@@ -17,4 +17,5 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 3072
+  stateAnimName: Spore
   particleSystem: {fileID: 7713350486455634291, guid: 714b5d16dd55c7045a4c736091d65491, type: 3}

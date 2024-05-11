@@ -17,7 +17,8 @@ namespace _Main.Scripts.RoomsSystem
         
         private void OnEnable()
         {
-            EventService.AddListener<SpawnEnemyEventData>(Callback);
+            EventService.AddListener<SpawnEnemiesInRoomEventData>(SpawnEnemiesInRoom);
+            EventService.AddListener<SpawnEnemyEventData>(SpawnEnemy);
             EventService.AddListener<SpawnBossInRoom>(OnSpawnBossInRoom);
         }
 
@@ -38,33 +39,21 @@ namespace _Main.Scripts.RoomsSystem
                 
             }
             
-            // for (int i = 0; i < m_currentRoom.SpawnPoints.Count; i++)
-            // {
-            //     var l_spawnPoint = m_currentRoom.SpawnPoints[i];
-            //     var rndBoss = Random.Range(0, enemyPoolData.AllBossToSpawn.Count());
-            //     var l_enemy = Instantiate(enemyPoolData.AllBossToSpawn[rndBoss], l_spawnPoint.position, Quaternion.identity);
-            //     m_enemyCount++;
-            //     l_enemy.OnDie += DieEnemyHandler;
-            //     
-            // }
-            // foreach (var l_enemyPrefab in enemyPoolData.AllBossToSpawn)
-            // {
-            //     var l_spawnPoint = m_currentRoom.SpawnPoints[Random.Range(0, m_currentRoom.SpawnPoints.Count)];
-            //     var l_enemy = Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
-            //     m_enemyCount++;
-            //     l_enemy.OnDie += DieEnemyHandler;
-            // }
         }
 
         private void OnDisable()
         {
-            EventService.RemoveListener<SpawnEnemyEventData>(Callback);
+            EventService.RemoveListener<SpawnEnemiesInRoomEventData>(SpawnEnemiesInRoom);
+            EventService.RemoveListener<SpawnEnemyEventData>(SpawnEnemy);
             EventService.RemoveListener<SpawnBossInRoom>(OnSpawnBossInRoom);
         }
 
-        private void Callback(SpawnEnemyEventData p_data)
+        private void SpawnEnemiesInRoom(SpawnEnemiesInRoomEventData p_data)
         {
             m_currentRoom = p_data.Room;
+            if(m_currentRoom.SpawnPoints.Count == 0)
+                return;
+            
             m_enemyCount = 0;
             var l_countSpawn = Random.Range(m_currentRoom.MinEnemySpawn, m_currentRoom.MaxEnemySpawn + 1);
             for (var l_i = 0; l_i < l_countSpawn; l_i++)
@@ -73,11 +62,19 @@ namespace _Main.Scripts.RoomsSystem
                 var l_enemyPrefab = enemyPoolData.GetRandomEnemyPrefabFromPool();
                 var l_enemy = Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
                 l_enemy.OnDie += DieEnemyHandler;
-                l_enemy.SetEnemyGrid(m_currentRoom.Grid);
+                l_enemy.SetEnemyRoom(m_currentRoom);
                 m_enemyCount++;
             }
         }
 
+        private void SpawnEnemy(SpawnEnemyEventData p_data)
+        {
+            var l_enemy = Instantiate(p_data.EnemyModelPrefab, p_data.SpawnPoint, Quaternion.identity);
+            l_enemy.OnDie += DieEnemyHandler;
+            l_enemy.SetEnemyRoom(p_data.Room);
+            m_enemyCount++;
+            
+        }
         private void DieEnemyHandler(EnemyModel p_enemyModel)
         {
             p_enemyModel.OnDie -= DieEnemyHandler;
@@ -88,13 +85,27 @@ namespace _Main.Scripts.RoomsSystem
         }
     }
 
-    public struct SpawnEnemyEventData : ICustomEventData
+    public struct SpawnEnemiesInRoomEventData : ICustomEventData
     {
         public Room Room { get; }
 
-        public SpawnEnemyEventData(Room p_room)
+        public SpawnEnemiesInRoomEventData(Room p_room)
         {
             Room = p_room;
+        }
+    }
+
+    public struct SpawnEnemyEventData : ICustomEventData
+    {
+        public Room Room { get; }
+        public EnemyModel EnemyModelPrefab{ get; }
+        public Vector3 SpawnPoint{ get; }
+
+        public SpawnEnemyEventData(Room p_room, EnemyModel p_enemyModelPrefab, Vector3 p_spawnPoint)
+        {
+            Room = p_room;
+            EnemyModelPrefab = p_enemyModelPrefab;
+            SpawnPoint = p_spawnPoint;
         }
     }
 }

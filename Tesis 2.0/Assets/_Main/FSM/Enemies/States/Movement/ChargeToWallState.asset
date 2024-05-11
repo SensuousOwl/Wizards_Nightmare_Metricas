@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ChargeToWallState
   m_EditorClassIdentifier: 
   prepTime: 0.5
+  chargeAnimatorBool: isCharging
