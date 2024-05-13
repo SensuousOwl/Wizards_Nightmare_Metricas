@@ -17,6 +17,8 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         [SerializeField] private float dashSpeed;
         [SerializeField] private float prepTime;
         [SerializeField] private float maxTimeToReachTarget;
+
+        
         
         private Dictionary<EnemyModel, ThisData> models = new Dictionary<EnemyModel, ThisData>();
 
@@ -29,6 +31,8 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
                 PrepTime = Time.time + prepTime
             };
             models[p_model] = l_data;
+            
+            
         }
 
         public override void ExecuteState(EnemyModel p_model)
@@ -53,6 +57,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
 
         public override void ExitState(EnemyModel p_model)
         {
+            
             models.Remove(p_model);
         }
     }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
+  m_Name: Goblin_ChaseStateData
+  m_EditorClassIdentifier: 
+  <MyState>k__BackingField: {fileID: 11400000, guid: 6d61fe381bbbf55499644852f7d20ab3, type: 2}
+  <StateConditions>k__BackingField:
+  - {fileID: 11400000, guid: 6744676b783a5bc46a31963efd1e40c4, type: 2}
+  - {fileID: 11400000, guid: d78486f9cdd40334dab47813e517cc12, type: 2}
+  <ExitStates>k__BackingField:
+  - {fileID: 11400000, guid: c167c8be4a63ee4478a3047b2a4bfee0, type: 2}
+  - {fileID: 11400000, guid: 2a372fca6c58ade42877011d6c0956fb, type: 2}

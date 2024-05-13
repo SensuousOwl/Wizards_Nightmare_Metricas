@@ -7,7 +7,7 @@ namespace _Main.Scripts
     {
         [SerializeField] private PlayerModel playerPrefab;
 
-        private void Start()
+        private void Awake()
         {
             Instantiate(playerPrefab, transform.position, playerPrefab.transform.rotation);
             InputManager.Instance.ChangeActionMap("Default-Keyboard");

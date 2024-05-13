@@ -5,6 +5,8 @@ using _Main.Scripts.Grid;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using _Main.Scripts.Services.MicroServices.SpawnItemsService;
+using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.RoomsSystem;
 using UnityEngine;
 using LayerMaskExtensions = _Main.Scripts.DevelopmentUtilities.LayerMaskExtensions;
 
@@ -27,8 +29,8 @@ namespace _Main.Scripts.Enemies
         public Vector2 CurrDir => m_dir;
 
         private Vector2 m_dir;
-
-        public MyNodeGrid NodeGrid { get; private set; }
+        
+        public Room MyRoom { get; private set; }
         public HealthController HealthController { get; private set; }
         public ISfxAudioPlayer SfxAudioPlayer { get; private set; }
         public static event Action<float> OnExperienceDrop;
@@ -46,15 +48,14 @@ namespace _Main.Scripts.Enemies
             HealthController.OnDie += OnDieHC;
             m_timer = 0;
         }
-
-
+        
         public EnemyData GetData() => data;
 
         public void SetLastTargetLocation(Vector3 p_pos)
         {
         }
 
-        public void SetEnemyGrid(MyNodeGrid p_grid) => NodeGrid = p_grid;
+        public void SetEnemyRoom(Room p_room) => MyRoom = p_room;
 
         public void SetIsAttacking(bool b) => m_isAttacking = b;
 
@@ -88,6 +89,7 @@ namespace _Main.Scripts.Enemies
             velocity += accelerationVector * Time.deltaTime;
 
             m_rb.velocity = Vector2.ClampMagnitude(velocity, data.TerimnalVelocity);
+            m_view.SetWalkSpeed((m_rb.velocity).magnitude);
         }
 
 

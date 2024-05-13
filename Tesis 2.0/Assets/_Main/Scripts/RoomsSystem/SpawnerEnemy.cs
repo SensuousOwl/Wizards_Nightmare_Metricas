@@ -19,8 +19,9 @@ namespace _Main.Scripts.RoomsSystem
         
         private void OnEnable()
         {
+            EventService.AddListener<SpawnEnemiesInRoomEventData>(SpawnEnemiesInRoomHandler);
             EventService.AddListener<SpawnEnemyEventData>(SpawnEnemyHandler);
-            EventService.AddListener<SpawnBossInRoom>(OnSpawnBossInRoom);
+            EventService.AddListener<SpawnBossInRoom>(OnSpawnBossInRoomHandler);
             EventService.AddListener<DieEnemyEventData>(DieEnemyHandler);
             EventService.AddListener(EventsDefinition.KILL_ALL_ENEMIES_ID, KillAllEnemiesHandler);
         }
@@ -33,7 +34,7 @@ namespace _Main.Scripts.RoomsSystem
             }
         }
 
-        private void OnSpawnBossInRoom(SpawnBossInRoom p_data)
+        private void OnSpawnBossInRoomHandler(SpawnBossInRoom p_data)
         {
             m_currentRoom = p_data.Room;
 
@@ -48,14 +49,19 @@ namespace _Main.Scripts.RoomsSystem
 
         private void OnDisable()
         {
+            EventService.RemoveListener<SpawnEnemiesInRoomEventData>(SpawnEnemiesInRoomHandler);
             EventService.RemoveListener<SpawnEnemyEventData>(SpawnEnemyHandler);
-            EventService.RemoveListener<SpawnBossInRoom>(OnSpawnBossInRoom);
+            EventService.RemoveListener<SpawnBossInRoom>(OnSpawnBossInRoomHandler);
             EventService.RemoveListener<DieEnemyEventData>(DieEnemyHandler);
             EventService.RemoveListener(EventsDefinition.KILL_ALL_ENEMIES_ID, KillAllEnemiesHandler);
         }
 
-        private void SpawnEnemyHandler(SpawnEnemyEventData p_data)
+        private void SpawnEnemiesInRoomHandler(SpawnEnemiesInRoomEventData p_data)
         {
+            m_currentRoom = p_data.Room;
+            if(m_currentRoom.SpawnPoints.Count == 0)
+                return;
+            
             m_currentRoom = p_data.Room;
             m_enemies.Clear();
             var l_countSpawn = Random.Range(m_currentRoom.MinEnemySpawn, m_currentRoom.MaxEnemySpawn + 1);
@@ -64,12 +70,20 @@ namespace _Main.Scripts.RoomsSystem
                 var l_spawnPoint = m_currentRoom.SpawnPoints[Random.Range(0, m_currentRoom.SpawnPoints.Count)];
                 var l_enemyPrefab = enemyPoolData.GetRandomEnemyPrefabFromPool();
                 var l_enemy = Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
-                l_enemy.SetEnemyGrid(m_currentRoom.Grid);
+                l_enemy.SetEnemyRoom(m_currentRoom);
                 m_enemies.Add(l_enemy);
             }
         }
 
-        private void DieEnemyHandler(DieEnemyEventData p_data)
+        private void SpawnEnemyHandler(SpawnEnemyEventData p_data)
+        {
+            var l_enemy = Instantiate(p_data.EnemyModelPrefab, p_data.SpawnPoint, Quaternion.identity);
+            l_enemy.OnDie += DieEnemyHandler;
+            l_enemy.SetEnemyRoom(p_data.Room);
+            m_enemies.Add(l_enemy);
+            
+        }
+        private void DieEnemyHandler(EnemyModel p_enemyModel)
         {
             if(m_enemies.Contains(p_data.Model))
                 m_enemies.Remove(p_data.Model);
@@ -79,13 +93,27 @@ namespace _Main.Scripts.RoomsSystem
         }
     }
 
-    public struct SpawnEnemyEventData : ICustomEventData
+    public struct SpawnEnemiesInRoomEventData : ICustomEventData
     {
         public Room Room { get; }
 
-        public SpawnEnemyEventData(Room p_room)
+        public SpawnEnemiesInRoomEventData(Room p_room)
         {
             Room = p_room;
+        }
+    }
+
+    public struct SpawnEnemyEventData : ICustomEventData
+    {
+        public Room Room { get; }
+        public EnemyModel EnemyModelPrefab{ get; }
+        public Vector3 SpawnPoint{ get; }
+
+        public SpawnEnemyEventData(Room p_room, EnemyModel p_enemyModelPrefab, Vector3 p_spawnPoint)
+        {
+            Room = p_room;
+            EnemyModelPrefab = p_enemyModelPrefab;
+            SpawnPoint = p_spawnPoint;
         }
     }
 }

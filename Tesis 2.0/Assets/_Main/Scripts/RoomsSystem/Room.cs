@@ -18,6 +18,9 @@ namespace _Main.Scripts.RoomsSystem
         [field: SerializeField] public int MaxEnemySpawn { get; private set; }
         [SerializeField] private bool isStartRoom;
         [SerializeField] private int spawnPickUpChance = 10;
+        [SerializeField] private bool alwaysOpen; 
+            
+            
         private List<Door> m_doorsAvailable = new();
         private bool m_isClear;
         
@@ -59,8 +62,10 @@ namespace _Main.Scripts.RoomsSystem
 
         protected virtual void SpawnEnemiesInRoom()
         {
-            EventService.DispatchEvent(new SpawnEnemyEventData(this));
-            CloseDoors();
+            EventService.DispatchEvent(new SpawnEnemiesInRoomEventData(this));
+            
+            if(!alwaysOpen)
+                CloseDoors();
         }
 
         protected void CloseDoors()

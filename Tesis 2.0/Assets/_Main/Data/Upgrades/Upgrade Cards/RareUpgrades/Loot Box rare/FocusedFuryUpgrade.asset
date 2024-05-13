@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619fc733076046ec98dd83530f2a70e8, type: 3}
+  m_Name: FocusedFuryUpgrade
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: RandomID2584
+  <Name>k__BackingField: Focused Fury
+  <Description>k__BackingField: "Damage Up +30%\r\nCritical Chance Up +10%\r"
+  <UpgradeWeight>k__BackingField: 100
+  <UnlockWeight>k__BackingField: 100
+  <Effects>k__BackingField:
+  - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
+  - {fileID: 11400000, guid: fab1d45caf847d3488400d9fe60e4ad8, type: 2}
+  <UpgradePercentage>k__BackingField:
+  - 30
+  - 10
+  <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
+  <EffectSprite>k__BackingField: {fileID: 21300000, guid: 8d1e3be2a621bbd4f8d0857b46fe9057, type: 3}

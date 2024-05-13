@@ -9,7 +9,8 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         public override void EnterState(EnemyModel p_model)
         {
             p_model.TriggerDieEvent();
-            // ExperienceController.Instance.EnemyModelOnOnDie(p_model);
+            
+            
             Destroy(p_model.gameObject);
         }
 

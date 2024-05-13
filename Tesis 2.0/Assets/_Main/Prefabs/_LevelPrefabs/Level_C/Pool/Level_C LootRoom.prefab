@@ -4132,6 +4132,7 @@ MonoBehaviour:
   <MaxEnemySpawn>k__BackingField: 5
   isStartRoom: 0
   spawnPickUpChance: 10
+  alwaysOpen: 1
   roomGrid: {fileID: 2889648598147154823}
 --- !u!65 &1627286876824191072
 BoxCollider:
