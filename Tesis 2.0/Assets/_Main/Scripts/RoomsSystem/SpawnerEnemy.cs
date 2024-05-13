@@ -78,12 +78,11 @@ namespace _Main.Scripts.RoomsSystem
         private void SpawnEnemyHandler(SpawnEnemyEventData p_data)
         {
             var l_enemy = Instantiate(p_data.EnemyModelPrefab, p_data.SpawnPoint, Quaternion.identity);
-            l_enemy.OnDie += DieEnemyHandler;
             l_enemy.SetEnemyRoom(p_data.Room);
             m_enemies.Add(l_enemy);
             
         }
-        private void DieEnemyHandler(EnemyModel p_enemyModel)
+        private void DieEnemyHandler(DieEnemyEventData p_data)
         {
             if(m_enemies.Contains(p_data.Model))
                 m_enemies.Remove(p_data.Model);
