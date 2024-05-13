@@ -843,8 +843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorDirection: 3
-  doorVisualClosed: {fileID: 0}
-  doorVisualOpen: {fileID: 0}
+  doorVisualClosed: {fileID: 3047162016757586181}
+  doorVisualOpen: {fileID: 1665282570523816522}
   wallVisual: {fileID: 2305699624687830460}
   playerSpawnTransform: {fileID: 5623227065410751190}
   boxCollider: {fileID: 2475268386203907748}
