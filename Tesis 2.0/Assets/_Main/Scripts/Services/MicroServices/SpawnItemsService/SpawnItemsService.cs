@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using _Main.Scripts.DevelopmentUtilities;
+using _Main.Scripts.Enemies;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.ItemsSystem;
 using _Main.Scripts.Services.MicroServices.EventsServices;
@@ -7,12 +8,6 @@ using UnityEngine;
 
 namespace _Main.Scripts.Services.MicroServices.SpawnItemsService
 {
-    public interface ISpawnItemsService : IGameService
-    {
-        public void SpawnItem(ItemData p_itemToSpawn, Vector3 p_positionToSpawn);
-        public void SpawnRandomItem(Vector3 p_positionToSpawn);
-    }
-    
     public class SpawnItemsService : ISpawnItemsService
     {
         private static ItemsDataPoolEssentials Data => MyGame.ItemsDataPoolEssentials;
@@ -40,15 +35,15 @@ namespace _Main.Scripts.Services.MicroServices.SpawnItemsService
 
             m_rouletteWheel = new RouletteWheel<RouletteWheel<ItemData>>(l_auxDictionary);
             
-            m_eventService?.AddListener<SpawnItemEventData>(SpawnItemHandler);
+            m_eventService?.AddListener<DieEnemyEventData>(SpawnItemHandler);
         }
 
         ~SpawnItemsService()
         {
-            m_eventService?.RemoveListener<SpawnItemEventData>(SpawnItemHandler);
+            m_eventService?.RemoveListener<DieEnemyEventData>(SpawnItemHandler);
         }
 
-        private void SpawnItemHandler(SpawnItemEventData p_data)
+        private void SpawnItemHandler(DieEnemyEventData p_data)
         {
             SpawnRandomItem(p_data.PositionToSpawn);
         }
@@ -68,13 +63,15 @@ namespace _Main.Scripts.Services.MicroServices.SpawnItemsService
         }
     }
 
-    public struct SpawnItemEventData : ICustomEventData
+    public struct DieEnemyEventData : ICustomEventData
     {
+        public EnemyModel Model { get; }
         public Vector3 PositionToSpawn { get; }
         
-        public SpawnItemEventData(Vector3 p_positionToSpawn)
+        public DieEnemyEventData(Vector3 p_positionToSpawn, EnemyModel p_model)
         {
             PositionToSpawn = p_positionToSpawn;
+            Model = p_model;
         }
     }
 }

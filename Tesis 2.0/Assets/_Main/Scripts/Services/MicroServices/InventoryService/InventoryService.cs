@@ -3,6 +3,7 @@ using System.Collections;
 using _Main.Scripts.ItemsSystem;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.ItemsSystem;
+using _Main.Scripts.Services.Stats;
 using UnityEngine;
 
 namespace _Main.Scripts.Services.MicroServices.InventoryService
@@ -10,7 +11,6 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
     public class InventoryService : IInventoryService
     {
         private bool m_activeItemCooldown;
-        private bool m_passiveItemCooldown;
         
         private ItemData m_activeItem;
         private int m_useActiveCount;
@@ -19,15 +19,22 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
         public event Action OnUpdateActiveItem;
         public event Action OnUpdatePassiveItem;
         public event Action<bool> OnCooldownActiveItem;
-        
-        public ItemData GetActiveItem() => m_activeItem;
-        public ItemData GetPassiveItem() => m_passiveItem;
+
+        private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
 
         public void Initialize()
         {
+            m_activeItemCooldown = false;
+            m_useActiveCount = 0;
             
+            m_activeItem = default;
+            m_passiveItem = default;
         }
-        
+        public ItemData GetActiveItem() => m_activeItem;
+        public ItemData GetPassiveItem() => m_passiveItem;
+        public bool HasActiveItem() => m_activeItem != default;
+        public bool HasPassiveItem() => m_passiveItem != default;
+
         public void UseActiveItem()
         {
             if (m_activeItem == default)
@@ -53,6 +60,9 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
 
         public void SetActiveItem(ItemData p_newItem)
         {
+            if (p_newItem.ItemType != ItemType.Active)
+                return;
+            
             RemoveActiveItem();
             
             m_activeItem = p_newItem;
@@ -62,6 +72,9 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
         
         public void SetPassiveItem(ItemData p_newItem)
         {
+            if (p_newItem.ItemType != ItemType.Passive)
+                return;
+            
             RemovePassiveItem();
             
             m_passiveItem = p_newItem;
@@ -69,20 +82,22 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
             OnUpdateActiveItem?.Invoke();
         }
 
-        private void RemoveActiveItem()
+        public void RemoveActiveItem()
         {
             if (m_activeItem == default)
                 return;
-            
+
+            m_activeItem = default;
             OnUpdateActiveItem?.Invoke();
         }
         
-        private void RemovePassiveItem()
+        public void RemovePassiveItem()
         {
             if (m_passiveItem == default)
                 return;
-            
+
             m_passiveItem.ItemPassiveEffect.Deactivate();
+            m_passiveItem = default;
             OnUpdatePassiveItem?.Invoke();
         }
 
@@ -91,7 +106,10 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
             m_useActiveCount = m_activeItem.UseCount;
             m_activeItemCooldown = true;
             OnCooldownActiveItem?.Invoke(m_activeItemCooldown);
-            yield return new WaitForSeconds(m_activeItem.TimeToCooldownInSeconds);
+            var l_subtractCooldown = m_activeItem.TimeToCooldownInSeconds *
+                                      (StatsService.GetStatById(StatsId.SubtractItemActiveCooldown) / 100);
+            var l_cooldown = m_activeItem.TimeToCooldownInSeconds - l_subtractCooldown;
+            yield return new WaitForSeconds(l_cooldown);
             m_activeItemCooldown = false;
             OnCooldownActiveItem?.Invoke(m_activeItemCooldown);
         }

@@ -7,7 +7,7 @@ using UnityEngine;
 namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemPassiveEffects
 {
     [CreateAssetMenu(menuName = "Main/Items/Effects/Passive/ApplyUpgrade")]
-    public class ApplyUpgradePassiveEffects : ItemPassiveEffect
+    public class ApplyUpgradePassiveEffect : ItemPassiveEffect
     {
         [System.Serializable]
         private struct MyData

@@ -21,6 +21,7 @@ namespace _Main.Scripts.Services.Stats
             m_statsDictionary.Add(StatsId.ProjectileSpeed, l_data.ProjectileSpeed);
             m_statsDictionary.Add(StatsId.Damage, l_data.Damage);
             m_statsDictionary.Add(StatsId.MaxHealth, l_data.MaxHp);
+            m_statsDictionary.Add(StatsId.SubtractItemActiveCooldown, l_data.SubtractItemActiveCooldownPercentage);
         }
         
         

@@ -11,8 +11,12 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
         
         ItemData GetActiveItem();
         ItemData GetPassiveItem();
+        bool HasActiveItem();
+        bool HasPassiveItem();
         public void SetActiveItem(ItemData p_newItem);
         public void SetPassiveItem(ItemData p_newItem);
+        public void RemoveActiveItem();
+        public void RemovePassiveItem();
         void AddItem(ItemData p_itemData);
         void UseActiveItem();
     }

@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Linq;
 using _Main.Scripts.Enemies;
 using _Main.Scripts.ScriptableObjects;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.EventsServices;
+using _Main.Scripts.Services.MicroServices.SpawnItemsService;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,78 +14,67 @@ namespace _Main.Scripts.RoomsSystem
     {
         [SerializeField] private EnemyPoolData enemyPoolData;
         private static IEventService EventService => ServiceLocator.Get<IEventService>();
-        private int m_enemyCount;
         private Room m_currentRoom;
+        private readonly List<EnemyModel> m_enemies = new();
         
         private void OnEnable()
         {
-            EventService.AddListener<SpawnEnemyEventData>(Callback);
+            EventService.AddListener<SpawnEnemyEventData>(SpawnEnemyHandler);
             EventService.AddListener<SpawnBossInRoom>(OnSpawnBossInRoom);
+            EventService.AddListener<DieEnemyEventData>(DieEnemyHandler);
+            EventService.AddListener(EventsDefinition.KILL_ALL_ENEMIES_ID, KillAllEnemiesHandler);
+        }
+
+        private void KillAllEnemiesHandler()
+        {
+            foreach (var l_enemy in m_enemies)
+            {
+                l_enemy.HealthController.TakeDamage(l_enemy.HealthController.GetMaxHealth());
+            }
         }
 
         private void OnSpawnBossInRoom(SpawnBossInRoom p_data)
         {
             m_currentRoom = p_data.Room;
-            
-            m_enemyCount = 0;
 
 
             for (int i = 0; i < m_currentRoom.SpawnPoints.Count; i++)
             {
                 var l_spawnPoint = m_currentRoom.SpawnPoints[i];
                 var rndBoss = p_data.Bosses[i];
-                var l_enemy = Instantiate(rndBoss, l_spawnPoint.position, Quaternion.identity);
-                m_enemyCount++;
-                l_enemy.OnDie += DieEnemyHandler;
-                
+                m_enemies.Add(Instantiate(rndBoss, l_spawnPoint.position, Quaternion.identity));
             }
-            
-            // for (int i = 0; i < m_currentRoom.SpawnPoints.Count; i++)
-            // {
-            //     var l_spawnPoint = m_currentRoom.SpawnPoints[i];
-            //     var rndBoss = Random.Range(0, enemyPoolData.AllBossToSpawn.Count());
-            //     var l_enemy = Instantiate(enemyPoolData.AllBossToSpawn[rndBoss], l_spawnPoint.position, Quaternion.identity);
-            //     m_enemyCount++;
-            //     l_enemy.OnDie += DieEnemyHandler;
-            //     
-            // }
-            // foreach (var l_enemyPrefab in enemyPoolData.AllBossToSpawn)
-            // {
-            //     var l_spawnPoint = m_currentRoom.SpawnPoints[Random.Range(0, m_currentRoom.SpawnPoints.Count)];
-            //     var l_enemy = Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
-            //     m_enemyCount++;
-            //     l_enemy.OnDie += DieEnemyHandler;
-            // }
         }
 
         private void OnDisable()
         {
-            EventService.RemoveListener<SpawnEnemyEventData>(Callback);
+            EventService.RemoveListener<SpawnEnemyEventData>(SpawnEnemyHandler);
             EventService.RemoveListener<SpawnBossInRoom>(OnSpawnBossInRoom);
+            EventService.RemoveListener<DieEnemyEventData>(DieEnemyHandler);
+            EventService.RemoveListener(EventsDefinition.KILL_ALL_ENEMIES_ID, KillAllEnemiesHandler);
         }
 
-        private void Callback(SpawnEnemyEventData p_data)
+        private void SpawnEnemyHandler(SpawnEnemyEventData p_data)
         {
             m_currentRoom = p_data.Room;
-            m_enemyCount = 0;
+            m_enemies.Clear();
             var l_countSpawn = Random.Range(m_currentRoom.MinEnemySpawn, m_currentRoom.MaxEnemySpawn + 1);
             for (var l_i = 0; l_i < l_countSpawn; l_i++)
             {
                 var l_spawnPoint = m_currentRoom.SpawnPoints[Random.Range(0, m_currentRoom.SpawnPoints.Count)];
                 var l_enemyPrefab = enemyPoolData.GetRandomEnemyPrefabFromPool();
                 var l_enemy = Instantiate(l_enemyPrefab, l_spawnPoint.position, l_enemyPrefab.transform.rotation);
-                l_enemy.OnDie += DieEnemyHandler;
                 l_enemy.SetEnemyGrid(m_currentRoom.Grid);
-                m_enemyCount++;
+                m_enemies.Add(l_enemy);
             }
         }
 
-        private void DieEnemyHandler(EnemyModel p_enemyModel)
+        private void DieEnemyHandler(DieEnemyEventData p_data)
         {
-            p_enemyModel.OnDie -= DieEnemyHandler;
-            m_enemyCount--;
+            if(m_enemies.Contains(p_data.Model))
+                m_enemies.Remove(p_data.Model);
 
-            if (m_enemyCount <= 0)
+            if (m_enemies.Count <= 0)
                 m_currentRoom.ClearRoom();
         }
     }

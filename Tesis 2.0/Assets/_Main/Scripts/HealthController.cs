@@ -21,6 +21,8 @@ namespace _Main.Scripts
 
         private bool m_isPlayer;
 
+        private bool m_isInvulnerable;
+
         public void Initialize(float p_maxHealth)
         {
             maxHealth = p_maxHealth;
@@ -33,6 +35,8 @@ namespace _Main.Scripts
             currentHealth = maxHealth;
             m_isPlayer = true;
         }
+
+        public void SetInvulnerability(bool p_newValue) => m_isInvulnerable = p_newValue;
 
         public void ChangeMaxHealth(float p_newValue)
         {
@@ -75,6 +79,9 @@ namespace _Main.Scripts
         public void TakeDamage(float p_damage)
         {
             CheckMaxHealth();
+            if (m_isInvulnerable)
+                return;
+            
             currentHealth -= p_damage;
 
             OnTakeDamage?.Invoke(p_damage);
@@ -116,7 +123,11 @@ namespace _Main.Scripts
         }
 
         public float GetCurrentHealth() => currentHealth;
-        public float GetMaxHealth() => maxHealth;
+        public float GetMaxHealth()
+        { 
+            CheckMaxHealth();
+            return maxHealth;
+        }
 
         private void CheckMaxHealth()
         {

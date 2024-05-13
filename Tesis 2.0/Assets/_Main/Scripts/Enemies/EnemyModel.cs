@@ -31,7 +31,6 @@ namespace _Main.Scripts.Enemies
         public MyNodeGrid NodeGrid { get; private set; }
         public HealthController HealthController { get; private set; }
         public ISfxAudioPlayer SfxAudioPlayer { get; private set; }
-        public event Action<EnemyModel> OnDie;
         public static event Action<float> OnExperienceDrop;
         private static IEventService EventService => ServiceLocator.Get<IEventService>();
 
@@ -95,8 +94,7 @@ namespace _Main.Scripts.Enemies
         public void TriggerDieEvent()
         {
             OnExperienceDrop?.Invoke(data.ExperienceDrop);
-            OnDie?.Invoke(this);
-            EventService.DispatchEvent(new SpawnItemEventData(transform.position));
+            EventService.DispatchEvent(new DieEnemyEventData(transform.position, this));
         }
 
         private void OnDieHC()

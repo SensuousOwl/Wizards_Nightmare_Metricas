@@ -12,6 +12,7 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem
         [field: SerializeField] public float EpicItemsWeight { get; private set; }
         
         
+        [field: SerializeField] public SerializableDictionary<ItemData, float> InstantItems { get; private set; }
         [field: SerializeField] public SerializableDictionary<ItemData, float> CommonItems { get; private set; }
         [field: SerializeField] public SerializableDictionary<ItemData, float> RareItems { get; private set; }
         [field: SerializeField] public SerializableDictionary<ItemData, float> EpicItems { get; private set; }

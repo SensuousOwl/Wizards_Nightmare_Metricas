@@ -14,6 +14,7 @@ namespace _Main.Scripts.PlayerScripts
         [field: SerializeField] public float DashCooldown { get; private set; }
         [field: SerializeField] public float DashTranslation { get; private set; }
         [field: SerializeField, Min(1f)] public float CriticalDamageMult { get; private set; }
+        [field: SerializeField] public float SubtractItemActiveCooldownPercentage { get; private set; }
         [field: SerializeField, Range(0, 100)] public float CriticalChance { get; private set; }
         [field: SerializeField, Range(0, 100)] public float SpawnItemChance { get; private set; }
         [field: SerializeField] public int StartingXp { get; private set; }

@@ -31,6 +31,10 @@ namespace _Main.Scripts.PlayerScripts
         private float m_fireRateTimer;
         private Camera m_mainCamera;
         private Vector3 m_crossAirPos;
+        private bool m_isReviveActive;
+
+        public event Action OnRevive;
+        
         public HealthController HealthController { get; private set; }
         private static IStatsService StatsController => ServiceLocator.Get<IStatsService>();
         public static IInventoryService InventoryService => ServiceLocator.Get<IInventoryService>();
@@ -163,8 +167,17 @@ namespace _Main.Scripts.PlayerScripts
         {
             m_view.PlayHurtAnim();
         }
+
+        public void SetRevive(bool p_isActive) => m_isReviveActive = p_isActive;
+        
         private void Die()
         {
+            if (m_isReviveActive)
+            {
+                HealthController.Heal(HealthController.GetMaxHealth() / 2);
+                OnRevive?.Invoke();
+                return;
+            }
             SceneManager.LoadScene("DeathScene");
             m_view.PlayDeadAnim();
         }
