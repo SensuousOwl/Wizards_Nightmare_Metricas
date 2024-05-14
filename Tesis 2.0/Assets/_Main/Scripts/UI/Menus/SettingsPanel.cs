@@ -1,5 +1,6 @@
 using _Main.Scripts.Audio;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace _Main.Scripts.UI.Menus
@@ -24,12 +25,16 @@ namespace _Main.Scripts.UI.Menus
 
         private AudioManager audioManager;
 
+        private InputAction m_toggleHHudInputAction;
+
         private void Start()
         {
             hudHiddenToggle.isOn = PlayerPrefs.GetInt(HudHiddenKey, defaultValue: 0) == 1;
             hudAlwaysActiveToggle.isOn = PlayerPrefs.GetInt(HudAlwaysActiveKey, defaultValue: 1) == 1;
             alphaHUDSlider.value = PlayerPrefs.GetFloat(HudAlphaKey, defaultValue: 1);
 
+            m_toggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
+            
             ApplyHUDSettings();
         }
 
@@ -116,14 +121,49 @@ namespace _Main.Scripts.UI.Menus
         {
             PlayerPrefs.SetInt(HudAlwaysActiveKey, value ? 1 : 0);
             ApplyHUDSettings();
+            
+            UnSubscribeToggleHudInput();
+            if(hudCanvasGroup == default)
+                return;
+            hudCanvasGroup.gameObject.SetActive(true);
+            
+            
         }
     
         private void ToggleHudHidden(bool value)
         {
             PlayerPrefs.SetInt(HudHiddenKey, value ? 1 : 0);
             ApplyHUDSettings();
+
+
+
+            if (value)
+            {
+                SubscribeToggleHudInput();
+                if(hudCanvasGroup == default)
+                    return;
+                hudCanvasGroup.gameObject.SetActive(false);
+            }
+            else
+                UnSubscribeToggleHudInput();
         }
-    
+
+        private void SubscribeToggleHudInput()
+        {
+            m_toggleHHudInputAction.started += ToggleHud;
+            m_toggleHHudInputAction.canceled += ToggleHud;
+        }
+        
+        private void UnSubscribeToggleHudInput()
+        {
+            m_toggleHHudInputAction.started -= ToggleHud;
+            m_toggleHHudInputAction.canceled -= ToggleHud;
+        }
+        private void ToggleHud(InputAction.CallbackContext p_obj)
+        {
+            hudCanvasGroup.gameObject.SetActive(!hudCanvasGroup.isActiveAndEnabled);
+        }
+
         private void AlphaHUDValueChanged(float value)
         {
             PlayerPrefs.SetFloat(HudAlphaKey, value);
