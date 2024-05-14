@@ -105,9 +105,9 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         private void RecalculatePath(EnemyModel p_model)
         {
             var l_grid = m_dictionary[p_model].Grid;
-            var l_myNodePos = l_grid.NodeFromWorldPoint(p_model.transform.position);
+            var l_myNodePos = l_grid.GetNodeFromWorldPoint(p_model.transform.position);
             var l_allNeigh = l_grid.GetNeighbours(l_myNodePos);
-            var l_targetPos = l_grid.NodeFromWorldPoint(m_dictionary[p_model].TargetTransform.position);
+            var l_targetPos = l_grid.GetNodeFromWorldPoint(m_dictionary[p_model].TargetTransform.position);
             
             
             

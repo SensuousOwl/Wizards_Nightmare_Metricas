@@ -59,7 +59,7 @@ namespace _Main.Scripts.Grid
         }
 
        
-        public MyNode NodeFromWorldPoint(Vector3 p_worldPosition)
+        public MyNode GetNodeFromWorldPoint(Vector3 p_worldPosition)
         {
             var l_position = transform.position;
             var l_percentX = ((p_worldPosition.x - l_position.x) + gridworldSize.x / 2) / gridworldSize.x;
@@ -74,22 +74,67 @@ namespace _Main.Scripts.Grid
             return m_grid[l_x, l_y];
         }
 
-        public MyNode GetNodeWalkable(MyNode p_node)
+        public MyNode GetNearestWalkableNode(MyNode p_node)
         {
-            var l_node = p_node;
-            while (!l_node.Walkable)
-            {
-                foreach (var l_aux in GetNeighbours(p_node))
-                {
-                    if (!l_aux.Walkable)
-                        continue;
+            if (p_node == null)
+                return default;
 
-                    l_node = l_aux;
+            Queue<MyNode> l_queue = new Queue<MyNode>();
+            HashSet<MyNode> l_visited = new HashSet<MyNode>();
+
+            l_queue.Enqueue(p_node);
+            l_visited.Add(p_node);
+
+            while (l_queue.Count > 0)
+            {
+                MyNode l_currentNode = l_queue.Dequeue();
+
+                if (l_currentNode.Walkable)
+                    return l_currentNode;
+
+                foreach (MyNode l_neighbor in GetNeighbours(l_currentNode))
+                {
+                    if (!l_visited.Contains(l_neighbor))
+                    {
+                        l_visited.Add(l_neighbor);
+                        l_queue.Enqueue(l_neighbor);
+                    }
                 }
-                
             }
 
-            return default;
+            return null;
+        }
+        
+        public MyNode GetNearestWalkableNode(Vector3 p_nodePos)
+        {
+            var l_node = GetNodeFromWorldPoint(p_nodePos);
+            if (l_node == null)
+                return default;
+
+            Queue<MyNode> l_queue = new Queue<MyNode>();
+            HashSet<MyNode> l_visited = new HashSet<MyNode>();
+
+            l_queue.Enqueue(l_node);
+            l_visited.Add(l_node);
+
+            while (l_queue.Count > 0)
+            {
+                MyNode l_currentNode = l_queue.Dequeue();
+
+                if (l_currentNode.Walkable)
+                    return l_currentNode;
+
+                foreach (MyNode l_neighbor in GetNeighbours(l_currentNode))
+                {
+                    if (!l_visited.Contains(l_neighbor))
+                    {
+                        l_visited.Add(l_neighbor);
+                        l_queue.Enqueue(l_neighbor);
+                    }
+                }
+            }
+
+            return null;
         }
         
         public IEnumerable<MyNode> GetNeighbours(MyNode p_node)
