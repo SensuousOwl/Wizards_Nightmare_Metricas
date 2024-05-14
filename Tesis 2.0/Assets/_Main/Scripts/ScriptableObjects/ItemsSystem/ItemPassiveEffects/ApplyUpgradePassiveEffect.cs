@@ -17,14 +17,14 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemPassiveEffects
             [field: SerializeField] public bool ForPercentage { get; private set; }
             [field: SerializeField] public float Value { get; private set; }
         }
-        [SerializeField] private List<MyData> data;
+        [SerializeField] private List<MyData> config;
         private readonly Dictionary<StatsId, float> m_dictionary = new();
 
         private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
         
         public override void Activate()
         {
-            foreach (var l_data in data)
+            foreach (var l_data in config)
             {
                 float l_value;
                 if (l_data.ForPercentage)
@@ -43,7 +43,7 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemPassiveEffects
 
         public override void Deactivate()
         {
-            foreach (var l_data in data)
+            foreach (var l_data in config)
             {
                 if (m_dictionary.TryGetValue(l_data.StatId, out var l_value))
                     continue;

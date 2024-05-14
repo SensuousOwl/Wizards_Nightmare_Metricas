@@ -27,7 +27,6 @@ namespace _Main.Scripts.PlayerScripts
         private int m_currCoins;
         private int m_currXp;
 
-        private float m_dashTimer;
         private float m_fireRateTimer;
         private Camera m_mainCamera;
         private Vector3 m_crossAirPos;
@@ -63,7 +62,6 @@ namespace _Main.Scripts.PlayerScripts
         private void Start()
         {
             m_fireRateTimer = 0f;
-            m_dashTimer = 0f;
             m_mainCamera = Camera.main;
             
             SubscribeEventsController();
@@ -81,11 +79,9 @@ namespace _Main.Scripts.PlayerScripts
 
         private void SubscribeEventsController()
         {
-        
             m_playerController.OnUseItem += OnUseItemHandler;
             m_playerController.OnInteract += OnInteractHandler;
             m_playerController.OnMove += Move;
-            m_playerController.OnDash += Dash;
             m_playerController.OnShoot += Shoot;
             m_playerController.OnUpdateCrosshair += UpdateCrosshair;
         }
@@ -94,7 +90,6 @@ namespace _Main.Scripts.PlayerScripts
             m_playerController.OnUseItem -= OnUseItemHandler;
             m_playerController.OnInteract -= OnInteractHandler;
             m_playerController.OnMove -= Move;
-            m_playerController.OnDash -= Dash;
             m_playerController.OnShoot -= Shoot;
             m_playerController.OnUpdateCrosshair -= UpdateCrosshair;
         }
@@ -126,15 +121,6 @@ namespace _Main.Scripts.PlayerScripts
             m_view.SetWalkSpeed((m_dir * StatsController.GetStatById(StatsId.MovementSpeed)).magnitude);
         }
 
-        private void Dash(Vector2 p_dir)
-        {
-            if (m_dashTimer > Time.time)
-                return;
-            Logger.Log($"dashh: {p_dir * StatsController.GetStatById(StatsId.DashTranslation)}");
-            m_rigidbody.AddForce(p_dir * StatsController.GetStatById(StatsId.DashTranslation), ForceMode2D.Impulse);
-            m_dashTimer = StatsController.GetStatById(StatsId.DashCooldown) + Time.time;
-        }
-
         private void Shoot()
         {
             //Check for the rate fire to be > 0f before shooting the next bullet
@@ -158,12 +144,12 @@ namespace _Main.Scripts.PlayerScripts
             m_bulletPool.AddPool(p_obj);
         }
 
-        private void UpdateCrosshair(Vector2 p_pos)
+        private void UpdateCrosshair(Vector2 p_position)
         {
-            m_crossAirPos = m_mainCamera.ScreenToWorldPoint(p_pos);
+            m_crossAirPos = m_mainCamera.ScreenToWorldPoint(p_position);
         }
 
-        private void OnTakeDamageHC(float obj)
+        private void OnTakeDamageHC(float p_value)
         {
             m_view.PlayHurtAnim();
         }

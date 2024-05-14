@@ -73,6 +73,24 @@ namespace _Main.Scripts.Grid
             var l_y = Mathf.RoundToInt((m_gridSizeY - 1) * l_percentY);
             return m_grid[l_x, l_y];
         }
+
+        public MyNode GetNodeWalkable(MyNode p_node)
+        {
+            var l_node = p_node;
+            while (!l_node.Walkable)
+            {
+                foreach (var l_aux in GetNeighbours(p_node))
+                {
+                    if (!l_aux.Walkable)
+                        continue;
+
+                    l_node = l_aux;
+                }
+                
+            }
+
+            return default;
+        }
         
         public IEnumerable<MyNode> GetNeighbours(MyNode p_node)
         {

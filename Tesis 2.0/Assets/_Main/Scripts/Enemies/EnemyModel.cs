@@ -99,7 +99,7 @@ namespace _Main.Scripts.Enemies
         public void TriggerDieEvent()
         {
             OnExperienceDrop?.Invoke(data.ExperienceDrop);
-            EventService.DispatchEvent(new DieEnemyEventData(transform.position, this));
+            EventService.DispatchEvent(new DieEnemyEventData(MyRoom.Grid.NodeFromWorldPoint(transform.position).WorldPos, this));
         }
 
         private void OnDieHC()
