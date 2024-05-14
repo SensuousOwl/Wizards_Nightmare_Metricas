@@ -21,6 +21,7 @@ namespace _Main.Scripts.Services.Stats
             m_statsDictionary.Add(StatsId.ProjectileSpeed, l_data.ProjectileSpeed);
             m_statsDictionary.Add(StatsId.Damage, l_data.Damage);
             m_statsDictionary.Add(StatsId.MaxHealth, l_data.MaxHp);
+            m_statsDictionary.Add(StatsId.SubtractItemActiveCooldown, l_data.SubtractItemActiveCooldownPercentage);
         }
         
         
@@ -44,6 +45,7 @@ namespace _Main.Scripts.Services.Stats
             if (!m_statsDictionary.ContainsKey(p_statsId))
                 return;
             m_statsDictionary[p_statsId] = p_newValue;
+            OnChangeStatValue.Invoke(p_statsId, m_statsDictionary[p_statsId]);
         }
 
         public void AddUpgradeStat(StatsId p_statsId, float p_addValue)
@@ -52,8 +54,18 @@ namespace _Main.Scripts.Services.Stats
                 return;
             
             m_statsDictionary[p_statsId] += p_addValue;
+            OnChangeStatValue.Invoke(p_statsId, m_statsDictionary[p_statsId]);
         }
-        
+
+        public void SubtractUpgradeStat(StatsId p_statsId, float p_subtractValue)
+        {
+            if (!m_statsDictionary.ContainsKey(p_statsId))
+                return;
+            
+            m_statsDictionary[p_statsId] -= p_subtractValue;
+            OnChangeStatValue.Invoke(p_statsId, m_statsDictionary[p_statsId]);
+        }
+
         public void AddUpgradeStatForPercentage(StatsId p_statsId, float p_percentage)
         {
             if (!m_statsDictionary.TryGetValue(p_statsId, out var l_value))

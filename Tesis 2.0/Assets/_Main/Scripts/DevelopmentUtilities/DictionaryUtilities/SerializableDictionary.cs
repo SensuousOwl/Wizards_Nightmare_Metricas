@@ -38,6 +38,8 @@ public abstract class SerializableDictionaryBase<TKey, TValue, TValueStorage> : 
 	protected abstract void SetValue(TValueStorage[] storage, int i, TValue value);
 	protected abstract TValue GetValue(TValueStorage[] storage, int i);
 
+	public System.Collections.Generic.Dictionary<TKey, TValue> GetDictionary() => m_dict;
+
 	public void CopyFrom(IDictionary<TKey, TValue> dict)
 	{
 		m_dict.Clear();

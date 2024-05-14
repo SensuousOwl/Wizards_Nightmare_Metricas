@@ -2,6 +2,9 @@ using System;
 using _Main.Scripts.Audio;
 using _Main.Scripts.DevelopmentUtilities;
 using _Main.Scripts.Grid;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.EventsServices;
+using _Main.Scripts.Services.MicroServices.SpawnItemsService;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.RoomsSystem;
 using UnityEngine;
@@ -32,9 +35,9 @@ namespace _Main.Scripts.Enemies
         public Room MyRoom { get; private set; }
         public HealthController HealthController { get; private set; }
         public ISfxAudioPlayer SfxAudioPlayer { get; private set; }
-        public event Action<EnemyModel> OnDie;
-        public static event Action<float> OnExperienceDrop; 
-        
+        public static event Action<float> OnExperienceDrop;
+        private static IEventService EventService => ServiceLocator.Get<IEventService>();
+
         private void Awake()
         {
             HealthController = GetComponent<HealthController>();
@@ -47,14 +50,12 @@ namespace _Main.Scripts.Enemies
             HealthController.OnTakeDamage += OnOnTakeDamageHC;
             HealthController.OnDie += OnDieHC;
             m_timer = 0;
-            
         }
-
+        
         public EnemyData GetData() => data;
 
         public void SetLastTargetLocation(Vector3 p_pos)
         {
-            
         }
 
         public void SetEnemyRoom(Room p_room) => MyRoom = p_room;
@@ -62,6 +63,7 @@ namespace _Main.Scripts.Enemies
         public void SetIsAttacking(bool b) => m_isAttacking = b;
 
         private Vector3 target;
+
         public void MoveTowards(Vector3 p_targetPoint)
         {
             target = p_targetPoint;
@@ -88,53 +90,55 @@ namespace _Main.Scripts.Enemies
 
             var velocity = m_rb.velocity;
             velocity += accelerationVector * Time.deltaTime;
-            
+
             m_rb.velocity = Vector2.ClampMagnitude(velocity, data.TerimnalVelocity);
             m_view.SetWalkSpeed((m_rb.velocity).magnitude);
         }
 
+
         public void TriggerDieEvent()
         {
             OnExperienceDrop?.Invoke(data.ExperienceDrop);
-            OnDie?.Invoke(this);
+            EventService.DispatchEvent(new DieEnemyEventData(transform.position, this));
         }
-        
+
         private void OnDieHC()
         {
             m_view.PlayDeadAnim();
         }
-        
-        
+
+
         private void OnOnTakeDamageHC(float obj)
         {
             m_damageFlash.CallDamageFlash();
         }
+
         private float m_timer;
+
         private void OnCollisionStay2D(Collision2D other)
         {
             if (m_timer > Time.time)
                 return;
-            
-            if (!LayerMaskExtensions.Includes(data.TargetMask, other.gameObject.layer)) 
+
+            if (!LayerMaskExtensions.Includes(data.TargetMask, other.gameObject.layer))
                 return;
-            
-            if(!other.gameObject.TryGetComponent(out IHealthController l_healthController))
+
+            if (!other.gameObject.TryGetComponent(out IHealthController l_healthController))
                 return;
-            
+
             l_healthController.TakeDamage(data.Damage);
             m_view.PlayAttackAnim();
             m_timer = Time.time + 1;
         }
 
-        
-        
-        #if UNITY_EDITOR
+
+#if UNITY_EDITOR
 
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            
-            Gizmos.DrawLine(transform.position,  transform.position + (Vector3)m_dir);
+
+            Gizmos.DrawLine(transform.position, transform.position + (Vector3)m_dir);
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, target);
         }

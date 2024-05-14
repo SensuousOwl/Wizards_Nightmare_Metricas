@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using _Main.Scripts.FSM.Base;
 using _Main.Scripts.Managers;
 using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.Stats;
 using _Main.Scripts.Steering_Behaviours;
 using UnityEngine;
 using Vector2 = System.Numerics.Vector2;
@@ -17,6 +19,9 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         [SerializeField] private float maxAccValue = 5f;
 
         private Dictionary<EnemyModel, PlayerModel> m_datas = new Dictionary<EnemyModel, PlayerModel>();
+
+        private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
+        
         public override void EnterState(EnemyModel p_model)
         {
             m_datas[p_model] = LevelManager.Instance.PlayerModel;
@@ -26,7 +31,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         public override void ExecuteState(EnemyModel p_model)
         {
             var wantedDir = MySteeringBehaviors.GetInterceptDir(p_model.transform.position, m_datas[p_model].transform.position,
-                m_datas[p_model].CurrDir, PlayerModel.StatsController.GetStatById(StatsId.MovementSpeed), interceptTime);
+                m_datas[p_model].CurrDir, StatsService.GetStatById(StatsId.MovementSpeed), interceptTime);
 
             var accMult = CalculateMult(p_model.transform.position, m_datas[p_model].transform.position, 
                 minAccValue, maxAccValue);

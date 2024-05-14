@@ -25,8 +25,6 @@ namespace _Main.Scripts.UI.Menus
         private List<UpgradeData> m_currUpgradeDatas = new List<UpgradeData>();
         private List<UpgradeData> m_previusUpgradeDatas = new List<UpgradeData>();
 
-        private PlayerModel m_model;
-
         private void Awake()
         {
             screenObj.SetActive(false);
@@ -75,16 +73,11 @@ namespace _Main.Scripts.UI.Menus
 
         public void OnPressedButton(int p_buttonId)
         {
-            if (m_model == default)
-                return;
-            m_currUpgradeDatas[p_buttonId].ApplyEffects(m_model);
+            m_currUpgradeDatas[p_buttonId].ApplyEffects();
             m_previusUpgradeDatas.Clear();
             m_currUpgradeDatas.Clear();
             PauseManager.Instance.SetPauseUpgrade(false);
             screenObj.SetActive(false);
         }
-
-        public void SetPlayerModel(PlayerModel p_model) => m_model = p_model;
-
     }
 }

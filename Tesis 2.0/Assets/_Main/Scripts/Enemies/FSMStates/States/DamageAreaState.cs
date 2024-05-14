@@ -44,7 +44,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             {
                 var l_curr = m_results[p_model].HitArr[l_i];
                 
-                if(!l_curr.transform.TryGetComponent(out IHealthController l_healthController))
+                if(!l_curr.transform.TryGetComponent(out HealthController l_healthController))
                     return;
                 
                 if(l_healthController == p_model.HealthController)
