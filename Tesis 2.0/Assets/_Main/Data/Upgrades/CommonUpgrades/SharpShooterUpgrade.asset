@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID2206
   <Name>k__BackingField: Sharp Shooter
-  <Description>k__BackingField: 'Critical Damage Up
-
-    +10%'
+  <Description>k__BackingField: Critical Damage Up
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 7290d22f0aeb6cb449410de20347b06b, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 10
+  upgradeConfigs:
+  - <StatId>k__BackingField: 3
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 0f38f695f39b7e34a9470481b4aba891, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: f123c153f5c3675418002b7463014977, type: 3}

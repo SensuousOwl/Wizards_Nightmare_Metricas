@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID3431
   <Name>k__BackingField: Precision
-  <Description>k__BackingField: "Critical Chance Up +15%\r\nRange Down -5%\r"
+  <Description>k__BackingField: "Critical Chance Up\r\nRange Down\r"
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: fab1d45caf847d3488400d9fe60e4ad8, type: 2}
-  - {fileID: 11400000, guid: 7a5981ab91987a845bc310c0218606af, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 15
-  - -5
+  upgradeConfigs:
+  - <StatId>k__BackingField: 4
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 15
+  - <StatId>k__BackingField: 2
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 1
+    <Value>k__BackingField: 5
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 849a2bfe6e2261d4084b14ad50d3adad, type: 3}

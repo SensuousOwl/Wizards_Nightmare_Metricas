@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID38
   <Name>k__BackingField: Fire Rate Up
-  <Description>k__BackingField: 'Fire Rate Up
-
-    +5%'
+  <Description>k__BackingField: Fire Rate Up
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 5
+  upgradeConfigs:
+  - <StatId>k__BackingField: 1
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 5
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 0f38f695f39b7e34a9470481b4aba891, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: b8d068599f480fb4fa5609d0757137f2, type: 3}

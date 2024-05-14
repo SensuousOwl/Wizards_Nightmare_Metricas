@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID7661
   <Name>k__BackingField: Fleet Footed
-  <Description>k__BackingField: "Movement Speed Up +30%\r\nProjectile Speed Up +15%\r"
+  <Description>k__BackingField: "Movement Speed &\r\nProjectile Speed Up\r"
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
-  - {fileID: 11400000, guid: 7ab17834b08e72b47b46475efee5bf12, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 30
-  - 15
+  upgradeConfigs:
+  - <StatId>k__BackingField: 0
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 25
+  - <StatId>k__BackingField: 6
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 2b6e455d70d9c9743a8c3d72c028adde, type: 3}

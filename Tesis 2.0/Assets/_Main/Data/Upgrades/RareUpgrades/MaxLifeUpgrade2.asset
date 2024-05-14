@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID9316
   <Name>k__BackingField: Max Life Up+
-  <Description>k__BackingField: 'Max Life Up
-
-    +20%'
+  <Description>k__BackingField: Max Life Up
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 2b43f6682e6d8bb4795d2df2fcb85622, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 20
+  upgradeConfigs:
+  - <StatId>k__BackingField: 8
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 15
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: ecd5d4ce03bc8fb4d902b6e600c339a1, type: 3}

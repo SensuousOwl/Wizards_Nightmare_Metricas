@@ -14,18 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID2591
   <Name>k__BackingField: Piercing Velocity
-  <Description>k__BackingField: 'Projectile Speed Up +25%
+  <Description>k__BackingField: 'Projectile Speed &
 
-    Damage Up +10%
+    Damage Up
 
 '
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 7ab17834b08e72b47b46475efee5bf12, type: 2}
-  - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 25
-  - 10
+  upgradeConfigs:
+  - <StatId>k__BackingField: 6
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 20
+  - <StatId>k__BackingField: 7
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 2890819825fe880459128f7782dd2de2, type: 3}

@@ -14,16 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID7413
   <Name>k__BackingField: Alacrity Up
-  <Description>k__BackingField: 'Movement Speed Up
+  <Description>k__BackingField: 'Movement Speed &
 
     Fire Rate Up'
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
-  - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 20
-  - 20
+  upgradeConfigs:
+  - <StatId>k__BackingField: 0
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 15
+  - <StatId>k__BackingField: 1
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 15
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: ef7b525d05cbd2644b51a8bd4ac27f5d, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: b0690ba3944f5fc46b8c02c6079ab21f, type: 3}

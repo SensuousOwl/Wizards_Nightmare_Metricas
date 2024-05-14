@@ -14,25 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID6609
   <Name>k__BackingField: Elder's Might
-  <Description>k__BackingField: 'Max Life Up +100%
+  <Description>k__BackingField: 'Max Life Up
 
-    Damage Down -15%
+    Damage, Fire Rate &
 
     Movement
-    Speed Down -15%
-
-    Fire Rate Down -10%'
+    Speed Down'
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 2b43f6682e6d8bb4795d2df2fcb85622, type: 2}
-  - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
-  - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
-  - {fileID: 11400000, guid: 80419efca8662b44aa9d023f4af05f82, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 100
-  - -15
-  - -15
-  - -10
+  upgradeConfigs:
+  - <StatId>k__BackingField: 8
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 75
+  - <StatId>k__BackingField: 7
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 1
+    <Value>k__BackingField: 10
+  - <StatId>k__BackingField: 0
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 1
+    <Value>k__BackingField: 10
+  - <StatId>k__BackingField: 1
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 1
+    <Value>k__BackingField: 10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 2e68b4d5bd70fb64dae7620972dc4224, type: 3}

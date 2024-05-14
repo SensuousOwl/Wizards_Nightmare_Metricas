@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID9189
   <Name>k__BackingField: Long Throw
-  <Description>k__BackingField: 'Projectile Speed Up
-
-    +15%'
+  <Description>k__BackingField: Projectile Speed Up
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 7ab17834b08e72b47b46475efee5bf12, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 15
+  upgradeConfigs:
+  - <StatId>k__BackingField: 6
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 0f38f695f39b7e34a9470481b4aba891, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 500d7cf41cad46546a9141f0e7a7dfb7, type: 3}

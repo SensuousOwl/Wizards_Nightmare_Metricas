@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID1211
   <Name>k__BackingField: Thief's Luck
-  <Description>k__BackingField: 'Spawn Item Chance Up
-
-    +2%'
+  <Description>k__BackingField: Spawn Item Chance Up
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 2d88bc2a713bd5345bde4a9dd7a75a71, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 2
+  upgradeConfigs:
+  - <StatId>k__BackingField: 5
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 2
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 0f38f695f39b7e34a9470481b4aba891, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: fd64f0d5abdeca546a7621fae25acf40, type: 3}

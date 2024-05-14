@@ -14,17 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID6041
   <Name>k__BackingField: Shadow's Embrace
-  <Description>k__BackingField: "Movement Speed Up +45%\r\nDamage Up +20%\r\nMax
-    Life Down -20%\r"
+  <Description>k__BackingField: "Movement Speed\r\n& Damage Up\r\nMax Life Down\r"
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 62569b10e4b2f3a4eae5f614f5b65b9d, type: 2}
-  - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
-  - {fileID: 11400000, guid: 2b43f6682e6d8bb4795d2df2fcb85622, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 45
-  - 20
-  - -20
+  upgradeConfigs:
+  - <StatId>k__BackingField: 0
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 35
+  - <StatId>k__BackingField: 7
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 20
+  - <StatId>k__BackingField: 8
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 1
+    <Value>k__BackingField: 20
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: d52f6ddc415119b4b8fac21211584a28, type: 3}

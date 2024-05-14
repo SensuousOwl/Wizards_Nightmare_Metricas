@@ -14,17 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: RandomID1225
   <Name>k__BackingField: Elemental Wrath
-  <Description>k__BackingField: "Damage Up +30%\r\nCritical Chance Up +15%\r\nCritical
-    Damage Up +10%\r"
+  <Description>k__BackingField: "Damage\r\nCritical Chance &\r\nCritical Damage Up\r"
   <UpgradeWeight>k__BackingField: 100
   <UnlockWeight>k__BackingField: 100
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 9db6e183d621917449d020d8385500b3, type: 2}
-  - {fileID: 11400000, guid: fab1d45caf847d3488400d9fe60e4ad8, type: 2}
-  - {fileID: 11400000, guid: 7290d22f0aeb6cb449410de20347b06b, type: 2}
-  <UpgradePercentage>k__BackingField:
-  - 30
-  - 15
-  - 10
+  upgradeConfigs:
+  - <StatId>k__BackingField: 7
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 20
+  - <StatId>k__BackingField: 4
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 10
+  - <StatId>k__BackingField: 3
+    <UpgradeType>k__BackingField: 1
+    <Subtract>k__BackingField: 0
+    <Value>k__BackingField: 10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: bea01823e743c7c45b9e395752d16ec0, type: 3}
