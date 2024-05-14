@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7446228d81eb4cab869140428888b3fb, type: 3}
-  m_Name: HitWallCondition
+  m_Name: Hit_Wall_or_Entity_Condition
   m_EditorClassIdentifier: 
   wallMask:
     serializedVersion: 2
-    m_Bits: 295040
+    m_Bits: 298112
