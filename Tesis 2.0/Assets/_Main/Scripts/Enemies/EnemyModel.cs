@@ -131,6 +131,10 @@ namespace _Main.Scripts.Enemies
             m_timer = Time.time + 1;
         }
 
+        public void ApplyForce(Vector2 p_dir, float p_magnitude)
+        {
+            m_rb.AddForce(p_dir * p_magnitude, ForceMode2D.Impulse);
+        }
 
 #if UNITY_EDITOR
 

@@ -105,6 +105,23 @@ namespace _Main.Scripts
             OnChangeHealth?.Invoke(maxHealth, currentHealth);
         }
 
+        public void HealPercentage(float p_percentageToHeal)
+        {
+            CheckMaxHealth();
+            var l_healAmount = maxHealth *(p_percentageToHeal / 100);
+            var l_newHp = currentHealth + l_healAmount;
+            
+            if (!(currentHealth >= maxHealth)) 
+                return;
+
+            if (l_newHp >= maxHealth)
+            {
+                currentHealth = maxHealth;
+                return;
+            }
+
+            currentHealth = l_newHp;
+        }
         public void ClampCurrentHealth()
         {
             CheckMaxHealth();
