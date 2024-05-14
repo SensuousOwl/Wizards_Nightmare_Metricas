@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf05238951e64532937c41f8adbb0590, type: 3}
+  m_Name: ApplyUpgrade_Below25%HP_+50%Damage
+  m_EditorClassIdentifier: 
+  valueBelowHealthPercentage: 25
+  passiveEffects:
+  - {fileID: 11400000, guid: 6d6139b4a8278a14f955b7994bb5f916, type: 2}
