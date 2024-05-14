@@ -19,7 +19,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
 
             foreach (var enemy in currEnemies)
             {
-                EventService.DispatchEvent(new SpawnEnemyEventData(p_model.MyRoom, enemy, p_model.transform.position));
+                EventService.DispatchEvent(new SpawnEnemyEventData(p_model.GetMyRoom(), enemy, p_model.transform.position));
             }
         }
 
