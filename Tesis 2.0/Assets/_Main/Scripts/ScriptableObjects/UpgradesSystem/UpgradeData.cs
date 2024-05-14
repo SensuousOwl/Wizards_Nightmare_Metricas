@@ -1,9 +1,30 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.Stats;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
 {
+
+    [Serializable]
+    public struct UpgradeConfig
+    {
+        [field: SerializeField] public StatsId StatId { get; private set; }
+        [field: SerializeField] public UpgradeType UpgradeType { get; private set; }
+        [field: SerializeField] public bool Subtract { get; private set; }
+        [field: SerializeField] public float Value { get; private set; }
+    }
+    
+    [Serializable]
+    public enum UpgradeType
+    {
+        Simple,
+        Percentage
+    }
+    
     [CreateAssetMenu(menuName = "Main/Upgrades/UpgradeData")]
     public class UpgradeData : ScriptableObject
     {
@@ -12,45 +33,40 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
         [field: SerializeField, Multiline] public string Description { get; private set; }
         [field: SerializeField] public float UpgradeWeight { get; private set; }
         [field: SerializeField] public float UnlockWeight { get; private set; }
-        [field: SerializeField] public List<UpgradeEffect> Effects { get; private set; }
-        [field: SerializeField] public List<float> UpgradePercentage { get; private set; }
+        [SerializeField] private List<UpgradeConfig> upgradeConfigs;
         [field: SerializeField] public Sprite BorderSprite { get; private set; }
         [field: SerializeField] public Sprite EffectSprite { get; private set; }
 
+        private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
 
         public void ApplyEffects()
-        {
-            for (var l_i = 0; l_i < Effects.Count; l_i++)
+        { 
+            Logger.Log("Apply upgrade: " + name);
+
+            foreach (var l_upgradeConfig in upgradeConfigs)
             {
-                Effects[l_i].ApplyEffect(UpgradePercentage[l_i]);
-                Logger.Log("Apply upgrade: " + Effects[l_i]);
+                switch (l_upgradeConfig.UpgradeType)
+                {
+                    case UpgradeType.Simple:
+                        if (!l_upgradeConfig.Subtract)
+                            StatsService.AddUpgradeStat(l_upgradeConfig.StatId, l_upgradeConfig.Value);
+                        else
+                            StatsService.SubtractUpgradeStat(l_upgradeConfig.StatId, l_upgradeConfig.Value);
+                        continue;
+                    case UpgradeType.Percentage:
+                        if (!l_upgradeConfig.Subtract)
+                            StatsService.AddUpgradeStatForPercentage(l_upgradeConfig.StatId, l_upgradeConfig.Value);
+                        else
+                            StatsService.SubtractUpgradeStatForPercentage(l_upgradeConfig.StatId, l_upgradeConfig.Value);
+                        continue;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
         
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         
-        [ContextMenu("Check Compatibility")]
-        public void CheckStorableItemAndSize()
-        {
-            var l_newList = Effects.Distinct().ToList();
-            Effects = l_newList;
-
-            if (Effects.Count == UpgradePercentage.Count) 
-                return;
-            
-            while (Effects.Count > UpgradePercentage.Count)
-            {
-                UpgradePercentage.Add(0);
-            }
-
-            while (Effects.Count < UpgradePercentage.Count)
-            {
-                UpgradePercentage.RemoveAt(UpgradePercentage.Count - 1);
-            }
-
-        }
-        
-
         [ContextMenu("SetRandomID")]
         private void SetRandomID()
         {
