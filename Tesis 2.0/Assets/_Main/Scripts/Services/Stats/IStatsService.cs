@@ -19,5 +19,6 @@ namespace _Main.Scripts.Services.Stats
         public void SubtractUpgradeStat(StatsId p_statsId, float p_addValue);
 
         public void AddUpgradeStatForPercentage(StatsId p_statsId, float p_percentage);
+        public void SubtractUpgradeStatForPercentage(StatsId p_statsId, float p_percentage);
     }
 }

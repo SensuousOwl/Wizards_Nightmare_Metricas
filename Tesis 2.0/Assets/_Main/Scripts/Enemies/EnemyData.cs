@@ -28,5 +28,9 @@ namespace _Main.Scripts.Enemies
         [field: SerializeField] public float ObsDetectionRadius { get; private set; }
         [field: SerializeField] public float ObsDetectionAngle { get; private set; }
         
+        [field: Header("OnlyBosses")]
+        [field: SerializeField] public bool IsBoss { get; private set; }
+        
+        
     }
 }

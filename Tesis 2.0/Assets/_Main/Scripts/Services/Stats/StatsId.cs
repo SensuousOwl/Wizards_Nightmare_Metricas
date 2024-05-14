@@ -8,8 +8,6 @@
         CriticalDamageMult,
         CriticalChance,
         SpawnItemChance,
-        DashCooldown,
-        DashTranslation,
         ProjectileSpeed,
         Damage,
         MaxHealth,

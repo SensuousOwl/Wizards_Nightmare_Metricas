@@ -21,12 +21,12 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemsActiveEffects
             [field: SerializeField] public float TimeInUse { get; private set; }
         }
         
-        [SerializeField] private List<MyData> data;
+        [SerializeField] private List<MyData> config;
 
         private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
         public override void UseItem()
         {
-            foreach (var l_data in data)
+            foreach (var l_data in config)
             {
                 if (!l_data.IsPermanent)
                     PlayerModel.Local.StartCoroutine(UseEffectCoroutine(l_data));

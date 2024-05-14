@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77af0269ecea4c7690fc6e38d443328b, type: 3}
+  m_Name: ItemsDataEssentials
+  m_EditorClassIdentifier: 
+  <ItemPrefab>k__BackingField: {fileID: 0}
+  <ItemsPoolWeight>k__BackingField:
+    m_keys: 000000000100000002000000
+    m_values:
+    - <CommonItemsWeight>k__BackingField: 60
+      <RareItemsWeight>k__BackingField: 30
+      <EpicItemsWeight>k__BackingField: 10
+    - <CommonItemsWeight>k__BackingField: 0
+      <RareItemsWeight>k__BackingField: 30
+      <EpicItemsWeight>k__BackingField: 10
+    - <CommonItemsWeight>k__BackingField: 60
+      <RareItemsWeight>k__BackingField: 30
+      <EpicItemsWeight>k__BackingField: 10
+  <InstantItems>k__BackingField:
+    m_keys:
+    - {fileID: 11400000, guid: 843468f80f6f4ce4b8d79f4dc42880e3, type: 2}
+    m_values:
+    - 20
+  <CommonItems>k__BackingField:
+    m_keys:
+    - {fileID: 11400000, guid: 843468f80f6f4ce4b8d79f4dc42880e3, type: 2}
+    m_values:
+    - 0
+  <RareItems>k__BackingField:
+    m_keys:
+    - {fileID: 11400000, guid: 843468f80f6f4ce4b8d79f4dc42880e3, type: 2}
+    m_values:
+    - 0
+  <EpicItems>k__BackingField:
+    m_keys:
+    - {fileID: 11400000, guid: 843468f80f6f4ce4b8d79f4dc42880e3, type: 2}
+    m_values:
+    - 0
