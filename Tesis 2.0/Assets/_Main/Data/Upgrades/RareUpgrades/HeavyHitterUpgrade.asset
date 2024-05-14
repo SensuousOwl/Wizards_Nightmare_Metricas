@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID6528
   <Name>k__BackingField: Heavy Hitter
   <Description>k__BackingField: "Damage Up\r\nFire Rate Down\r"
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 7

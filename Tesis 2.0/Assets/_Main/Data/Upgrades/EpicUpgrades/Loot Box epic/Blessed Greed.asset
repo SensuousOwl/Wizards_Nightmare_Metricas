@@ -15,8 +15,8 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID2455
   <Name>k__BackingField: Blessed Greed
   <Description>k__BackingField: "Spawn Item Chance Up\r\nDamage Down\r"
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 5
+  <UnlockWeight>k__BackingField: 4
   upgradeConfigs:
   - <StatId>k__BackingField: 5
     <UpgradeType>k__BackingField: 1

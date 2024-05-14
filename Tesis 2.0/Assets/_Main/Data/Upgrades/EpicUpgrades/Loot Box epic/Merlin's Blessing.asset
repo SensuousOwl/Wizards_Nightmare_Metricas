@@ -17,8 +17,8 @@ MonoBehaviour:
   <Description>k__BackingField: 'Damage &
 
     Critical Chance Up'
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 5
+  <UnlockWeight>k__BackingField: 4
   upgradeConfigs:
   - <StatId>k__BackingField: 7
     <UpgradeType>k__BackingField: 1

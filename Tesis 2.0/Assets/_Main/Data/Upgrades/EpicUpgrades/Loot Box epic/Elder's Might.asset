@@ -20,8 +20,8 @@ MonoBehaviour:
 
     Movement
     Speed Down'
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 5
+  <UnlockWeight>k__BackingField: 4
   upgradeConfigs:
   - <StatId>k__BackingField: 8
     <UpgradeType>k__BackingField: 1

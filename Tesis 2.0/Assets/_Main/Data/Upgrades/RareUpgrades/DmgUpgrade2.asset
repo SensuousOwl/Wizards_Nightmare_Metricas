@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID4114
   <Name>k__BackingField: Damage Up+
   <Description>k__BackingField: Damage Up
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 7

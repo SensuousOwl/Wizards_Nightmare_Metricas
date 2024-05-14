@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 1
   <ItemRarity>k__BackingField: 0
-  <Name>k__BackingField: Anillo del Tirador
-  <Description>k__BackingField: "Aumenta la velocidad de los proyectiles, \nhaciendo
-    que los disparos viajen m\xE1s r\xE1pido."
+  <Name>k__BackingField: Shooter Ring
+  <Description>k__BackingField: "Increases projectile speed, \nmaking shots travel
+    faster."
   <Sprite>k__BackingField: {fileID: 0}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: 933d3fc78c4c5b54e913e47b3bda8307, type: 2}

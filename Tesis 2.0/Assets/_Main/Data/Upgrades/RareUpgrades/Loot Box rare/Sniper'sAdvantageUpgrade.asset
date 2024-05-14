@@ -15,8 +15,8 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID713
   <Name>k__BackingField: Sniper's Advantage
   <Description>k__BackingField: "Range &\r\nCritical Chance Up\r\r"
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
+  <UnlockWeight>k__BackingField: 10
   upgradeConfigs:
   - <StatId>k__BackingField: 2
     <UpgradeType>k__BackingField: 1

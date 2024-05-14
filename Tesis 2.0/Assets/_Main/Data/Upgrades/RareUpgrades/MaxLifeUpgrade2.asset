@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID9316
   <Name>k__BackingField: Max Life Up+
   <Description>k__BackingField: Max Life Up
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 8

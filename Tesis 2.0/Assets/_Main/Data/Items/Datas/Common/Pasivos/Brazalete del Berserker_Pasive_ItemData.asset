@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 1
   <ItemRarity>k__BackingField: 0
-  <Name>k__BackingField: Brazalete del Berserker
-  <Description>k__BackingField: "Aumenta el da\xF1o infligido cuando la \nsalud est\xE1
-    por debajo del 25%."
+  <Name>k__BackingField: Berserker's Bracelet
+  <Description>k__BackingField: "Increases damage dealt when \nhealth is below 25%.\r\n"
   <Sprite>k__BackingField: {fileID: 0}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: 6445868203a63ab42b679ec644254071, type: 2}

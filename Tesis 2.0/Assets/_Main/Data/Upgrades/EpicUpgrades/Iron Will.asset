@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID7472
   <Name>k__BackingField: Iron Will
   <Description>k__BackingField: "Max Life Up\r\nMovement Speed Down\r"
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 5
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 8

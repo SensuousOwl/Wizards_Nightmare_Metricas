@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 2
   <ItemRarity>k__BackingField: 0
-  <Name>k__BackingField: "Pulso Energ\xE9tico"
-  <Description>k__BackingField: "Emite una peque\xF1a onda expansiva \nque empuja
-    a los enemigos hacia atr\xE1s."
+  <Name>k__BackingField: Energy Wave
+  <Description>k__BackingField: 'Send a wave that pushes
+
+    enemies away.'
   <Sprite>k__BackingField: {fileID: 0}
   <ItemActiveEffect>k__BackingField: {fileID: 11400000, guid: 4ed106f9bd588ac4eb07cab1a0ddd76d, type: 2}
   <ItemPassiveEffect>k__BackingField: {fileID: 0}

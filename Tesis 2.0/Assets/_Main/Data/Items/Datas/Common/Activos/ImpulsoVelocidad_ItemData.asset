@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 2
   <ItemRarity>k__BackingField: 0
-  <Name>k__BackingField: Impulso de Velocidad
-  <Description>k__BackingField: "Aumenta la velocidad de movimiento \nen un 50% durante
-    10 segundos"
+  <Name>k__BackingField: Speed Boost
+  <Description>k__BackingField: 'Increase Movement Speed
+
+    by 50% for 10 seconds'
   <Sprite>k__BackingField: {fileID: 0}
   <ItemActiveEffect>k__BackingField: {fileID: 11400000, guid: 507d31ded32fe3a4494525b1f7f92cf2, type: 2}
   <ItemPassiveEffect>k__BackingField: {fileID: 0}

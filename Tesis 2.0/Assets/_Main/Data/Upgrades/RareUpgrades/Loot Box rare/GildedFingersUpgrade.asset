@@ -15,8 +15,8 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID6364
   <Name>k__BackingField: Gilded Fingers
   <Description>k__BackingField: "Spawn Item Chance Up\r\nMax Life Down\r"
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
+  <UnlockWeight>k__BackingField: 10
   upgradeConfigs:
   - <StatId>k__BackingField: 5
     <UpgradeType>k__BackingField: 1

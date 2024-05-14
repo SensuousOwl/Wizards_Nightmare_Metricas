@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 2
   <ItemRarity>k__BackingField: 0
-  <Name>k__BackingField: Pocion Curativa
-  <Description>k__BackingField: "Cura instant\xE1neamente \nel 10% de la salud m\xE1xima."
+  <Name>k__BackingField: Health Potion
+  <Description>k__BackingField: "Heal 10% of \nMax Life"
   <Sprite>k__BackingField: {fileID: 0}
   <ItemActiveEffect>k__BackingField: {fileID: 11400000, guid: a892cc0dfe720a34986ecf6e71bd4da9, type: 2}
   <ItemPassiveEffect>k__BackingField: {fileID: 0}

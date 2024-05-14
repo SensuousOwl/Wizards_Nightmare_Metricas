@@ -15,8 +15,8 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID1225
   <Name>k__BackingField: Elemental Wrath
   <Description>k__BackingField: "Damage\r\nCritical Chance &\r\nCritical Damage Up\r"
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 5
+  <UnlockWeight>k__BackingField: 4
   upgradeConfigs:
   - <StatId>k__BackingField: 7
     <UpgradeType>k__BackingField: 1

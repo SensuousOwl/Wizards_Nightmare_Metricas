@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID1211
   <Name>k__BackingField: Thief's Luck
   <Description>k__BackingField: Spawn Item Chance Up
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 46
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 5

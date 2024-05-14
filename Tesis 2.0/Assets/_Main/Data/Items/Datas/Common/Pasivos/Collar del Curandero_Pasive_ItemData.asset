@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 1
   <ItemRarity>k__BackingField: 0
-  <Name>k__BackingField: Collar del Curandero
-  <Description>k__BackingField: "Peque\xF1a probabilidad de curar un \n5% de salud
-    al limpiar una habitaci\xF3n."
+  <Name>k__BackingField: Healer's Necklace
+  <Description>k__BackingField: "Small chance to heal 1% health \nwhen clearing a
+    room.\r\n"
   <Sprite>k__BackingField: {fileID: 0}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: 6cb2789199556744ea9130c5d4a3face, type: 2}
