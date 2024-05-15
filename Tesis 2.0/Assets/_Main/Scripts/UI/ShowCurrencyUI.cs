@@ -20,6 +20,12 @@ namespace _Main.Scripts.UI
         private void Start()
         {
             CurrencyService.OnCurrencyChange += OnCurrencyChange;
+            OnCurrencyChange(CurrencyService.GetCurrentGs());
+        }
+
+        private void OnDestroy()
+        {
+            CurrencyService.OnCurrencyChange -= OnCurrencyChange;
         }
 
         private void OnCurrencyChange(int p_obj)

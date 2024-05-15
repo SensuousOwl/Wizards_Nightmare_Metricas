@@ -37,8 +37,11 @@ namespace _Main.Scripts.Enemies.FSMStates.States
 
         public override void ExecuteState(EnemyModel p_model)
         {
-            if (m_models[p_model].BullCount <= 0) 
+            if (m_models[p_model].BullCount <= 0)
+            {
+                p_model.SetIsAttacking(false);
                 return;
+            }
             
             if (m_models[p_model].Timer <= Time.time)
             {
@@ -48,15 +51,11 @@ namespace _Main.Scripts.Enemies.FSMStates.States
                 var l_bullet = m_bulletPool.GetorCreate();
 
                 l_bullet.Initialize(p_model.transform.position, l_data.ProjectileSpeed, l_data.Damage, l_dir, l_data.Range, l_data.TargetMask);
-                l_bullet.OnDeactivate -= OnDeactivateBulletHandler;
+                l_bullet.OnDeactivate += OnDeactivateBulletHandler;
                 p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
 
                 m_models[p_model].BullCount--;
                 m_models[p_model].Timer = Time.time + timeBtwBullets;
-            }
-            else
-            {
-                p_model.SetIsAttacking(false);
             }
         }
 
