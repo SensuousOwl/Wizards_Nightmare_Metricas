@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: ddfa5fe88730c32498f590c9e3e52b38, type: 2}
+  collider: {fileID: 7691403151616316923}
 --- !u!114 &9124865375056901115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 7139127828460920897}
+  isLookingLeft: 0
 --- !u!61 &7691403151616316923
 BoxCollider2D:
   m_ObjectHideFlags: 0

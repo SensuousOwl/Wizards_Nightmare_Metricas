@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23918fe850d47cc4ebb696e0867d997a, type: 3}
-  m_Name: BossFinal_Die&Destroy
+  m_Script: {fileID: 11500000, guid: bc3ac6908d7f437f813b5598ae52e17a, type: 3}
+  m_Name: BossDieAndDestroyState_500g
   m_EditorClassIdentifier: 
-  <MyState>k__BackingField: {fileID: 11400000, guid: a733d957aa17a67478d003b391452c9a, type: 2}
-  <StateConditions>k__BackingField: []
-  <ExitStates>k__BackingField: []
+  currencyReward: 500

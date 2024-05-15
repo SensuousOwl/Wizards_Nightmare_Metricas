@@ -9,6 +9,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         [SerializeField] private string stunnedStateAnim; 
         public override void EnterState(EnemyModel p_model)
         {
+            p_model.SetRbSpeed(Vector2.zero);
             p_model.View.PlayAnim(stunnedStateAnim);
         }
 

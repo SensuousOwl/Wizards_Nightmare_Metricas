@@ -29,7 +29,9 @@ namespace _Main.Scripts.UI.Menus
 
         private void Start()
         {
-            m_toggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
+            var l_inputManager = InputManager.Instance;
+            if(l_inputManager!=default)
+                m_toggleHHudInputAction = l_inputManager.GetInputAction("ToggleHUD");
             
             ApplyHUDSettings();
         }
@@ -84,25 +86,16 @@ namespace _Main.Scripts.UI.Menus
         
         private void ApplyHUDSettings()
         {
-            if (hudCanvasGroup != null)
+            hudHiddenToggle.isOn = PlayerPrefs.GetInt(HUD_HIDDEN_KEY, defaultValue: 0) == 1;
+            hudAlwaysActiveToggle.isOn = PlayerPrefs.GetInt(HUD_ALWAYS_ACTIVE_KEY, defaultValue: 1) == 1;
+            if (hudCanvasGroup != default)
             {
                 hudCanvasGroup.alpha = alphaHUDSlider.value;
                 hudCanvasGroup.interactable = hudAlwaysActiveToggle.isOn;
                 hudCanvasGroup.blocksRaycasts = !hudHiddenToggle.isOn;
-            }
-
-            if (hudHiddenToggle != null)
-            {
-                hudHiddenToggle.isOn = PlayerPrefs.GetInt(HUD_HIDDEN_KEY, defaultValue: 0) == 1;
                 hudCanvasGroup.gameObject.SetActive(hudHiddenToggle.isOn);
-            }
-
-            if (hudAlwaysActiveToggle != null)
-            {
-                hudAlwaysActiveToggle.isOn = PlayerPrefs.GetInt(HUD_ALWAYS_ACTIVE_KEY, defaultValue: 1) == 1;
                 hudCanvasGroup.gameObject.SetActive(hudAlwaysActiveToggle.isOn);
             }
-            
             
             alphaHUDSlider.value = PlayerPrefs.GetFloat(HUD_ALPHA_KEY, defaultValue: 1);
         }
@@ -157,12 +150,17 @@ namespace _Main.Scripts.UI.Menus
 
         private void SubscribeToggleHudInput()
         {
+            if(m_toggleHHudInputAction==default)
+                return;
+            
             m_toggleHHudInputAction.started += ToggleHud;
             m_toggleHHudInputAction.canceled += ToggleHud;
         }
         
         private void UnSubscribeToggleHudInput()
         {
+            if(m_toggleHHudInputAction==default)
+                return;
             m_toggleHHudInputAction.started -= ToggleHud;
             m_toggleHHudInputAction.canceled -= ToggleHud;
         }

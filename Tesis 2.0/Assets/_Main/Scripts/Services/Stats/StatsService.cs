@@ -9,15 +9,15 @@ namespace _Main.Scripts.Services.Stats
         private Dictionary<StatsId, float> m_baseStatsDictionary = new();
         private Dictionary<StatsId, float> m_maxStatsValueDictionary = new();
         private Dictionary<StatsId, float> m_currentStatsDictionary = new();
-        
-        public Action<StatsId, float> OnChangeStatValue { get; set; }
+
+        public event Action<StatsId, float> OnChangeStatValue;
         
         public void Initialize()
         {
             var l_data = MyGame.PlayerDataEssentials;
 
             m_baseStatsDictionary = l_data.BaseStatsDictionary.GetNewDictionary();
-            m_maxStatsValueDictionary = l_data.BaseStatsDictionary.GetNewDictionary();
+            m_maxStatsValueDictionary = l_data.MaxStatsValueDictionary.GetNewDictionary();
             m_currentStatsDictionary = new Dictionary<StatsId, float>(m_baseStatsDictionary);
         }
 
@@ -37,13 +37,9 @@ namespace _Main.Scripts.Services.Stats
                 return;
             m_currentStatsDictionary[p_statsId] = p_newValue;
             
-            if (m_currentStatsDictionary[p_statsId] < m_baseStatsDictionary[p_statsId])
-                m_currentStatsDictionary[p_statsId] = m_baseStatsDictionary[p_statsId];
+            CheckUpgradeIsInBounds(p_statsId);
             
-            if (m_currentStatsDictionary[p_statsId] > m_maxStatsValueDictionary[p_statsId])
-                m_currentStatsDictionary[p_statsId] = m_maxStatsValueDictionary[p_statsId];
-            
-            OnChangeStatValue.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
+            OnChangeStatValue?.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
         }
 
         public void AddUpgradeStat(StatsId p_statsId, float p_addValue)
@@ -53,13 +49,9 @@ namespace _Main.Scripts.Services.Stats
             
             m_currentStatsDictionary[p_statsId] += p_addValue;
             
-            if (m_currentStatsDictionary[p_statsId] < m_baseStatsDictionary[p_statsId])
-                m_currentStatsDictionary[p_statsId] = m_baseStatsDictionary[p_statsId];
+            CheckUpgradeIsInBounds(p_statsId);
             
-            if (m_currentStatsDictionary[p_statsId] > m_maxStatsValueDictionary[p_statsId])
-                m_currentStatsDictionary[p_statsId] = m_maxStatsValueDictionary[p_statsId];
-            
-            OnChangeStatValue.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
+            OnChangeStatValue?.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
         }
 
         public void SubtractUpgradeStat(StatsId p_statsId, float p_subtractValue)
@@ -69,13 +61,9 @@ namespace _Main.Scripts.Services.Stats
             
             m_currentStatsDictionary[p_statsId] -= p_subtractValue;
             
-            if (m_currentStatsDictionary[p_statsId] < m_baseStatsDictionary[p_statsId])
-                m_currentStatsDictionary[p_statsId] = m_baseStatsDictionary[p_statsId];
+            CheckUpgradeIsInBounds(p_statsId);
             
-            if (m_currentStatsDictionary[p_statsId] > m_maxStatsValueDictionary[p_statsId])
-                m_currentStatsDictionary[p_statsId] = m_maxStatsValueDictionary[p_statsId];
-            
-            OnChangeStatValue.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
+            OnChangeStatValue?.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
         }
 
         public void AddUpgradeStatForPercentage(StatsId p_statsId, float p_percentage)
@@ -87,13 +75,8 @@ namespace _Main.Scripts.Services.Stats
             
             m_currentStatsDictionary[p_statsId] += l_value;
             
-            if (m_currentStatsDictionary[p_statsId] < m_baseStatsDictionary[p_statsId])
-                m_currentStatsDictionary[p_statsId] = m_baseStatsDictionary[p_statsId];
-            
-            if (m_currentStatsDictionary[p_statsId] > m_maxStatsValueDictionary[p_statsId])
-                m_currentStatsDictionary[p_statsId] = m_maxStatsValueDictionary[p_statsId];
-            
-            OnChangeStatValue.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
+            CheckUpgradeIsInBounds(p_statsId);
+            OnChangeStatValue?.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
         }
 
         public void SubtractUpgradeStatForPercentage(StatsId p_statsId, float p_percentage)
@@ -105,13 +88,19 @@ namespace _Main.Scripts.Services.Stats
             
             m_currentStatsDictionary[p_statsId] -= l_value;
 
+            CheckUpgradeIsInBounds(p_statsId);
+            
+            OnChangeStatValue?.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
+        }
+
+
+        private void CheckUpgradeIsInBounds(StatsId p_statsId)
+        {
             if (m_currentStatsDictionary[p_statsId] < m_baseStatsDictionary[p_statsId])
                 m_currentStatsDictionary[p_statsId] = m_baseStatsDictionary[p_statsId];
             
             if (m_currentStatsDictionary[p_statsId] > m_maxStatsValueDictionary[p_statsId])
                 m_currentStatsDictionary[p_statsId] = m_maxStatsValueDictionary[p_statsId];
-            
-            OnChangeStatValue.Invoke(p_statsId, m_currentStatsDictionary[p_statsId]);
         }
     }
 }

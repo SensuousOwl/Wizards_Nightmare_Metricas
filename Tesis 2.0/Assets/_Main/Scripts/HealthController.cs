@@ -40,11 +40,12 @@ namespace _Main.Scripts
 
         public void ChangeMaxHealth(float p_newValue)
         {
-            CheckMaxHealth();
+            
             if (m_isPlayer)
             {
-                OnChangeMaxHealth?.Invoke(maxHealth, p_newValue, currentHealth);
                 StatsService.SetUpgradeStat(StatsId.MaxHealth, p_newValue);
+                CheckMaxHealth();
+                OnChangeMaxHealth?.Invoke(maxHealth, p_newValue, currentHealth);
                 return;
             }
             OnChangeMaxHealth?.Invoke(maxHealth, p_newValue, currentHealth);
@@ -53,11 +54,12 @@ namespace _Main.Scripts
     
         public void AddMaxHealth(float p_value)
         {
-            CheckMaxHealth();
+            
             if (m_isPlayer)
             {
-                OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_value, currentHealth);
                 StatsService.AddUpgradeStat(StatsId.MaxHealth, p_value);
+                CheckMaxHealth();
+                OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_value, currentHealth);
                 return;
             }
             OnChangeMaxHealth?.Invoke(maxHealth, maxHealth += p_value, currentHealth);
@@ -68,8 +70,9 @@ namespace _Main.Scripts
             CheckMaxHealth();
             if (m_isPlayer)
             {
-                OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_value, currentHealth);
                 StatsService.SubtractUpgradeStat(StatsId.MaxHealth, p_value);
+                CheckMaxHealth();
+                OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_value, currentHealth);
                 return;
             }
             OnChangeMaxHealth?.Invoke(maxHealth, maxHealth -= p_value, currentHealth);
@@ -150,9 +153,8 @@ namespace _Main.Scripts
         {
             if (!m_isPlayer)
                 return;
-
-            if (Mathf.Approximately(maxHealth, StatsService.GetStatById(StatsId.MaxHealth)))
-                maxHealth = StatsService.GetStatById(StatsId.MaxHealth);
+            
+            maxHealth = StatsService.GetStatById(StatsId.MaxHealth);
         }
     }
 }

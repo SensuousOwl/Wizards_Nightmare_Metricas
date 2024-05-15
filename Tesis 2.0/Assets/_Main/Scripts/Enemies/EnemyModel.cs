@@ -17,7 +17,9 @@ namespace _Main.Scripts.Enemies
     public class EnemyModel : MonoBehaviour
     {
         [SerializeField] private EnemyData data;
+        [SerializeField] private new BoxCollider2D collider;
 
+        public Vector2 GetEnemySize() => collider.size;
         private int m_currHp;
 
         public EnemyView View => m_view;
@@ -58,15 +60,10 @@ namespace _Main.Scripts.Enemies
         {
         }
 
-        private void Update()
-        {
-            Debug.Log(m_myRoom);
-        }
 
         public void SetEnemyRoom(Room p_room)
         {
             m_myRoom = p_room;
-            Debug.Log(p_room);
         }
         public Room GetMyRoom() => m_myRoom;
 
@@ -149,6 +146,11 @@ namespace _Main.Scripts.Enemies
         public void ApplyForce(Vector2 p_dir, float p_magnitude)
         {
             m_rb.AddForce(p_dir * p_magnitude, ForceMode2D.Impulse);
+        }
+
+        public void SetRbSpeed(Vector2 p_speed)
+        {
+            m_rb.velocity = p_speed;
         }
 
 #if UNITY_EDITOR

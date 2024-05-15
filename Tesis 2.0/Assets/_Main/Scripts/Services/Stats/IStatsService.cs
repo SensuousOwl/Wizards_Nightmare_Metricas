@@ -6,7 +6,7 @@ namespace _Main.Scripts.Services.Stats
 {
     public interface IStatsService : IGameService
     {
-        public Action<StatsId, float> OnChangeStatValue { get; set; }
+        public event Action<StatsId, float> OnChangeStatValue;
         public Dictionary<StatsId, float> GetAllStatData();
 
         public float GetStatById(StatsId p_statsId);

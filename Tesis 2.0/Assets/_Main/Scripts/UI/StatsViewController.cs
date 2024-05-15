@@ -17,7 +17,7 @@ namespace _Main.Scripts.UI
         [SerializeField] private TMP_Text critDama_Text;
         [SerializeField] private TMP_Text critChance_Text;
         [SerializeField] private TMP_Text projectileSpeed_Text;
-        public IStatsService StatsController => ServiceLocator.Get<IStatsService>();
+        private static IStatsService StatsController => ServiceLocator.Get<IStatsService>();
 
         private void Start()
         {
@@ -29,12 +29,12 @@ namespace _Main.Scripts.UI
             }
         }
 
-        private void OnEnable()
+        private void Awake()
         {
             StatsController.OnChangeStatValue += ChangeStatValue;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             StatsController.OnChangeStatValue -= ChangeStatValue;
         }
