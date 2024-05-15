@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a38bfc949cc4efbb5ee6632469c20e6, type: 3}
-  m_Name: ShootInConeTowardPlayer_3NB_45d
+  m_Script: {fileID: 11500000, guid: ca056d4d38984ada9bb5aeafdb7056ca, type: 3}
+  m_Name: FirstBoss_ShootBurstToPlayer_5bull_0.3s
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7770882229381276139, guid: 2b24a679ee7b4524081493f45c8ebfb6, type: 3}
-  bulletsAmount: 3
-  totalConeAngle: 45
+  bulletPrefab: {fileID: 7770882229381276139, guid: 210dd55add4e77e47b90623f29c9527c, type: 3}
+  burstCount: 5
+  timeBtwBullets: 0.3

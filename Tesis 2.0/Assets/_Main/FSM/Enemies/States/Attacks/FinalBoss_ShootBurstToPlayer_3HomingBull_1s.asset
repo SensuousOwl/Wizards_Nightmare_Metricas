@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca056d4d38984ada9bb5aeafdb7056ca, type: 3}
-  m_Name: ShootBurstToPlayer_3bull_0.5s
+  m_Name: FinalBoss_ShootBurstToPlayer_3HomingBull_1s
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7770882229381276139, guid: 2b24a679ee7b4524081493f45c8ebfb6, type: 3}
+  bulletPrefab: {fileID: 7770882229381276139, guid: fe61a1976c4b19643810f469635dcfce, type: 3}
   burstCount: 3
-  timeBtwBullets: 0.5
+  timeBtwBullets: 1

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec212ee213fe4bbdab7f8377093f777c, type: 3}
-  m_Name: ShootInCirclesPattern_8b
+  m_Name: SeccondBoss_Two_ShootInCirclesPattern_8b
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7770882229381276139, guid: 2b24a679ee7b4524081493f45c8ebfb6, type: 3}
+  bulletPrefab: {fileID: 7770882229381276139, guid: d370b12ea01932648baf601581549051, type: 3}
   bulletsAmount: 8
