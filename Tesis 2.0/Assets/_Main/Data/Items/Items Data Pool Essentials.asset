@@ -12,19 +12,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77af0269ecea4c7690fc6e38d443328b, type: 3}
   m_Name: Items Data Pool Essentials
   m_EditorClassIdentifier: 
-  <ItemPrefab>k__BackingField: {fileID: 0}
+  <ItemPrefab>k__BackingField: {fileID: 7081471629531000563, guid: 75723bdc36039814995a172065e4e287, type: 3}
   <ItemsPoolWeight>k__BackingField:
-    m_keys: 
-    m_values: []
+    m_keys: 000000000100000002000000
+    m_values:
+    - <CommonItemsWeight>k__BackingField: 60
+      <RareItemsWeight>k__BackingField: 30
+      <EpicItemsWeight>k__BackingField: 10
+    - <CommonItemsWeight>k__BackingField: 0
+      <RareItemsWeight>k__BackingField: 30
+      <EpicItemsWeight>k__BackingField: 10
+    - <CommonItemsWeight>k__BackingField: 60
+      <RareItemsWeight>k__BackingField: 30
+      <EpicItemsWeight>k__BackingField: 10
   <InstantItems>k__BackingField:
     m_keys: []
     m_values: []
   <CommonItems>k__BackingField:
-    m_keys: []
-    m_values: []
+    m_keys:
+    - {fileID: 11400000, guid: eb36fd78ccfc6f64a8ab51dfb121cfd4, type: 2}
+    - {fileID: 11400000, guid: b45399d6187f79747978d46bf6e248de, type: 2}
+    - {fileID: 11400000, guid: b153bdff4f1cba24b85d065e5df44bcb, type: 2}
+    - {fileID: 11400000, guid: bd3dabc007f27dd4b92ae66080eb952e, type: 2}
+    - {fileID: 11400000, guid: 34ea2bcf70d033e41b66662305c564cc, type: 2}
+    - {fileID: 11400000, guid: cec3c70a616d36a41addc21695fadb8f, type: 2}
+    - {fileID: 11400000, guid: 693b9cdcede838947a2646d13b5812aa, type: 2}
+    - {fileID: 11400000, guid: aa1b9997a816d194b834b720cd26ecc5, type: 2}
+    - {fileID: 11400000, guid: 174e0c85ccd49cb46b6d20595889d4b8, type: 2}
+    - {fileID: 11400000, guid: 738fe32d41fc51940993cc8c5e91b3c8, type: 2}
+    - {fileID: 11400000, guid: 86082979874df3949a706f73b1b02abd, type: 2}
+    - {fileID: 11400000, guid: 176afb26af87fe64eaf89b6270c75b3c, type: 2}
+    m_values:
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
   <RareItems>k__BackingField:
-    m_keys: []
-    m_values: []
+    m_keys:
+    - {fileID: 11400000, guid: 654a0666eec1b4a44a7c40cd0e564c9f, type: 2}
+    - {fileID: 11400000, guid: 7724e838e71d1984da7879977459af9b, type: 2}
+    - {fileID: 11400000, guid: c4652d1f9fcbca2489f3cafc285d538c, type: 2}
+    m_values:
+    - 10
+    - 10
+    - 10
   <EpicItems>k__BackingField:
-    m_keys: []
-    m_values: []
+    m_keys:
+    - {fileID: 11400000, guid: 5d4053312c8e6864c9088cd3cd906414, type: 2}
+    - {fileID: 11400000, guid: ebf0acd470af3654cbaa8f68018d3762, type: 2}
+    - {fileID: 11400000, guid: f0fe0970f7dacae4789d16501bc5a2b0, type: 2}
+    m_values:
+    - 2.5
+    - 2.5
+    - 2.5

@@ -109,6 +109,7 @@ namespace _Main.Scripts.Enemies
             if (data.IsBoss)
             {
                 EventService.DispatchEvent(new DieEnemyEventData(transform.position, this));
+                
                 return;
             }
             EventService.DispatchEvent(new DieEnemyEventData(m_myRoom.Grid.GetNearestWalkableNode(transform.position).WorldPos, this));

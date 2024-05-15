@@ -18,7 +18,7 @@ namespace _Main.Scripts.Services.CurrencyServices
             DataState.ResetGs();
         }
 
-        public Action<int> OnCurrencyChange { get; set; }
+        public event Action<int> OnCurrencyChange;
         public int GetCurrentGs() => DataState.GetCurrentGs();
 
         public void SetGs(int p_newGs)
@@ -27,7 +27,7 @@ namespace _Main.Scripts.Services.CurrencyServices
             if (p_newGs >= 0)
             {
                 DataState.SetGs(p_newGs);
-                OnCurrencyChange.Invoke(p_newGs);
+                OnCurrencyChange?.Invoke(p_newGs);
                 return;
             }
 
@@ -35,14 +35,14 @@ namespace _Main.Scripts.Services.CurrencyServices
             
         }
 
-        public void AddGs(int p_GsToAdd)
+        public void AddGs(int p_gsToAdd)
         {
-            var newAmmount = DataState.GetCurrentGs() + p_GsToAdd;
+            var l_newAmmount = DataState.GetCurrentGs() + p_gsToAdd;
 
-            if (newAmmount >= 0)
+            if (l_newAmmount >= 0)
             {
-                DataState.SetGs(newAmmount);
-                OnCurrencyChange.Invoke(newAmmount);
+                DataState.SetGs(l_newAmmount);
+                OnCurrencyChange?.Invoke(l_newAmmount);
                 return;
             }
             Logger.LogError("Modification on Gs returned a value under 0");

@@ -82,7 +82,6 @@ namespace _Main.Scripts.Services.MicroServices.SpawnItemsService
             var l_newItem = Object.Instantiate(Data.ItemPrefab, p_positionToSpawn, Quaternion.identity);
             l_newItem.SetItemData(p_itemToSpawn);
         }
-
         public void SpawnItemChestPoolRandom(Vector3 p_positionToSpawn)
         {
             SpawnItem(m_chestRouletteWheel.RunWithCached().RunWithCached(), p_positionToSpawn);

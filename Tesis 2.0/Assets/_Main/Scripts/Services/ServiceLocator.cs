@@ -30,7 +30,7 @@ namespace _Main.Scripts.Services
             Register<IStatsService, StatsService>();
             Register<ICurrencyService, CurrencyService>();
             Register<IInventoryService, InventoryService>();
-            Register<ISpawnItemsService, SpawnItemsService>();
+            Register<ISpawnItemsService, SpawnItemsService>(true);
             
             // Register<ISettingsService, SettingsService>();
         }
