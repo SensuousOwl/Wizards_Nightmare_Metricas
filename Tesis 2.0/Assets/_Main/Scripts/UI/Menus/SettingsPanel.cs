@@ -1,5 +1,6 @@
 using _Main.Scripts.Audio;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace _Main.Scripts.UI.Menus
@@ -18,18 +19,18 @@ namespace _Main.Scripts.UI.Menus
         [SerializeField] private Button goBackScreenButton;
         [SerializeField] private CanvasGroup hudCanvasGroup;
 
-        private const string HudAlwaysActiveKey = "HUDAlwaysActive";
-        private const string HudHiddenKey = "HUDHidden";
-        private const string HudAlphaKey = "HUDAlpha";
+        private const string HUD_ALWAYS_ACTIVE_KEY = "HUDAlwaysActive";
+        private const string HUD_HIDDEN_KEY = "HUDHidden";
+        private const string HUD_ALPHA_KEY = "HUDAlpha";
 
-        private AudioManager audioManager;
+        private AudioManager m_audioManager;
+
+        private InputAction m_toggleHHudInputAction;
 
         private void Start()
         {
-            hudHiddenToggle.isOn = PlayerPrefs.GetInt(HudHiddenKey, defaultValue: 0) == 1;
-            hudAlwaysActiveToggle.isOn = PlayerPrefs.GetInt(HudAlwaysActiveKey, defaultValue: 1) == 1;
-            alphaHUDSlider.value = PlayerPrefs.GetFloat(HudAlphaKey, defaultValue: 1);
-
+            m_toggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
+            
             ApplyHUDSettings();
         }
 
@@ -38,7 +39,7 @@ namespace _Main.Scripts.UI.Menus
 
             controlsScreen.Close();
 
-            audioManager = FindObjectOfType<AudioManager>();
+            m_audioManager = FindObjectOfType<AudioManager>();
             
             masterSlider.onValueChanged.AddListener(OnMasterVolumeChanged);
             musicSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
@@ -88,45 +89,91 @@ namespace _Main.Scripts.UI.Menus
                 hudCanvasGroup.alpha = alphaHUDSlider.value;
                 hudCanvasGroup.interactable = hudAlwaysActiveToggle.isOn;
                 hudCanvasGroup.blocksRaycasts = !hudHiddenToggle.isOn;
-                
-                // Additional logic to hide/show HUD based on hudHiddenToggle if necessary
             }
+
+            if (hudHiddenToggle != null)
+            {
+                hudHiddenToggle.isOn = PlayerPrefs.GetInt(HUD_HIDDEN_KEY, defaultValue: 0) == 1;
+                hudCanvasGroup.gameObject.SetActive(hudHiddenToggle.isOn);
+            }
+
+            if (hudAlwaysActiveToggle != null)
+            {
+                hudAlwaysActiveToggle.isOn = PlayerPrefs.GetInt(HUD_ALWAYS_ACTIVE_KEY, defaultValue: 1) == 1;
+                hudCanvasGroup.gameObject.SetActive(hudAlwaysActiveToggle.isOn);
+            }
+            
+            
+            alphaHUDSlider.value = PlayerPrefs.GetFloat(HUD_ALPHA_KEY, defaultValue: 1);
         }
 
         private void OnMasterVolumeChanged(float value)
         {
             PlayerPrefs.SetFloat("MasterVolume", value);
-            audioManager.SetMasterVolume(value);
-            audioManager.mixer.SetFloat("MasterVolume", audioManager.LinearToDecibel(value));
+            m_audioManager.SetMasterVolume(value);
+            m_audioManager.mixer.SetFloat("MasterVolume", m_audioManager.LinearToDecibel(value));
         }
         private void OnMusicVolumeChanged(float value)
         {
             PlayerPrefs.SetFloat("MusicVolume", value);
-            audioManager.SetMusicVolume(value);
-            audioManager.mixer.SetFloat("MusicVolume", audioManager.LinearToDecibel(value));
+            m_audioManager.SetMusicVolume(value);
+            m_audioManager.mixer.SetFloat("MusicVolume", m_audioManager.LinearToDecibel(value));
         }
         private void OnSFXVolumeChanged(float value)
         {
             PlayerPrefs.SetFloat("SFXVolume", value);
-            audioManager.SetSFXVolume(value);
-            audioManager.mixer.SetFloat("SFXVolume", audioManager.LinearToDecibel(value));
+            m_audioManager.SetSFXVolume(value);
+            m_audioManager.mixer.SetFloat("SFXVolume", m_audioManager.LinearToDecibel(value));
         }
 
-        private void ToggleOnAlwaysActive(bool value)
+        private void ToggleOnAlwaysActive(bool p_value)
         {
-            PlayerPrefs.SetInt(HudAlwaysActiveKey, value ? 1 : 0);
+            PlayerPrefs.SetInt(HUD_ALWAYS_ACTIVE_KEY, p_value ? 1 : 0);
             ApplyHUDSettings();
+            
+            UnSubscribeToggleHudInput();
+            if(hudCanvasGroup == default)
+                return;
+            hudCanvasGroup.gameObject.SetActive(true);
+            
+            
         }
     
-        private void ToggleHudHidden(bool value)
+        private void ToggleHudHidden(bool p_value)
         {
-            PlayerPrefs.SetInt(HudHiddenKey, value ? 1 : 0);
+            PlayerPrefs.SetInt(HUD_HIDDEN_KEY, p_value ? 1 : 0);
             ApplyHUDSettings();
+
+            if (p_value)
+            {
+                SubscribeToggleHudInput();
+                if(hudCanvasGroup == default)
+                    return;
+                hudCanvasGroup.gameObject.SetActive(false);
+            }
+            else
+                UnSubscribeToggleHudInput();
         }
-    
+
+        private void SubscribeToggleHudInput()
+        {
+            m_toggleHHudInputAction.started += ToggleHud;
+            m_toggleHHudInputAction.canceled += ToggleHud;
+        }
+        
+        private void UnSubscribeToggleHudInput()
+        {
+            m_toggleHHudInputAction.started -= ToggleHud;
+            m_toggleHHudInputAction.canceled -= ToggleHud;
+        }
+        private void ToggleHud(InputAction.CallbackContext p_obj)
+        {
+            hudCanvasGroup.gameObject.SetActive(!hudCanvasGroup.isActiveAndEnabled);
+        }
+
         private void AlphaHUDValueChanged(float value)
         {
-            PlayerPrefs.SetFloat(HudAlphaKey, value);
+            PlayerPrefs.SetFloat(HUD_ALPHA_KEY, value);
             ApplyHUDSettings();
         }
     }
