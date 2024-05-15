@@ -17,7 +17,7 @@ MonoBehaviour:
   <Name>k__BackingField: Thief's Gauntlet
   <Description>k__BackingField: "Increase chance of spawning \nitems after killing
     enemies\n"
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 751b9c31d8855974b9776de3ea7c4384, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: db45328b77b3c4240ad6d4ebe45bee6e, type: 2}
   <UseCount>k__BackingField: 1

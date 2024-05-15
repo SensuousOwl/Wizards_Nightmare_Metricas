@@ -16,7 +16,7 @@ MonoBehaviour:
   <ItemRarity>k__BackingField: 2
   <Name>k__BackingField: Void Bomb
   <Description>k__BackingField: "Gravely Injure all enemies \nin the room"
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: fff32d50213741a44af39b3c6a0d517f, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 11400000, guid: d1b05094778f0a14090c03a23e96a3b0, type: 2}
   <ItemPassiveEffect>k__BackingField: {fileID: 0}
   <UseCount>k__BackingField: 1

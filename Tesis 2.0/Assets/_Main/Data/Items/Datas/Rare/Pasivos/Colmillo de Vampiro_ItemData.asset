@@ -16,7 +16,7 @@ MonoBehaviour:
   <ItemRarity>k__BackingField: 1
   <Name>k__BackingField: Vampire's Fang
   <Description>k__BackingField: "Returns a small amount of \nlife after killing enemies"
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: cae617f09d0276f4e98ad7274764f937, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: 3d6449229b58f394189d3081feb3c52b, type: 2}
   <UseCount>k__BackingField: 1

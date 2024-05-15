@@ -18,7 +18,7 @@ MonoBehaviour:
   <Description>k__BackingField: 'Makes you invulnerable for 8s
 
     Cooldown: 45s'
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: d3d1f31cf5624264995b5b919a1e5314, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 11400000, guid: e89404a173c1f734486f1677bbed8db5, type: 2}
   <ItemPassiveEffect>k__BackingField: {fileID: 0}
   <UseCount>k__BackingField: 3

@@ -16,7 +16,7 @@ MonoBehaviour:
   <ItemRarity>k__BackingField: 1
   <Name>k__BackingField: Wind Walker's Boot
   <Description>k__BackingField: "Considerably increases \nMovement Speed"
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: f9347f41f2013a644a5389a433164911, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: ac62c5860f9c2384c92b9c7bbbd8afb1, type: 2}
   <UseCount>k__BackingField: 1

@@ -18,7 +18,7 @@ MonoBehaviour:
   <Description>k__BackingField: 'Send a wave that pushes
 
     enemies away.'
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 73da89a8469a06d4394ac75eae3ab62a, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 11400000, guid: 4ed106f9bd588ac4eb07cab1a0ddd76d, type: 2}
   <ItemPassiveEffect>k__BackingField: {fileID: 0}
   <UseCount>k__BackingField: 1

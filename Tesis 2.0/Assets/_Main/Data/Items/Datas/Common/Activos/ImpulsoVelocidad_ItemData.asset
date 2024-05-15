@@ -18,7 +18,7 @@ MonoBehaviour:
   <Description>k__BackingField: 'Increase Movement Speed
 
     by 50% for 10 seconds'
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: db7f5c8e6acde334492e86d3b5cbdcc0, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 11400000, guid: 507d31ded32fe3a4494525b1f7f92cf2, type: 2}
   <ItemPassiveEffect>k__BackingField: {fileID: 0}
   <UseCount>k__BackingField: 1

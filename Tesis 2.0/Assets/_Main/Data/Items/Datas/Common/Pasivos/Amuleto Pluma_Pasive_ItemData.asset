@@ -16,7 +16,7 @@ MonoBehaviour:
   <ItemRarity>k__BackingField: 0
   <Name>k__BackingField: Feather Amulet
   <Description>k__BackingField: "Slightly improve \nMovement Speed by 5%"
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: f1a22cec64c5718498c5267128c34d73, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: ff9a7d4d386586e4da3f55b75e48f116, type: 2}
   <UseCount>k__BackingField: 1

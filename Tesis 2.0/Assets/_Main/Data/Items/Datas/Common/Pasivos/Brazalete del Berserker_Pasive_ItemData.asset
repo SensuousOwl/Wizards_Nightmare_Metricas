@@ -16,7 +16,7 @@ MonoBehaviour:
   <ItemRarity>k__BackingField: 0
   <Name>k__BackingField: Berserker's Bracelet
   <Description>k__BackingField: "Increases damage dealt when \nhealth is below 25%.\r\n"
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: a0f9e33b5d5c5eb47bcc06ac688886cc, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: 6445868203a63ab42b679ec644254071, type: 2}
   <UseCount>k__BackingField: 1

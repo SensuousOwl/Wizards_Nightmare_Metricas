@@ -16,7 +16,7 @@ MonoBehaviour:
   <ItemRarity>k__BackingField: 0
   <Name>k__BackingField: Hawkeye
   <Description>k__BackingField: "Increases critical hit chance.\r"
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 6559534c9f0304a40b96581bc7043e05, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: 0dc44718b780e094d8b67cb976a9b454, type: 2}
   <UseCount>k__BackingField: 1

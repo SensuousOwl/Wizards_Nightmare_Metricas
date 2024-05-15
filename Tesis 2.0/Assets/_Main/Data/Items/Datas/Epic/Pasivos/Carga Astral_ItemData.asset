@@ -19,7 +19,7 @@ MonoBehaviour:
 
     the next room.
     (Doesn''t apply to bosses)'
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: c28f90ecdd25da942a0cb96cb739392c, type: 3}
   <ItemActiveEffect>k__BackingField: {fileID: 0}
   <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: a8f9005d3e62c244291e1a66a78dd2bc, type: 2}
   <UseCount>k__BackingField: 1
