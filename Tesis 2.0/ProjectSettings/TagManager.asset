@@ -43,18 +43,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Minimap
-    uniqueID: 1507013663
+  - name: Floor
+    uniqueID: 2656053801
     locked: 0
-  - name: Player
-    uniqueID: 3172035821
+  - name: Walls
+    uniqueID: 3336657775
     locked: 0
-  - name: Enemy
-    uniqueID: 650332867
+  - name: Doors
+    uniqueID: 394701209
+    locked: 0
+  - name: Deco
+    uniqueID: 2788837327
     locked: 0
   - name: Bullets
     uniqueID: 2779105575
     locked: 0
-  - name: Objects
-    uniqueID: 394701209
+  - name: Enemy
+    uniqueID: 650332867
+    locked: 0
+  - name: Player
+    uniqueID: 3172035821
+    locked: 0
+  - name: Minimap
+    uniqueID: 1507013663
+    locked: 0
+  - name: MinimapDoors
+    uniqueID: 2754123087
     locked: 0
