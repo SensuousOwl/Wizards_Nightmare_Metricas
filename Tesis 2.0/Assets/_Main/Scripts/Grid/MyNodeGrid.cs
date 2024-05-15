@@ -76,8 +76,8 @@ namespace _Main.Scripts.Grid
 
         public MyNode GetNearestWalkableNode(MyNode p_node)
         {
-            if (p_node == null)
-                return default;
+            if (p_node.Walkable)
+                return p_node;
 
             Queue<MyNode> l_queue = new Queue<MyNode>();
             HashSet<MyNode> l_visited = new HashSet<MyNode>();
@@ -108,8 +108,8 @@ namespace _Main.Scripts.Grid
         public MyNode GetNearestWalkableNode(Vector3 p_nodePos)
         {
             var l_node = GetNodeFromWorldPoint(p_nodePos);
-            if (l_node == null)
-                return default;
+            if (l_node.Walkable)
+                return l_node;
 
             Queue<MyNode> l_queue = new Queue<MyNode>();
             HashSet<MyNode> l_visited = new HashSet<MyNode>();

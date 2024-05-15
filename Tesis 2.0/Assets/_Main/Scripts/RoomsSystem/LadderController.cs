@@ -1,3 +1,4 @@
+using System;
 using _Main.Scripts.Interfaces;
 using _Main.Scripts.PlayerScripts;
 using UnityEngine;
@@ -9,6 +10,12 @@ namespace _Main.Scripts.RoomsSystem
     {
         [SerializeField] private string levelToPass;
         [SerializeField] private GameObject interactVisual;
+
+        private void Awake()
+        {
+            interactVisual.SetActive(false);
+        }
+
         public void Interact(PlayerModel p_model)
         {
             SceneManager.LoadScene(levelToPass);

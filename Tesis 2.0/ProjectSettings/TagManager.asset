@@ -27,7 +27,7 @@ TagManager:
   - Grid
   - Walls
   - Minimap
-  - 
+  - Items
   - 
   - 
   - 
@@ -66,4 +66,7 @@ TagManager:
     locked: 0
   - name: Minimap
     uniqueID: 1507013663
+    locked: 0
+  - name: UI
+    uniqueID: 292729817
     locked: 0

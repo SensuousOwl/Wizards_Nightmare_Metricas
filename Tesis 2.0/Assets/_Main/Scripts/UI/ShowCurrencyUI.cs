@@ -110,7 +110,7 @@ namespace _Main.Scripts.UI
             numberText.alpha = 0f;
             gsText.alpha = 0f;
             background.color=new Color(background.color.r,background.color.g,background.color.b,0);
-            borders.color=new Color(background.color.r,background.color.g,background.color.b,0);
+            borders.color=new Color(borders.color.r,borders.color.g,borders.color.b,0);
             yield return null;
         }
         

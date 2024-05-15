@@ -17,6 +17,7 @@ namespace _Main.Scripts.ItemsSystem
         private void Awake()
         {
             spriteRenderer.sprite = data.Sprite;
+            interactVisual.SetActive(false);
         }
 
         public ItemData GetItemData() => data;

@@ -45,4 +45,4 @@ MonoBehaviour:
   <InteractRadius>k__BackingField: 1
   <InteractLayerMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 1064960

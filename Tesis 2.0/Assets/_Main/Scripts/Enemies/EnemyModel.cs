@@ -112,7 +112,14 @@ namespace _Main.Scripts.Enemies
                 
                 return;
             }
-            EventService.DispatchEvent(new DieEnemyEventData(m_myRoom.Grid.GetNearestWalkableNode(transform.position).WorldPos, this));
+
+            var l_node = m_myRoom.Grid.GetNearestWalkableNode(transform.position);
+            if (l_node != null)
+            {
+                EventService.DispatchEvent(new DieEnemyEventData(l_node.WorldPos, this));
+                return;
+            }
+            EventService.DispatchEvent(new DieEnemyEventData(transform.position, this));
         }
         
         private void OnDieHC()
