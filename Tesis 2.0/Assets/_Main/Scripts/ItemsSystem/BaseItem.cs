@@ -1,5 +1,4 @@
 using _Main.Scripts.Interfaces;
-using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.ItemsSystem;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.InventoryService;
@@ -27,7 +26,7 @@ namespace _Main.Scripts.ItemsSystem
             spriteRenderer.sprite = data.Sprite;
         }
 
-        public void Interact(PlayerModel p_model)
+        public void Interact()
         {
             InventoryService.AddItem(data);
             Destroy(gameObject);
@@ -41,6 +40,12 @@ namespace _Main.Scripts.ItemsSystem
 
         private void OnTriggerEnter(Collider p_other)
         {
+            if (data.ItemType == ItemType.Instant)
+            {
+                Interact();
+                return;
+            }
+            
             if (p_other.CompareTag("Player"))
             {
                 ShowCanvasUI(true);
@@ -49,6 +54,10 @@ namespace _Main.Scripts.ItemsSystem
 
         private void OnTriggerExit(Collider p_other)
         {
+            if (data.ItemType == ItemType.Instant)
+            {
+                return;
+            }
             if (p_other.CompareTag("Player"))
             {
                 ShowCanvasUI(false);

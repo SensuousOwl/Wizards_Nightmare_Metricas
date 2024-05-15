@@ -62,7 +62,7 @@ namespace _Main.Scripts.RoomsSystem
             var l_dirToMove = GetDirToMove(l_doorToConnect.GetDoorDir());
             var l_roomToConnectPosition = l_room.transform.position;
             var l_position = l_roomToConnectPosition + (Vector3)(l_dirToMove * roomSizes);
-            var l_watchDog = 10000;
+            var l_watchDog = 100000;
 
             while (Physics.CheckBox(l_position, roomSizes / 2, Quaternion.identity, roomsLayer) && l_watchDog > 0)
             {

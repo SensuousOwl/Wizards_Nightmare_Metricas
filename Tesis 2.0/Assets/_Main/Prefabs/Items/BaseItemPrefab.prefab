@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 0}
   spriteRenderer: {fileID: 4869298221822957454}
-  interactVisual: {fileID: 5705084514603786633}
+  interactVisual: {fileID: 9196877640976104293}
 --- !u!1 &4402307275262434359
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,8 +239,8 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2238167089136565570, guid: fe57b9fac77d50e4ca5bca0fb6e3f3a0, type: 3}
   m_PrefabInstance: {fileID: 2292090005824861982}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5705084514603786633 stripped
+--- !u!1 &9196877640976104293 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5828690999133836951, guid: fe57b9fac77d50e4ca5bca0fb6e3f3a0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6948769226563062907, guid: fe57b9fac77d50e4ca5bca0fb6e3f3a0, type: 3}
   m_PrefabInstance: {fileID: 2292090005824861982}
   m_PrefabAsset: {fileID: 0}

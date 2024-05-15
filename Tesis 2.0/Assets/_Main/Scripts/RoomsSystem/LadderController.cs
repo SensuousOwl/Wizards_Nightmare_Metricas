@@ -9,7 +9,7 @@ namespace _Main.Scripts.RoomsSystem
     {
         [SerializeField] private string levelToPass;
         [SerializeField] private GameObject interactVisual;
-        public void Interact(PlayerModel p_model)
+        public void Interact()
         {
             SceneManager.LoadScene(levelToPass);
         }
