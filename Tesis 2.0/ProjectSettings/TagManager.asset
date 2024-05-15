@@ -49,11 +49,11 @@ TagManager:
   - name: Walls
     uniqueID: 3336657775
     locked: 0
-  - name: Doors
-    uniqueID: 394701209
-    locked: 0
   - name: Deco
     uniqueID: 2788837327
+    locked: 0
+  - name: Doors
+    uniqueID: 394701209
     locked: 0
   - name: Bullets
     uniqueID: 2779105575
@@ -66,7 +66,4 @@ TagManager:
     locked: 0
   - name: Minimap
     uniqueID: 1507013663
-    locked: 0
-  - name: MinimapDoors
-    uniqueID: 2754123087
     locked: 0
