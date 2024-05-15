@@ -33,7 +33,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         public override void EnterState(EnemyModel p_model)
         {
             m_dictionary[p_model] = new Data();
-            m_dictionary[p_model].Grid = p_model.MyRoom.Grid;
+            m_dictionary[p_model].Grid = p_model.GetMyRoom().Grid;
             m_dictionary[p_model].TargetTransform = LevelManager.Instance.PlayerModel.transform;
             RecalculatePath(p_model);
         }

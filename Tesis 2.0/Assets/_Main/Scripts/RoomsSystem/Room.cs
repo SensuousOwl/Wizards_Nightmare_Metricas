@@ -102,7 +102,7 @@ namespace _Main.Scripts.RoomsSystem
         protected virtual void SpawnEnemiesInRoom()
         {
             EventService.DispatchEvent(new SpawnEnemiesInRoomEventData(this));
-            
+            EventService.DispatchEvent(EventsDefinition.ENTER_UNCLEAR_ROOM_ID);
             if(!alwaysOpen)
                 CloseDoors();
         }

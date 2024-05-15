@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID2206
   <Name>k__BackingField: Sharp Shooter
   <Description>k__BackingField: Critical Damage Up
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 46
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 3

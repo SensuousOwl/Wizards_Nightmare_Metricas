@@ -19,8 +19,8 @@ MonoBehaviour:
     Damage Up
 
 '
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
+  <UnlockWeight>k__BackingField: 10
   upgradeConfigs:
   - <StatId>k__BackingField: 6
     <UpgradeType>k__BackingField: 1

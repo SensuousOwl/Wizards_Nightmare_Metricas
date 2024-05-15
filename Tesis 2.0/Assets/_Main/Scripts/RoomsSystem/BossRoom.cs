@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using _Main.Scripts.Enemies;
-using _Main.Scripts.Grid;
-using _Main.Scripts.Managers;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 

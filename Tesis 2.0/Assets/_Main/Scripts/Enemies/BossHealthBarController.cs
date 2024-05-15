@@ -24,19 +24,22 @@ namespace _Main.Scripts.Enemies
             healthBar.SetActive(false);
         }
 
+        private HealthController m_healthController;
         public void Subscribe(HealthController controller)
         {
+            m_healthController = controller;
             healthBar.SetActive(true);
             m_subscribersAmount++;
             UpdateBarData(controller.GetMaxHealth());
-            controller.OnTakeDamage += TakeDamage;
+            m_healthController.OnTakeDamage += TakeDamage;
+            m_healthController.OnDie += UnSubscribe;
         }
-        
-        public void UnSubscribe(HealthController controller)
+
+        private void UnSubscribe()
         {
             m_subscribersAmount--;
-            controller.OnTakeDamage -= TakeDamage;
-
+            m_healthController.OnTakeDamage -= TakeDamage;
+            m_healthController.OnDie -= UnSubscribe;
             if (m_subscribersAmount <= 0)
             {
                 healthBar.SetActive(false);

@@ -20,7 +20,7 @@ MonoBehaviour:
 
     Max
     Life Down'
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 5
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 7

@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID3431
   <Name>k__BackingField: Precision
   <Description>k__BackingField: "Critical Chance Up\r\nRange Down\r"
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 4

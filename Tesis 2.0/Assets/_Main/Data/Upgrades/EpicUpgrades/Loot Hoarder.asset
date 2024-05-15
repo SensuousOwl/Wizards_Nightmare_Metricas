@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID9800
   <Name>k__BackingField: Loot Hoarder
   <Description>k__BackingField: "Spawn Item Chance Up\r\nCritical Chance Down\r"
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 5
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 5

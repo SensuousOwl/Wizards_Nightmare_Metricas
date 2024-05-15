@@ -15,8 +15,8 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID7661
   <Name>k__BackingField: Fleet Footed
   <Description>k__BackingField: "Movement Speed &\r\nProjectile Speed Up\r"
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
+  <UnlockWeight>k__BackingField: 10
   upgradeConfigs:
   - <StatId>k__BackingField: 0
     <UpgradeType>k__BackingField: 1

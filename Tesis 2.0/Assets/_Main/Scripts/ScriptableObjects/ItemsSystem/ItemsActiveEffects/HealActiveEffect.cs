@@ -7,9 +7,16 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemsActiveEffects
     public class HealActiveEffect : ItemActiveEffect
     {
         [SerializeField] private float healAmount;
+        [SerializeField] private bool usePercentage;
         public override void UseItem()
         {
-            PlayerModel.Local.HealthController.Heal(healAmount);
+            if (!usePercentage)
+            {
+                PlayerModel.Local.HealthController.Heal(healAmount);
+                return;
+            }
+            
+            PlayerModel.Local.HealthController.HealPercentage(healAmount);
         }
     }
 }

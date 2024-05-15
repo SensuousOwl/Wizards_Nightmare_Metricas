@@ -15,8 +15,8 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID2584
   <Name>k__BackingField: Focused Fury
   <Description>k__BackingField: "Damage &\nCritical Chance Up\r"
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
+  <UnlockWeight>k__BackingField: 10
   upgradeConfigs:
   - <StatId>k__BackingField: 7
     <UpgradeType>k__BackingField: 1

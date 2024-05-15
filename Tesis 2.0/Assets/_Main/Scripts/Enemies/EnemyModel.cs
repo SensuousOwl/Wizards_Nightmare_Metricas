@@ -31,8 +31,8 @@ namespace _Main.Scripts.Enemies
         private Vector2 m_dir;
 
         private DamageFlash m_damageFlash;
-        
-        public Room MyRoom { get; private set; }
+
+        private Room m_myRoom;
         public HealthController HealthController { get; private set; }
         public ISfxAudioPlayer SfxAudioPlayer { get; private set; }
         public static event Action<float> OnExperienceDrop;
@@ -58,7 +58,17 @@ namespace _Main.Scripts.Enemies
         {
         }
 
-        public void SetEnemyRoom(Room p_room) => MyRoom = p_room;
+        private void Update()
+        {
+            Debug.Log(m_myRoom);
+        }
+
+        public void SetEnemyRoom(Room p_room)
+        {
+            m_myRoom = p_room;
+            Debug.Log(p_room);
+        }
+        public Room GetMyRoom() => m_myRoom;
 
         public void SetIsAttacking(bool b) => m_isAttacking = b;
 
@@ -99,9 +109,14 @@ namespace _Main.Scripts.Enemies
         public void TriggerDieEvent()
         {
             OnExperienceDrop?.Invoke(data.ExperienceDrop);
-            EventService.DispatchEvent(new DieEnemyEventData(MyRoom.Grid.NodeFromWorldPoint(transform.position).WorldPos, this));
+            if (data.IsBoss)
+            {
+                EventService.DispatchEvent(new DieEnemyEventData(transform.position, this));
+                return;
+            }
+            EventService.DispatchEvent(new DieEnemyEventData(m_myRoom.Grid.NodeFromWorldPoint(transform.position).WorldPos, this));
         }
-
+        
         private void OnDieHC()
         {
             m_view.PlayDeadAnim();
@@ -131,6 +146,10 @@ namespace _Main.Scripts.Enemies
             m_timer = Time.time + 1;
         }
 
+        public void ApplyForce(Vector2 p_dir, float p_magnitude)
+        {
+            m_rb.AddForce(p_dir * p_magnitude, ForceMode2D.Impulse);
+        }
 
 #if UNITY_EDITOR
 

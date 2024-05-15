@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b2dea237d34c0686aed26787e2e22b, type: 3}
+  m_Name: Amuleto Pluma_Pasive_ItemData
+  m_EditorClassIdentifier: 
+  <ItemType>k__BackingField: 1
+  <ItemRarity>k__BackingField: 0
+  <Name>k__BackingField: Feather Amulet
+  <Description>k__BackingField: "Slightly improve \nMovement Speed by 5%"
+  <Sprite>k__BackingField: {fileID: 0}
+  <ItemActiveEffect>k__BackingField: {fileID: 0}
+  <ItemPassiveEffect>k__BackingField: {fileID: 11400000, guid: ff9a7d4d386586e4da3f55b75e48f116, type: 2}
+  <UseCount>k__BackingField: 1
+  <IsItemCooldown>k__BackingField: 0
+  <TimeToCooldownInSeconds>k__BackingField: 0

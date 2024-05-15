@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID2139
   <Name>k__BackingField: Fire Rate Up+
   <Description>k__BackingField: Fire Rate Up
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 1

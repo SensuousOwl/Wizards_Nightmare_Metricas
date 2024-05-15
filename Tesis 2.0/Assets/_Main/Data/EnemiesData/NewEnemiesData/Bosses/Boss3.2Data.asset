@@ -20,6 +20,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10b2e523024db8c43a2d8f5b358bfebe, type: 2}
   <MaxHp>k__BackingField: 600
   <MovementSpeed>k__BackingField: 4
+  <AccelerationRate>k__BackingField: 0
+  <TerimnalVelocity>k__BackingField: 0
   <FireRate>k__BackingField: 0.3
   <Range>k__BackingField: 20
   <ViewDepthRange>k__BackingField: 20
@@ -32,3 +34,4 @@ MonoBehaviour:
   <ExperienceDrop>k__BackingField: 150
   <ObsDetectionRadius>k__BackingField: 1
   <ObsDetectionAngle>k__BackingField: 180
+  <IsBoss>k__BackingField: 1

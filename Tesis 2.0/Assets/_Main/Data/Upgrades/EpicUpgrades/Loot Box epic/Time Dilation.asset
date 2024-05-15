@@ -16,8 +16,8 @@ MonoBehaviour:
   <Name>k__BackingField: Time Dilation
   <Description>k__BackingField: "\rMovement Speed,\nProjectile Speed\r\n& Fire Rate
     Up\r"
-  <UpgradeWeight>k__BackingField: 100
-  <UnlockWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 5
+  <UnlockWeight>k__BackingField: 4
   upgradeConfigs:
   - <StatId>k__BackingField: 1
     <UpgradeType>k__BackingField: 1

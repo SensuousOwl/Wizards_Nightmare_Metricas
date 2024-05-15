@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b2dea237d34c0686aed26787e2e22b, type: 3}
+  m_Name: Capa de Fase_ItemData
+  m_EditorClassIdentifier: 
+  <ItemType>k__BackingField: 2
+  <ItemRarity>k__BackingField: 1
+  <Name>k__BackingField: Phase Cloak
+  <Description>k__BackingField: 'Makes you invulnerable for 8s
+
+    Cooldown: 45s'
+  <Sprite>k__BackingField: {fileID: 0}
+  <ItemActiveEffect>k__BackingField: {fileID: 11400000, guid: e89404a173c1f734486f1677bbed8db5, type: 2}
+  <ItemPassiveEffect>k__BackingField: {fileID: 0}
+  <UseCount>k__BackingField: 3
+  <IsItemCooldown>k__BackingField: 1
+  <TimeToCooldownInSeconds>k__BackingField: 45

@@ -42,8 +42,9 @@ namespace _Main.Scripts.RoomsSystem
             for (int i = 0; i < m_currentRoom.SpawnPoints.Count; i++)
             {
                 var l_spawnPoint = m_currentRoom.SpawnPoints[i];
-                var rndBoss = p_data.Bosses[i];
-                m_enemies.Add(Instantiate(rndBoss, l_spawnPoint.position, Quaternion.identity));
+                var l_boss = p_data.Bosses[i];
+                m_enemies.Add(Instantiate(l_boss, l_spawnPoint.position, Quaternion.identity));
+                l_boss.SetEnemyRoom(p_data.Room);
             }
         }
 

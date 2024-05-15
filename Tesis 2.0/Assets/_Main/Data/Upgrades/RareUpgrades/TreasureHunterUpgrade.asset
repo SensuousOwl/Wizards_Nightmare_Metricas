@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID9750
   <Name>k__BackingField: Treasure Hunter
   <Description>k__BackingField: "Spawn Item Chance Up\r\nDamage Down\r"
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 5

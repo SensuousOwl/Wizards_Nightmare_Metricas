@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: RandomID9831
   <Name>k__BackingField: Sprinter's Pace
   <Description>k__BackingField: "Movement Speed Up\r\nMax Life Down\r"
-  <UpgradeWeight>k__BackingField: 100
+  <UpgradeWeight>k__BackingField: 18
   <UnlockWeight>k__BackingField: 100
   upgradeConfigs:
   - <StatId>k__BackingField: 0
