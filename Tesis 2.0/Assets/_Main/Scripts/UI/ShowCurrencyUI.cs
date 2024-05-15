@@ -5,12 +5,16 @@ using _Main.Scripts.Services;
 using _Main.Scripts.Services.CurrencyServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Main.Scripts.UI
 {
     public class ShowCurrencyUI : MonoBehaviour
     {
-        [SerializeField] private TMP_Text Text;
+        [SerializeField] private TMP_Text numberText;
+        [SerializeField] private TMP_Text gsText;
+        [SerializeField] private Image background;
+        [SerializeField] private Image borders;
         [SerializeField] private float changeTime=2;
         [SerializeField] private float fadeTime;
 
@@ -75,17 +79,16 @@ namespace _Main.Scripts.UI
 
                 
                 m_currentValue = (int)Mathf.Lerp(l_startingValue, p_newValue, l_t);
-                Text.text = Mathf.RoundToInt(m_currentValue).ToString();
+                numberText.text = Mathf.RoundToInt(m_currentValue).ToString();
 
                 yield return null;
             }
-
             
             m_currentValue = p_newValue;
-            Text.text = m_currentValue.ToString();
-
+            numberText.text = m_currentValue.ToString();
             
             StartCoroutine(FadeOutText());
+            yield return null;
         }
 
         private IEnumerator FadeOutText()
@@ -97,11 +100,18 @@ namespace _Main.Scripts.UI
                 l_elapsedTime += Time.deltaTime;
                 float l_t = l_elapsedTime / fadeTime;
 
-                Text.alpha = Mathf.Lerp(1f, 0f, l_t);
+                numberText.alpha = Mathf.Lerp(1f, 0f, l_t);
+                gsText.alpha = Mathf.Lerp(1f, 0f, l_t);
+                background.color=new Color(background.color.r,background.color.g,background.color.b,Mathf.Lerp(1f, 0f, l_t));
+                borders.color=new Color(background.color.r,background.color.g,background.color.b,Mathf.Lerp(1f, 0f, l_t));
                 yield return null;
             }
 
-            Text.alpha = 0f;
+            numberText.alpha = 0f;
+            gsText.alpha = 0f;
+            background.color=new Color(background.color.r,background.color.g,background.color.b,0);
+            borders.color=new Color(background.color.r,background.color.g,background.color.b,0);
+            yield return null;
         }
         
     }
