@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: dda167acab36fe14fa6472848959cd49, type: 2}
+  collider: {fileID: 0}
 --- !u!114 &8224579009452066231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 1866896491344603682}
+  isLookingLeft: 0
 --- !u!50 &2461279231943052668
 Rigidbody2D:
   serializedVersion: 4
@@ -263,8 +265,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 650332867
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -2028276544, guid: e7c91391b7ba1384ca8f29d1ffd56fc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

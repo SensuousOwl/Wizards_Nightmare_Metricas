@@ -221,9 +221,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 1507013663
+  m_SortingLayer: 8
+  m_SortingOrder: 10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 4412400881566710053}
   - component: {fileID: 6181045204424282717}
   m_Layer: 0
-  m_Name: Door-Closed
+  m_Name: Door-Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,8 +383,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 394701209
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 2714914594171916287}
   - component: {fileID: 2435873447138431853}
   m_Layer: 0
-  m_Name: Door-Open
+  m_Name: Door-Closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,8 +632,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 394701209
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -696,8 +696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorDirection: 0
-  doorVisualClosed: {fileID: 417036141167776914}
-  doorVisualOpen: {fileID: 4896191295646527060}
+  doorVisualClosed: {fileID: 4896191295646527060}
+  doorVisualOpen: {fileID: 2203463821743482891}
   wallVisual: {fileID: 8341378830481065929}
   playerSpawnTransform: {fileID: 5561353484487171695}
   boxCollider: {fileID: 4353834871672439423}
@@ -989,8 +989,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 394701209
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
