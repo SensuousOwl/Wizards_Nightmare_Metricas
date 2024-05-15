@@ -15,11 +15,13 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         private static IEventService EventService => ServiceLocator.Get<IEventService>();
         public override void EnterState(EnemyModel p_model)
         {
-            var currEnemies = enemiesToSpawn;
+            var l_currEnemies = enemiesToSpawn;
 
-            foreach (var enemy in currEnemies)
+            foreach (var l_enemy in l_currEnemies)
             {
-                EventService.DispatchEvent(new SpawnEnemyEventData(p_model.GetMyRoom(), enemy, p_model.transform.position));
+
+                var l_rndVector = new Vector3(Random.value, Random.value);
+                EventService.DispatchEvent(new SpawnEnemyEventData(p_model.GetMyRoom(), l_enemy, p_model.transform.position+l_rndVector));
             }
         }
 
