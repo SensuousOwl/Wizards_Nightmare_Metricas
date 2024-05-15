@@ -2741,6 +2741,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1551714184915739483}
   - {fileID: 8087956508364576487}
   - {fileID: 6339024408013776163}
   - {fileID: 8835539708762567872}
@@ -2776,6 +2777,9 @@ MonoBehaviour:
   <MaxEnemySpawn>k__BackingField: 0
   isStartRoom: 0
   spawnPickUpChance: 10
+  alwaysOpen: 0
+  minimapViewCurr: {fileID: 3594114467777116629}
+  minimapViewVisited: {fileID: 834536651985330762}
   roomGrid: {fileID: 6777330906354808886}
   activatePassLevel: {fileID: 1573218194079453779}
   bossHealthBar: {fileID: 7466116603545429802}
@@ -9069,6 +9073,86 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1001 &1452937376431488727
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5455773968910856944}
+    m_Modifications:
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196983991028863513, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_Name
+      value: MinimapViewBossB
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286984672694443165, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722710509599344386, guid: 07b8fb44a583527448819da13f149239, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07b8fb44a583527448819da13f149239, type: 3}
+--- !u!1 &834536651985330762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2286984672694443165, guid: 07b8fb44a583527448819da13f149239, type: 3}
+  m_PrefabInstance: {fileID: 1452937376431488727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1551714184915739483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 117398210795822476, guid: 07b8fb44a583527448819da13f149239, type: 3}
+  m_PrefabInstance: {fileID: 1452937376431488727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3594114467777116629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2722710509599344386, guid: 07b8fb44a583527448819da13f149239, type: 3}
+  m_PrefabInstance: {fileID: 1452937376431488727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1951260716538645803
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4113,6 +4113,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7742499458948263052}
   - {fileID: 6339024408013776163}
   - {fileID: 8835539708762567872}
   - {fileID: 2871926028062590003}
@@ -4151,6 +4152,9 @@ MonoBehaviour:
   <MaxEnemySpawn>k__BackingField: 5
   isStartRoom: 0
   spawnPickUpChance: 10
+  alwaysOpen: 0
+  minimapViewCurr: {fileID: 5700138724183504386}
+  minimapViewVisited: {fileID: 8461972608977776029}
   roomGrid: {fileID: 8267386232232312927}
 --- !u!65 &1627286876824191072
 BoxCollider:
@@ -11778,3 +11782,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2121c742c9adea40bc66a3923c03ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &7697767975776137472
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5455773968910856944}
+    m_Modifications:
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196983991028863513, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_Name
+      value: MinimapViewPrefabD
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286984672694443165, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722710509599344386, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+--- !u!1 &5700138724183504386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2722710509599344386, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+  m_PrefabInstance: {fileID: 7697767975776137472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7742499458948263052 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 117398210795822476, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+  m_PrefabInstance: {fileID: 7697767975776137472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8461972608977776029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2286984672694443165, guid: c4d8ab351f3a34942a69ab6c959b969c, type: 3}
+  m_PrefabInstance: {fileID: 7697767975776137472}
+  m_PrefabAsset: {fileID: 0}
