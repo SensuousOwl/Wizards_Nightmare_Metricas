@@ -11,7 +11,7 @@ namespace _Main.Scripts.ItemsSystem
     {
         [SerializeField] private ItemData data;
         [SerializeField] private SpriteRenderer spriteRenderer;
-
+        [SerializeField] private GameObject interactVisual;
         private static IInventoryService InventoryService => ServiceLocator.Get<IInventoryService>();
 
         private void Awake()
@@ -31,6 +31,28 @@ namespace _Main.Scripts.ItemsSystem
         {
             InventoryService.AddItem(data);
             Destroy(gameObject);
+        }
+        
+        
+        public void ShowCanvasUI(bool p_b)
+        {
+            interactVisual.SetActive(p_b);
+        }
+
+        private void OnTriggerEnter(Collider p_other)
+        {
+            if (p_other.CompareTag("Player"))
+            {
+                ShowCanvasUI(true);
+            }
+        }
+
+        private void OnTriggerExit(Collider p_other)
+        {
+            if (p_other.CompareTag("Player"))
+            {
+                ShowCanvasUI(false);
+            }
         }
     }
 }
