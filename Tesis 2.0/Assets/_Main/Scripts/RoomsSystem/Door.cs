@@ -20,26 +20,33 @@ namespace _Main.Scripts.RoomsSystem
         [SerializeField] private Transform playerSpawnTransform;
         [SerializeField] private GameObject boxCollider;
 
+        
+        [Header("Minimap")] 
+        [SerializeField] private GameObject minimapVisual;
         private Door m_doorConnect;
         private bool m_isAvailable = true;
         private bool m_isOpen;
         private bool m_temporalyClose;
         private bool m_showDoor;
-
+        
+        private Room m_roomParent;
         public DoorDirections GetDoorDir() => doorDirection;
         private static readonly WaitForSeconds WaitForSeconds = new(2f);
 
-        public event Action<Door> OnActiveDoor;
-        public event Action OnPlayerTeleport;
+        public event Action<Door> OnDoorConnection;
+        public event Action OnTeleportPlayer;
+        public event Action OnPlayerExitRoom;
 
         private void Awake()
         {
             doorVisualClosed.SetActive(false);
             doorVisualOpen.SetActive(false);
             wallVisual.SetActive(true);
+            minimapVisual.SetActive(false);
+            
         }
 
-        private void ConnectDoor(Door p_doorToConnect)
+        private void ConnectDoorToAnotherRoom(Door p_doorToConnect)
         {
             m_doorConnect = p_doorToConnect;
             m_isAvailable = false;
@@ -48,7 +55,9 @@ namespace _Main.Scripts.RoomsSystem
             m_showDoor = true;
             doorVisualClosed.SetActive(true);
             wallVisual.SetActive(false);
-            OnActiveDoor?.Invoke(this);
+            
+                
+            OnDoorConnection?.Invoke(this);
             SetOpenDoor(true);
         }
 
@@ -56,7 +65,8 @@ namespace _Main.Scripts.RoomsSystem
         {
             StartCoroutine(DeactivateDoorTemporality());
             p_player.position = playerSpawnTransform.position;
-            OnPlayerTeleport?.Invoke();
+            
+            OnTeleportPlayer?.Invoke();
         }
 
         private IEnumerator DeactivateDoorTemporality()
@@ -69,7 +79,7 @@ namespace _Main.Scripts.RoomsSystem
         private void OnTriggerEnter2D(Collider2D p_other)
         {
             if (m_isAvailable && p_other.TryGetComponent(out Door l_door))
-                ConnectDoor(l_door);
+                ConnectDoorToAnotherRoom(l_door);
             
             if (!m_isOpen || m_temporalyClose)
                 return;
@@ -79,7 +89,8 @@ namespace _Main.Scripts.RoomsSystem
 
             if (m_doorConnect == default) 
                 return;
-
+            
+            OnPlayerExitRoom?.Invoke();
             StartCoroutine(DeactivateDoorTemporality());
             m_doorConnect.TeleportPlayer(p_other.transform);
         }
@@ -94,5 +105,14 @@ namespace _Main.Scripts.RoomsSystem
             
             boxCollider.SetActive(!m_isOpen);
         }
+
+        public void SetMinimapView(bool p_b)
+        {
+            if(m_showDoor)
+                minimapVisual.SetActive(p_b);
+        }
+
+        
+        public void SetRoomParent(Room p_room) => m_roomParent = p_room;
     }
 }
