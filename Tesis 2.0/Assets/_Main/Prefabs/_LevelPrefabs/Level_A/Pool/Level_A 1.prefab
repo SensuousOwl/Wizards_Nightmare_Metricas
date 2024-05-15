@@ -9974,6 +9974,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinimapViewPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2286984672694443165, guid: f66c1d25966f7c347932907963deda67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722710509599344386, guid: f66c1d25966f7c347932907963deda67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4026000945893117338, guid: f66c1d25966f7c347932907963deda67, type: 3}
       propertyPath: m_SortingLayer
       value: 1
