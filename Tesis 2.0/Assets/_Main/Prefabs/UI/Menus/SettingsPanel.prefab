@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 5043091733958896253}
   - component: {fileID: 5906381836926711976}
   m_Layer: 5
-  m_Name: TXT_Dash
+  m_Name: TXT_Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
