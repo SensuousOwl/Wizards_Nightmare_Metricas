@@ -6,6 +6,7 @@ namespace _Main.Scripts.Bullets
 {
     public class Bullet : MonoBehaviour
     {
+        [SerializeField] private LayerMask wallMask;
         private LayerMask m_targetLayer;
         private Vector3 m_dir;
         private float m_damage;
@@ -41,6 +42,12 @@ namespace _Main.Scripts.Bullets
 
         private void OnTriggerEnter2D(Collider2D p_other)
         {
+            if (LayerMaskExtensions.Includes(wallMask.value, p_other.gameObject.layer))
+            {
+                OnDeactivate?.Invoke(this);
+                return;
+                
+            }
             if (!LayerMaskExtensions.Includes(m_targetLayer.value, p_other.gameObject.layer)) 
                 return;
 
