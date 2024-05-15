@@ -25,9 +25,6 @@ namespace _Main.Scripts.Enemies.FSMStates.States
             }
         }
 
-        public override void ExecuteState(EnemyModel p_model)
-        {
-            throw new System.NotImplementedException();
-        }
+        public override void ExecuteState(EnemyModel p_model){}
     }
 }

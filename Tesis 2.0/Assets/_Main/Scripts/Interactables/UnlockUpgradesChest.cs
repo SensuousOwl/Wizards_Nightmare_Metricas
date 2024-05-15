@@ -20,6 +20,12 @@ namespace _Main.Scripts.Interactables
         
         private static IUpgradePoolService UpgradePoolService => ServiceLocator.Get<IUpgradePoolService>();
         private static ICurrencyService CurrencyService => ServiceLocator.Get<ICurrencyService>();
+
+        private void Awake()
+        {
+            interactVisual.SetActive(false);
+        }
+
         public void Interact(PlayerModel p_model)
         {
             if (CurrencyService.GetCurrentGs() >= UpgradeCost)
@@ -34,7 +40,7 @@ namespace _Main.Scripts.Interactables
             interactVisual.SetActive(p_b);
         }
 
-        private void OnTriggerEnter(Collider p_other)
+        private void OnTriggerEnter2D(Collider2D p_other)
         {
             if (p_other.CompareTag("Player"))
             {
@@ -42,7 +48,7 @@ namespace _Main.Scripts.Interactables
             }
         }
 
-        private void OnTriggerExit(Collider p_other)
+        private void OnTriggerExit2D(Collider2D p_other)
         {
             if (p_other.CompareTag("Player"))
             {
