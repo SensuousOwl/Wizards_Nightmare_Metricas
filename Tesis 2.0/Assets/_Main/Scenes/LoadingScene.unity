@@ -336,7 +336,7 @@ MonoBehaviour:
   background:
   - {fileID: 21300000, guid: 87a65ad502fa66a42aac418cdc86e638, type: 3}
   - {fileID: 21300000, guid: 5019863229cb159449026669aa3b99e6, type: 3}
-  - {fileID: 21300000, guid: 5019863229cb159449026669aa3b99e6, type: 3}
+  - {fileID: 21300000, guid: 2da75a11dc7537447ab6f959205bd3ae, type: 3}
   - {fileID: 21300000, guid: acfce08958515c547a1c73bc2b119189, type: 3}
   - {fileID: 21300000, guid: 00d455d9a86fd8e458252dbc91035246, type: 3}
   - {fileID: 21300000, guid: acfce08958515c547a1c73bc2b119189, type: 3}
