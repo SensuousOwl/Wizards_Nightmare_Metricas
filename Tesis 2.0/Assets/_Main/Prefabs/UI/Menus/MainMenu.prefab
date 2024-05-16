@@ -426,8 +426,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Wizard's Nightmare
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2ee559b6a98183044adb49272eef9886, type: 2}
-  m_sharedMaterial: {fileID: 4885889264420338920, guid: 2ee559b6a98183044adb49272eef9886, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b2d3a3573173d0d4f98c8543819c8ed9, type: 2}
+  m_sharedMaterial: {fileID: -4457169948385462641, guid: b2d3a3573173d0d4f98c8543819c8ed9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
