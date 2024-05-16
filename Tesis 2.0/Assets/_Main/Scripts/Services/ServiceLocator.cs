@@ -26,10 +26,10 @@ namespace _Main.Scripts.Services
             Register<IEventService, EventService>();
             Register<IPersistenceService, LocalPersistenceService>();
             Register<IUserDataService, UserDataService>();
-            Register<IUpgradePoolService, UpgradePoolService>();
             Register<IStatsService, StatsService>();
             Register<ICurrencyService, CurrencyService>();
             Register<IInventoryService, InventoryService>();
+            Register<IUpgradePoolService, UpgradePoolService>(true);
             Register<ISpawnItemsService, SpawnItemsService>(true);
             
             // Register<ISettingsService, SettingsService>();
