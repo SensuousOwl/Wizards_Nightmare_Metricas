@@ -185,7 +185,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 394701209
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -489,7 +489,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 394701209
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -781,7 +781,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 394701209
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -844,12 +844,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorDirection: 3
-  doorVisualClosed: {fileID: 7398079422366280464}
+  doorVisualClosed: {fileID: 3758095403497565844}
   doorVisualOpen: {fileID: 2494977113348598588}
   wallVisual: {fileID: 1668931473467275141}
   playerSpawnTransform: {fileID: 5107072062826150127}
   boxCollider: {fileID: 3066857583031174301}
-  minimapVisual: {fileID: 3758095403497565844}
+  minimapVisual: {fileID: 7398079422366280464}
 --- !u!61 &8596583860683959040
 BoxCollider2D:
   m_ObjectHideFlags: 0
