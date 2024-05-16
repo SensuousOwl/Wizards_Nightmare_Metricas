@@ -2670,7 +2670,7 @@ MonoBehaviour:
   <MinEnemySpawn>k__BackingField: 0
   <MaxEnemySpawn>k__BackingField: 0
   isStartRoom: 0
-  spawnPickUpChance: 10
+  spawnInstantItemProbability: 8
   alwaysOpen: 0
   minimapViewCurr: {fileID: 6138465366026516327}
   minimapViewVisited: {fileID: 8017593722791210232}
@@ -9623,6 +9623,10 @@ PrefabInstance:
     - target: {fileID: 5248851154124992548, guid: c6671c46500e3b84aae9c9d838861e49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674603506385520325, guid: c6671c46500e3b84aae9c9d838861e49, type: 3}
+      propertyPath: levelToPass
+      value: Level D_Scene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
