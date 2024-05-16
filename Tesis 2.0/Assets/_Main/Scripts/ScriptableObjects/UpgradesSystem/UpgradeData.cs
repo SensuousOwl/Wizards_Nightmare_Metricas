@@ -41,7 +41,6 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
 
         public void ApplyEffects()
         { 
-            Logger.Log("Apply upgrade: " + name);
 
             foreach (var l_upgradeConfig in upgradeConfigs)
             {

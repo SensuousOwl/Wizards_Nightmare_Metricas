@@ -46,7 +46,6 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
             if(!Physics2D.CircleCast(p_model.transform.position, enemyRadius, l_diff.normalized, 
                    l_diff.magnitude, obsMask, -0.5f, 0.5f))
             {
-                Debug.Log("LINEA RECTA");
                 p_model.MoveTowards(m_dictionary[p_model].TargetTransform.position);
                 return;
             }
