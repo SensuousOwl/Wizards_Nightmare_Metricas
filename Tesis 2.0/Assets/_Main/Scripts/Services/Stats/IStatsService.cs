@@ -10,6 +10,7 @@ namespace _Main.Scripts.Services.Stats
         public Dictionary<StatsId, float> GetAllStatData();
 
         public float GetStatById(StatsId p_statsId);
+        public float GetBaseStatById(StatsId p_statsId);
 
         public bool TryGetStatById(StatsId p_statsId, out float p_value);
 

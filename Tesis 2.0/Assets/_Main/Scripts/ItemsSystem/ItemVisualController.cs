@@ -20,29 +20,27 @@ namespace _Main.Scripts.ItemsSystem
 
         private void OnTriggerEnter2D(Collider2D p_other)
         {
+            if (!p_other.CompareTag("Player"))
+                return;
             if (baseItem.GetItemData().ItemType == ItemType.Instant)
             {
                 baseItem.Interact();
                 return;
             }
             
-            if (p_other.CompareTag("Player"))
-            {
-                ShowCanvasUI(true);
-            }
+            ShowCanvasUI(true);
         }
 
         private void OnTriggerExit2D(Collider2D p_other)
         {
+            if (!p_other.CompareTag("Player"))
+                return;
             if (baseItem.GetItemData().ItemType == ItemType.Instant)
             {
                 return;
             }
             
-            if (p_other.CompareTag("Player"))
-            {
-                ShowCanvasUI(false);
-            }
+            ShowCanvasUI(false);
         }
     }
 }

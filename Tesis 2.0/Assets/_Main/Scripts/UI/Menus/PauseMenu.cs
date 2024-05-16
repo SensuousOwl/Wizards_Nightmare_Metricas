@@ -45,6 +45,7 @@ namespace _Main.Scripts.UI.Menus
 
         private void LoadMainMenu()
         {
+            PauseManager.Instance.SetPause(false);
             SceneManager.LoadScene(mainMenuScene);
         }
         

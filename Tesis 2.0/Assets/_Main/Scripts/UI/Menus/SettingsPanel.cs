@@ -1,4 +1,5 @@
 using _Main.Scripts.Audio;
+using _Main.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -53,7 +54,7 @@ namespace _Main.Scripts.UI.Menus
         
             controlsScreenButton.onClick.AddListener(OpenControlPanel);
             goBackControlButton.onClick.AddListener(CloseControlPanel);
-            goBackScreenButton.onClick.AddListener(() => Close());
+            goBackScreenButton.onClick.AddListener(Close);
    
         
         }
@@ -174,5 +175,6 @@ namespace _Main.Scripts.UI.Menus
             PlayerPrefs.SetFloat(HUD_ALPHA_KEY, value);
             ApplyHUDSettings();
         }
+
     }
 }

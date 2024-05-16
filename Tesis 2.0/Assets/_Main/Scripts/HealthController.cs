@@ -117,9 +117,8 @@ namespace _Main.Scripts
             var l_healAmount = maxHealth *(p_percentageToHeal / 100);
             var l_newHp = currentHealth + l_healAmount;
             
-            if (!(currentHealth >= maxHealth)) 
-                return;
-
+            
+            
             if (l_newHp >= maxHealth)
             {
                 currentHealth = maxHealth;

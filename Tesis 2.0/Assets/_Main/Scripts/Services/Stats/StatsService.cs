@@ -27,6 +27,11 @@ namespace _Main.Scripts.Services.Stats
         {
             return m_currentStatsDictionary[p_statsId];
         }
+        
+        public float GetBaseStatById(StatsId p_statsId)
+        {
+            return m_baseStatsDictionary[p_statsId];
+        }
 
         public bool TryGetStatById(StatsId p_statsId, out float p_value) =>
             m_currentStatsDictionary.TryGetValue(p_statsId, out p_value);

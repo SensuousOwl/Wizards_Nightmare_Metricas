@@ -1,6 +1,8 @@
 ﻿using System;
 using _Main.Scripts.Interfaces;
 using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.Stats;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +13,7 @@ namespace _Main.Scripts.Interactables
         [SerializeField] private string sceneToLoad;
         [SerializeField] private GameObject interactVisual;
 
+        private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
         private void Awake()
         {
             interactVisual.SetActive(false);
@@ -18,6 +21,7 @@ namespace _Main.Scripts.Interactables
 
         public void Interact()
         {
+            StatsService.Initialize();
             SceneManager.LoadScene(sceneToLoad);
         }
         

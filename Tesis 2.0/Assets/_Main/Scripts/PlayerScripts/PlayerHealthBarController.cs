@@ -32,6 +32,8 @@ namespace _Main.Scripts.PlayerScripts
             
             StatsService.OnChangeStatValue += OnChangeMaxHealth;
             m_healthController.OnChangeHealth += UpdateHpBar;
+            OnChangeMaxHealth(StatsId.MaxHealth, StatsService.GetBaseStatById(StatsId.MaxHealth));
+            UpdateHpBar(m_previuosMaxHp, m_healthController.GetCurrentHealth());
         }
 
         private void OnChangeMaxHealth(StatsId p_stat, float p_currValue)

@@ -33,5 +33,7 @@ namespace _Main.Scripts.UI.Menus
         
             OnClose?.Invoke();
         }
+        
+        
     }
 }
