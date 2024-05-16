@@ -3,6 +3,7 @@ using System.Collections;
 using _Main.Scripts.ItemsSystem;
 using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.ItemsSystem;
+using _Main.Scripts.Services.MicroServices.SpawnItemsService;
 using _Main.Scripts.Services.Stats;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
         public event Action<bool> OnCooldownActiveItem;
 
         private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
+        private static ISpawnItemsService SpawnItemsService => ServiceLocator.Get<ISpawnItemsService>();
 
         public void Initialize()
         {
@@ -99,6 +101,25 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
             m_passiveItem.ItemPassiveEffect.Deactivate();
             m_passiveItem = default;
             OnUpdatePassiveItem?.Invoke();
+        }
+        
+        
+        public void DropActiveItem(Vector3 p_position)
+        {
+            if (m_activeItem == default)
+                return;
+            
+            SpawnItemsService.SpawnItem(m_activeItem, p_position);
+            RemoveActiveItem();
+        }
+        
+        public void DropPassiveItem(Vector3 p_position)
+        {
+            if (m_passiveItem == default)
+                return;
+            
+            SpawnItemsService.SpawnItem(m_passiveItem, p_position);
+            RemovePassiveItem();
         }
 
         private IEnumerator ActiveCooldownCoroutine()

@@ -17,7 +17,7 @@ MonoBehaviour:
   <Name>k__BackingField: 
   <Description>k__BackingField: 
   <Sprite>k__BackingField: {fileID: 21300000, guid: 3e7d5f47dc97b62478056202b804b439, type: 3}
-  <ItemActiveEffect>k__BackingField: {fileID: 0}
+  <ItemActiveEffect>k__BackingField: {fileID: 11400000, guid: 5a81ac0a315cbcd48b0866f49e9bb054, type: 2}
   <ItemPassiveEffect>k__BackingField: {fileID: 0}
   <UseCount>k__BackingField: 1
   <IsItemCooldown>k__BackingField: 0

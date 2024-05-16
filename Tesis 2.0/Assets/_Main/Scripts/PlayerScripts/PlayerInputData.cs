@@ -11,5 +11,7 @@ namespace _Main.Scripts.PlayerScripts
         [field: SerializeField] public string ShootId { get; private set; }
         [field: SerializeField] public string InteractId { get; private set; }
         [field: SerializeField] public string UseItemId { get; private set; }
+        [field: SerializeField] public string DropItemActive { get; private set; }
+        [field: SerializeField] public string DropItemPassive { get; private set; }
     }
 }
