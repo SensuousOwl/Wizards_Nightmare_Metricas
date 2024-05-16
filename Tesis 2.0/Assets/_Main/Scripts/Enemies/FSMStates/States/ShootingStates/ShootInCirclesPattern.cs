@@ -17,13 +17,12 @@ namespace _Main.Scripts.Enemies.FSMStates.States
         {
             m_bulletPool ??= new PoolGeneric<Bullet>(bulletPrefab);
             p_model.SfxAudioPlayer.TryPlayRequestedClip("AttackID");
-            var l_diffAngle = 360 / bulletsAmount;
+            var l_diffAngle = 360f / bulletsAmount;
             var l_data = p_model.GetData();
             for (var l_i = 0; l_i < bulletsAmount; l_i++)
             {
-                var l_dir = Vector2.right;
-                l_dir.RotateVector2(l_diffAngle * l_i);
-                
+                var l_dir = Vector2.right.RotateVector2(l_diffAngle * l_i);
+                Debug.Log(l_dir);
                 var l_bull = m_bulletPool.GetorCreate();
                 l_bull.Initialize(p_model.transform.position, l_data.ProjectileSpeed, l_data.Damage, l_dir, l_data.Range, l_data.TargetMask);
                 l_bull.OnDeactivate += OnDeactivateBulletHandler;

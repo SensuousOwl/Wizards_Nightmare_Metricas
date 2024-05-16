@@ -8,10 +8,21 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
     [CreateAssetMenu(fileName = "MoveToRndPosInRoom", menuName = "_main/States/Executions/Movement/MoveToRndPosInRoom", order = 0)]
     public class MoveToRndPosInRoom : MyState
     {
+        [SerializeField] private LayerMask RoomLayer;
         private Dictionary<EnemyModel, Vector3> m_dictionary = new Dictionary<EnemyModel, Vector3>();
         public override void EnterState(EnemyModel p_model)
         {
-            var l_room = p_model.GetMyRoom();
+            var l_col = Physics.OverlapBox(p_model.transform.position, new Vector3(5,5,5), Quaternion.identity, RoomLayer);
+            BossRoom l_room = null;
+            for (int i = 0; i < l_col.Length; i++)
+            {
+                if (l_col[i].TryGetComponent(out BossRoom l_bossRoom))
+                {
+                    l_room = l_bossRoom;
+                    break;
+                }   
+            }
+            
             var l_roomCenter = l_room.transform.position;
             var l_btmLeft= l_roomCenter - (Vector3)l_room.InsideRoomSize/2;
             var l_topRight= l_roomCenter + (Vector3)l_room.InsideRoomSize/2;
@@ -19,7 +30,6 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
             var l_rndX = Random.Range(l_btmLeft.x, l_topRight.x);
             var l_rndY = Random.Range(l_btmLeft.y, l_topRight.y);
             m_dictionary[p_model] = new Vector3(l_rndX, l_rndY);
-            Logger.Log(m_dictionary[p_model]);
         }
 
         public override void ExecuteState(EnemyModel p_model)
