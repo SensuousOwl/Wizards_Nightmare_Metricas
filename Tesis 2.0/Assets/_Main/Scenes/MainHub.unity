@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa56677cc1b40c596a94a75304eac1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Level A_Scene
+  sceneToLoad: LoadingScene
   interactVisual: {fileID: 1823792321}
 --- !u!61 &608826005
 BoxCollider2D:
