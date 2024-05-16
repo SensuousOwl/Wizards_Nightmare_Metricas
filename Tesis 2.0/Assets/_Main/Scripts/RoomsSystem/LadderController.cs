@@ -24,7 +24,7 @@ private void Awake()
             interactVisual.SetActive(p_b);
         }
 
-        private void OnTriggerEnter(Collider p_other)
+        private void OnTriggerEnter2D(Collider2D p_other)
         {
             if (p_other.CompareTag("Player"))
             {
@@ -32,7 +32,7 @@ private void Awake()
             }
         }
 
-        private void OnTriggerExit(Collider p_other)
+        private void OnTriggerExit2D(Collider2D p_other)
         {
             if (p_other.CompareTag("Player"))
             {

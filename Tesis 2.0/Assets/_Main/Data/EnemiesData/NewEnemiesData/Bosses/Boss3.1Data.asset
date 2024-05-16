@@ -18,11 +18,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 06a7be4f1cd3af24a8916f34bd9c9e22, type: 2}
   - {fileID: 11400000, guid: 41abcfbcabd10834a84de08cb2c69b16, type: 2}
   - {fileID: 11400000, guid: 300d19a410338c54b8d9fb8cb097b0cf, type: 2}
-  <MaxHp>k__BackingField: 600
-  <MovementSpeed>k__BackingField: 4
+  <MaxHp>k__BackingField: 1200
+  <MovementSpeed>k__BackingField: 4.5
   <AccelerationRate>k__BackingField: 0
   <TerimnalVelocity>k__BackingField: 0
-  <FireRate>k__BackingField: 0.3
+  <FireRate>k__BackingField: 0.2
   <Range>k__BackingField: 20
   <ViewDepthRange>k__BackingField: 20
   <Bullet>k__BackingField: {fileID: 7770882229381276139, guid: 2b24a679ee7b4524081493f45c8ebfb6, type: 3}

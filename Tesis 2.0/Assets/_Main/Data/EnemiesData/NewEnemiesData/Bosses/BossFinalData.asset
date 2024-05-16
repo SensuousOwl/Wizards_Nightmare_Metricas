@@ -19,16 +19,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50368554c37e6584f9ae91472bd86d25, type: 2}
   - {fileID: 11400000, guid: 5b9129908adb7174aa485a834dffacd1, type: 2}
   - {fileID: 11400000, guid: 34d0c8c1dbe2dc947a124b93635e8deb, type: 2}
-  <MaxHp>k__BackingField: 1000
+  <MaxHp>k__BackingField: 3800
   <MovementSpeed>k__BackingField: 0
   <AccelerationRate>k__BackingField: 0
   <TerimnalVelocity>k__BackingField: 0
-  <FireRate>k__BackingField: 0.3
+  <FireRate>k__BackingField: 0.15
   <Range>k__BackingField: 20
   <ViewDepthRange>k__BackingField: 20
   <Bullet>k__BackingField: {fileID: 7770882229381276139, guid: 2b24a679ee7b4524081493f45c8ebfb6, type: 3}
-  <Damage>k__BackingField: 10
-  <ProjectileSpeed>k__BackingField: 5
+  <Damage>k__BackingField: 25
+  <ProjectileSpeed>k__BackingField: 10
   <TargetMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
