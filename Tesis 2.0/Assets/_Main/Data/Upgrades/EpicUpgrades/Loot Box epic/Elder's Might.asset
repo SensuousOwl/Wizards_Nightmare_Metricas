@@ -37,7 +37,7 @@ MonoBehaviour:
     <Value>k__BackingField: 10
   - <StatId>k__BackingField: 1
     <UpgradeType>k__BackingField: 1
-    <Subtract>k__BackingField: 1
+    <Subtract>k__BackingField: 0
     <Value>k__BackingField: 10
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 94b670995b7a5af4cbd069454ff0b66a, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: 2e68b4d5bd70fb64dae7620972dc4224, type: 3}

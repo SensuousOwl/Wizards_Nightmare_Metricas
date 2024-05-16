@@ -21,7 +21,7 @@ MonoBehaviour:
   upgradeConfigs:
   - <StatId>k__BackingField: 1
     <UpgradeType>k__BackingField: 1
-    <Subtract>k__BackingField: 0
+    <Subtract>k__BackingField: 1
     <Value>k__BackingField: 25
   - <StatId>k__BackingField: 6
     <UpgradeType>k__BackingField: 1

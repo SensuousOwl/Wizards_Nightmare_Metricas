@@ -20,7 +20,7 @@ MonoBehaviour:
   upgradeConfigs:
   - <StatId>k__BackingField: 1
     <UpgradeType>k__BackingField: 1
-    <Subtract>k__BackingField: 0
+    <Subtract>k__BackingField: 1
     <Value>k__BackingField: 5
   <BorderSprite>k__BackingField: {fileID: 21300000, guid: 0f38f695f39b7e34a9470481b4aba891, type: 3}
   <EffectSprite>k__BackingField: {fileID: 21300000, guid: b8d068599f480fb4fa5609d0757137f2, type: 3}

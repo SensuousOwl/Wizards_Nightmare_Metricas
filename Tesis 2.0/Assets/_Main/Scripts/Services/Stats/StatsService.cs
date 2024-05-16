@@ -101,8 +101,21 @@ namespace _Main.Scripts.Services.Stats
 
         private void CheckUpgradeIsInBounds(StatsId p_statsId)
         {
-            if (m_currentStatsDictionary[p_statsId] < m_baseStatsDictionary[p_statsId])
+            
+            
+            if (m_currentStatsDictionary[p_statsId] < m_baseStatsDictionary[p_statsId]
+                && p_statsId!=StatsId.FireRate)
+            {
                 m_currentStatsDictionary[p_statsId] = m_baseStatsDictionary[p_statsId];
+            }
+
+            if (p_statsId == StatsId.FireRate)
+            {
+                if (m_currentStatsDictionary[p_statsId] < m_maxStatsValueDictionary[p_statsId])
+                    m_currentStatsDictionary[p_statsId] = m_maxStatsValueDictionary[p_statsId];
+                
+                return;
+            }
             
             if (m_currentStatsDictionary[p_statsId] > m_maxStatsValueDictionary[p_statsId])
                 m_currentStatsDictionary[p_statsId] = m_maxStatsValueDictionary[p_statsId];

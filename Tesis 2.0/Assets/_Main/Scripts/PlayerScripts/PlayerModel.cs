@@ -160,7 +160,7 @@ namespace _Main.Scripts.PlayerScripts
         {
             if (m_isReviveActive)
             {
-                HealthController.Heal(HealthController.GetMaxHealth() / 2);
+                HealthController.HealPercentage(50f);
                 OnRevive?.Invoke();
                 return;
             }
