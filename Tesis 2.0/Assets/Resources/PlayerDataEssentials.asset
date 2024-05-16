@@ -20,7 +20,7 @@ MonoBehaviour:
     - 10
     - 5
     - 2
-    - 2
+    - 15
     - 10
     - 20
     - 100
@@ -33,11 +33,11 @@ MonoBehaviour:
     - 9999999
     - 9999999
     - 9999999
+    - 100
     - 9999999
     - 9999999
     - 9999999
-    - 9999999
-    - 9999999
+    - 95
   <Bullet>k__BackingField: {fileID: 7770882229381276139, guid: 2b24a679ee7b4524081493f45c8ebfb6, type: 3}
   <TargetLayer>k__BackingField:
     serializedVersion: 2

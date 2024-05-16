@@ -10,13 +10,11 @@ namespace _Main.Scripts.RoomsSystem
     {
         [SerializeField] private string levelToPass;
         [SerializeField] private GameObject interactVisual;
-
-        private void Awake()
+private void Awake()
         {
             interactVisual.SetActive(false);
         }
-
-        public void Interact(PlayerModel p_model)
+        public void Interact()
         {
             SceneManager.LoadScene(levelToPass);
         }

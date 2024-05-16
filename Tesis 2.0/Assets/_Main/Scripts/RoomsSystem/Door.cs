@@ -30,6 +30,7 @@ namespace _Main.Scripts.RoomsSystem
         private bool m_showDoor;
         
         private Room m_roomParent;
+
         public DoorDirections GetDoorDir() => doorDirection;
         private static readonly WaitForSeconds WaitForSeconds = new(2f);
 

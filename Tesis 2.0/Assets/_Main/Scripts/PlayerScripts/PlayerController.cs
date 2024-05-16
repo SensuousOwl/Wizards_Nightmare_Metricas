@@ -1,6 +1,7 @@
 using System;
 using _Main.Scripts.Interfaces;
-using _Main.Scripts.Managers;
+using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.InventoryService;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +12,6 @@ namespace _Main.Scripts.PlayerScripts
     {
         [SerializeField] private PlayerInputData inputData;
 
-        private PlayerModel m_model;
         private bool m_isShooting;
         private Vector2 m_currDir;
 
@@ -23,12 +23,13 @@ namespace _Main.Scripts.PlayerScripts
         public event Action<Vector2> OnUpdateCrosshair;
 
         private bool m_isPause;
+
+        private static IInventoryService InventoryService => ServiceLocator.Get<IInventoryService>();
         
         private void Start()
         {
             SubscribeInputs();
             
-            m_model = GetComponent<PlayerModel>();
             SubscribePause();
         }
 
@@ -66,6 +67,8 @@ namespace _Main.Scripts.PlayerScripts
             l_lInputManager.SubscribeInput(inputData.DashId, OnDashPerformed);
             l_lInputManager.SubscribeInput(inputData.MovementId, OnMovementPerformed);
             l_lInputManager.SubscribeInput(inputData.ShootId, OnShootPerformed);
+            l_lInputManager.SubscribeInput(inputData.DropItemActive, OnDropActiveItemPerformed);
+            l_lInputManager.SubscribeInput(inputData.DropItemPassive, OnDropPassiveItemPerformed);
 
             l_lInputManager.GetInputAction(inputData.MovementId).canceled += OnMovementPerformed;
             l_lInputManager.GetInputAction(inputData.ShootId).canceled += OnShootCanceled;
@@ -81,9 +84,20 @@ namespace _Main.Scripts.PlayerScripts
             l_lInputManager.UnsubscribeInput(inputData.DashId, OnDashPerformed);
             l_lInputManager.UnsubscribeInput(inputData.MovementId, OnMovementPerformed);
             l_lInputManager.UnsubscribeInput(inputData.ShootId, OnShootPerformed);
+            l_lInputManager.UnsubscribeInput(inputData.DropItemActive, OnDropActiveItemPerformed);
+            l_lInputManager.UnsubscribeInput(inputData.DropItemPassive, OnDropPassiveItemPerformed);
 
             l_lInputManager.GetInputAction(inputData.MovementId).canceled -= OnMovementPerformed;
             l_lInputManager.GetInputAction(inputData.ShootId).canceled -= OnShootCanceled;
+        }
+
+        private void OnDropActiveItemPerformed(InputAction.CallbackContext p_obj)
+        {
+            InventoryService.DropActiveItem(transform.position);
+        }
+        private void OnDropPassiveItemPerformed(InputAction.CallbackContext p_obj)
+        {
+            InventoryService.DropPassiveItem(transform.position);
         }
         
         private void OnUseItemPerformed(InputAction.CallbackContext p_obj)

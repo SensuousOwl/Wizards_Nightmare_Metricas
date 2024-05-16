@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Main.Scripts.Grid;
-using _Main.Scripts.PickUps;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.EventsServices;
+using _Main.Scripts.Services.MicroServices.SpawnItemsService;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -18,7 +17,7 @@ namespace _Main.Scripts.RoomsSystem
         [field: SerializeField] public int MinEnemySpawn { get; private set; }
         [field: SerializeField] public int MaxEnemySpawn { get; private set; }
         [SerializeField] private bool isStartRoom;
-        [SerializeField] private int spawnPickUpChance = 10;
+        [SerializeField, Range(0, 100)] private float spawnInstantItemProbability = 8;
         [SerializeField] private bool alwaysOpen;
 
         [Header("Minimap")] 
@@ -29,10 +28,10 @@ namespace _Main.Scripts.RoomsSystem
         private bool m_isClear;
         
         protected static IEventService EventService => ServiceLocator.Get<IEventService>();
+        protected static ISpawnItemsService SpawnItemsService => ServiceLocator.Get<ISpawnItemsService>();
 
         public MyNodeGrid Grid => roomGrid;
         [SerializeField] private MyNodeGrid roomGrid;
-        private event Action OnTrySpawnPickUp;
         
         
         private void Awake()
@@ -45,7 +44,6 @@ namespace _Main.Scripts.RoomsSystem
                 l_door.SetRoomParent(this);
                 m_doorsAvailable.Add(l_door);
             }
-            OnTrySpawnPickUp += TrySpawnPickUp;
         }
 
         
@@ -53,9 +51,6 @@ namespace _Main.Scripts.RoomsSystem
         private void Start()
         {
             StartCoroutine(ShowMinimap());
-
-
-
         }
 
         private IEnumerator ShowMinimap()
@@ -79,7 +74,12 @@ namespace _Main.Scripts.RoomsSystem
 
         private void OnDestroy()
         {
-            OnTrySpawnPickUp -= TrySpawnPickUp;
+            foreach (var l_door in doors)
+            {
+                l_door.OnDoorConnection -= OnDoorConnectionEventHandler;
+                l_door.OnTeleportPlayer -= OnTeleportActiveDoorEventHandler;
+                l_door.OnPlayerExitRoom -= DeactivateMinimapView;
+            }
         }
 
         private void OnTeleportActiveDoorEventHandler()
@@ -126,19 +126,17 @@ namespace _Main.Scripts.RoomsSystem
         public virtual void ClearRoom()
         {
             EventService.DispatchEvent(EventsDefinition.CLEAR_ROOM_ID);
-            OnTrySpawnPickUp?.Invoke();
+            TrySpawnPickUp();
             m_isClear = true;
             OpenDoor();
         }
 
         private void TrySpawnPickUp()
         {
-            //Todo, hacer esto bien
-            // queria terminarlo rapido :,)
-            var rnd = Random.Range(1, spawnPickUpChance + 1);
-            if (rnd == 1)
+            var l_rnd = Random.Range(0, 100f);
+            if (l_rnd < spawnInstantItemProbability)
             {
-                PickUpSpawner.Instance.SpawnRandomPickUp(transform.position);
+                SpawnItemsService.SpawnInstantItemRandom(transform.position);
             }
         }
         public bool IsOneDoorAvailable() => m_doorsAvailable == default || m_doorsAvailable.Count > 0;

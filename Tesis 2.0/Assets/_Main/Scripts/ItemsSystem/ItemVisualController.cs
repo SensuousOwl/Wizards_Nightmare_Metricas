@@ -1,33 +1,31 @@
-﻿using System;
-using _Main.Scripts.Interfaces;
-using _Main.Scripts.PlayerScripts;
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace _Main.Scripts.Interactables
+namespace _Main.Scripts.ItemsSystem
 {
-    public class LoadSceneInteractable : MonoBehaviour, IInteract
+    public class ItemVisualController : MonoBehaviour
     {
-        [SerializeField] private string sceneToLoad;
         [SerializeField] private GameObject interactVisual;
+        [SerializeField] private BaseItem baseItem;
 
         private void Awake()
         {
-            interactVisual.SetActive(false);
+            ShowCanvasUI(false);
         }
 
-        public void Interact()
-        {
-            SceneManager.LoadScene(sceneToLoad);
-        }
-        
-        public void ShowCanvasUI(bool p_b)
+        private void ShowCanvasUI(bool p_b)
         {
             interactVisual.SetActive(p_b);
         }
 
         private void OnTriggerEnter2D(Collider2D p_other)
         {
+            if (baseItem.GetItemData().ItemType == ItemType.Instant)
+            {
+                baseItem.Interact();
+                return;
+            }
+            
             if (p_other.CompareTag("Player"))
             {
                 ShowCanvasUI(true);
@@ -36,6 +34,11 @@ namespace _Main.Scripts.Interactables
 
         private void OnTriggerExit2D(Collider2D p_other)
         {
+            if (baseItem.GetItemData().ItemType == ItemType.Instant)
+            {
+                return;
+            }
+            
             if (p_other.CompareTag("Player"))
             {
                 ShowCanvasUI(false);

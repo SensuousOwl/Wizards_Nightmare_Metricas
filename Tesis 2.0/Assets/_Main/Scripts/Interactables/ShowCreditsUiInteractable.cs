@@ -15,7 +15,7 @@ namespace _Main.Scripts.Interactables
             interactVisual.SetActive(false);
         }
 
-        public void Interact(PlayerModel p_model)
+        public void Interact()
         {
             uiGameObject.SetActive(true);
         }

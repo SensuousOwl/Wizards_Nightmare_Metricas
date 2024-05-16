@@ -15,6 +15,7 @@ namespace _Main.Scripts.Services.MicroServices.SpawnItemsService
         private RouletteWheel<RouletteWheel<ItemData>> m_genericRouletteWheel;
         private RouletteWheel<RouletteWheel<ItemData>> m_chestRouletteWheel;
         private RouletteWheel<RouletteWheel<ItemData>> m_bossRouletteWheel;
+        private RouletteWheel<ItemData> m_instantItemsRouletteWheel;
 
         private static IEventService m_eventService;
         private static IStatsService m_statsService;
@@ -54,6 +55,8 @@ namespace _Main.Scripts.Services.MicroServices.SpawnItemsService
                 { l_epicRouletteWheel, Data.ItemsPoolWeight[TypeDropItemPool.Boss].EpicItemsWeight },
             };
             m_bossRouletteWheel = new RouletteWheel<RouletteWheel<ItemData>>(l_auxBossDictionary);
+
+            m_instantItemsRouletteWheel = new RouletteWheel<ItemData>(Data.InstantItems.GetDictionary());
             
             m_eventService?.AddListener<DieEnemyEventData>(SpawnItemHandler);
         }
@@ -82,9 +85,15 @@ namespace _Main.Scripts.Services.MicroServices.SpawnItemsService
             var l_newItem = Object.Instantiate(Data.ItemPrefab, p_positionToSpawn, Quaternion.identity);
             l_newItem.SetItemData(p_itemToSpawn);
         }
-        public void SpawnItemChestPoolRandom(Vector3 p_positionToSpawn)
+
+        public void SpawnItemChestRandom(Vector3 p_positionToSpawn)
         {
             SpawnItem(m_chestRouletteWheel.RunWithCached().RunWithCached(), p_positionToSpawn);
+        }
+
+        public void SpawnInstantItemRandom(Vector3 p_positionToSpawn)
+        {
+            SpawnItem(m_instantItemsRouletteWheel.RunWithCached(), p_positionToSpawn);
         }
         
         public void SpawnRandomItem(Vector3 p_positionToSpawn)

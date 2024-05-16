@@ -107,7 +107,7 @@ namespace _Main.Scripts.PlayerScripts
             for (var l_i = 0; l_i < l_size; l_i++)
             {
                 if (m_itemsCollider[l_i].TryGetComponent(out IInteract l_interact))
-                    l_interact.Interact(this);
+                    l_interact.Interact();
             }
         }
 

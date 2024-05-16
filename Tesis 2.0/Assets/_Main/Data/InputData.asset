@@ -18,3 +18,5 @@ MonoBehaviour:
   <ShootId>k__BackingField: Shoot
   <InteractId>k__BackingField: Interact
   <UseItemId>k__BackingField: UseItem
+  <DropItemActive>k__BackingField: DropActive
+  <DropItemPassive>k__BackingField: DropPassive

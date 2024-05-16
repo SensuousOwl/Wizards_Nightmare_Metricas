@@ -26,8 +26,10 @@ MonoBehaviour:
       <RareItemsWeight>k__BackingField: 30
       <EpicItemsWeight>k__BackingField: 10
   <InstantItems>k__BackingField:
-    m_keys: []
-    m_values: []
+    m_keys:
+    - {fileID: 11400000, guid: 61200129f8b4ba64b8590cb5361b637f, type: 2}
+    m_values:
+    - 100
   <CommonItems>k__BackingField:
     m_keys:
     - {fileID: 11400000, guid: eb36fd78ccfc6f64a8ab51dfb121cfd4, type: 2}

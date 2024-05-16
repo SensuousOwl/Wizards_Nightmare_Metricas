@@ -1,5 +1,4 @@
 using _Main.Scripts.Interfaces;
-using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.ItemsSystem;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.InventoryService;
@@ -11,13 +10,12 @@ namespace _Main.Scripts.ItemsSystem
     {
         [SerializeField] private ItemData data;
         [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] private GameObject interactVisual;
         private static IInventoryService InventoryService => ServiceLocator.Get<IInventoryService>();
 
         private void Awake()
         {
-            spriteRenderer.sprite = data.Sprite;
-            interactVisual.SetActive(false);
+            if (data != default)
+                spriteRenderer.sprite = data.Sprite;
         }
 
         public ItemData GetItemData() => data;
@@ -28,32 +26,14 @@ namespace _Main.Scripts.ItemsSystem
             spriteRenderer.sprite = data.Sprite;
         }
 
-        public void Interact(PlayerModel p_model)
+        public void Interact()
         {
             InventoryService.AddItem(data);
             Destroy(gameObject);
         }
-        
-        
+
         public void ShowCanvasUI(bool p_b)
         {
-            interactVisual.SetActive(p_b);
         }
-
-        private void OnTriggerEnter(Collider p_other)
-        {
-            if (p_other.CompareTag("Player"))
-            {
-                ShowCanvasUI(true);
-            }
-        }
-
-        private void OnTriggerExit(Collider p_other)
-        {
-            if (p_other.CompareTag("Player"))
-            {
-                ShowCanvasUI(false);
-            }
-        }
-    }
+}
 }
