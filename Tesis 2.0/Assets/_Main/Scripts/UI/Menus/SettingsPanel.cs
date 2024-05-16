@@ -26,14 +26,9 @@ namespace _Main.Scripts.UI.Menus
 
         private AudioManager m_audioManager;
 
-        private InputAction m_toggleHHudInputAction;
 
         private void Start()
         {
-            var l_inputManager = InputManager.Instance;
-            if(l_inputManager!=default)
-                m_toggleHHudInputAction = l_inputManager.GetInputAction("ToggleHUD");
-            
             ApplyHUDSettings();
         }
 
@@ -87,8 +82,10 @@ namespace _Main.Scripts.UI.Menus
         
         private void ApplyHUDSettings()
         {
-            hudHiddenToggle.isOn = PlayerPrefs.GetInt(HUD_HIDDEN_KEY, defaultValue: 0) == 1;
-            hudAlwaysActiveToggle.isOn = PlayerPrefs.GetInt(HUD_ALWAYS_ACTIVE_KEY, defaultValue: 1) == 1;
+            hudHiddenToggle.isOn = PlayerPrefs.GetInt(HUD_HIDDEN_KEY, 1) == 1;
+            hudAlwaysActiveToggle.isOn = PlayerPrefs.GetInt(HUD_ALWAYS_ACTIVE_KEY, 0) == 1;
+            if (hudHiddenToggle.isOn)
+                SubscribeToggleHudInput();
             if (hudCanvasGroup != default)
             {
                 hudCanvasGroup.alpha = alphaHUDSlider.value;
@@ -98,7 +95,7 @@ namespace _Main.Scripts.UI.Menus
                 hudCanvasGroup.gameObject.SetActive(hudAlwaysActiveToggle.isOn);
             }
             
-            alphaHUDSlider.value = PlayerPrefs.GetFloat(HUD_ALPHA_KEY, defaultValue: 1);
+            alphaHUDSlider.value = PlayerPrefs.GetFloat(HUD_ALPHA_KEY, 1);
         }
 
         private void OnMasterVolumeChanged(float value)
@@ -151,19 +148,24 @@ namespace _Main.Scripts.UI.Menus
 
         private void SubscribeToggleHudInput()
         {
-            if(m_toggleHHudInputAction==default)
+            var l_ToggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
+            
+            if (l_ToggleHHudInputAction == default)
                 return;
             
-            m_toggleHHudInputAction.started += ToggleHud;
-            m_toggleHHudInputAction.canceled += ToggleHud;
+            l_ToggleHHudInputAction.started += ToggleHud;
+            l_ToggleHHudInputAction.canceled += ToggleHud;
         }
         
         private void UnSubscribeToggleHudInput()
         {
-            if(m_toggleHHudInputAction==default)
+            var l_ToggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
+            
+            if (l_ToggleHHudInputAction == default)
                 return;
-            m_toggleHHudInputAction.started -= ToggleHud;
-            m_toggleHHudInputAction.canceled -= ToggleHud;
+            
+            l_ToggleHHudInputAction.started -= ToggleHud;
+            l_ToggleHHudInputAction.canceled -= ToggleHud;
         }
         private void ToggleHud(InputAction.CallbackContext p_obj)
         {
