@@ -103,15 +103,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "SkipDialogue",
-                    "type": "Button",
-                    "id": "8e48d85b-2388-421b-ab3f-59c63061c98b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -279,17 +270,6 @@
                     "action": "DropPassive",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "165167af-4345-48ae-90a1-6229dd1df1bd",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SkipDialogue",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -301,6 +281,15 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "f8cd9f4f-d158-4d26-aaf1-9a5d89786b62",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SkipDialogue",
+                    "type": "Button",
+                    "id": "73720702-cc0b-43f9-952d-12ab19fed23f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -400,6 +389,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74d0dd44-7da3-410a-b256-18b25f083eb0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipDialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
