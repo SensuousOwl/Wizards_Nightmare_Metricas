@@ -17,8 +17,26 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemPassiveEffects
             [field: SerializeField] public bool ForPercentage { get; private set; }
             [field: SerializeField] public float Value { get; private set; }
         }
+
+        private struct DelegateUpgradeData
+        {
+            public StatsId StatsID { get; private set; }
+            public float Value { get; private set; }
+            public bool SubtractValue { get; private set; }
+            
+
+            public DelegateUpgradeData(StatsId statsID, float value, bool subtractValue)
+            {
+                StatsID = statsID;
+                Value = value;
+                SubtractValue = subtractValue;
+            }
+        }
+        
+        
+        
         [SerializeField] private List<MyData> config;
-        private readonly Dictionary<StatsId, float> m_dictionary = new();
+        private readonly List<DelegateUpgradeData> m_list = new();
 
         private static IStatsService StatsService => ServiceLocator.Get<IStatsService>();
         
@@ -37,22 +55,21 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemPassiveEffects
                 else
                     StatsService.SubtractUpgradeStat(l_data.StatId, l_value);
                 
-                m_dictionary.Add(l_data.StatId, l_value);
+                m_list.Add(new DelegateUpgradeData(l_data.StatId, l_value, l_data.SubtractValue));
             }
         }
 
         public override void Deactivate()
         {
-            foreach (var l_data in config)
+            foreach (var l_data in m_list)
             {
-                if (m_dictionary.TryGetValue(l_data.StatId, out var l_value))
-                    continue;
-                
                 if (!l_data.SubtractValue)
-                    StatsService.SubtractUpgradeStat(l_data.StatId, l_value);
+                    StatsService.SubtractUpgradeStat(l_data.StatsID, l_data.Value);
                 else
-                    StatsService.AddUpgradeStat(l_data.StatId, l_value);
+                    StatsService.AddUpgradeStat(l_data.StatsID, l_data.Value);
             }
+            
+            m_list.Clear();
         }
     }
 }

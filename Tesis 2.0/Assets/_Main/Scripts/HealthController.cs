@@ -103,7 +103,10 @@ namespace _Main.Scripts
             currentHealth += p_healAmount;
 
             if (currentHealth > maxHealth)
+            {
                 currentHealth = maxHealth;
+                OnChangeHealth?.Invoke(maxHealth, currentHealth);
+            }
             
             OnChangeHealth?.Invoke(maxHealth, currentHealth);
         }
@@ -120,10 +123,13 @@ namespace _Main.Scripts
             if (l_newHp >= maxHealth)
             {
                 currentHealth = maxHealth;
+                OnChangeHealth?.Invoke(maxHealth, currentHealth);
                 return;
+                
             }
 
             currentHealth = l_newHp;
+            OnChangeHealth?.Invoke(maxHealth, currentHealth);
         }
         public void ClampCurrentHealth()
         {
