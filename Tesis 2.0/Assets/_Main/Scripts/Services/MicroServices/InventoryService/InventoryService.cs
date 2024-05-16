@@ -47,8 +47,6 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
             m_activeItem.ItemActiveEffect.UseItem();
             m_useActiveCount--;
             
-            if (m_useActiveCount > 0)
-                return;
             
             if (m_activeItem.IsItemCooldown)
             {
@@ -56,6 +54,8 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
                 l_playerModel.StartCoroutine(ActiveCooldownCoroutine());
                 return;
             }
+            if (m_useActiveCount > 0)
+                return;
             
             RemoveActiveItem();
         }
@@ -81,7 +81,7 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
             
             m_passiveItem = p_newItem;
             m_passiveItem.ItemPassiveEffect.Activate();
-            OnUpdateActiveItem?.Invoke();
+            OnUpdatePassiveItem?.Invoke();
         }
 
         public void RemoveActiveItem()
