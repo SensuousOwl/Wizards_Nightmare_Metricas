@@ -20,7 +20,7 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
         public void RemovePassiveItem();
         public void DropActiveItem(Vector3 p_position);
         public void DropPassiveItem(Vector3 p_position);
-        void AddItem(ItemData p_itemData);
+        void AddItem(ItemData p_itemData, Vector3 p_position);
         void UseActiveItem();
     }
 }

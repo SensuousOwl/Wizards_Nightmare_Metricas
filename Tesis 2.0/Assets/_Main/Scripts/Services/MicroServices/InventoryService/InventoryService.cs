@@ -135,7 +135,7 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
             OnCooldownActiveItem?.Invoke(m_activeItemCooldown);
         }
         
-        public void AddItem(ItemData p_itemData)
+        public void AddItem(ItemData p_itemData, Vector3 p_position)
         {
             switch (p_itemData.ItemType)
             {
@@ -143,9 +143,11 @@ namespace _Main.Scripts.Services.MicroServices.InventoryService
                     p_itemData.ItemActiveEffect.UseItem();
                     return;
                 case ItemType.Passive:
+                    DropPassiveItem(p_position);
                     SetPassiveItem(p_itemData);
                     return;
                 case ItemType.Active:
+                    DropActiveItem(p_position);
                     SetActiveItem(p_itemData);
                     return;
                 default:

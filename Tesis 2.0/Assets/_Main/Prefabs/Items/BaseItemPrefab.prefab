@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7081471629531000563}
   - component: {fileID: 8519348396537936056}
   - component: {fileID: 4586940927084484792}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: BaseItemPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,9 +285,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 394701209
-  m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingLayerID: -1638913495
+  m_SortingLayer: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -307,10 +307,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4548906651573944697}
     m_Modifications:
-    - target: {fileID: 1384134254541448560, guid: fe57b9fac77d50e4ca5bca0fb6e3f3a0, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2238167089136565570, guid: fe57b9fac77d50e4ca5bca0fb6e3f3a0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -391,10 +387,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3395494215941274262, guid: fe57b9fac77d50e4ca5bca0fb6e3f3a0, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3760019474403831904, guid: fe57b9fac77d50e4ca5bca0fb6e3f3a0, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -402,10 +394,6 @@ PrefabInstance:
     - target: {fileID: 6948769226563062907, guid: fe57b9fac77d50e4ca5bca0fb6e3f3a0, type: 3}
       propertyPath: m_Name
       value: InteractableCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948769226563062907, guid: fe57b9fac77d50e4ca5bca0fb6e3f3a0, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

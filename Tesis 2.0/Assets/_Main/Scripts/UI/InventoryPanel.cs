@@ -68,7 +68,7 @@ public class InventoryPanel : BasePanel
 
     private void UpdatePassiveItem()
     {
-        var l_item = InventoryService.GetActiveItem();
+        var l_item = InventoryService.GetPassiveItem();
 
         if (l_item == default)
         {

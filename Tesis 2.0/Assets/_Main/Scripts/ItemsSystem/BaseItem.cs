@@ -28,7 +28,7 @@ namespace _Main.Scripts.ItemsSystem
 
         public void Interact()
         {
-            InventoryService.AddItem(data);
+            InventoryService.AddItem(data, transform.position);
             Destroy(gameObject);
         }
 
