@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Main/Scenes/DeathScene.unity
     guid: 54ad1df2c38e1f74188adf5ea37c2df1
+  - enabled: 1
+    path: Assets/_Main/Scenes/LoadingScene.unity
+    guid: 21ee7f76da13fd8469a75c7cdeff4300
   m_configObjects: {}

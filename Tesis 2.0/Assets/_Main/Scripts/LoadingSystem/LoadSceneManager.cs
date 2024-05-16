@@ -1,58 +1,43 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-namespace _main.Scripts.Managers
+namespace _Main.Scripts.LoadingSystem
 {
     public class LoadSceneManager : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI loadingText;
-        [SerializeField] private Image loadingBar;
+        [SerializeField] private DialogueSystem dialogueSystem;
+        private bool m_isDialogueFinish;
 
-        /*private void Start()
+        private void Awake()
         {
-            loadingText.enabled = false;
-            loadingBar.fillAmount = 0f;
+            dialogueSystem.OnDialogueFinish += DialogueSystemOnOnDialogueFinish;
+        }
 
-            StartCoroutine(LoadSceneAsyncCoroutine());
-        }*/
-
-        /*private IEnumerator LoadSceneAsyncCoroutine()
+        private void OnDestroy()
         {
-            var l_gameManager = GameManager.Instance;
-            if (l_gameManager == default)
-            {
-                Debug.LogError("NullReference GameManager in LoadSceneManager");
-                yield break;
-            }
+            if (dialogueSystem != default)
+                dialogueSystem.OnDialogueFinish -= DialogueSystemOnOnDialogueFinish;
+        }
 
-            var l_sceneName = GameManager.Instance.GetNextSceneToLoad();
+        private void DialogueSystemOnOnDialogueFinish()
+        {
+            m_isDialogueFinish = true;
+        }
 
-            if (l_sceneName.IsNullOrEmpty())
-            {
-                Debug.LogError("NextSceneToLoad is Null or Empty");
-                yield break;
-            }
-            
-            var l_asyncLoad = SceneManager.LoadSceneAsync(l_sceneName);
+        private void Start()
+        {
+            StartCoroutine(LoadSceneCoroutine());
+        }
 
-            while (!l_asyncLoad.isDone)
+        private IEnumerator LoadSceneCoroutine()
+        {
+            while (!m_isDialogueFinish)
             {
-                loadingText.enabled = true;
-                var l_progress = Mathf.Clamp01(l_asyncLoad.progress / 0.9f);
-                loadingText.text = $"Loading: {Mathf.RoundToInt(l_progress * 100)}%";
-                loadingBar.fillAmount = l_progress;
                 yield return null;
             }
 
-            //Todo: replace new input system. (InputManager)
-            loadingText.text = "Press any key to continue";
-            while (!Input.anyKeyDown)
-                yield return null;
-
-            SceneManager.UnloadSceneAsync(l_gameManager.GetLoadSceneName());
-        }*/
+            SceneManager.LoadScene("Level A_Scene");
+        }
     }
 }

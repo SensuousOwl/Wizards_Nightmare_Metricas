@@ -296,6 +296,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "SkipDialogue",
+                    "type": "Button",
+                    "id": "a45d92b3-6bda-46ec-b01e-f70b323e5279",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "1f819a8a-3386-4d74-af2e-524e72659ad5",
@@ -380,6 +389,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf7d240c-f0db-4cd5-9b9e-0e03a6ec1d3e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipDialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
