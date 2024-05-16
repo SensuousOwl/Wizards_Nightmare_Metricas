@@ -42,6 +42,7 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
             l_data.prepTime = Time.time + prepTime;
             models[p_model] = l_data;
             p_model.View.SetAnimatorBool(chargeAnimatorBool, true);
+            p_model.SetIsRunning(true);
         }
         
         public override void ExecuteState(EnemyModel p_model)
@@ -56,6 +57,8 @@ namespace _Main.Scripts.Enemies.FSMStates.States.MovementStates
         {
             p_model.View.SetAnimatorBool(chargeAnimatorBool, false);
             models[p_model] = default;
+            p_model.SetIsRunning(false);
+            p_model.SetIsTouching(false);
             models.Remove(p_model);
         }
     }

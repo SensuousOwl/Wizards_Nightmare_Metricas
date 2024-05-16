@@ -151,6 +151,27 @@ namespace _Main.Scripts.Enemies
             m_timer = Time.time + 1;
         }
 
+        private bool m_isTouching;
+        public void SetIsTouching(bool p_b) => m_isTouching = p_b;
+        public bool GetIsTouching() => m_isTouching;
+        public void SetIsRunning(bool p_b) => m_isRunning = p_b;
+        private bool m_isRunning;
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if(!m_isRunning)
+                return;
+
+            m_isTouching = true;
+        }
+
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            if(!m_isRunning)
+                return;
+
+            m_isTouching = false;
+        }
+
         public void ApplyForce(Vector2 p_dir, float p_magnitude)
         {
             m_rb.AddForce(p_dir * p_magnitude, ForceMode2D.Impulse);
