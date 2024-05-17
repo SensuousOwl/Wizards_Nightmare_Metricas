@@ -9,7 +9,6 @@ namespace _Main.Scripts.Interfaces
         event Action OnInteract;
         event Action OnShoot;
         event Action<Vector2> OnMove;
-        event Action<Vector2> OnDash;
         event Action<Vector2> OnUpdateCrosshair;
     }
 }

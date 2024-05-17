@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.StaticClass;
 
 namespace _Main.Scripts.Services.Stats
 {

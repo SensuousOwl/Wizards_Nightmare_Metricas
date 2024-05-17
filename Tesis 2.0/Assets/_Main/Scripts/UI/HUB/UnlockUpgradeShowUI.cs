@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Main.Scripts.Managers;
 using _Main.Scripts.ScriptableObjects.UpgradesSystem;
 using TMPro;
@@ -25,11 +24,11 @@ namespace _Main.Scripts.UI.HUB
         {
             for (int i = 0; i < p_upgradeData.Count; i++)
             {
-                var currData = p_upgradeData[i];
-                namesTxt[i].text = currData.Name;
-                descriptionTxt[i].text = currData.Description;
-                upgradeImages[i].sprite = currData.BorderSprite;
-                effectImages[i].sprite = currData.EffectSprite;
+                var l_currData = p_upgradeData[i];
+                namesTxt[i].text = l_currData.Name;
+                descriptionTxt[i].text = l_currData.Description;
+                upgradeImages[i].sprite = l_currData.BorderSprite;
+                effectImages[i].sprite = l_currData.EffectSprite;
             }
             
             

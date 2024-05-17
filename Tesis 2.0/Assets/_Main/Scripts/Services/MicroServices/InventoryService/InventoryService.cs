@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
+using _Main.Scripts.Entities.PlayerScripts.MVC;
 using _Main.Scripts.ItemsSystem;
-using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.ScriptableObjects.ItemsSystem;
 using _Main.Scripts.Services.MicroServices.SpawnItemsService;
 using _Main.Scripts.Services.Stats;

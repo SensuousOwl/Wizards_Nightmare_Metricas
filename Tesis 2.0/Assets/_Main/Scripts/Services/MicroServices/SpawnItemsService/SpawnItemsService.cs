@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using _Main.Scripts.DevelopmentUtilities;
-using _Main.Scripts.Enemies;
-using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.DevelopmentUtilities.Extensions;
 using _Main.Scripts.ScriptableObjects.ItemsSystem;
+using _Main.Scripts.Services.MicroServices.EventDatas;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using _Main.Scripts.Services.Stats;
+using _Main.Scripts.StaticClass;
 using UnityEngine;
 
 namespace _Main.Scripts.Services.MicroServices.SpawnItemsService
@@ -101,18 +101,6 @@ namespace _Main.Scripts.Services.MicroServices.SpawnItemsService
             var l_itemData = m_genericRouletteWheel.RunWithCached().RunWithCached();
 
             SpawnItem(l_itemData, p_positionToSpawn);
-        }
-    }
-
-    public struct DieEnemyEventData : ICustomEventData
-    {
-        public EnemyModel Model { get; }
-        public Vector3 PositionNode { get; }
-        
-        public DieEnemyEventData(Vector3 p_positionNode, EnemyModel p_model)
-        {
-            PositionNode = p_positionNode;
-            Model = p_model;
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using _Main.Scripts.Services.MicroServices.PersistenceService;
 using UnityEngine;
+using Logger = _Main.Scripts.StaticClass.Logger;
 
 namespace _Main.Scripts.Services.MicroServices.UserDataService
 {

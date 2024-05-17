@@ -1,4 +1,5 @@
-using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.Entities.PlayerScripts.MVC;
+using _Main.Scripts.Managers;
 using UnityEngine;
 
 namespace _Main.Scripts

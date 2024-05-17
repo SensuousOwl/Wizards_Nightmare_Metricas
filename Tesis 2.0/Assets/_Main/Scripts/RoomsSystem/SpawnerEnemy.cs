@@ -1,10 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;
-using _Main.Scripts.Enemies;
+using _Main.Scripts.Entities.Enemies.MVC;
 using _Main.Scripts.ScriptableObjects;
 using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.EventDatas;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using _Main.Scripts.Services.MicroServices.SpawnItemsService;
+using _Main.Scripts.StaticClass;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,7 +22,7 @@ namespace _Main.Scripts.RoomsSystem
         {
             EventService.AddListener<SpawnEnemiesInRoomEventData>(SpawnEnemiesInRoomHandler);
             EventService.AddListener<SpawnEnemyEventData>(SpawnEnemyHandler);
-            EventService.AddListener<SpawnBossInRoom>(OnSpawnBossInRoomHandler);
+            EventService.AddListener<SpawnBossInRoomEventData>(OnSpawnBossInRoomHandler);
             EventService.AddListener<DieEnemyEventData>(DieEnemyHandler);
             EventService.AddListener(EventsDefinition.KILL_ALL_ENEMIES_ID, KillAllEnemiesHandler);
         }
@@ -34,7 +35,7 @@ namespace _Main.Scripts.RoomsSystem
             }
         }
 
-        private void OnSpawnBossInRoomHandler(SpawnBossInRoom p_data)
+        private void OnSpawnBossInRoomHandler(SpawnBossInRoomEventData p_data)
         {
             m_currentRoom = p_data.Room;
 
@@ -52,7 +53,7 @@ namespace _Main.Scripts.RoomsSystem
         {
             EventService.RemoveListener<SpawnEnemiesInRoomEventData>(SpawnEnemiesInRoomHandler);
             EventService.RemoveListener<SpawnEnemyEventData>(SpawnEnemyHandler);
-            EventService.RemoveListener<SpawnBossInRoom>(OnSpawnBossInRoomHandler);
+            EventService.RemoveListener<SpawnBossInRoomEventData>(OnSpawnBossInRoomHandler);
             EventService.RemoveListener<DieEnemyEventData>(DieEnemyHandler);
             EventService.RemoveListener(EventsDefinition.KILL_ALL_ENEMIES_ID, KillAllEnemiesHandler);
         }
@@ -90,30 +91,6 @@ namespace _Main.Scripts.RoomsSystem
 
             if (m_enemies.Count <= 0)
                 m_currentRoom.ClearRoom();
-        }
-    }
-
-    public struct SpawnEnemiesInRoomEventData : ICustomEventData
-    {
-        public Room Room { get; }
-
-        public SpawnEnemiesInRoomEventData(Room p_room)
-        {
-            Room = p_room;
-        }
-    }
-
-    public struct SpawnEnemyEventData : ICustomEventData
-    {
-        public Room Room { get; }
-        public EnemyModel EnemyModelPrefab{ get; }
-        public Vector3 SpawnPoint{ get; }
-
-        public SpawnEnemyEventData(Room p_room, EnemyModel p_enemyModelPrefab, Vector3 p_spawnPoint)
-        {
-            Room = p_room;
-            EnemyModelPrefab = p_enemyModelPrefab;
-            SpawnPoint = p_spawnPoint;
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using _Main.Scripts.Interfaces;
-using _Main.Scripts.PlayerScripts;
+﻿using _Main.Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Main.Scripts.Interactables

@@ -1,5 +1,6 @@
 using System;
-using _Main.Scripts.DevelopmentUtilities;
+using _Main.Scripts.DevelopmentUtilities.Extensions;
+using _Main.Scripts.Entities;
 using UnityEngine;
 
 namespace _Main.Scripts.Bullets
