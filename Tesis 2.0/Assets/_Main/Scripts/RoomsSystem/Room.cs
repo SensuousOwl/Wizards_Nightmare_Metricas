@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using _Main.Scripts.Grid;
+using _Main.Scripts.RoomsSystem.Grid;
 using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.EventDatas;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using _Main.Scripts.Services.MicroServices.SpawnItemsService;
+using _Main.Scripts.StaticClass;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -41,7 +43,6 @@ namespace _Main.Scripts.RoomsSystem
                 l_door.OnDoorConnection += OnDoorConnectionEventHandler;
                 l_door.OnTeleportPlayer += OnTeleportActiveDoorEventHandler;
                 l_door.OnPlayerExitRoom+= DeactivateMinimapView;
-                l_door.SetRoomParent(this);
                 m_doorsAvailable.Add(l_door);
             }
         }
@@ -159,18 +160,18 @@ namespace _Main.Scripts.RoomsSystem
                 m_doorsAvailable = default;
         }
 
-        public bool IsInsideBounds(Vector2 pos)
+        public bool IsInsideBounds(Vector2 p_pos)
         {
-            var btmLeft = transform.position - (Vector3)InsideRoomSize / 2;
-            var topRight = transform.position + (Vector3)InsideRoomSize / 2;
+            var l_btmLeft = transform.position - (Vector3)InsideRoomSize / 2;
+            var l_topRight = transform.position + (Vector3)InsideRoomSize / 2;
             
-            if (pos.y > topRight.y)
+            if (p_pos.y > l_topRight.y)
                 return false;
-            if (pos.y < btmLeft.y)
+            if (p_pos.y < l_btmLeft.y)
                 return false;
-            if (pos.x > topRight.x)
+            if (p_pos.x > l_topRight.x)
                 return false;
-            if (pos.x < btmLeft.x)
+            if (p_pos.x < l_btmLeft.x)
                 return false;
 
             return true;

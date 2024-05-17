@@ -1,4 +1,3 @@
-using _Main.Scripts.UI;
 using _Main.Scripts.UI.Menus;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,7 +29,6 @@ namespace _Main.Scripts.Managers
             exitButton.onClick.AddListener(OnExitButtonClicked);
 
             settingsScreen.Initialize();
-            //settingsScreen.OnClose();
         }
 
         private void OnPlayButtonClicked()

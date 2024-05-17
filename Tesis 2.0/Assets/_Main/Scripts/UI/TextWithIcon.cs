@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class TextWithIcon : MonoBehaviour
+namespace _Main.Scripts.UI
 {
-    [SerializeField] private Image icon;
-    [SerializeField] private TMP_Text text;
-
-    private int currentInt = -1;
-
-    public void SetSprite(Sprite icon)
+    public class TextWithIcon : MonoBehaviour
     {
+        [SerializeField] private Image icon;
+        [SerializeField] private TMP_Text text;
+
+        private int m_currentInt = -1;
+
+        public void SetSprite(Sprite icon)
+        {
         
-    }
+        }
     
-    public void SetStat(int value, bool force = false)
-    {
-        if (currentInt == value && !force) return;
-        currentInt = value;
-        text.text = value.ToString();
+        public void SetStat(int value, bool force = false)
+        {
+            if (m_currentInt == value && !force) return;
+            m_currentInt = value;
+            text.text = value.ToString();
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.CurrencyServices;
 using TMPro;
@@ -36,37 +34,7 @@ namespace _Main.Scripts.UI
         {
             StartCoroutine(ChangeValueGradually(p_obj));
         }
-/*
-        private void OnCurrencyChange(int p_newValue)
-        {
-            Text.alpha = 255;
-            if (m_currentValue < p_newValue)
-            {
-                while (m_currentValue <= p_newValue)
-                {
-                    Text.text = m_currentValue.ToString();
-                    m_currentValue++;
-                }
-
-                m_currentValue = p_newValue;
-            }
-            else
-            {
-                while (m_currentValue >= p_newValue)
-                {
-                    Text.text = m_currentValue.ToString();
-                    m_currentValue--;
-                }
-                m_currentValue = p_newValue;
-            }
-
-            while (Text.alpha<0)
-            {
-                Text.alpha -= Text.alpha * Time.deltaTime * fadeTime;
-            }
-            
-        }
-        */
+        
         private IEnumerator ChangeValueGradually(int p_newValue)
         {
             float l_elapsedTime = 0f;

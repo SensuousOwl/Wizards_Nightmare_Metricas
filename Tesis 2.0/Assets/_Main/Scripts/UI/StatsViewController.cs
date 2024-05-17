@@ -1,6 +1,5 @@
 ﻿
 using System;
-using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.Stats;
 using TMPro;
@@ -21,11 +20,12 @@ namespace _Main.Scripts.UI
 
         private void Start()
         {
-            var dic = StatsController.GetAllStatData();
+            var l_dic = StatsController.GetAllStatData();
 
-            foreach (var data in dic)
+            
+            foreach (var l_data in l_dic)
             {
-                ChangeStatValue(data.Key, data.Value);
+                ChangeStatValue(l_data.Key, l_data.Value);
             }
         }
 
@@ -39,31 +39,31 @@ namespace _Main.Scripts.UI
             StatsController.OnChangeStatValue -= ChangeStatValue;
         }
 
-        private void ChangeStatValue(StatsId statId, float value)
+        private void ChangeStatValue(StatsId p_statId, float p_value)
         {
-            var stringValue = String.Format("{0 : 0.00}", value);
-            switch (statId)
+            var l_stringValue = String.Format("{0 : 0.00}", p_value);
+            switch (p_statId)
             {
                 case StatsId.MovementSpeed :
-                    movementSpeed_Text.text = stringValue;
+                    movementSpeed_Text.text = l_stringValue;
                     break;
                 case StatsId.FireRate :
-                    fireRate_Text.text = stringValue;
+                    fireRate_Text.text = l_stringValue;
                     break;
                 case StatsId.Range :
-                    fireRange_Text.text = stringValue;
+                    fireRange_Text.text = l_stringValue;
                     break;
                 case StatsId.Damage :
-                    damage_Text.text = stringValue;
+                    damage_Text.text = l_stringValue;
                     break;
                 case StatsId.CriticalDamageMult :
-                    critDama_Text.text = stringValue;
+                    critDama_Text.text = l_stringValue;
                     break;
                 case StatsId.CriticalChance :
-                    critChance_Text.text = stringValue;
+                    critChance_Text.text = l_stringValue;
                     break;
                 case StatsId.ProjectileSpeed :
-                    projectileSpeed_Text.text = stringValue;
+                    projectileSpeed_Text.text = l_stringValue;
                     break;
             }
         }

@@ -1,5 +1,6 @@
 using _Main.Scripts.ScriptableObjects.Audio;
 using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.EventDatas;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ namespace _Main.Scripts.Audio
             var l_isValidClip = l_audioClip != default;
             if (l_isValidClip)
             {
-                EventService.DispatchEvent(new PlayEffectSound(l_audioClip,p_volume));
+                EventService.DispatchEvent(new PlayEffectSoundEventData(l_audioClip,p_volume));
             }
 
             return l_isValidClip;
@@ -34,7 +35,7 @@ namespace _Main.Scripts.Audio
         {
             if (p_audioClip == default)
                 return;
-            EventService.DispatchEvent(new PlayEffectSound(p_audioClip, p_volume));
+            EventService.DispatchEvent(new PlayEffectSoundEventData(p_audioClip, p_volume));
         }
     }
 }

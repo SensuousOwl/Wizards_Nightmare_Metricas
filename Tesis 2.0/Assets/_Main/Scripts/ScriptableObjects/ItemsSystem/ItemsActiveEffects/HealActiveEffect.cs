@@ -1,4 +1,4 @@
-using _Main.Scripts.PlayerScripts;
+using _Main.Scripts.Entities.PlayerScripts.MVC;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemsActiveEffects

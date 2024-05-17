@@ -28,8 +28,6 @@ namespace _Main.Scripts.RoomsSystem
         private bool m_isOpen;
         private bool m_temporalyClose;
         private bool m_showDoor;
-        
-        private Room m_roomParent;
 
         public DoorDirections GetDoorDir() => doorDirection;
         private static readonly WaitForSeconds WaitForSeconds = new(2f);
@@ -112,8 +110,5 @@ namespace _Main.Scripts.RoomsSystem
             if(m_showDoor)
                 minimapVisual.SetActive(p_b);
         }
-
-        
-        public void SetRoomParent(Room p_room) => m_roomParent = p_room;
     }
 }

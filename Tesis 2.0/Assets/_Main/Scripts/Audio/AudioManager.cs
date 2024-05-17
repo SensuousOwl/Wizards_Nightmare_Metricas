@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using _Main.Scripts.DevelopmentUtilities;
+using _Main.Scripts.DevelopmentUtilities.Extensions;
 using _Main.Scripts.ScriptableObjects.Audio;
 using _Main.Scripts.Services;
+using _Main.Scripts.Services.MicroServices.EventDatas;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using DG.Tweening;
 using UnityEngine;
@@ -27,46 +29,16 @@ namespace _Main.Scripts.Audio
 
         private void Awake()
         {
-            float masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
-            SetMasterVolume(masterVolume);
-            float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
-            SetMasterVolume(musicVolume);
-            float SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
-            SetMasterVolume(SFXVolume);
+            float l_masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+            SetMasterVolume(l_masterVolume);
+            float l_musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+            SetMasterVolume(l_musicVolume);
+            float l_sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+            SetMasterVolume(l_sfxVolume);
             Initialize();
 
             
-            EventService.AddListener<PlayEffectSound>(OnPlayEffectSoundHandler);
-        }
-
-        private void OnPlayEffectSoundHandler(PlayEffectSound p_data)
-        {
-            var l_audioSource = m_audioSourceControllerPool.GetorCreate();
-            l_audioSource.PlayOneShot(p_data.AudioClip, p_data.Volume);
-            l_audioSource.OnDeactivateEvent += OnDeactivateEventAudioSourceControllerHandler;
-        }
-
-        private void OnDeactivateEventAudioSourceControllerHandler(AudioSourceController p_audioSourceController)
-        {
-            p_audioSourceController.OnDeactivateEvent -= OnDeactivateEventAudioSourceControllerHandler;
-            p_audioSourceController.gameObject.SetActive(false);
-            m_audioSourceControllerPool.AddPool(p_audioSourceController);
-        }
-
-        private void OnDisable()
-        {
-            EventService.RemoveListener<PlayEffectSound>(OnPlayEffectSoundHandler);
-        }
-        
-        void SetVolumeFromPrefs(AudioMixer mixer, string parameterName, string prefsKey, float defaultValue)
-        {
-            float volume = PlayerPrefs.GetFloat(prefsKey, defaultValue);
-            mixer.SetFloat(parameterName, LinearToDecibel(volume));
-        }
-        
-        public float LinearToDecibel(float linear)
-        {
-            return linear != 0 ? Mathf.Log10(linear) * 20 : -80f;
+            EventService.AddListener<PlayEffectSoundEventData>(OnPlayEffectSoundHandler);
         }
 
         private void Initialize()
@@ -82,6 +54,38 @@ namespace _Main.Scripts.Audio
             SetVolumeFromPrefs(mixer, "MusicVolume", "MusicVolume", 0.75f);
             SetVolumeFromPrefs(mixer, "SFXVolume", "SFXVolume", 0.75f);
         }
+        
+        private void OnPlayEffectSoundHandler(PlayEffectSoundEventData p_data)
+        {
+            var l_audioSource = m_audioSourceControllerPool.GetorCreate();
+            l_audioSource.PlayOneShot(p_data.AudioClip, p_data.Volume);
+            l_audioSource.OnDeactivateEvent += OnDeactivateEventAudioSourceControllerHandler;
+        }
+        
+        private void OnDeactivateEventAudioSourceControllerHandler(AudioSourceController p_audioSourceController)
+        {
+            p_audioSourceController.OnDeactivateEvent -= OnDeactivateEventAudioSourceControllerHandler;
+            p_audioSourceController.gameObject.SetActive(false);
+            m_audioSourceControllerPool.AddPool(p_audioSourceController);
+        }
+
+        private void OnDisable()
+        {
+            EventService.RemoveListener<PlayEffectSoundEventData>(OnPlayEffectSoundHandler);
+        }
+        
+        void SetVolumeFromPrefs(AudioMixer p_mixer, string p_parameterName, string p_prefsKey, float p_defaultValue)
+        {
+            float l_volume = PlayerPrefs.GetFloat(p_prefsKey, p_defaultValue);
+            p_mixer.SetFloat(p_parameterName, LinearToDecibel(l_volume));
+        }
+        
+        public float LinearToDecibel(float p_linear)
+        {
+            return p_linear != 0 ? Mathf.Log10(p_linear) * 20 : -80f;
+        }
+
+        
 
         private void CrossFade(BGMType p_newBGMType)
         {
@@ -139,19 +143,19 @@ namespace _Main.Scripts.Audio
             inBattleAudioSource.Stop();
         }
         
-        public void SetMasterVolume(float volume)
+        public void SetMasterVolume(float p_volume)
         {
-            mixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+            mixer.SetFloat("MasterVolume", Mathf.Log10(p_volume) * 20);
         }
 
-        public void SetMusicVolume(float volume)
+        public void SetMusicVolume(float p_volume)
         {
-            mixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+            mixer.SetFloat("MusicVolume", Mathf.Log10(p_volume) * 20);
         }
 
-        public void SetSFXVolume(float volume)
+        public void SetSfxVolume(float p_volume)
         {
-            mixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+            mixer.SetFloat("SFXVolume", Mathf.Log10(p_volume) * 20);
         }
 
 #if UNITY_EDITOR
@@ -165,17 +169,5 @@ namespace _Main.Scripts.Audio
             CrossFade(bgmToFadeTest);
         }
 #endif
-    }
-    
-    public struct PlayEffectSound : ICustomEventData
-    {
-        public AudioClip AudioClip { get; }
-        public float Volume { get; }
-        
-        public PlayEffectSound(AudioClip p_audioClip, float p_v=1)
-        {
-            AudioClip = p_audioClip;
-            Volume = p_v;
-        }
     }
 }

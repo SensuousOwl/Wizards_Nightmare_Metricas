@@ -67,13 +67,6 @@ namespace _Main.Scripts.UI.Menus
         public override void Open()
         {
             base.Open();
-        
-            //TODO: levantar de los datos si esta prendido o apagdo
-            // hudHiddenToggle.isOn = PlayerPrefs.GetInt(HudHiddenKey, defaultValue: 0) == 1;
-            // hudAlwaysActiveToggle.isOn = PlayerPrefs.GetInt(HudAlwaysActiveKey, defaultValue: 1) == 1;
-            // alphaHUDSlider.value = PlayerPrefs.GetFloat(HudAlphaKey, defaultValue: 1);
-            //
-            // ApplyHUDSettings();
             
             masterSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1));
             musicSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MusicVolume", 1));
@@ -113,7 +106,7 @@ namespace _Main.Scripts.UI.Menus
         private void OnSFXVolumeChanged(float value)
         {
             PlayerPrefs.SetFloat("SFXVolume", value);
-            m_audioManager.SetSFXVolume(value);
+            m_audioManager.SetSfxVolume(value);
             m_audioManager.mixer.SetFloat("SFXVolume", m_audioManager.LinearToDecibel(value));
         }
 
@@ -148,33 +141,33 @@ namespace _Main.Scripts.UI.Menus
 
         private void SubscribeToggleHudInput()
         {
-            var l_ToggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
+            var l_toggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
             
-            if (l_ToggleHHudInputAction == default)
+            if (l_toggleHHudInputAction == default)
                 return;
             
-            l_ToggleHHudInputAction.started += ToggleHud;
-            l_ToggleHHudInputAction.canceled += ToggleHud;
+            l_toggleHHudInputAction.started += ToggleHud;
+            l_toggleHHudInputAction.canceled += ToggleHud;
         }
         
         private void UnSubscribeToggleHudInput()
         {
-            var l_ToggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
+            var l_toggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
             
-            if (l_ToggleHHudInputAction == default)
+            if (l_toggleHHudInputAction == default)
                 return;
             
-            l_ToggleHHudInputAction.started -= ToggleHud;
-            l_ToggleHHudInputAction.canceled -= ToggleHud;
+            l_toggleHHudInputAction.started -= ToggleHud;
+            l_toggleHHudInputAction.canceled -= ToggleHud;
         }
         private void ToggleHud(InputAction.CallbackContext p_obj)
         {
             hudCanvasGroup.gameObject.SetActive(!hudCanvasGroup.isActiveAndEnabled);
         }
 
-        private void AlphaHUDValueChanged(float value)
+        private void AlphaHUDValueChanged(float p_value)
         {
-            PlayerPrefs.SetFloat(HUD_ALPHA_KEY, value);
+            PlayerPrefs.SetFloat(HUD_ALPHA_KEY, p_value);
             ApplyHUDSettings();
         }
 

@@ -8,11 +8,4 @@ namespace _Main.Scripts.Services.MicroServices.PersistenceService
         void Flush();
         void Flush(params string[] p_path);
     }
-    
-    public interface IPersistentElement
-    {
-        string PersistenceID { get; }
-        void OnAfterDeserialize();
-        void OnBeforeSerialize();
-    }
 }

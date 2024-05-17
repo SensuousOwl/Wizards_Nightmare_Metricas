@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Main.Scripts.Attributes;
-using _Main.Scripts.DevelopmentUtilities;
-using _Main.Scripts.Enemies;
+using _Main.Scripts.DevelopmentUtilities.Extensions;
+using _Main.Scripts.Entities.Enemies.MVC;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects
