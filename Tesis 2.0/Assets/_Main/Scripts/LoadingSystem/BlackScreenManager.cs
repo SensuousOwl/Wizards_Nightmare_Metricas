@@ -1,11 +1,11 @@
+using System;
 using System.Collections;
 using _Main.Scripts.Services;
-using _Main.Scripts.Services.MicroServices.EventDatas;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Main.Scripts.LoadingSystem
+namespace _main.Scripts.Managers
 {
     public class BlackScreenManager : MonoBehaviour
     {
@@ -83,5 +83,25 @@ namespace _Main.Scripts.LoadingSystem
             StartCoroutine(ScreenFadeCoroutine(testData));
         }
 #endif
+    }
+
+    [Serializable]
+    public struct ActivateBlackScreenEventData : ICustomEventData
+    {
+        [field: SerializeField] public float SecondsInActive { get; private set; }
+        [field: SerializeField] public float DelayInActive { get; private set; }
+
+        public Action OnScreenStarted { get; }
+        public Action OnScreenCompleted { get; }
+        public Action OnScreenFinished { get; }
+        
+        public ActivateBlackScreenEventData(float p_secondsInActive = 1f, float p_delayInActive = 0f, Action p_onScreenStarted = default, Action p_onScreenCompleted = default, Action p_onScreenFinished = default)
+        {
+            OnScreenStarted = p_onScreenStarted;
+            OnScreenCompleted = p_onScreenCompleted;
+            OnScreenFinished = p_onScreenFinished;
+            SecondsInActive = p_secondsInActive;
+            DelayInActive = p_delayInActive;
+        }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using _Main.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +8,7 @@ namespace _Main.Scripts.RoomsSystem
     {
         [SerializeField] private string levelToPass;
         [SerializeField] private GameObject interactVisual;
-        private void Awake()
+private void Awake()
         {
             interactVisual.SetActive(false);
         }

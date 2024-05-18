@@ -5,11 +5,11 @@ namespace _Main.Scripts.Services.CurrencyServices
 {
     public class CurrencyDataService : IUserState
     {
-        [JsonProperty] private int m_currentGs;
+        [JsonProperty] private int currentGs;
 
 
-        public void ResetGs() => m_currentGs = 0;
-        public int GetCurrentGs() => m_currentGs;
-        public void SetGs(int p_newGs) => m_currentGs = p_newGs;
+        public void ResetGs() => currentGs = 0;
+        public int GetCurrentGs() => currentGs;
+        public void SetGs(int p_newGs) => currentGs = p_newGs;
     }
 }

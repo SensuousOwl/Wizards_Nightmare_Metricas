@@ -1,7 +1,6 @@
-using _Main.Scripts.Entities.PlayerScripts.MVC;
+using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.EventsServices;
-using _Main.Scripts.StaticClass;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemPassiveEffects

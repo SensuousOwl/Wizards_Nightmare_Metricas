@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using _Main.Scripts.Entities.Enemies;
-using _Main.Scripts.Entities.Enemies.MVC;
-using _Main.Scripts.Services.MicroServices.EventDatas;
+using _Main.Scripts.Enemies;
+using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 
 namespace _Main.Scripts.RoomsSystem
@@ -21,7 +20,7 @@ namespace _Main.Scripts.RoomsSystem
         protected override void SpawnEnemiesInRoom()
         {
             CloseDoors();
-            EventService.DispatchEvent(new SpawnBossInRoomEventData(this,bossesToSpawn ));
+            EventService.DispatchEvent(new SpawnBossInRoom(this,bossesToSpawn ));
         }
 
         public override void ClearRoom()
@@ -31,5 +30,16 @@ namespace _Main.Scripts.RoomsSystem
         }
 
         public BossHealthBarController GetHealthBar() => bossHealthBar;
+    }
+
+    public struct SpawnBossInRoom : ICustomEventData
+    {
+        public Room Room { get; private set; }
+        public List<EnemyModel> Bosses { get; private set; }
+        public SpawnBossInRoom(Room p_room, List<EnemyModel> p_bosses)
+        {
+            Room = p_room;
+            Bosses = p_bosses;
+        }
     }
 }

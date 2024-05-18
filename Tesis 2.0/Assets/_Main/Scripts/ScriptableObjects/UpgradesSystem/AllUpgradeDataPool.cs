@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using _Main.Scripts.DevelopmentUtilities.DictionaryUtilities;
 using UnityEngine;
-using Logger = _Main.Scripts.StaticClass.Logger;
 
 namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
 {
@@ -23,9 +21,9 @@ namespace _Main.Scripts.ScriptableObjects.UpgradesSystem
         {
             UpgradesDataDictionary.Clear();
             
-            foreach (var l_element in upgradesData)
+            foreach (var element in upgradesData)
             {
-                UpgradesDataDictionary.TryAdd(l_element.Id, l_element);
+                UpgradesDataDictionary.TryAdd(element.Id, element);
             }
         }
         

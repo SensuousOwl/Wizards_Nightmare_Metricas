@@ -1,5 +1,3 @@
-using _Main.Scripts.Managers;
-
 namespace _Main.Scripts.Interfaces
 {
     public interface IPausable

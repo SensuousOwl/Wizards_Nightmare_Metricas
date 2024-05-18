@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.CurrencyServices;
 using UnityEngine;

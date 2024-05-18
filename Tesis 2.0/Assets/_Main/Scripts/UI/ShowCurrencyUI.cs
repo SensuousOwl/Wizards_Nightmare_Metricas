@@ -34,7 +34,6 @@ namespace _Main.Scripts.UI
         {
             StartCoroutine(ChangeValueGradually(p_obj));
         }
-        
         private IEnumerator ChangeValueGradually(int p_newValue)
         {
             float l_elapsedTime = 0f;

@@ -1,4 +1,4 @@
-﻿namespace _Main.Scripts.Services.Stats
+﻿namespace _Main.Scripts.PlayerScripts
 {
     public enum StatsId
     {

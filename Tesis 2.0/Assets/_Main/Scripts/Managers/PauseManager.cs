@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using _Main.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -56,15 +55,15 @@ namespace _Main.Scripts.Managers
             OnPause -= p_pausable.Pause;
         }
 
-        public void SetPauseUpgrade(bool p_isPaused)
+        public void SetPauseUpgrade(bool isPaused)
         {
-            m_isPause = p_isPaused;
+            m_isPause = isPaused;
             Time.timeScale = m_isPause ? 0 : 1f;
         }
 
-        public void SetPause(bool p_isPaused)
+        public void SetPause(bool isPaused)
         {
-            m_isPause = p_isPaused;
+            m_isPause = isPaused;
             Time.timeScale = m_isPause ? 0 : 1f;
             OnPause?.Invoke(m_isPause);
         }

@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using System;
 
 namespace _Main.Scripts.UI.Menus
 {
@@ -18,7 +17,7 @@ namespace _Main.Scripts.UI.Menus
         [SerializeField] private SettingsPanel settingsPanel;
         [SerializeField] private InventoryPanel inventoryPanel;
     
-        public void Start() //because the pause manager might not be alive in the awake, we do everything on the start
+        public void Start()
         {
             resumeButton.onClick.AddListener(ResumePlay);
             settingsButton.onClick.AddListener(OpenSettingsPanel);

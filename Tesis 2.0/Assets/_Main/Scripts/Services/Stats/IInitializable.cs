@@ -1,7 +1,4 @@
-namespace _Main.Scripts.Services.Stats
+interface IInitializable
 {
-    interface IInitializable
-    {
-        void Init();
-    }
+    void Init();
 }

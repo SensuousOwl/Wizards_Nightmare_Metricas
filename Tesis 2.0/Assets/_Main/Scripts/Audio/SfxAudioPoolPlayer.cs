@@ -1,6 +1,5 @@
 using _Main.Scripts.ScriptableObjects.Audio;
 using _Main.Scripts.Services;
-using _Main.Scripts.Services.MicroServices.EventDatas;
 using _Main.Scripts.Services.MicroServices.EventsServices;
 using UnityEngine;
 
@@ -11,12 +10,7 @@ namespace _Main.Scripts.Audio
         [SerializeField] private AudioPoolData audioPoolData;
 
         private static IEventService EventService => ServiceLocator.Get<IEventService>();
-
-        /// <summary>
-        /// Tries to play the requested audio clip, if found
-        /// </summary>
-        /// <param name="p_clipID">AudioClip ID to find</param>
-        /// <returns>if the request was successful</returns>
+        
         public bool TryPlayRequestedClip(string p_clipID, float p_volume=1)
         {
             if (audioPoolData == default)
@@ -25,7 +19,7 @@ namespace _Main.Scripts.Audio
             var l_isValidClip = l_audioClip != default;
             if (l_isValidClip)
             {
-                EventService.DispatchEvent(new PlayEffectSoundEventData(l_audioClip,p_volume));
+                EventService.DispatchEvent(new PlayEffectSound(l_audioClip,p_volume));
             }
 
             return l_isValidClip;
@@ -35,7 +29,7 @@ namespace _Main.Scripts.Audio
         {
             if (p_audioClip == default)
                 return;
-            EventService.DispatchEvent(new PlayEffectSoundEventData(p_audioClip, p_volume));
+            EventService.DispatchEvent(new PlayEffectSound(p_audioClip, p_volume));
         }
     }
 }

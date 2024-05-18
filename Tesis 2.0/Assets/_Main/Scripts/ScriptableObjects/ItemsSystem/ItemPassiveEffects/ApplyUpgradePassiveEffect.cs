@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.Stats;
 using UnityEngine;
@@ -24,11 +25,11 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemPassiveEffects
             public bool SubtractValue { get; private set; }
             
 
-            public DelegateUpgradeData(StatsId p_statsID, float p_value, bool p_subtractValue)
+            public DelegateUpgradeData(StatsId statsID, float value, bool subtractValue)
             {
-                StatsID = p_statsID;
-                Value = p_value;
-                SubtractValue = p_subtractValue;
+                StatsID = statsID;
+                Value = value;
+                SubtractValue = subtractValue;
             }
         }
         

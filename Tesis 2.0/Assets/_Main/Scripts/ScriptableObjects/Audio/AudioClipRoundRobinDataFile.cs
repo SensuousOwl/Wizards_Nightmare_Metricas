@@ -1,4 +1,4 @@
-using _Main.Scripts.DevelopmentUtilities.Extensions;
+using _Main.Scripts.DevelopmentUtilities;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.Audio

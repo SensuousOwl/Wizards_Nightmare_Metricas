@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using _Main.Scripts.ScriptableObjects.RoomsSystems;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace _Main.Scripts.RoomsSystem

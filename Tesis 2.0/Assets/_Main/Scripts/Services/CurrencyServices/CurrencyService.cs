@@ -1,6 +1,5 @@
 ﻿using System;
 using _Main.Scripts.Services.MicroServices.UserDataService;
-using _Main.Scripts.StaticClass;
 
 namespace _Main.Scripts.Services.CurrencyServices
 {

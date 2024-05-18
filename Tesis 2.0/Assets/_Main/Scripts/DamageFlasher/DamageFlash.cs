@@ -1,62 +1,59 @@
 using System.Collections;
 using UnityEngine;
 
-namespace _Main.Scripts.DamageFlasher
+public class DamageFlash : MonoBehaviour
 {
-    public class DamageFlash : MonoBehaviour
+    [ColorUsage(true, true)]
+    [SerializeField] private Color _flashColor = Color.white;
+    [SerializeField] private float _flashTime = 0.25f;
+
+    private SpriteRenderer _spriteRenderer;
+    private Material _material;
+
+    private Coroutine m_damageFlashCoroutine;
+
+    private void Awake()
     {
-        [ColorUsage(true, true)]
-        [SerializeField] private Color flashColor = Color.white;
-        [SerializeField] private float flashTime = 0.25f;
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        private SpriteRenderer m_spriteRenderer;
-        private Material m_material;
+        Init();
+    }
 
-        private Coroutine m_damageFlashCoroutine;
+    private void Init()
+    {
+        _material = _spriteRenderer.material;
+    }
 
-        private void Awake()
+    private IEnumerator DamageFlasher()
+    {
+        SetFlashColor();
+
+        float currentFlashAmount = 0f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < _flashTime)
         {
-            m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            elapsedTime += Time.deltaTime;
 
-            Init();
+            currentFlashAmount = Mathf.Lerp(1f, 0f, (elapsedTime / _flashTime));
+            SetFlashAmount(currentFlashAmount);
+
+            yield return null;
         }
+    }
 
-        private void Init()
-        {
-            m_material = m_spriteRenderer.material;
-        }
+    public void CallDamageFlash()
+    {
+        StartCoroutine(DamageFlasher());
+    }
 
-        private IEnumerator DamageFlasher()
-        {
-            SetFlashColor();
+    private void SetFlashColor()
+    {
+        _material.SetColor("_FlashColor", _flashColor);
+    }
 
-            float l_currentFlashAmount = 0f;
-            float l_elapsedTime = 0f;
-
-            while (l_elapsedTime < flashTime)
-            {
-                l_elapsedTime += Time.deltaTime;
-
-                l_currentFlashAmount = Mathf.Lerp(1f, 0f, (l_elapsedTime / flashTime));
-                SetFlashAmount(l_currentFlashAmount);
-
-                yield return null;
-            }
-        }
-
-        public void CallDamageFlash()
-        {
-            StartCoroutine(DamageFlasher());
-        }
-
-        private void SetFlashColor()
-        {
-            m_material.SetColor("_FlashColor", flashColor);
-        }
-
-        private void SetFlashAmount(float p_amount)
-        {
-            m_material.SetFloat("_FlashAmount", p_amount);
-        }
+    private void SetFlashAmount(float amount)
+    {
+        _material.SetFloat("_FlashAmount", amount);
     }
 }

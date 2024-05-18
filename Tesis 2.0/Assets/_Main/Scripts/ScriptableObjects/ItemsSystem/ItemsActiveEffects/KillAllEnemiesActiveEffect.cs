@@ -1,6 +1,5 @@
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.EventsServices;
-using _Main.Scripts.StaticClass;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemsActiveEffects

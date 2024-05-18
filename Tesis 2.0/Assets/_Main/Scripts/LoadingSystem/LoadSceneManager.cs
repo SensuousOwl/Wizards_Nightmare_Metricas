@@ -7,7 +7,7 @@ namespace _Main.Scripts.LoadingSystem
     public class LoadSceneManager : MonoBehaviour
     {
         [SerializeField] private DialogueSystem dialogueSystem;
-        [SerializeField] private string sceneToLoad = "Level A_Scene";
+        [SerializeField] private string levelToLoad = "Level A_Scene";
         private bool m_isDialogueFinish;
 
         private void Awake()
@@ -38,7 +38,7 @@ namespace _Main.Scripts.LoadingSystem
                 yield return null;
             }
 
-            SceneManager.LoadScene(sceneToLoad);
+            SceneManager.LoadScene(levelToLoad);
         }
     }
 }

@@ -1,4 +1,4 @@
-using _Main.Scripts.Entities.PlayerScripts.MVC;
+using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.InventoryService;
 using UnityEngine;

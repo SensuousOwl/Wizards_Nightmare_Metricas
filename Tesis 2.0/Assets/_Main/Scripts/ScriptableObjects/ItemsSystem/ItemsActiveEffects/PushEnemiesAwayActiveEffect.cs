@@ -1,5 +1,5 @@
-﻿using _Main.Scripts.Entities.Enemies.MVC;
-using _Main.Scripts.Entities.PlayerScripts.MVC;
+﻿using _Main.Scripts.Enemies;
+using _Main.Scripts.Managers;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemsActiveEffects
@@ -12,7 +12,7 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemsActiveEffects
         [SerializeField] private LayerMask targetMask;
         public override void UseItem()
         {
-            var l_playerPos = PlayerModel.Local.transform.position;
+            var l_playerPos = LevelManager.Instance.PlayerModel.transform.position;
             var l_col = new Collider2D[20];
             var l_count = Physics2D.OverlapCircleNonAlloc(l_playerPos, radiusEffect,  l_col, targetMask);
 

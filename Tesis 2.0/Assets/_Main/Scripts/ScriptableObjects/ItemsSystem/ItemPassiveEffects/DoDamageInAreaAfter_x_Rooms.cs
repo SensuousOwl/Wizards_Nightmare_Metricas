@@ -1,6 +1,5 @@
 ﻿using _Main.Scripts.Services;
 using _Main.Scripts.Services.MicroServices.EventsServices;
-using _Main.Scripts.StaticClass;
 using UnityEngine;
 
 namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemPassiveEffects
@@ -40,7 +39,9 @@ namespace _Main.Scripts.ScriptableObjects.ItemsSystem.ItemPassiveEffects
 
         private void OnClearRoom()
         {
-            m_roomCount++;  
+            m_roomCount++;
+
+                
         }
 
         public override void Deactivate()

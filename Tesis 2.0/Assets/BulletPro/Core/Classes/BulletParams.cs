@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 #if UNITY_EDITOR
-using UnityEditor;
-using System;
 #endif
 
 // This script is part of the BulletPro package for Unity.

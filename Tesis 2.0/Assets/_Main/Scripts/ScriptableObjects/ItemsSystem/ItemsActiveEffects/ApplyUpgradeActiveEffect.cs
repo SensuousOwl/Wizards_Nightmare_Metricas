@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using _Main.Scripts.Entities.PlayerScripts.MVC;
+using _Main.Scripts.PlayerScripts;
 using _Main.Scripts.Services;
 using _Main.Scripts.Services.Stats;
 using UnityEngine;

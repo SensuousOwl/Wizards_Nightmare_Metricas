@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using BulletPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 // This script is part of the BulletPro package for Unity.

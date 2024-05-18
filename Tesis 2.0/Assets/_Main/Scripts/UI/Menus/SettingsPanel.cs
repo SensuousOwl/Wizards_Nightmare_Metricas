@@ -1,5 +1,5 @@
+using System;
 using _Main.Scripts.Audio;
-using _Main.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -32,9 +32,13 @@ namespace _Main.Scripts.UI.Menus
             ApplyHUDSettings();
         }
 
+        private void OnDestroy()
+        {
+            UnSubscribeToggleHudInput();
+        }
+
         public void Initialize()
         {
-
             controlsScreen.Close();
 
             m_audioManager = FindObjectOfType<AudioManager>();
@@ -50,8 +54,6 @@ namespace _Main.Scripts.UI.Menus
             controlsScreenButton.onClick.AddListener(OpenControlPanel);
             goBackControlButton.onClick.AddListener(CloseControlPanel);
             goBackScreenButton.onClick.AddListener(Close);
-   
-        
         }
 
         private void OpenControlPanel()
@@ -79,12 +81,12 @@ namespace _Main.Scripts.UI.Menus
             hudAlwaysActiveToggle.isOn = PlayerPrefs.GetInt(HUD_ALWAYS_ACTIVE_KEY, 0) == 1;
             if (hudHiddenToggle.isOn)
                 SubscribeToggleHudInput();
+            
             if (hudCanvasGroup != default)
             {
                 hudCanvasGroup.alpha = alphaHUDSlider.value;
                 hudCanvasGroup.interactable = hudAlwaysActiveToggle.isOn;
                 hudCanvasGroup.blocksRaycasts = !hudHiddenToggle.isOn;
-                hudCanvasGroup.gameObject.SetActive(hudHiddenToggle.isOn);
                 hudCanvasGroup.gameObject.SetActive(hudAlwaysActiveToggle.isOn);
             }
             
@@ -106,13 +108,14 @@ namespace _Main.Scripts.UI.Menus
         private void OnSFXVolumeChanged(float value)
         {
             PlayerPrefs.SetFloat("SFXVolume", value);
-            m_audioManager.SetSfxVolume(value);
+            m_audioManager.SetSFXVolume(value);
             m_audioManager.mixer.SetFloat("SFXVolume", m_audioManager.LinearToDecibel(value));
         }
 
         private void ToggleOnAlwaysActive(bool p_value)
         {
             PlayerPrefs.SetInt(HUD_ALWAYS_ACTIVE_KEY, p_value ? 1 : 0);
+            PlayerPrefs.SetInt(HUD_HIDDEN_KEY, p_value ? 0 : 1);
             ApplyHUDSettings();
             
             UnSubscribeToggleHudInput();
@@ -126,6 +129,7 @@ namespace _Main.Scripts.UI.Menus
         private void ToggleHudHidden(bool p_value)
         {
             PlayerPrefs.SetInt(HUD_HIDDEN_KEY, p_value ? 1 : 0);
+            PlayerPrefs.SetInt(HUD_ALWAYS_ACTIVE_KEY, p_value ? 0 : 1);
             ApplyHUDSettings();
 
             if (p_value)
@@ -141,33 +145,33 @@ namespace _Main.Scripts.UI.Menus
 
         private void SubscribeToggleHudInput()
         {
-            var l_toggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
+            var l_ToggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
             
-            if (l_toggleHHudInputAction == default)
+            if (l_ToggleHHudInputAction == default)
                 return;
             
-            l_toggleHHudInputAction.started += ToggleHud;
-            l_toggleHHudInputAction.canceled += ToggleHud;
+            l_ToggleHHudInputAction.started += ToggleHud;
+            l_ToggleHHudInputAction.canceled += ToggleHud;
         }
         
         private void UnSubscribeToggleHudInput()
         {
-            var l_toggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
+            var l_ToggleHHudInputAction = InputManager.Instance.GetInputAction("ToggleHUD");
             
-            if (l_toggleHHudInputAction == default)
+            if (l_ToggleHHudInputAction == default)
                 return;
             
-            l_toggleHHudInputAction.started -= ToggleHud;
-            l_toggleHHudInputAction.canceled -= ToggleHud;
+            l_ToggleHHudInputAction.started -= ToggleHud;
+            l_ToggleHHudInputAction.canceled -= ToggleHud;
         }
         private void ToggleHud(InputAction.CallbackContext p_obj)
         {
             hudCanvasGroup.gameObject.SetActive(!hudCanvasGroup.isActiveAndEnabled);
         }
 
-        private void AlphaHUDValueChanged(float p_value)
+        private void AlphaHUDValueChanged(float value)
         {
-            PlayerPrefs.SetFloat(HUD_ALPHA_KEY, p_value);
+            PlayerPrefs.SetFloat(HUD_ALPHA_KEY, value);
             ApplyHUDSettings();
         }
 

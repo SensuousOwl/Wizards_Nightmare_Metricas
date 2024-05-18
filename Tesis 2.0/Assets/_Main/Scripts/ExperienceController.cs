@@ -1,4 +1,4 @@
-using _Main.Scripts.Entities.Enemies.MVC;
+using _Main.Scripts.Enemies;
 using _Main.Scripts.UI.Menus;
 using UnityEngine;
 
