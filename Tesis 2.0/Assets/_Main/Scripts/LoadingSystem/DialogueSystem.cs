@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Unity.Services.Analytics;
 
 namespace _Main.Scripts.LoadingSystem
 {
@@ -29,7 +30,10 @@ namespace _Main.Scripts.LoadingSystem
         private void Awake()
         {
             m_typingTime = new WaitForSeconds(typingTime);
-            InputManager.Instance.SubscribeInput("SkipDialogue", OnSkipDialogueInputHandler);
+
+            // Si quieres deshabilitar la barra espaciadora, comenta esta línea
+           // InputManager.Instance.SubscribeInput("SkipDialogue", OnSkipDialogueInputHandler);
+
             SetDialogueElements(dialogueParams);
             StartDialogue();
         }
@@ -83,8 +87,17 @@ namespace _Main.Scripts.LoadingSystem
                     DialogueFinish();
                 return;
             }
+            AnalyticsService.Instance.CustomData("Cinematic_Skipped", new Dictionary<string, object>
+            {
+               { "CinematicName", $"Dialogue_{m_index}" },
+               { "Skipped", true }
+             });
 
+            AnalyticsService.Instance.Flush(); // Enviar el evento inmediatamente
+
+            Debug.Log($"Evento Cinemática omitida registrado: Dialogue_{m_index}");
             SkipDialogue();
+
         }
 
         private void DialogueFinish()
@@ -99,6 +112,12 @@ namespace _Main.Scripts.LoadingSystem
             m_index++;
 
             m_isFinish = true;
+        }
+
+        public void OnSkipDialogueButton() // Nuevo método público
+        {
+            // Llamamos al mismo manejador que usa el sistema de entrada
+            OnSkipDialogueInputHandler(default);
         }
     }
 }
