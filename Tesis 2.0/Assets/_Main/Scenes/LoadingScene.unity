@@ -727,7 +727,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1806982290}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1207350496}
+        m_TargetAssemblyTypeName: _Main.Scripts.LoadingSystem.DialogueSystem, Assembly-CSharp
+        m_MethodName: OnSkipDialogueButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1806982290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,6 +787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1866710837}
+  - component: {fileID: 1866710838}
   m_Layer: 0
   m_Name: GameAnalyticsManager
   m_TagString: Untagged
@@ -797,6 +810,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1866710838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866710836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a7a8b8e68f23941bb2177eece24c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skipButton: {fileID: 1806982289}
+  dialogueText: {fileID: 1659480821}
 --- !u!1 &1888093300
 GameObject:
   m_ObjectHideFlags: 0
