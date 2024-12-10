@@ -118,14 +118,15 @@ namespace _Main.Scripts
             // Enviar el evento Time_On_Run_End
             AnalyticsService.Instance.CustomData("Time_On_Run_End", new Dictionary<string, object>
     {
-        { "Run_Duration", runDuration }
+        { "RunDuration", runDuration } // Asegúrate de que este nombre sea compatible con el Dashboard
     });
             Debug.Log("Evento 'Time_On_Run_End' enviado correctamente.");
 
             // Enviar el evento Enemies_Eliminated_On_Run_End
             AnalyticsService.Instance.CustomData("Enemies_Eliminated_On_Run_End", new Dictionary<string, object>
     {
-        { "EnemiesEliminated", totalEnemiesEliminated }
+        { "EnemiesEliminated", totalEnemiesEliminated },
+        { "Run_Duration", runDuration } // Agregado para correlacionar duración y enemigos eliminados
     });
             Debug.Log("Evento 'Enemies_Eliminated_On_Run_End' enviado correctamente.");
 
