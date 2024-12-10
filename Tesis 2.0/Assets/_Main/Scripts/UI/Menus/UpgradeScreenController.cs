@@ -38,22 +38,47 @@ namespace _Main.Scripts.UI.Menus
 
         public void ActivateUpgradeScreen()
         {
+            if (screenObj == null)
+            {
+                Debug.LogError("screenObj ha sido destruido o no está asignado.");
+                return;
+            }
+
             for (int i = 0; i < upgradesCount; i++)
             {
-                m_currUpgradeDatas.Add(UpgradePoolService.GetRandomUnlockedUpgradeFromPool(m_previusUpgradeDatas)); 
-                m_previusUpgradeDatas.Add(m_currUpgradeDatas[i]);
-                
-                namesTxt[i].text = m_currUpgradeDatas[i].Name;
-                descriptionTxt[i].text = m_currUpgradeDatas[i].Description;
+                if (UpgradePoolService == null)
+                {
+                    Debug.LogError("UpgradePoolService no está disponible.");
+                    return;
+                }
 
-                buttonImages[i].sprite = m_currUpgradeDatas[i].BorderSprite;
-                effectImages[i].sprite = m_currUpgradeDatas[i].EffectSprite;
+                var upgradeData = UpgradePoolService.GetRandomUnlockedUpgradeFromPool(m_previusUpgradeDatas);
+                if (upgradeData == null)
+                {
+                    Debug.LogWarning($"No se pudo obtener un upgrade para la posición {i}");
+                    continue;
+                }
+
+                m_currUpgradeDatas.Add(upgradeData);
+                m_previusUpgradeDatas.Add(upgradeData);
+
+                if (i < namesTxt.Count && namesTxt[i] != null)
+                    namesTxt[i].text = upgradeData.Name;
+
+                if (i < descriptionTxt.Count && descriptionTxt[i] != null)
+                    descriptionTxt[i].text = upgradeData.Description;
+
+                if (i < buttonImages.Count && buttonImages[i] != null)
+                    buttonImages[i].sprite = upgradeData.BorderSprite;
+
+                if (i < effectImages.Count && effectImages[i] != null)
+                    effectImages[i].sprite = upgradeData.EffectSprite;
             }
-            
+
             screenObj.SetActive(true);
             PauseManager.Instance.SetPauseUpgrade(true);
         }
-        
+
 
         public void OnPressedButton(int p_buttonId)
         {

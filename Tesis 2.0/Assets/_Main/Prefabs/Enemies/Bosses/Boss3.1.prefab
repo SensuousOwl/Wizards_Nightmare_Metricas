@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 802940022457b414ca17b101af02da86, type: 2}
-  collider: {fileID: 0}
+  collider: {fileID: 5379963431024126907}
 --- !u!114 &8307385299878733632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,8 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cd804f41914ed44880c387ce28d5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flashColor: {r: 1, g: 1, b: 1, a: 1}
-  _flashTime: 0.25
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
 --- !u!1 &1739993644369798611
 GameObject:
   m_ObjectHideFlags: 0

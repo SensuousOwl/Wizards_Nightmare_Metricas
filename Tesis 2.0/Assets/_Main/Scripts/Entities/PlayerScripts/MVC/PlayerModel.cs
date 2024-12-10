@@ -166,7 +166,8 @@ namespace _Main.Scripts.Entities.PlayerScripts.MVC
             }
 
             // Llamar a EndRunTimer
-            ExperienceController.Instance?.EndRunTimer();
+            //Metrica Time_On_Run_End y Enemies_Eliminated_On_Run_End
+            ExperienceController.Instance.EndRunTimer();
 
             HealthController.OnDie -= Die;
             SceneManager.LoadScene("DeathScene");

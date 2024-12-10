@@ -17,14 +17,19 @@ namespace _Main.Scripts.RoomsSystem
         private static IEventService EventService => ServiceLocator.Get<IEventService>();
         private Room m_currentRoom;
         private readonly List<EnemyModel> m_enemies = new();
-        
+
+        //Metrica Enemies_Eliminated_On_Run_End 
+        public static int TotalEnemiesEliminated { get; private set; }
         private void OnEnable()
         {
             EventService.AddListener<SpawnEnemiesInRoomEventData>(SpawnEnemiesInRoomHandler);
             EventService.AddListener<SpawnEnemyEventData>(SpawnEnemyHandler);
             EventService.AddListener<SpawnBossInRoomEventData>(OnSpawnBossInRoomHandler);
-            EventService.AddListener<DieEnemyEventData>(DieEnemyHandler);
+            EventService.AddListener<DieEnemyEventData>(DieEnemyHandler); // Solo una vez
             EventService.AddListener(EventsDefinition.KILL_ALL_ENEMIES_ID, KillAllEnemiesHandler);
+
+            // Metrica Enemies_Eliminated_On_Run_End
+            TotalEnemiesEliminated = 0; // Resetea el contador al iniciar una nueva escena
         }
 
         private void KillAllEnemiesHandler()
@@ -84,13 +89,28 @@ namespace _Main.Scripts.RoomsSystem
             m_enemies.Add(l_enemy);
             
         }
+
+        //Metrica Time_On_Run_End y Enemies_Eliminated_On_Run_End
         private void DieEnemyHandler(DieEnemyEventData p_data)
         {
-            if(m_enemies.Contains(p_data.Model))
+            Debug.Log($"DieEnemyHandler llamado para: {p_data.Model.name}");
+
+            if (m_enemies.Contains(p_data.Model))
+            {
                 m_enemies.Remove(p_data.Model);
+                ExperienceController.Instance.IncrementEnemyEliminatedCount();
+                Debug.Log($"Enemigo eliminado correctamente. Total eliminados: {ExperienceController.Instance.GetTotalEnemiesEliminated()}");
+            }
+            else
+            {
+                Debug.LogWarning($"El enemigo {p_data.Model.name} ya fue eliminado o no estaba en la lista.");
+            }
 
             if (m_enemies.Count <= 0)
+            {
+                Debug.Log("Todos los enemigos en la habitación han sido eliminados.");
                 m_currentRoom.ClearRoom();
+            }
         }
     }
 }

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0281b87b7bb34cd1960f2906b0789cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToPass: Level B_Scene
+  levelToPass: VictoryScene
   interactVisual: {fileID: 2163704050623073050}
 --- !u!212 &2573614153943448699
 SpriteRenderer:

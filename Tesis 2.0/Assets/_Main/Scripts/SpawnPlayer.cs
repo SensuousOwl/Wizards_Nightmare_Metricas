@@ -8,8 +8,14 @@ namespace _Main.Scripts
     {
         [SerializeField] private PlayerModel playerPrefab;
 
-       
-  
+
+        //Metrica Time_On_Run_End y Enemies_Eliminated_On_Run_End
+        private void StartNewRun()
+        {
+            ExperienceController.Instance.ResetEnemyEliminatedCount();
+            ExperienceController.Instance.StartRunTimer();
+        }
+
         private void Awake()
         {
             Instantiate(playerPrefab, transform.position, playerPrefab.transform.rotation);
