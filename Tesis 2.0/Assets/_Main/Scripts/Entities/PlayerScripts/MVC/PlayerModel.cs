@@ -155,7 +155,7 @@ namespace _Main.Scripts.Entities.PlayerScripts.MVC
         }
 
         public void SetRevive(bool p_isActive) => m_isReviveActive = p_isActive;
-        
+
         private void Die()
         {
             if (m_isReviveActive)
@@ -164,6 +164,10 @@ namespace _Main.Scripts.Entities.PlayerScripts.MVC
                 OnRevive?.Invoke();
                 return;
             }
+
+            // Llamar a EndRunTimer
+            ExperienceController.Instance?.EndRunTimer();
+
             HealthController.OnDie -= Die;
             SceneManager.LoadScene("DeathScene");
             m_view.PlayDeadAnim();
