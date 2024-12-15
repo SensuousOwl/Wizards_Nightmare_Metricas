@@ -94,6 +94,7 @@ namespace _Main.Scripts.UI.Menus
 
         private void OpenControlPanel()
         {
+            MenuTimeTracker.StopAndSendAnalytics();
             controlsScreen.Open();
         }
 
@@ -104,7 +105,7 @@ namespace _Main.Scripts.UI.Menus
 
         public override void Open()
         {
-            openTime = Time.time;
+            MenuTimeTracker.StartTracking("Settings");
 
             if (masterSlider != null)
                 masterSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("MasterVolume", 1));
@@ -120,23 +121,7 @@ namespace _Main.Scripts.UI.Menus
 
         public override void Close()
         {
-            float duration = Time.time - openTime;
-
-            if (UnityServices.State == ServicesInitializationState.Initialized && AnalyticsService.Instance != null)
-            {
-                AnalyticsService.Instance.CustomData("Menu_Screen_Time", new Dictionary<string, object>
-                {
-                    { "ScreenType", "Settings" },
-                    { "Duration", duration }
-                });
-
-                AnalyticsService.Instance.Flush();
-                Debug.Log($"Evento 'Menu_Screen_Time' enviado para Settings con duración {duration} segundos.");
-            }
-            else
-            {
-                Debug.LogWarning("Unity Services no está inicializado. No se enviará el evento de Analytics.");
-            }
+            MenuTimeTracker.StopAndSendAnalytics();           
 
             base.Close();
         }

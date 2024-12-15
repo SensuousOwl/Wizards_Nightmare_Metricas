@@ -41,13 +41,13 @@ namespace _Main.Scripts.UI
 
         private void CloseInventoryPanel()
         {
-            SendAnalytics(); // Enviar métrica al cerrar
+            MenuTimeTracker.StopAndSendAnalytics();
             Close();
         }
 
         public override void Open()
         {
-            openTime = Time.time; // Registrar el tiempo en que se abre
+            MenuTimeTracker.StartTracking("Inventory");
             moneyCountText.text = CurrencyService.GetCurrentGs().ToString();
             UpdateActiveItem();
             UpdatePassiveItem();
@@ -93,21 +93,6 @@ namespace _Main.Scripts.UI
             imagePassiveText.enabled = true;
             imagePassiveText.sprite = l_item.Sprite;
         }
-
-        private void SendAnalytics()
-        {
-            float duration = Time.time - openTime; // Calcular duración
-            Debug.Log($"Inventario cerrado. Duración: {duration} segundos.");
-
-            // Enviar evento a Unity Analytics
-            AnalyticsService.Instance.CustomData("Menu_Screen_Time", new Dictionary<string, object>
-            {
-                { "ScreenType", "Inventory" },
-                { "Duration", duration }
-            });
-
-            AnalyticsService.Instance.Flush(); // Forzar envío inmediato
-            Debug.Log($"Evento 'Menu_Screen_Time' enviado para Inventory con duración {duration} segundos.");
-        }
+       
     }
 }
