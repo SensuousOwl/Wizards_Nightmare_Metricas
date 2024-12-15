@@ -165,10 +165,14 @@ namespace _Main.Scripts.Entities.PlayerScripts.MVC
                 return;
             }
 
-            // Llamar a EndRunTimer
-            //Metrica Time_On_Run_End y Enemies_Eliminated_On_Run_End
-            ExperienceController.Instance.EndRunTimer();
+            // Registrar la métrica de EndRunTimer con Outcome como "Loss"
+            if (ExperienceController.Instance != null)
+            {
+                ExperienceController.Instance.EndRunTimer(false); // false indica "Loss"
+                Debug.Log("Partida finalizada. Métrica registrada con resultado: Loss.");
+            }
 
+            // Cambiar de escena tras la muerte
             HealthController.OnDie -= Die;
             SceneManager.LoadScene("DeathScene");
             m_view.PlayDeadAnim();

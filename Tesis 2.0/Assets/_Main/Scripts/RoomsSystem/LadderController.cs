@@ -9,15 +9,25 @@ namespace _Main.Scripts.RoomsSystem
     {
         [SerializeField] private string levelToPass;
         [SerializeField] private GameObject interactVisual;
+
         private void Awake()
         {
             interactVisual.SetActive(false);
         }
+
         public void Interact()
         {
+            // Registrar la métrica de EndRunTimer con Outcome como "Win"
+            if (ExperienceController.Instance != null)
+            {
+                ExperienceController.Instance.EndRunTimer(true); // true indica "Win"
+                Debug.Log("Partida finalizada. Métrica registrada con resultado: Win.");
+            }
+
+            // Cargar la siguiente escena
             SceneManager.LoadScene(levelToPass);
         }
-        
+
         public void ShowCanvasUI(bool p_b)
         {
             interactVisual.SetActive(p_b);

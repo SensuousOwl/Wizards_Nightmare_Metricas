@@ -24,6 +24,13 @@ namespace _Main.Scripts
 
         private int totalEnemiesEliminated;
 
+        private int totalItemsPickedUp;
+
+        private int currentLevel = 1;
+        private int roomsCompleted;
+
+
+
         private void Awake()
         {
             if (Instance != null)
@@ -31,11 +38,10 @@ namespace _Main.Scripts
                 Destroy(gameObject);
                 return;
             }
-
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-       
+
         private void OnEnable()
         {
             EnemyModel.OnExperienceDrop += EnemyModelOnOnDie;
@@ -88,13 +94,45 @@ namespace _Main.Scripts
         {
             totalEnemiesEliminated = 0;
         }
-
-        public void EndRunTimer()
+        public void IncrementItemPickupCount()
         {
-            // Validar si el temporizador de la partida fue iniciado
+            totalItemsPickedUp++;
+            Debug.Log($"Total de ítems recogidos: {totalItemsPickedUp}");
+        }
+        public void IncrementRoomsCompleted()
+        {
+            roomsCompleted++;
+            Debug.Log($"Habitación completada. Total: {roomsCompleted}");
+        }
+        public void ResetRoomsCompleted()
+        {
+            roomsCompleted = 0;
+        }
+
+        public void SetCurrentLevel(int level)
+        {
+            currentLevel = level;
+            Debug.Log($"Nivel actual: {currentLevel}");
+        }
+        public void ResetItemPickupCount()
+        {
+            totalItemsPickedUp = 0;
+        }
+        public int GetCurrentLevel()
+        {
+            return currentLevel;
+        }
+
+        public float GetRunStartTime()
+        {
+            return runStartTime;
+        }
+
+        public void EndRunTimer(bool didWin)
+        {
             if (runStartTime <= 0)
             {
-                Debug.LogError("El temporizador de la partida no fue iniciado correctamente. Asegúrate de llamar a StartRunTimer() al inicio de la run.");
+                Debug.LogError("El temporizador de la partida no fue iniciado correctamente.");
                 return;
             }
 
@@ -102,7 +140,12 @@ namespace _Main.Scripts
             float runDuration = Time.time - runStartTime;
             Debug.Log($"Partida finalizada. Duración: {runDuration} segundos. Enemigos eliminados: {totalEnemiesEliminated}");
 
-            // Validar que los datos sean razonables antes de enviarlos
+            // Obtener datos desde RoomsGenerator
+            int levelNumber = GetCurrentLevel();
+
+            RoomsGenerator roomGen = FindObjectOfType<RoomsGenerator>();
+            int roomsCompleted = roomGen != null ? roomGen.GetRoomsCompleted() : 0;
+            // Validar datos antes de enviarlos
             if (runDuration <= 0)
             {
                 Debug.LogError("La duración de la partida calculada es inválida (<= 0). Verifica que StartRunTimer() fue llamado correctamente.");
@@ -130,15 +173,27 @@ namespace _Main.Scripts
     });
             Debug.Log("Evento 'Enemies_Eliminated_On_Run_End' enviado correctamente.");
 
+            // Enviar el evento Level_And_Room_Progression
+            // Enviar el evento Level_And_Room_Progression con Outcome
+            AnalyticsService.Instance.CustomData("Level_And_Room_Progression", new Dictionary<string, object>
+    {
+        { "RunDuration_", runDuration },
+        { "RoomsCompleted", roomsCompleted },
+        { "LevelNumber", GetCurrentLevel() },
+        { "Outcome", didWin ? "Win" : "Loss" } // Nuevo parámetro
+    });
+
+            Debug.Log($"Evento 'Level_And_Room_Progression' enviado: RoomsCompleted={roomsCompleted}, LevelNumber={GetCurrentLevel()}, Outcome={(didWin ? "Win" : "Loss")}");
+
+
+
             // Forzar el envío inmediato de los datos a Unity Analytics
             AnalyticsService.Instance.Flush();
-            Debug.Log("Datos enviados a Unity Analytics.");
-
-            // Reiniciar variables para la próxima partida
+            ResetRoomsCompleted();
             ResetEnemyEliminatedCount();
             runStartTime = 0;
-            Debug.Log("Estado reiniciado para la próxima partida.");
         }
     }
 }
+
 

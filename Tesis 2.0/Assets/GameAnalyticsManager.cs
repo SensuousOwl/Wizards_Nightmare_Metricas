@@ -49,13 +49,12 @@ public class GameAnalyticsManager : MonoBehaviour
         {
             AnalyticsService.Instance.CustomData("Dialogue_Skip_Spam", new Dictionary<string, object>
             {
-                { "SpamCount", spamCount }, // Número de clics rápidos
-                { "TotalClicks", spamCount + 1 }, // Total de clics (incluyendo los normales)
-                { "TimeSinceStart", Time.time } // Tiempo desde el inicio del juego
+                { "Spam_Count", spamCount }, // Número de clics rápidos
+                { "Total_Clicks", spamCount + 1 } // Total de clics (incluyendo los normales)
             });
 
             AnalyticsService.Instance.Flush(); // Forzar envío inmediato para pruebas
-            Debug.Log($"Evento enviado: Dialogue_Skip_Spam - SpamCount: {spamCount}, TotalClicks: {spamCount + 1}");
+            Debug.Log($"Evento enviado: Dialogue_Skip_Spam - Spam_Count: {spamCount}, Total_Clicks: {spamCount + 1}");
 
 
         }

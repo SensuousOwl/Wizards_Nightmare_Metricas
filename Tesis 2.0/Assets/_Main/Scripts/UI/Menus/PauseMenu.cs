@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System;
+using System.Collections.Generic;
+using Unity.Services.Analytics;
 
 namespace _Main.Scripts.UI.Menus
 {
@@ -40,15 +42,35 @@ namespace _Main.Scripts.UI.Menus
 
         private void QuitGame()
         {
+
+            float runDuration = Time.time - ExperienceController.Instance.GetRunStartTime();
+            AnalyticsService.Instance.CustomData("Run_Abandoned", new Dictionary<string, object>
+    {
+        { "LevelNumber", ExperienceController.Instance.GetCurrentLevel() },
+        { "RunnDuration", runDuration }
+    });
+            AnalyticsService.Instance.Flush();
+
+            Debug.Log("Evento 'Run_Abandoned' enviado antes de salir.");
             Application.Quit();
         }
 
         private void LoadMainMenu()
         {
+            // Registrar evento Run_Abandoned
+            float runDuration = Time.time - ExperienceController.Instance.GetRunStartTime();
+            AnalyticsService.Instance.CustomData("Run_Abandoned", new Dictionary<string, object>
+    {
+        { "LevelNumber", ExperienceController.Instance.GetCurrentLevel() },
+        { "RunnDuration", runDuration }
+    });
+            AnalyticsService.Instance.Flush();
+
+            Debug.Log("Evento 'Run_Abandoned' enviado antes de cargar el menú principal.");
             PauseManager.Instance.SetPause(false);
             SceneManager.LoadScene(mainMenuScene);
         }
-        
+
         private void OnDisable()
         {
             InputManager.Instance.UnsubscribeInput("Inventory", OnInventoryPerformed);

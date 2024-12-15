@@ -20,7 +20,9 @@ namespace _Main.Scripts.RoomsSystem
 
         private List<Room> m_rooms = new();
         private int m_roomToClear;
-        
+
+        private int m_roomsCompleted = 0;
+
         private void Start()
         {
             GenerateRooms();
@@ -152,6 +154,19 @@ namespace _Main.Scripts.RoomsSystem
                 DoorDirections.Down => Vector2.down,
                 _ => throw new ArgumentOutOfRangeException(nameof(p_doorDirection), p_doorDirection, null)
             };
+        }
+
+        public int GetRoomsCompleted()
+        {
+            return m_roomsCompleted;
+        }
+
+        public void RoomCleared()
+        {
+            m_roomsCompleted++;
+            Debug.Log($"Habitaciones completadas: {m_roomsCompleted}");
+
+            // Si necesitas desbloquear puertas, asegúrate de que la lógica esté aquí.
         }
     }
 }

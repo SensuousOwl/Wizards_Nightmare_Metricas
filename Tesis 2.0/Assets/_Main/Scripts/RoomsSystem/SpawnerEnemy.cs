@@ -110,7 +110,19 @@ namespace _Main.Scripts.RoomsSystem
             {
                 Debug.Log("Todos los enemigos en la habitación han sido eliminados.");
                 m_currentRoom.ClearRoom();
+
+                var roomGenerator = FindObjectOfType<RoomsGenerator>();
+                if (roomGenerator != null)
+                {
+                    roomGenerator.RoomCleared();
+                    Debug.Log("RoomCleared() llamado correctamente.");
+                }
+                else
+                {
+                    Debug.LogWarning("RoomsGenerator no encontrado.");
+                }
             }
         }
+
     }
 }

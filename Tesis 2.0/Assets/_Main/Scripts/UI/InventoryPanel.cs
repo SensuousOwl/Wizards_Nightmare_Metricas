@@ -5,6 +5,8 @@ using _Main.Scripts.UI.Menus;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Services.Analytics;
+using System.Collections.Generic;
 
 namespace _Main.Scripts.UI
 {
@@ -26,6 +28,8 @@ namespace _Main.Scripts.UI
         [SerializeField] private Image imageActiveText;
         [SerializeField] private Image imagePassiveText;
 
+        private float openTime; // Tiempo en el que se abrió el inventario
+
         private static IInventoryService InventoryService => ServiceLocator.Get<IInventoryService>();
         private static ICurrencyService CurrencyService => ServiceLocator.Get<ICurrencyService>();
 
@@ -37,11 +41,13 @@ namespace _Main.Scripts.UI
 
         private void CloseInventoryPanel()
         {
+            SendAnalytics(); // Enviar métrica al cerrar
             Close();
         }
 
         public override void Open()
         {
+            openTime = Time.time; // Registrar el tiempo en que se abre
             moneyCountText.text = CurrencyService.GetCurrentGs().ToString();
             UpdateActiveItem();
             UpdatePassiveItem();
@@ -86,6 +92,22 @@ namespace _Main.Scripts.UI
             rarityPassiveText.text = l_item.ItemRarity.ToString();
             imagePassiveText.enabled = true;
             imagePassiveText.sprite = l_item.Sprite;
+        }
+
+        private void SendAnalytics()
+        {
+            float duration = Time.time - openTime; // Calcular duración
+            Debug.Log($"Inventario cerrado. Duración: {duration} segundos.");
+
+            // Enviar evento a Unity Analytics
+            AnalyticsService.Instance.CustomData("Menu_Screen_Time", new Dictionary<string, object>
+            {
+                { "ScreenType", "Inventory" },
+                { "Duration", duration }
+            });
+
+            AnalyticsService.Instance.Flush(); // Forzar envío inmediato
+            Debug.Log($"Evento 'Menu_Screen_Time' enviado para Inventory con duración {duration} segundos.");
         }
     }
 }

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using _Main.Scripts.UI.Menus;
+using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,8 +17,11 @@ namespace _Main.Scripts.Managers
         [SerializeField] private Button backButton;
         [SerializeField] private BasePanel creditsScreen;
         [SerializeField] private SettingsPanel settingsScreen;
-        
-        
+
+        private string currentScreen; 
+        private float screenStartTime; 
+
+
         private void Awake()
         {
             creditsScreen.Close();
@@ -53,7 +58,7 @@ namespace _Main.Scripts.Managers
         }
 
         private void OnExitButtonClicked()
-        {
+        {         
             Application.Quit();
         }
     }
