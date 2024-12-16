@@ -42,31 +42,43 @@ namespace _Main.Scripts.UI.Menus
 
         private void QuitGame()
         {
+            int levelNumber = ExperienceController.Instance.GetCurrentLevel();
+            if (levelNumber <= 0)
+            {
+                Debug.LogWarning("LevelNumber no es válido. Configurando un valor predeterminado de 1.");
+                levelNumber = 1;
+            }
 
             float runDuration = Time.time - ExperienceController.Instance.GetRunStartTime();
             AnalyticsService.Instance.CustomData("Run_Abandoned", new Dictionary<string, object>
     {
-        { "LevelNumber", ExperienceController.Instance.GetCurrentLevel() },
+        { "LevelNumber", levelNumber },
         { "RunnDuration", runDuration }
     });
             AnalyticsService.Instance.Flush();
 
-            Debug.Log("Evento 'Run_Abandoned' enviado antes de salir.");
+            Debug.Log($"Evento 'Run_Abandoned' enviado: LevelNumber={levelNumber}, RunDuration={runDuration}");
             Application.Quit();
         }
 
         private void LoadMainMenu()
         {
-            // Registrar evento Run_Abandoned
+            int levelNumber = ExperienceController.Instance.GetCurrentLevel();
+            if (levelNumber <= 0)
+            {
+                Debug.LogWarning("LevelNumber no es válido. Configurando un valor predeterminado de 1.");
+                levelNumber = 1;
+            }
+
             float runDuration = Time.time - ExperienceController.Instance.GetRunStartTime();
             AnalyticsService.Instance.CustomData("Run_Abandoned", new Dictionary<string, object>
     {
-        { "LevelNumber", ExperienceController.Instance.GetCurrentLevel() },
+        { "LevelNumber", levelNumber },
         { "RunnDuration", runDuration }
     });
             AnalyticsService.Instance.Flush();
 
-            Debug.Log("Evento 'Run_Abandoned' enviado antes de cargar el menú principal.");
+            Debug.Log($"Evento 'Run_Abandoned' enviado: LevelNumber={levelNumber}, RunDuration={runDuration}");
             PauseManager.Instance.SetPause(false);
             SceneManager.LoadScene(mainMenuScene);
         }

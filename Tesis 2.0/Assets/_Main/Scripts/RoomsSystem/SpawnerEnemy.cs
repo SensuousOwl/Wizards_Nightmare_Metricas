@@ -28,8 +28,8 @@ namespace _Main.Scripts.RoomsSystem
             EventService.AddListener<DieEnemyEventData>(DieEnemyHandler); // Solo una vez
             EventService.AddListener(EventsDefinition.KILL_ALL_ENEMIES_ID, KillAllEnemiesHandler);
 
-            // Metrica Enemies_Eliminated_On_Run_End
-            TotalEnemiesEliminated = 0; // Resetea el contador al iniciar una nueva escena
+            TotalEnemiesEliminated = 0;
+            Debug.Log("SpawnerEnemy habilitado. Contador TotalEnemiesEliminated reiniciado.");
         }
 
         private void KillAllEnemiesHandler()
@@ -93,34 +93,35 @@ namespace _Main.Scripts.RoomsSystem
         //Metrica Time_On_Run_End y Enemies_Eliminated_On_Run_End
         private void DieEnemyHandler(DieEnemyEventData p_data)
         {
-            Debug.Log($"DieEnemyHandler llamado para: {p_data.Model.name}");
-
             if (m_enemies.Contains(p_data.Model))
             {
                 m_enemies.Remove(p_data.Model);
                 ExperienceController.Instance.IncrementEnemyEliminatedCount();
                 Debug.Log($"Enemigo eliminado correctamente. Total eliminados: {ExperienceController.Instance.GetTotalEnemiesEliminated()}");
+
+                // Verificar si todos los enemigos fueron eliminados
+                if (m_enemies.Count <= 0)
+                {
+                    Debug.Log("Todos los enemigos eliminados. Desbloqueando la habitación...");
+                    if (m_currentRoom != null)
+                    {
+                        m_currentRoom.ClearRoom(); // Lógica para desbloquear puertas
+                        RoomsGenerator roomsGenerator = FindObjectOfType<RoomsGenerator>();
+                        if (roomsGenerator != null)
+                        {
+                            roomsGenerator.RoomCleared();
+                            Debug.Log("RoomCleared() llamado correctamente.");
+                        }
+                        else
+                        {
+                            Debug.LogWarning("RoomsGenerator no encontrado.");
+                        }
+                    }
+                }
             }
             else
             {
                 Debug.LogWarning($"El enemigo {p_data.Model.name} ya fue eliminado o no estaba en la lista.");
-            }
-
-            if (m_enemies.Count <= 0)
-            {
-                Debug.Log("Todos los enemigos en la habitación han sido eliminados.");
-                m_currentRoom.ClearRoom();
-
-                var roomGenerator = FindObjectOfType<RoomsGenerator>();
-                if (roomGenerator != null)
-                {
-                    roomGenerator.RoomCleared();
-                    Debug.Log("RoomCleared() llamado correctamente.");
-                }
-                else
-                {
-                    Debug.LogWarning("RoomsGenerator no encontrado.");
-                }
             }
         }
 

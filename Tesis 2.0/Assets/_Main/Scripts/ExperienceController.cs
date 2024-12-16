@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using _Main.Scripts.RoomsSystem;
 using System;
 using Unity.Services.Core;
+using UnityEngine.Analytics;
 
 namespace _Main.Scripts
 {
@@ -20,16 +21,12 @@ namespace _Main.Scripts
         private int m_newLevel = 1;
 
         private float runStartTime;
-        public static ExperienceController Instance { get; private set; }
-
         private int totalEnemiesEliminated;
-
-        private int totalItemsPickedUp;
-
-        private int currentLevel = 1;
+        private int totalItemsPickedUp; // Contador de ítems recogidos
         private int roomsCompleted;
+        private int currentLevel = 1;
 
-
+        public static ExperienceController Instance { get; private set; }
 
         private void Awake()
         {
@@ -69,15 +66,20 @@ namespace _Main.Scripts
             upgradeScreenController.ActivateUpgradeScreen();
         }
 
-
-        //Metrica Time_On_Run_End y Enemies_Eliminated_On_Run_End
+        // MÉTRICAS
         public void StartRunTimer()
         {
             runStartTime = Time.time;
-            Debug.Log("Temporizador de la partida iniciado.");
-            Debug.Log($"Contador de enemigos eliminados reiniciado: {totalEnemiesEliminated}");
+            totalEnemiesEliminated = 0;
+            totalItemsPickedUp = 0;
+            roomsCompleted = 0;
+            Debug.Log("Temporizador y contadores reseteados al iniciar una nueva partida.");
         }
 
+        public float GetRunStartTime()
+        {
+            return runStartTime;
+        }
 
         public void IncrementEnemyEliminatedCount()
         {
@@ -93,107 +95,104 @@ namespace _Main.Scripts
         public void ResetEnemyEliminatedCount()
         {
             totalEnemiesEliminated = 0;
+            Debug.Log("Contador de enemigos eliminados reseteado.");
         }
+
         public void IncrementItemPickupCount()
         {
             totalItemsPickedUp++;
-            Debug.Log($"Total de ítems recogidos: {totalItemsPickedUp}");
-        }
-        public void IncrementRoomsCompleted()
-        {
-            roomsCompleted++;
-            Debug.Log($"Habitación completada. Total: {roomsCompleted}");
-        }
-        public void ResetRoomsCompleted()
-        {
-            roomsCompleted = 0;
+            Debug.Log($"Ítem recogido. Total: {totalItemsPickedUp}");
         }
 
-        public void SetCurrentLevel(int level)
-        {
-            currentLevel = level;
-            Debug.Log($"Nivel actual: {currentLevel}");
-        }
-        public void ResetItemPickupCount()
-        {
-            totalItemsPickedUp = 0;
-        }
         public int GetCurrentLevel()
         {
             return currentLevel;
         }
 
-        public float GetRunStartTime()
+        public void SetCurrentLevel(int level)
         {
-            return runStartTime;
+            currentLevel = level;
+            Debug.Log($"Nivel actual actualizado: {currentLevel}");
+        }
+
+        public void IncrementRoomsCompleted()
+        {
+            RoomsGenerator roomGen = FindObjectOfType<RoomsGenerator>();
+            if (roomGen != null)
+            {
+                int currentRoomsCompleted = roomGen.GetRoomsCompleted();
+                Debug.Log($"Habitaciones completadas obtenidas desde RoomsGenerator: {currentRoomsCompleted}");
+            }
+            else
+            {
+                Debug.LogError("RoomsGenerator no encontrado.");
+            }
+        }
+
+        public void ResetRoomsCompleted()
+        {
+            roomsCompleted = 0;
+            Debug.Log("Contador de habitaciones completadas reseteado.");
         }
 
         public void EndRunTimer(bool didWin)
         {
+
             if (runStartTime <= 0)
             {
                 Debug.LogError("El temporizador de la partida no fue iniciado correctamente.");
                 return;
             }
 
-            // Calcular la duración de la partida
             float runDuration = Time.time - runStartTime;
-            Debug.Log($"Partida finalizada. Duración: {runDuration} segundos. Enemigos eliminados: {totalEnemiesEliminated}");
-
-            // Obtener datos desde RoomsGenerator
-            int levelNumber = GetCurrentLevel();
-
             RoomsGenerator roomGen = FindObjectOfType<RoomsGenerator>();
             int roomsCompleted = roomGen != null ? roomGen.GetRoomsCompleted() : 0;
-            // Validar datos antes de enviarlos
+
             if (runDuration <= 0)
             {
-                Debug.LogError("La duración de la partida calculada es inválida (<= 0). Verifica que StartRunTimer() fue llamado correctamente.");
+                Debug.LogError("La duración de la partida es inválida (<= 0).");
                 return;
             }
 
-            if (totalEnemiesEliminated < 0)
-            {
-                Debug.LogError("El conteo de enemigos eliminados es inválido (< 0). Asegúrate de que el contador se esté incrementando correctamente.");
-                return;
-            }
+            Debug.Log($"Partida finalizada. Duración: {runDuration} segundos. Enemigos eliminados: {totalEnemiesEliminated}");
 
-            // Enviar el evento Time_On_Run_End
             AnalyticsService.Instance.CustomData("Time_On_Run_End", new Dictionary<string, object>
-    {
-        { "RunDuration", runDuration } // Asegúrate de que este nombre sea compatible con el Dashboard
-    });
-            Debug.Log("Evento 'Time_On_Run_End' enviado correctamente.");
+            {
+                { "RunDuration", runDuration }
+            });
 
-            // Enviar el evento Enemies_Eliminated_On_Run_End
             AnalyticsService.Instance.CustomData("Enemies_Eliminated_On_Run_End", new Dictionary<string, object>
-    {
-        { "EnemiesEliminated", totalEnemiesEliminated },
-        { "Run_Duration", runDuration } // Agregado para correlacionar duración y enemigos eliminados
-    });
-            Debug.Log("Evento 'Enemies_Eliminated_On_Run_End' enviado correctamente.");
+            {
+                { "EnemiesEliminated", totalEnemiesEliminated },
+                { "Run_Duration", runDuration }
+            });
 
-            // Enviar el evento Level_And_Room_Progression
-            // Enviar el evento Level_And_Room_Progression con Outcome
             AnalyticsService.Instance.CustomData("Level_And_Room_Progression", new Dictionary<string, object>
-    {
-        { "RunDuration_", runDuration },
-        { "RoomsCompleted", roomsCompleted },
-        { "LevelNumber", GetCurrentLevel() },
-        { "Outcome", didWin ? "Win" : "Loss" } // Nuevo parámetro
-    });
+{
+              { "RunDuration_", runDuration },
+              { "RoomsCompleted", roomsCompleted }, // Valor calculado
+              { "LevelNumber", currentLevel },
+              { "Outcome", didWin ? "Win" : "Loss" }
+});
 
-            Debug.Log($"Evento 'Level_And_Room_Progression' enviado: RoomsCompleted={roomsCompleted}, LevelNumber={GetCurrentLevel()}, Outcome={(didWin ? "Win" : "Loss")}");
+            ResetRunData();
+        }
 
-
-
-            // Forzar el envío inmediato de los datos a Unity Analytics
-            AnalyticsService.Instance.Flush();
-            ResetRoomsCompleted();
-            ResetEnemyEliminatedCount();
+        private void ResetRunData()
+        {
             runStartTime = 0;
+            totalEnemiesEliminated = 0;
+            totalItemsPickedUp = 0;
+            roomsCompleted = 0;
+            Debug.Log("Datos de la partida reseteados.");
         }
     }
 }
+
+
+
+
+
+
 
 

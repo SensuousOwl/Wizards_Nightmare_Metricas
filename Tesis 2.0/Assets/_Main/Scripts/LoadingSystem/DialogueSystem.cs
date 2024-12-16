@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using Unity.Services.Analytics;
 using _Main.Scripts.Managers;
 
 namespace _Main.Scripts.LoadingSystem
@@ -14,7 +13,6 @@ namespace _Main.Scripts.LoadingSystem
     public class DialogueSystem : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI contentText;
-
         [SerializeField] private float typingTime;
         [SerializeField] private Image backgroundImage;
         [SerializeField] private List<Sprite> background;
@@ -31,10 +29,6 @@ namespace _Main.Scripts.LoadingSystem
         private void Awake()
         {
             m_typingTime = new WaitForSeconds(typingTime);
-
-            // Si quieres deshabilitar la barra espaciadora, comenta esta línea
-            // InputManager.Instance.SubscribeInput("SkipDialogue", OnSkipDialogueInputHandler);
-
             SetDialogueElements(dialogueParams);
             StartDialogue();
         }
@@ -56,7 +50,6 @@ namespace _Main.Scripts.LoadingSystem
             {
                 StopCoroutine(m_typeDialogueCoroutine);
             }
-
             m_typeDialogueCoroutine = StartCoroutine(Dialogue());
         }
 
@@ -64,13 +57,11 @@ namespace _Main.Scripts.LoadingSystem
         {
             contentText.text = "";
             backgroundImage.sprite = background[m_index];
-
             foreach (var l_auxChar in m_listDialogue[m_index])
             {
                 contentText.text += l_auxChar;
                 yield return m_typingTime;
             }
-
             m_typeDialogueCoroutine = null;
             m_index++;
             m_isFinish = true;
@@ -81,24 +72,15 @@ namespace _Main.Scripts.LoadingSystem
             if (m_isFinish)
             {
                 m_isFinish = false;
-
                 if (m_index < m_listDialogue.Count)
                     StartDialogue();
                 else
                     DialogueFinish();
-                return;
             }
-            AnalyticsService.Instance.CustomData("Cinematic_Skipped", new Dictionary<string, object>
+            else
             {
-               { "CinematicName", $"Dialogue_{m_index}" },
-               { "Skipped", true }
-             });
-
-            AnalyticsService.Instance.Flush(); // Enviar el evento inmediatamente
-
-            Debug.Log($"Evento Cinemática omitida registrado: Dialogue_{m_index}");
-            SkipDialogue();
-
+                SkipDialogue();
+            }
         }
 
         private void DialogueFinish()
@@ -111,13 +93,11 @@ namespace _Main.Scripts.LoadingSystem
             StopAllCoroutines();
             contentText.text = m_listDialogue[m_index];
             m_index++;
-
             m_isFinish = true;
         }
 
-        public void OnSkipDialogueButton() // Nuevo método público
+        public void OnSkipDialogueButton()
         {
-            // Llamamos al mismo manejador que usa el sistema de entrada
             OnSkipDialogueInputHandler(default);
         }
     }

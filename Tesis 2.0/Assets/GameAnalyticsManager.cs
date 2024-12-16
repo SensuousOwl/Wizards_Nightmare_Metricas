@@ -7,15 +7,14 @@ using TMPro;
 
 public class GameAnalyticsManager : MonoBehaviour
 {
-    public Button skipButton; // Asigna el botón desde el Inspector
-    public TextMeshProUGUI dialogueText; // El texto del diálogo (opcional, si quieres mostrar algo)
-    private int spamCount = 0; // Contador de clics en el botón de salto
-    private float lastClickTime = 0f; // Tiempo del último clic
-    private float spamThreshold = 0.5f; // Tiempo mínimo entre clics para considerarlo spam (en segundos)
+    public Button skipButton;
+    public TextMeshProUGUI dialogueText;
+    private int spamCount = 0;
+    private float lastClickTime = 0f;
+    private float spamThreshold = 0.5f;
 
     private async void Start()
     {
-        // Inicializamos Unity Services
         try
         {
             await UnityServices.InitializeAsync();
@@ -36,27 +35,21 @@ public class GameAnalyticsManager : MonoBehaviour
     private void TrackSpamClick()
     {
         float currentTime = Time.time;
-
-        // Comprobar si el clic es dentro del umbral para considerarlo spam
         if (currentTime - lastClickTime < spamThreshold)
         {
             spamCount++;
         }
         lastClickTime = currentTime;
 
-        // Enviar el evento con CustomData
         try
         {
-            AnalyticsService.Instance.CustomData("Dialogue_Skip_Spam", new Dictionary<string, object>
+            AnalyticsService.Instance.CustomData("DialogueSkipSpam", new Dictionary<string, object>
             {
-                { "Spam_Count", spamCount }, // Número de clics rápidos
-                { "Total_Clicks", spamCount + 1 } // Total de clics (incluyendo los normales)
+                { "Spaming_Count", spamCount },
+                { "Totalde_Clicks", spamCount + 1 }
             });
 
-            AnalyticsService.Instance.Flush(); // Forzar envío inmediato para pruebas
-            Debug.Log($"Evento enviado: Dialogue_Skip_Spam - Spam_Count: {spamCount}, Total_Clicks: {spamCount + 1}");
-
-
+            Debug.Log($"Evento enviado: Dialogue_Skip_Spam - Spaming_Count: {spamCount}, Totalde_Clicks: {spamCount + 1}");
         }
         catch (System.Exception e)
         {

@@ -165,8 +165,7 @@ namespace _Main.Scripts.RoomsSystem
         {
             m_roomsCompleted++;
             Debug.Log($"Habitaciones completadas: {m_roomsCompleted}");
-
-            // Si necesitas desbloquear puertas, asegúrate de que la lógica esté aquí.
+            ExperienceController.Instance?.IncrementRoomsCompleted();
         }
     }
 }
